@@ -3,35 +3,39 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Afya Whitebook | O parceiro clínico que entende sua realidade</title>
-    <meta name="description" content="Do raciocínio à prescrição, no mesmo fluxo — com evidência que você pode checar. Comece gratuitamente no Afya Whitebook.">
+    <title>Prescrição Digital Afya | A prescrição certa para cada momento</title>
+    <meta name="description" content="Prescreva medicamentos, exames e vacinas em poucos cliques, com alertas de interação e assinatura digital. Gratuita no Whitebook, integrada ao prontuário no iClinic.">
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#ffffff">
-    <link rel="canonical" href="https://whitebook.pebmed.com.br/">
+    <link rel="canonical" href="https://prescricao.conversion.com.br/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Afya Whitebook">
+    <meta property="og:site_name" content="Prescrição Afya">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:url" content="https://whitebook.pebmed.com.br/">
-    <meta property="og:title" content="Afya Whitebook | O parceiro clínico que entende sua realidade">
-    <meta property="og:description" content="Apoio para a rotina clínica, do raciocínio à prescrição, com evidência que você pode checar.">
-    <meta property="og:image" content="https://whitebook.pebmed.com.br/assets/images/og-home.png">
+    <meta property="og:url" content="https://prescricao.conversion.com.br/">
+    <meta property="og:title" content="Uma nova forma de prescrever">
+    <meta property="og:description" content="Simples quando você precisa resolver rápido. Integrada quando o cuidado exige continuidade.">
+    <!-- Imagem social ainda e a do Whitebook: falta arte propria de Prescricao. -->
+    <meta property="og:image" content="https://prescricao.conversion.com.br/assets/images/og-home.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Afya Whitebook — o parceiro clínico que entende sua realidade">
+    <meta property="og:image:alt" content="Prescrição Afya — a prescrição certa para cada momento da prática clínica">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/assets/images/whitebook-logo.svg" type="image/svg+xml">
     <link rel="preload" href="/assets/fonts/AfyaSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="/assets/fonts/AfyaSans-Light.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/assets/images/hero/hero-plantao-v4-1280.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="/assets/images/hero/hero-consultorio-1280.webp" as="image" fetchpriority="high">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body class="">
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
+    <!-- Menu conforme o board de estrutura: seis paginas, so a home existe. Os demais
+         itens ficam sem href (padrao data-link-original herdado do Whitebook), para
+         preservar layout e espacamento ate as paginas serem criadas. -->
     <header class="site-header" data-header>
       <div class="header-shell">
-        <a class="brand" href="/" aria-label="Afya Whitebook — início">
-          <img src="/assets/images/afya-whitebook-lockup.png" alt="Afya Whitebook" width="257" height="34">
+        <a class="brand" href="/" aria-label="Afya Prescrição — início">
+          <img src="/assets/images/afya-prescricao-lockup.png" alt="Afya Prescrição" width="260" height="34">
         </a>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu-toggle>
@@ -41,417 +45,310 @@
 
         <div class="header-menu" id="menu-principal" data-menu>
           <nav class="main-nav" aria-label="Navegação principal">
-            <div class="nav-group" data-nav-group>
-              <button type="button" class="nav-group-toggle" aria-expanded="false" aria-controls="nav-para-quem" data-nav-toggle>Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown" id="nav-para-quem">
-                <a data-link-original="/para-quem/estudos-e-internato/">Estudos e internato<small>Da anamnese ao raciocínio clínico</small></a>
-                <a data-link-original="/para-quem/plantao/">Plantão<small>Decisões seguras na emergência</small></a>
-                <a data-link-original="/para-quem/consultorio/">Consultas e atendimento<small>No celular e no navegador</small></a>
-              </div>
-            </div>
-            <div class="nav-group" data-nav-group>
-              <button type="button" class="nav-group-toggle" aria-expanded="false" aria-controls="nav-recursos" data-nav-toggle>Recursos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown" id="nav-recursos">
-                <a data-link-original="/calculadoras-e-ferramentas/">Calculadoras e ferramentas<small>+250 calculadoras, escores e fluxogramas</small></a>
-                <a data-link-original="/prescricao/">Prescrição<small>Digital, com assinatura eletrônica</small></a>
-                <a href="/#como-funciona">Todos os recursos do app<small>Explore as telas do Whitebook</small></a>
-              </div>
-            </div>
-            <a data-link-original="/planos/">Planos</a>
-            <a data-link-original="/producao-de-conteudo/">Como produzimos</a>
-            <a data-link-original="/beneficios/">Parceiros</a>
+            <a href="/" aria-current="page">Home</a>
+            <a data-link-original="/recursos/">Recursos</a>
+            <a data-link-original="/para-quem/">Para quem</a>
+            <a data-link-original="/duvidas/">Dúvidas</a>
+            <a data-link-original="/parceiros/">Para parceiros</a>
+            <a data-link-original="/blog/">Blog</a>
           </nav>
           <div class="header-actions">
-            <a class="header-login" href="https://whitebook.pebmed.com.br/perfil/">Entrar</a>
-            <a class="button button-primary button-header" href="https://whitebook.pebmed.com.br/perfil/">Comece gratuitamente</a>
+            <a class="button button-primary button-header" href="https://whitebook.pebmed.com.br/perfil/">Comece grátis</a>
           </div>
         </div>
       </div>
     </header>
 
     <main id="conteudo">
+      <!-- Bloco 1 — Abertura. Titulo e subtitulo sao o posicionamento macro e a key
+           message da Arquitetura Narrativa, usados sem alteracao. -->
       <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <!-- Foto nova conforme feedback Fold 1 (celular em vez de tablet, duas personas,
-             feicoes brasileiras). -->
-        <img class="hero-photo" src="/assets/images/hero/hero-plantao-v4-1280.webp" alt="Médico plantonista de scrubs azul usando o Whitebook no celular em uma enfermaria" width="1672" height="941" fetchpriority="high" srcset="/assets/images/hero/hero-plantao-v4-1280.webp 1280w, /assets/images/hero/hero-plantao-v4-1920.webp 1920w" sizes="100vw" width="1920" height="709">
+        <img class="hero-photo" src="/assets/images/hero/hero-consultorio-1280.webp" alt="Médica de scrubs azul no consultório, prescrevendo pelo celular" width="1920" height="1080" fetchpriority="high" srcset="/assets/images/hero/hero-consultorio-1280.webp 1280w, /assets/images/hero/hero-consultorio-1920.webp 1920w" sizes="100vw">
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="content-container hero-inner">
           <div class="hero-copy reveal">
-            <h1 id="hero-title">O parceiro clínico que entende sua realidade</h1>
-            <p>Do raciocínio à prescrição, no mesmo fluxo — com evidência que você pode checar</p>
+            <p class="section-eyebrow">Prescrição Digital Afya</p>
+            <h1 id="hero-title">A prescrição certa para cada momento da prática clínica</h1>
+            <p>Simples quando você precisa <strong>resolver rápido</strong>. Integrada quando o cuidado <strong>exige continuidade.</strong></p>
             <div class="hero-actions">
-              <a class="button button-primary" href="https://whitebook.pebmed.com.br/perfil/">Comece gratuitamente</a>
-              <a class="hero-link" href="#planos">Ver planos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
+              <a class="button button-primary" href="https://whitebook.pebmed.com.br/perfil/">Quero prescrever grátis</a>
+              <a class="button button-invert" href="https://www.iclinic.com.br/planos/">Quero prescrever e gerenciar minha clínica<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
             </div>
+            <!-- A ata de 15/09 registrou que a LP provisoria nao deixa claro que o
+                 Whitebook e gratuito. Esta linha resolve isso na primeira tela. -->
+            <p class="hero-note">Gratuita e ilimitada no Whitebook. Inclusa em todos os planos do iClinic.</p>
           </div>
         </div>
       </section>
 
-      <!-- Rodada de brilho 7.3: numeros em corpo display (a la WeMeds); o terceiro
-           item segue textual e vira ancora do futuro marquee de sociedades medicas
-           (item 8 — aguardando as logos que o GC vai levantar com o conteudo) -->
-      <!-- 01/09: as tres colunas seguem a mesma formula pedida pelo cliente —
-           icone magenta a esquerda + destaque + apoio na linha de baixo. -->
+      <!-- Bloco 2 — Barra de prova. Numeros da Visao 360, pendentes de liberacao. -->
       <section class="proof" aria-label="Indicadores de confiança">
         <div class="content-container proof-grid">
           <div class="proof-item reveal">
-            <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#medico"></use></svg>
-            <p class="proof-highlight"><span class="hl">+</span>200 mil médicos</p>
-            <p class="proof-label">já usam o Whitebook</p>
+            <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg>
+            <p class="proof-highlight"><span class="hl">+</span>21,5 <span class="hl">milhões</span></p>
+            <p class="proof-label">de prescrições emitidas no último ano</p>
           </div>
           <div class="proof-item reveal" data-delay="1">
-            <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#offline"></use></svg>
-            <p class="proof-highlight"><span class="hl">+</span>Presença</p>
-            <p class="proof-label">Acesse mesmo offline — <a class="proof-link" data-link-original="/planos/#comparativo">Consulte funcionalidades</a></p>
+            <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#medico"></use></svg>
+            <p class="proof-highlight"><span class="hl">+</span>36 mil <span class="hl">médicos</span></p>
+            <p class="proof-label">prescreveram com a Afya em 2025</p>
           </div>
           <div class="proof-item reveal" data-delay="2">
-            <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg>
-            <p class="proof-highlight"><span class="hl">+</span>Segurança</p>
-            <p class="proof-label">validado por sociedades médicas</p>
+            <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg>
+            <p class="proof-highlight"><span class="hl">+</span>22 mil <span class="hl">medicamentos</span></p>
+            <p class="proof-label">na base, com bulário completo</p>
           </div>
         </div>
       </section>
 
-      <section class="plans section" id="planos" aria-labelledby="plans-title">
+      <!-- Bloco 3 — Marco regulatorio. Data (30/09) e nome da norma pendentes de
+           confirmacao; ver item 5 do documento de conteudo. -->
+      <section class="afya-band section" aria-labelledby="rdc-title">
+        <div class="content-container">
+          <div class="afya-inner reveal">
+            <div class="afya-copy">
+              <p class="section-eyebrow">Novo marco regulatório</p>
+              <h2 id="rdc-title">Receitas azuis e amarelas, agora digitais</h2>
+              <p>A partir de 30 de setembro, a Anvisa autoriza a prescrição digital de medicamentos controlados. A Prescrição Afya já faz a adequação automática ao tipo de receituário e cuida da gestão de numerações junto ao SNCR, em conformidade com a RDC 1000/2025.</p>
+            </div>
+            <a class="button button-primary" data-link-original="/recursos/rdc-1000-2025/">Entenda o que muda</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bloco 4 — Por que prescrever digital. Os seis recursos com maior nivel de
+           reforco no Guia Mar Aberto; nenhum depende de produto. -->
+      <section class="section" id="beneficios" aria-labelledby="beneficios-title">
         <div class="content-container">
           <header class="section-heading reveal">
-            <p class="section-eyebrow">Sem margem para erro na prática clínica</p>
-            <h2 id="plans-title">Planos para cada <span class="hl">momento</span> da sua rotina</h2>
-            <p><strong>Free:</strong> Comece com o essencial — sem cartão, sem enrolação.<br><strong>Premium:</strong> Todo o fluxo clínico: raciocínio, decisão e prescrição, sem sair do app</p>
+            <p class="section-eyebrow">Por que prescrever digital</p>
+            <h2 id="beneficios-title">Menos etapas para você.<br>Mais <span class="hl">segurança</span> para o paciente.</h2>
+            <p>Segundo a <em>Harvard Medical Practice Study</em>, 39% dos erros de medicação acontecem na prescrição. A receita digital elimina boa parte deles antes de chegar à farmácia.</p>
           </header>
 
-          <!-- Cards resumidos conforme feedback de planos (24/08): Free com valor real,
-               Premium como evolucao ("Tudo do Free +"). Matriz completa em planos/;
-               classificacao pendente de validacao (secao 10 do doc de feedback). -->
-          <div class="plans-toggle reveal" data-plans-toggle>
-            <div class="plans-toggle-group" role="group" aria-label="Período de cobrança">
-              <button type="button" data-billing="mensal" aria-pressed="false">Mensal</button>
-              <button type="button" class="is-active" data-billing="anual" aria-pressed="true">Anual</button>
-            </div>
-            <span class="plans-toggle-save">Economize 57% no anual</span>
+          <div class="outcome-grid">
+            <article class="outcome-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#interacao-medicamentosa"></use></svg>
+              <h3>Alertas de interação medicamentosa</h3>
+              <p>Avisos automáticos enquanto você monta a receita.</p>
+            </article>
+            <article class="outcome-card reveal" data-delay="1">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg>
+              <h3>Base com +22 mil medicamentos</h3>
+              <p>Busca com autocomplete e bulário completo.</p>
+            </article>
+            <article class="outcome-card reveal" data-delay="2">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#soro"></use></svg>
+              <h3>Sugestão de posologia</h3>
+              <p>O campo já vem preenchido. Você só ajusta.</p>
+            </article>
+            <article class="outcome-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg>
+              <h3>Receituário adequado automaticamente</h3>
+              <p>Simples, controle especial, antimicrobiano, azul ou amarela.</p>
+            </article>
+            <article class="outcome-card reveal" data-delay="1">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg>
+              <h3>Assinatura digital válida</h3>
+              <p>Vidaas, BirdID, A1 e A3, com validade jurídica.</p>
+            </article>
+            <article class="outcome-card reveal" data-delay="2">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg>
+              <h3>Envio em segundos</h3>
+              <p>WhatsApp, PDF, link ou impressão, como o paciente preferir.</p>
+            </article>
           </div>
+        </div>
+      </section>
+
+      <!-- Bloco 5 — Onde voce prescreve. Sem preco, sem selo "recomendado" e sem lista
+           equivalente item a item: a ata pediu explicitamente que os dois produtos nao
+           parecam um comparativo de planos. Titulos dos cards sao as propostas de valor
+           centrais da Arquitetura Narrativa. -->
+      <section class="plans section" id="onde-prescrever" aria-labelledby="onde-title">
+        <div class="content-container">
+          <header class="section-heading reveal">
+            <p class="section-eyebrow">Duas portas de entrada</p>
+            <h2 id="onde-title">Onde você prescreve muda. A prescrição <span class="hl">acompanha</span>.</h2>
+            <p>iClinic e Whitebook não competem entre si: atendem momentos diferentes da sua rotina. A ferramenta de prescrição é a mesma nos dois. O que muda é o contexto em que ela está.</p>
+          </header>
 
           <div class="plans-grid">
             <article class="plan-card reveal">
               <div class="plan-top">
-                <h3>Free</h3>
-                <p>Para começar a usar o Whitebook na sua rotina médica</p>
-                <p class="price"><span>R$</span><strong>0</strong></p>
-                <p class="price-note">sem cadastrar cartão</p>
+                <span class="plan-tag">Para resolver na hora</span>
+                <h3>Da decisão à prescrição, onde e quando você precisar</h3>
+                <p>Consulte a conduta, decida e prescreva no mesmo fluxo, sem trocar de ferramenta. No celular ou no computador, de onde estiver.</p>
               </div>
-              <p class="plan-ia"><i class="plan-ia-spark" aria-hidden="true">✦</i><span>Whitebook IA — uso limitado</span></p>
               <ul class="feature-list feature-list-icons">
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg>+2.000 medicamentos com bulário completo</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg>Prescrição Digital com assinatura eletrônica</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#radar"></use></svg>Radar Whitebook</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#gerenciador-plantao"></use></svg>Gerenciador de Plantões</li>
+                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Gratuita e ilimitada, inclusive no plano free</li>
+                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Não depende de prontuário</li>
+                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>App e web, com histórico próprio de prescrições</li>
+                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Integrada aos conteúdos clínicos do Whitebook</li>
               </ul>
-              <p class="plan-more">E mais ferramentas gratuitas para sua rotina</p>
-              <a class="button button-outline button-block" href="https://whitebook.pebmed.com.br/perfil/">Começar grátis</a>
+              <p class="plan-more">Plantão, entre atendimentos, fora do consultório.</p>
+              <a class="button button-primary button-block" href="https://whitebook.pebmed.com.br/perfil/">Quero prescrever grátis</a>
             </article>
 
-            <article class="plan-card plan-card-premium reveal" data-delay="1">
-              <span class="plan-badge">Recomendado</span>
+            <article class="plan-card reveal" data-delay="1">
               <div class="plan-top">
-                <h3>Premium</h3>
-                <p>Tudo do Whitebook Free, com acesso completo e ferramentas clínicas avançadas</p>
-                <p class="price price-premium" data-price-anual><span>R$</span><strong>29,99</strong><span>/mês</span></p>
-                <p class="price-note" data-price-anual>cobrado anualmente — R$ 359,90/ano</p>
-                <p class="price price-premium" data-price-mensal hidden><span>R$</span><strong>69,90</strong><span>/mês</span></p>
-                <p class="price-note" data-price-mensal hidden>cobrado mês a mês no cartão de crédito</p>
+                <span class="plan-tag">Para manter o cuidado conectado</span>
+                <h3>Prescreva sem interromper o cuidado</h3>
+                <p>A prescrição dentro do prontuário: cada conduta fica ligada ao histórico do paciente, pronta para renovar ou ajustar no retorno.</p>
               </div>
-              <p class="plan-price-hint" data-price-anual>menos de R$ 1 por dia no plano anual</p>
-              <p class="plan-price-hint" data-price-mensal hidden>equivale a R$ 838,80 ao ano — o anual economiza 57%</p>
-              <p class="plan-ia"><i class="plan-ia-spark" aria-hidden="true">✦</i><span>Whitebook IA — <strong>uso ilimitado</strong></span></p>
-              <p class="feature-intro">Tudo do Whitebook Free, mais:</p>
               <ul class="feature-list feature-list-icons">
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#interacao-medicamentosa"></use></svg>Interação Medicamentosa</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#ddx"></use></svg>Diagnóstico Diferencial (DDx)</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#administracao-drogas"></use></svg>Administração de Drogas</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#ecg"></use></svg>Atlas Clínicos e Guia de ECG</li>
+                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Integrada ao prontuário eletrônico</li>
+                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Histórico completo por paciente</li>
+                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Renovação e ajuste sem começar do zero</li>
+                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Modelos próprios para condutas recorrentes</li>
               </ul>
-              <a class="button button-primary button-block" href="https://whitebook.pebmed.com.br/planos/">Assinar Premium</a>
+              <p class="plan-more">Consultório, retornos, tratamentos contínuos.</p>
+              <a class="button button-primary button-block" href="https://www.iclinic.com.br/planos/">Quero prescrever e gerenciar minha clínica</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bloco 6 — Como funciona. Quatro passos; as telas e GIFs do produto entram
+           aqui quando a Afya enviar o material. -->
+      <section class="section" id="como-funciona" aria-labelledby="como-title">
+        <div class="content-container">
+          <header class="section-heading reveal">
+            <p class="section-eyebrow">Como funciona</p>
+            <h2 id="como-title">Da busca ao paciente, em <span class="hl">poucos cliques</span></h2>
+          </header>
+
+          <div class="steps-grid steps-four">
+            <article class="step-card reveal">
+              <h3>Busque</h3>
+              <p>Digite o medicamento e a base com mais de 22 mil itens completa o resto. Ou escreva em texto livre, do seu jeito.</p>
+            </article>
+            <article class="step-card reveal" data-delay="1">
+              <h3>Monte</h3>
+              <p>Medicamentos, exames, vacinas, dermocosméticos e suplementos na mesma receita, com posologia sugerida e alertas de interação enquanto você escreve.</p>
+            </article>
+            <article class="step-card reveal" data-delay="2">
+              <h3>Assine</h3>
+              <p>Assinatura digital com validade jurídica: Vidaas, BirdID, A1 ou A3.</p>
+            </article>
+            <article class="step-card reveal" data-delay="3">
+              <h3>Envie</h3>
+              <p>WhatsApp, PDF, link ou impressão. O paciente recebe na hora e ainda compara preços antes de comprar.</p>
             </article>
           </div>
 
-          <p class="plans-compare-link reveal"><a class="text-link" data-link-original="/planos/">Ver o comparativo completo de recursos</a></p>
+          <p class="plans-compare-link reveal"><a class="text-link" data-link-original="/recursos/">Ver todos os recursos</a></p>
         </div>
       </section>
 
-      <!-- Bloco 4 do wireframe como explorador imersivo em dois niveis (prototipo aprovado
-           em 14/08): recursos a esquerda trocam a tela; hotspots sobre a tela dao zoom em
-           cada etapa, detalhada a direita. A busca decorativa foi dispensada (justificativa
-           no e-mail); o microcopy oficial da busca vive no subtitulo. Conteudo dos recursos
-           e etapas em script.js. -->
-      <section class="explorer section" id="como-funciona" aria-labelledby="explorer-title">
-        <div class="content-container">
-          <header class="section-heading explorer-heading reveal">
-            <h2 id="explorer-title">Você diagnosticou. Agora prescreve.<br>No mesmo app, sem perder o fio do raciocínio</h2>
-            <p>Busque uma conduta, um cálculo, uma interação: a resposta já vem com a fonte. Escolha um recurso e explore cada etapa da tela</p>
-          </header>
-
-          <div class="explorer-panel reveal preview-explorer" data-delay="1" data-preview-explorer data-persona="plantao" data-resource="whitebook-ia">
-            <div class="preview-persona-tabs" role="tablist" aria-label="Contexto de uso">
-              <button type="button" role="tab" aria-selected="false" aria-controls="preview-product-screen" tabindex="-1">
-                <img src="/assets/images/photos/avatars/estudos.webp" alt="" width="56" height="56">
-                <span>Estudos e internato</span>
-              </button>
-              <button type="button" role="tab" aria-selected="true" aria-controls="preview-product-screen" tabindex="0">
-                <img src="/assets/images/photos/avatars/plantao.webp" alt="" width="56" height="56">
-                <span>Plantão</span>
-              </button>
-              <button type="button" role="tab" aria-selected="false" aria-controls="preview-product-screen" tabindex="-1">
-                <img src="/assets/images/photos/avatars/consultorio.webp" alt="" width="56" height="56">
-                <span>Consultório</span>
-              </button>
-            </div>
-
-            <nav class="preview-resource-nav" aria-label="Recursos do app">
-              <p class="explorer-side-label">Recursos do app</p>
-              <div class="preview-resource-tabs" role="tablist" aria-orientation="vertical">
-                <button type="button" role="tab" aria-controls="preview-product-screen" aria-selected="true" tabindex="0">
-                  <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whitebook-ia"></use></svg>
-                  <span>Whitebook IA</span>
-                </button>
-                <button type="button" role="tab" aria-controls="preview-product-screen" aria-selected="false" tabindex="-1">
-                  <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#interacao-medicamentosa"></use></svg>
-                  <span>Interação medicamentosa</span>
-                </button>
-                <button type="button" role="tab" aria-controls="preview-product-screen" aria-selected="false" tabindex="-1">
-                  <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#gerenciador-plantao"></use></svg>
-                  <span>Gerenciador de plantão</span>
-                </button>
-                <button type="button" role="tab" aria-controls="preview-product-screen" aria-selected="false" tabindex="-1">
-                  <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#radar"></use></svg>
-                  <span>Radar WB</span>
-                </button>
-                <button type="button" role="tab" aria-controls="preview-product-screen" aria-selected="false" tabindex="-1">
-                  <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#calculator"></use></svg>
-                  <span>Calculadora</span>
-                </button>
-              </div>
-            </nav>
-
-            <figure class="preview-product-stage">
-              <div class="preview-screen-frame">
-                <img id="preview-product-screen" class="preview-product-screen" width="810" height="1674" decoding="async" loading="eager" src="/assets/images/screens/plantao/whitebook-ia-810.webp" srcset="/assets/images/screens/plantao/whitebook-ia-810.webp 810w, /assets/images/screens/plantao/whitebook-ia-1206.webp 1206w" sizes="(max-width: 700px) 78vw, 390px" alt="Tela do Whitebook — Whitebook IA — Plantão">
-              </div>
-              <figcaption class="preview-visually-hidden">Tela do Whitebook — Whitebook IA — Plantão</figcaption>
-            </figure>
-
-            <aside class="preview-resource-detail" aria-live="polite">
-              <h3>Whitebook IA</h3>
-              <p class="preview-resource-context">Plantão</p>
-              <div class="preview-resource-nav-arrows">
-                <button class="preview-resource-prev" type="button" aria-label="Recurso anterior">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-                </button>
-                <button class="preview-resource-next" type="button" aria-label="Próximo recurso">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-                </button>
-              </div>
-            </aside>
+      <!-- Bloco 7 — Para quem. Encaminha para a pagina de perfis, ainda inexistente. -->
+      <section class="trust-band section" aria-labelledby="para-quem-title">
+        <div class="content-container trust-inner">
+          <div class="trust-copy reveal">
+            <h2 id="para-quem-title">Uma receita, quatro pessoas envolvidas</h2>
+            <p>A prescrição digital não melhora só o lado de quem assina. Cada elo da cadeia ganha alguma coisa.</p>
+            <a class="button button-primary" data-link-original="/para-quem/">Ver o que muda para cada um</a>
           </div>
+          <ul class="trust-list reveal" data-delay="1">
+            <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#medico"></use></svg><span><strong>Médicos</strong> — menos etapas e menos retrabalho, com o apoio clínico que você já usa.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg><span><strong>Clínicas e consultórios</strong> — prescrição padronizada e integrada ao prontuário de toda a equipe.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg><span><strong>Pacientes</strong> — recebem a receita no celular, legível, sem risco de perder o papel.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg><span><strong>Farmácias</strong> — recebem e validam receitas digitais pelo dispensador da Afya.</span></li>
+          </ul>
         </div>
       </section>
 
-      <!-- Rodada de brilho 7.6: chips de jornada viram cards com foto (quebra humana
-           no meio da pagina, assets journey/ existentes), linkando para as abas da
-           para-quem. Foto de "estudo" tem tablet — candidata a substituicao. -->
-      <section class="journey-band preview-journey" aria-label="Para cada momento da carreira">
-        <nav class="content-container" aria-label="Momentos de carreira" aria-labelledby="preview-journey-title">
-          <header class="preview-journey-heading">
-            <p class="preview-journey-eyebrow">Para quem</p>
-            <h2 id="preview-journey-title">Para cada momento da carreira</h2>
-          </header>
-          <div class="journey-cards">
-            <a class="journey-moment-card reveal" data-link-original="/para-quem/estudos-e-internato/">
-              <img src="/assets/images/photos/personas/estudos-card.webp" width="768" height="818" alt="" loading="lazy">
-              <span>Estudos e internato<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></span>
-            </a>
-            <a class="journey-moment-card reveal" data-delay="1" data-link-original="/para-quem/plantao/">
-              <img src="/assets/images/photos/personas/plantao-card.webp" width="768" height="818" alt="" loading="lazy">
-              <span>Plantão<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></span>
-            </a>
-            <a class="journey-moment-card reveal" data-delay="2" data-link-original="/para-quem/consultorio/">
-              <img src="/assets/images/photos/personas/consultorio-card.webp" width="768" height="818" alt="" loading="lazy">
-              <span>Consultório<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></span>
-            </a>
-          </div>
-        </nav>
-      </section>
-
-      <!-- A secao "Para quem" (interpolacao de 13/08) virou a pagina-indice para-quem/;
-           os chips de jornada voltaram ao bloco do fluxo clinico, conforme o wireframe -->
-
-      <!-- Formato da secao de IA do iClinic (referencia do cliente), na escala Berry do manual;
-           numeros oficiais da pagina de producao de conteudo -->
-      <section class="credibility section" id="credibilidade" aria-labelledby="credibility-title">
+      <!-- Bloco 8 — Ecossistema e confianca. Substitui o bloco de depoimentos do site
+           atual: nao ha depoimentos sobre prescricao nos materiais recebidos. -->
+      <section class="credibility section" id="ecossistema" aria-labelledby="ecossistema-title">
         <div class="content-container credibility-layout">
           <div class="credibility-copy reveal">
             <div class="credibility-dash" aria-hidden="true"></div>
-            <h2 id="credibility-title">Você decide.<br>Nossa IA fundamenta</h2>
-            <p>Conteúdo produzido e revisado por mais de 100 especialistas, por área</p>
-            <p class="credibility-context" id="credibility-context">Alinhado ao contexto brasileiro</p>
-            <ul class="source-list" aria-labelledby="credibility-context">
-              <li>CFM</li><li>ANVISA</li><li>SUS</li>
+            <p class="section-eyebrow">Ecossistema Afya</p>
+            <h2 id="ecossistema-title">A tecnologia cuida da receita.<br>Você cuida do paciente.</h2>
+            <p>A Prescrição é a camada digital que atravessa o ecossistema Afya, do prontuário no iClinic ao apoio à decisão no Whitebook. Menos tempo montando receita é mais tempo olhando para quem está na sua frente.</p>
+            <p class="credibility-context" id="ecossistema-context">Em conformidade com</p>
+            <ul class="source-list" aria-labelledby="ecossistema-context">
+              <li>CFM</li><li>ANVISA</li><li>RDC 1000/2025</li><li>SNCR</li>
             </ul>
-            <a class="button button-primary" data-link-original="/producao-de-conteudo/">Conheça nossa produção de conteúdo</a>
+            <p class="demo-ref">Afya: parceiro da jornada médica, da formação ao crescimento.</p>
           </div>
-          <!-- No desktop/tablet, o notebook exibe a gravacao real do Whitebook IA na web.
-               No mobile (≤640px), a demonstracao vertical continua em CSS para preservar
-               a legibilidade ate recebermos uma gravacao nativa de celular. -->
-          <div class="ia-demo reveal" data-delay="1" data-ia-demo>
-            <div class="ia-laptop" role="img" aria-label="Demonstração real do Whitebook IA na versão web">
-              <div class="ia-laptop-frame">
-                <span class="ia-laptop-camera" aria-hidden="true"></span>
-                <div class="ia-laptop-screen">
-                  <video class="ia-laptop-video" autoplay loop muted playsinline preload="metadata" poster="/assets/images/video/whitebook-ia-poster.webp" width="1600" height="966" aria-hidden="true">
-                    <!-- 11/09: o MP4/H.264 entra como fallback do Safari, que nao decodifica
-                         VP9 em toda versao e parava no poster (relato da call de 08/09). A
-                         ordem importa: Chrome e Firefox ficam com o WebM, que e menor.
-                         O `media` fica nos dois: medido em 11/09, o Chrome respeita e nao
-                         baixa nada em 390px, onde o notebook esta com display:none. -->
-                    <source src="/assets/video/whitebook-ia-preview.webm" type="video/webm" media="(min-width: 641px)">
-                    <source src="/assets/video/whitebook-ia-preview.mp4" type="video/mp4" media="(min-width: 641px)">
-                  </video>
-                </div>
-              </div>
-              <div class="ia-laptop-base"><span class="ia-laptop-notch"></span></div>
-              <div class="ia-laptop-shadow" aria-hidden="true"></div>
+
+          <div class="rx-demo reveal" data-delay="1" role="img" aria-label="Exemplo de receita digital assinada eletronicamente">
+            <p class="demo-title">Receita digital</p>
+            <div class="rx-demo-head">
+              <strong>Controle especial</strong>
+              <span>2 vias · numeração SNCR</span>
             </div>
-            <div class="ia-phone" role="img" aria-label="Demonstração do WB Assist: um caso clínico respondido com raciocínio, conduta e evidência citada">
-              <div class="ia-screen" aria-hidden="true">
-                <div class="ia-app-bar"><i class="ia-app-icon">✦</i> WB Assist</div>
-                <div class="ia-chat" data-ia-chat>
-                  <div class="ia-msg ia-msg-user" data-ia-step>Paciente, 32 anos: febre há 3 dias, mialgia, dor retro-orbitária e exantema. Qual a conduta?</div>
-                  <div class="ia-typing" data-ia-step><i></i><i></i><i></i></div>
-                  <div class="ia-msg ia-msg-assist" data-ia-step>O quadro sugere <strong>dengue</strong>: febre aguda com mialgia e dor retro-orbitária — diferencie de zika e chikungunya.</div>
-                  <div class="ia-msg ia-msg-assist" data-ia-step><strong>Conduta recomendada:</strong><br>1. Classificar sinais de alarme<br>2. Hidratação conforme o grupo<br>3. Notificação compulsória</div>
-                  <div class="ia-evidence" data-ia-step><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Evidência citada, com fonte</div>
-                </div>
-                <div class="ia-input">Como posso te ajudar?</div>
-              </div>
+            <ol>
+              <li><i>1</i><span>Sertralina 50 mg — 30 comprimidos<small>1 comprimido pela manhã, uso contínuo</small></span></li>
+              <li><i>2</i><span>Ácido fólico 5 mg — 30 comprimidos<small>1 comprimido ao dia</small></span></li>
+            </ol>
+            <div class="signature-providers">
+              <p>Assinatura digital</p>
+              <ul>
+                <li>Vidaas</li>
+                <li>BirdID</li>
+                <li>A1</li>
+                <li>A3</li>
+              </ul>
             </div>
-          </div>
-          <div class="credibility-facts reveal" data-delay="2">
-            <div class="credibility-fact">
-              <p class="fact-label">Base de conteúdo</p>
-              <p class="fact-value">+11.500 conteúdos clínicos</p>
-              <p class="fact-note">revisados e atualizados continuamente</p>
-            </div>
-            <div class="credibility-fact">
-              <p class="fact-label">Cobertura</p>
-              <p class="fact-value">45 especialidades</p>
-              <p class="fact-note">do plantão ao consultório</p>
-            </div>
-            <div class="credibility-fact">
-              <p class="fact-label">Rigor editorial</p>
-              <p class="fact-value">5 especialistas por conteúdo</p>
-              <p class="fact-note">produção, revisão técnica e atualização</p>
-            </div>
-            <div class="credibility-editors">
-              <div class="editors-avatars" aria-hidden="true">
-                <span class="editors-avatar"><img src="/assets/images/team/ronaldo-gismondi.webp" alt="" width="52" height="52" loading="lazy"></span>
-                <span class="editors-avatar"><img src="/assets/images/team/dayanna-quintanilha.webp" alt="" width="52" height="52" loading="lazy"></span>
-                <span class="editors-avatar"><img src="/assets/images/team/gustavo-balbi.webp" alt="" width="52" height="52" loading="lazy"></span>
-                <span class="editors-avatar"><img src="/assets/images/team/caroline-oliveira.webp" alt="" width="52" height="52" loading="lazy"></span>
-                <span class="editors-avatar"><img src="/assets/images/team/dolores-henriques.webp" alt="" width="52" height="52" loading="lazy"></span>
-                <span class="editors-avatar"><img src="/assets/images/team/renato-bergallo.webp" alt="" width="52" height="52" loading="lazy"></span>
-              </div>
-              <p>Editores-chefes por especialidade — cardiologia, pediatria, clínica médica, ginecologia e mais</p>
+            <div class="rx-demo-foot">
+              <span class="rx-demo-check"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</span>
+              <span class="rx-demo-sign">Assinada e enviada</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="testimonials section" id="depoimentos" aria-labelledby="testimonials-title">
+      <!-- Bloco 9 — Duvidas. Objetivo da ata: resolver no site para nao sobrecarregar
+           o atendimento do Whitebook e do iClinic. -->
+      <section class="section" id="duvidas" aria-labelledby="duvidas-title">
         <div class="content-container">
           <header class="section-heading reveal">
-            <h2 id="testimonials-title">Mais de <span class="hl">200 mil médicos</span> usam e recomendam o Afya Whitebook</h2>
+            <h2 id="duvidas-title">Ainda em <span class="hl">dúvida</span>?</h2>
           </header>
-          <!-- 14/09: a home passa a mostrar Maicon Rainan e Renata Toscano, os dois relatos
-               entregues pelo cliente em 11/09 (o mesmo material de /para-quem/estudos-e-internato/).
-               O primeiro card segue com o depoimento capturado de lp.whitebook.com.br/premium em
-               13/08/2026 ate chegar texto e foto da Marina Possato, que ocupa esse lugar. -->
-          <div class="testimonial-grid">
-            <figure class="testimonial-card reveal">
-              <blockquote>
-                <p>“Eu uso e recomendo o Whitebook para todos os profissionais da área da saúde. Sempre que tenho alguma dúvida eu consulto o aplicativo. Confio 100%!”</p>
-              </blockquote>
-              <figcaption>
-                <img src="/assets/images/testimonials/guilherme-neif.webp" alt="" width="160" height="160" loading="lazy">
-                <div><strong>Guilherme Neif</strong><span>Médico cardiologista · @guilhermeneif</span></div>
-              </figcaption>
-            </figure>
-            <figure class="testimonial-card reveal" data-delay="1">
-              <blockquote>
-                <p>“O Whitebook me ajuda muito no dia a dia, tanto na faculdade quanto nos atendimentos na UBS. Quando surge alguma dúvida sobre o caso do paciente, consigo pesquisar rapidinho e encontrar tudo o que preciso no app.”</p>
-              </blockquote>
-              <figcaption>
-                <img src="/assets/images/testimonials/maicon-rainan.webp" alt="" width="160" height="160" loading="lazy">
-                <div><strong>Maicon Rainan</strong><span>Estudante de medicina da Afya Unigranrio</span></div>
-              </figcaption>
-            </figure>
-            <figure class="testimonial-card reveal" data-delay="2">
-              <blockquote>
-                <p>“Sou interna de medicina e estou rodando na atenção primária e quando tenho aquela dúvida sobre critérios diagnósticos e medicamentos, é o Whitebook quem me socorre!”</p>
-              </blockquote>
-              <figcaption>
-                <img src="/assets/images/testimonials/renata-toscano.webp" alt="" width="160" height="160" loading="lazy">
-                <div><strong>Renata Toscano</strong><span>Interna de medicina do Centro Universitário de João Pessoa (UNIPÊ)</span></div>
-              </figcaption>
-            </figure>
+
+          <div class="faq-list reveal" data-delay="1">
+            <details class="faq-item">
+              <summary>A prescrição da Afya é gratuita?</summary>
+              <div class="faq-answer"><p>No Whitebook, sim: gratuita e ilimitada, inclusive no plano free. No iClinic, está inclusa em todos os planos da assinatura.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Preciso de certificado digital para assinar?</summary>
+              <div class="faq-answer"><p>Sim, e você escolhe: Vidaas, BirdID ou um certificado A1 ou A3 que já tenha.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Posso prescrever medicamentos controlados?</summary>
+              <div class="faq-answer"><p>Sim. Receitas azuis e amarelas podem ser emitidas digitalmente, com adequação automática do receituário e gestão das numerações no SNCR.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>O paciente precisa instalar algum aplicativo?</summary>
+              <div class="faq-answer"><p>Não. Ele recebe um link ou PDF e apresenta na farmácia pelo próprio celular.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>A farmácia aceita receita digital?</summary>
+              <div class="faq-answer"><p>Sim. A validação é feita pelo dispensador da Afya, disponível para qualquer farmácia.</p></div>
+            </details>
+          </div>
+
+          <div class="faq-cta reveal" data-delay="2">
+            <p>Não achou o que procurava?</p>
+            <a class="button button-primary" data-link-original="/duvidas/">Ver todas as dúvidas</a>
           </div>
         </div>
       </section>
 
-      <section class="benefits section" id="beneficios" aria-labelledby="benefits-title">
-        <div class="content-container benefits-layout">
-          <div class="benefits-copy reveal">
-            <p class="premium-label">Exclusivo para assinantes Premium</p>
-            <h2 id="benefits-title">Benefícios do Afya Whitebook</h2>
-            <h3>Sua assinatura Premium vai muito além do plantão</h3>
-            <p>Acesse descontos e condições especiais para apoiar sua rotina, sua clínica e o crescimento da sua carreira</p>
-            <a class="button button-primary" data-link-original="/beneficios/">Ver todos os benefícios</a>
-          </div>
-          <div class="benefits-rail-wrap reveal" data-delay="1">
-            <div class="benefits-controls">
-              <button class="icon-button" type="button" aria-label="Benefício anterior" data-benefits-prev>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-              </button>
-              <button class="icon-button" type="button" aria-label="Próximo benefício" data-benefits-next>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-              </button>
-            </div>
-            <!-- Logos e condições capturados de lp.whitebook.com.br/premium em 13/08/2026 -->
-            <div class="benefits-viewport" tabindex="0" role="region" aria-label="Benefícios de parceiros" data-benefits-viewport>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/we-marketing-medico.webp" alt="WE Marketing Médico" width="119" height="76" loading="lazy"></h3><p>Até <strong>50% de desconto</strong> em marketing médico</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/caveo.webp" alt="Caveo" width="199" height="67" loading="lazy"></h3><p>Abertura de CNPJ gratuita e 6 meses com <strong>50% de desconto</strong></p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/company-hero.webp" alt="Company Hero" width="217" height="67" loading="lazy"></h3><p><strong>30% de desconto</strong> no plano contratado</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/utilidades-clinicas.webp" alt="Utilidades Clínicas" width="231" height="57" loading="lazy"></h3><p><strong>10% off</strong> em produtos + frete grátis</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/doc-concierge.webp" alt="Doc Concierge" width="238" height="58" loading="lazy"></h3><p><strong>20% do preço de tabela</strong> em pacotes e serviços</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/impulsione.webp" alt="Impulsione" width="230" height="35" loading="lazy"></h3><p>Até <strong>20% de desconto</strong> em serviços de marketing</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/dio.webp" alt="dio — jalecos" width="60" height="83" loading="lazy"></h3><p><strong>15% de desconto</strong> em jalecos com cupom</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/mobimed.webp" alt="Mobimed" width="232" height="77" loading="lazy"></h3><p><strong>15% de desconto</strong> e parcelamento sem juros</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/parafuzo.webp" alt="Parafuzo" width="201" height="50" loading="lazy"></h3><p>Até <strong>R$ 50 de desconto</strong> em planos mensais</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/grifta.webp" alt="Grifta" width="194" height="48" loading="lazy"></h3><p><strong>15% de desconto</strong> em todo o site</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/cirurgica-salutar.webp" alt="Cirúrgica Salutar" width="208" height="65" loading="lazy"></h3><p><strong>15% de desconto</strong> em equipamentos</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/salutem.webp" alt="Salutem" width="215" height="76" loading="lazy"></h3><p><strong>15% de desconto</strong> em móveis hospitalares</p></article>
-              <article class="benefit-card"><h3><img src="/assets/images/benefits/lab-conteudos.webp" alt="Lab Conteúdos" width="117" height="75" loading="lazy"></h3><p><strong>10 a 15% de desconto</strong> em pacotes</p></article>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <!-- Bloco 10 — Chamada final. Repete a escolha sem reintroduzir hierarquia. -->
       <section class="final-cta section" aria-labelledby="final-title">
         <div class="content-container">
           <div class="final-cta-inner reveal">
-            <h2 id="final-title">Crie sua conta gratuita e descubra como o Afya Whitebook pode apoiar sua rotina clínica</h2>
-            <a class="button button-primary" href="https://whitebook.pebmed.com.br/perfil/">Criar conta gratuita</a>
-            <div class="final-cta-apps">
-              <a href="https://play.google.com/store/apps/details?id=com.medprescricao"><img src="/assets/images/download-android.webp" alt="Baixar Whitebook no Google Play" width="200" height="60" loading="lazy"></a>
-              <a href="https://apps.apple.com/br/app/whitebook-cid-10-e-medicina/id638521744"><img src="/assets/images/download-ios.webp" alt="Baixar Whitebook na App Store" width="200" height="60" loading="lazy"></a>
+            <h2 id="final-title">Comece a <span class="hl">prescrever hoje</span></h2>
+            <p>Escolha o caminho que combina com a sua rotina. A prescrição é a mesma nos dois.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://whitebook.pebmed.com.br/perfil/">Quero prescrever grátis</a>
+              <a class="button button-invert" href="https://www.iclinic.com.br/planos/">Quero prescrever e gerenciar minha clínica<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
             </div>
           </div>
         </div>
@@ -461,46 +358,36 @@
     <footer class="site-footer">
       <div class="content-container footer-grid">
         <div class="footer-brand">
-          <img src="/assets/images/afya-whitebook-lockup.png" alt="Afya Whitebook" width="257" height="34" loading="lazy">
-          <p>Informação médica confiável para apoiar decisões em toda a jornada clínica</p>
-          <div class="app-links">
-            <a href="https://play.google.com/store/apps/details?id=com.medprescricao"><img src="/assets/images/download-android.webp" alt="Baixar Whitebook no Google Play" width="200" height="60" loading="lazy"></a>
-            <a href="https://apps.apple.com/br/app/whitebook-cid-10-e-medicina/id638521744"><img src="/assets/images/download-ios.webp" alt="Baixar Whitebook na App Store" width="200" height="60" loading="lazy"></a>
-          </div>
+          <img src="/assets/images/afya-prescricao-lockup.png" alt="Afya Prescrição" width="260" height="34" loading="lazy">
+          <p>A prescrição certa para cada momento da prática clínica</p>
           <div class="social-links" role="group" aria-label="Redes sociais">
-            <a href="https://www.instagram.com/whitebookoficial/" aria-label="Instagram do Whitebook"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instagram"></use></svg></a>
             <a href="https://www.linkedin.com/company/afyamedicina/" aria-label="LinkedIn da Afya"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#linkedin"></use></svg></a>
             <a href="https://www.youtube.com/@afya.oficial" aria-label="YouTube da Afya"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#youtube"></use></svg></a>
           </div>
         </div>
 
-        <nav class="footer-column" aria-labelledby="footer-whitebook">
-          <h2 id="footer-whitebook">Afya Whitebook</h2>
-          <a data-link-original="/quem-somos/">Quem somos</a>
-          <a data-link-original="/producao-de-conteudo/">Como produzimos?</a>
-          <a data-link-original="/planos/">Planos</a>
+        <nav class="footer-column" aria-labelledby="footer-prescricao">
+          <h2 id="footer-prescricao">Prescrição Afya</h2>
+          <a href="#como-funciona">Como funciona</a>
+          <a data-link-original="/recursos/">Recursos</a>
+          <a data-link-original="/recursos/rdc-1000-2025/">RDC 1000/2025</a>
+          <a data-link-original="/para-quem/">Para quem</a>
         </nav>
-        <nav class="footer-column" aria-labelledby="footer-voce">
-          <h2 id="footer-voce">Para você</h2>
-          <a href="#como-funciona">Recursos</a>
-          <a data-link-original="/calculadoras-e-ferramentas/">Calculadoras e ferramentas</a>
-          <a data-link-original="/prescricao/">Prescrição</a>
-          <a data-link-original="/medicamentos/">Bulário de medicamentos</a>
-          <a data-link-original="/conteudos-gratis/">Conteúdos grátis</a>
-          <a data-link-original="/para-quem/">Para cada momento</a>
-          <a data-link-original="/beneficios/">Parceiros e benefícios</a>
+        <nav class="footer-column" aria-labelledby="footer-solucoes">
+          <h2 id="footer-solucoes">Onde prescrever</h2>
+          <a href="https://whitebook.pebmed.com.br/">Whitebook</a>
+          <a href="https://www.iclinic.com.br/">iClinic</a>
+          <a data-link-original="/parceiros/dispensador/">Dispensador para farmácias</a>
         </nav>
         <nav class="footer-column" aria-labelledby="footer-ajuda">
           <h2 id="footer-ajuda">Ajuda</h2>
-          <a data-link-original="/faq/">Perguntas frequentes</a>
-          <a href="https://help.pebmed.com.br/hc/pt-br/">Contato</a>
-          <a data-link-original="/pedido-do-titular/">Pedido do titular</a>
-          <a href="https://whitebook.afya.com.br/">Blog</a>
+          <a href="#duvidas">Dúvidas frequentes</a>
+          <a data-link-original="/duvidas/">Central de informações</a>
+          <a data-link-original="/parceiros/">Para parceiros</a>
         </nav>
         <nav class="footer-column" aria-labelledby="footer-legal">
           <h2 id="footer-legal">Legal</h2>
           <a data-link-original="/termos-de-uso/">Termos de uso</a>
-          <a data-link-original="/diretrizes-editoriais/">Diretrizes editoriais</a>
           <a data-link-original="/privacidade/">Privacidade</a>
           <a data-link-original="/politicas-e-diretrizes/">Políticas e diretrizes</a>
         </nav>
@@ -516,8 +403,6 @@
     <div class="site-credit">
       <div class="content-container site-credit-inner">
         <p>Desenvolvido por</p>
-        <!-- O logo carrega o nome, entao o alt e "Conversion" e nao vazio: e ele que da
-             nome acessivel ao link. Sem target=_blank, como todo link externo deste site. -->
         <a class="site-credit-link" href="https://www.conversion.com.br/">
           <img src="/assets/images/conversion-logo.svg" alt="Conversion" width="133" height="20" decoding="async">
         </a>

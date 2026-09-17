@@ -22,26 +22,35 @@
   font-display: swap;
 }
 
+/* Paleta extraida da LP de Prescricao do iClinic (lps.iclinic.com.br/prescricao-home/):
+   magenta #c7127b para destaque de texto e icones, roxo #8c279b para acao,
+   azul #b7d2f8 / lavanda #ceceea nas superficies e navy nas faixas escuras.
+   A escala mantem os nomes "berry" herdados do Whitebook para nao quebrar as
+   ~6900 linhas que ja referenciam esses tokens — o que mudou foram os valores. */
 :root {
-  --magenta: #ce0058;
-  --berry-10: #19174f;
-  --berry-20: #23215f;
-  --berry-30: #2e2b78;
-  --berry-50: #433fa6;
-  --berry-70: #5d5abf;
-  --berry-100: #8d8bd5;
-  --berry-120: #afaedb;
-  --berry-140: #d3d2ea;
-  --berry-150: #e5e5f1;
-  --berry-160: #f5f5fa;
+  --magenta: #c7127b;
+  /* Roxo de acao: na LP o botao e roxo e o magenta fica so no texto. */
+  --action: #8c279b;
+  --action-strong: #731f80;
+  --berry-10: #0d1b2a;
+  --berry-20: #16283c;
+  --berry-30: #22384f;
+  --berry-50: #5a7fb8;
+  --berry-70: #8ba8d8;
+  --berry-100: #b7d2f8;
+  --berry-120: #bccae5;
+  --berry-140: #ceceea;
+  --berry-150: #e3e3ee;
+  --berry-160: #f4f6fb;
   --white: #ffffff;
-  --text: var(--berry-10);
-  --text-body: #333333;
-  --text-muted: rgba(25, 23, 79, 0.72);
-  --line: rgba(25, 23, 79, 0.12);
-  --line-strong: rgba(25, 23, 79, 0.22);
-  --shadow-sm: 0 10px 30px rgba(25, 23, 79, 0.08);
-  --shadow-md: 0 20px 54px rgba(25, 23, 79, 0.12);
+  /* A LP usa tinta cinza-carvao neutra, nao o indigo do Whitebook. */
+  --text: #2d2d2d;
+  --text-body: #4a4a4a;
+  --text-muted: rgba(13, 27, 42, 0.72);
+  --line: rgba(13, 27, 42, 0.12);
+  --line-strong: rgba(13, 27, 42, 0.22);
+  --shadow-sm: 0 10px 30px rgba(13, 27, 42, 0.08);
+  --shadow-md: 0 20px 54px rgba(13, 27, 42, 0.12);
   /* 10/09 (call de 08/09) — o raio redondo e reservado para CTA. Elemento que
      nao clica usa --radius-chip, para nao gerar expectativa de clique. */
   --radius-cta: 999px;
@@ -106,7 +115,7 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid #7d7acd;
+  outline: 3px solid #9db9e4;
   outline-offset: 4px;
 }
 
@@ -223,13 +232,13 @@ h3 {
 
 .button-primary {
   color: var(--white);
-  background: var(--magenta);
-  box-shadow: 0 10px 24px rgba(206, 0, 88, 0.18);
+  background: var(--action);
+  box-shadow: 0 10px 24px rgba(140, 39, 155, 0.2);
 }
 
 .button-primary:hover {
-  background: linear-gradient(rgba(25, 23, 79, 0.16), rgba(25, 23, 79, 0.16)) var(--magenta);
-  box-shadow: 0 14px 30px rgba(206, 0, 88, 0.24);
+  background: var(--action-strong);
+  box-shadow: 0 14px 30px rgba(140, 39, 155, 0.28);
 }
 
 /* 11/09 (call de 08/09) — hierarquia de CTA: um botao preenchido por dobra. O
@@ -237,7 +246,7 @@ h3 {
    Todos os CTAs de contorno do site caem em superficie clara (os .page-hero sao
    claros desde o redesenho de 26/08), entao ha uma variante so. */
 .button-outline {
-  color: var(--magenta);
+  color: var(--action);
   background: transparent;
   border-color: currentColor;
 }
@@ -245,8 +254,40 @@ h3 {
 .button-outline:hover,
 .button-outline:focus-visible {
   color: var(--white);
-  background: var(--magenta);
-  border-color: var(--magenta);
+  background: var(--action);
+  border-color: var(--action);
+}
+
+/* Invertido do primario: mesma forma, cores trocadas. Para o CTA secundario
+   sobre superficie escura, onde o contorno vazado fica fraco demais. */
+.button-invert {
+  color: var(--action);
+  background: var(--white);
+  border-color: var(--white);
+  box-shadow: 0 10px 24px rgba(13, 27, 42, 0.2);
+}
+
+.button-invert:hover,
+.button-invert:focus-visible {
+  color: var(--action-strong);
+  background: var(--white);
+  box-shadow: 0 14px 30px rgba(13, 27, 42, 0.28);
+}
+
+/* Seta do CTA, no mesmo traco que ela tinha como .hero-link. */
+.button-invert svg {
+  width: 18px;
+  margin-left: 10px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--ease);
+}
+
+.button-invert:hover svg {
+  transform: translateX(3px);
 }
 
 .button-block {
@@ -270,7 +311,7 @@ h3 {
 
 .icon-button:hover {
   color: var(--magenta);
-  border-color: rgba(206, 0, 88, 0.35);
+  border-color: rgba(199, 18, 123, 0.35);
   transform: translateY(-2px);
 }
 
@@ -296,7 +337,7 @@ h3 {
 
 .site-header.is-scrolled {
   border-color: var(--line);
-  box-shadow: 0 10px 32px rgba(25, 23, 79, 0.07);
+  box-shadow: 0 10px 32px rgba(13, 27, 42, 0.07);
 }
 
 /* Mesma largura e gutter da grade de conteudo, para o logo alinhar com as secoes */
@@ -410,7 +451,7 @@ main {
 
 .hero-overlay {
   z-index: 1;
-  background: linear-gradient(90deg, #19174f 0%, rgba(25, 23, 79, 0.99) 28%, rgba(25, 23, 79, 0.92) 40%, rgba(25, 23, 79, 0.58) 55%, rgba(25, 23, 79, 0.12) 74%, rgba(25, 23, 79, 0) 88%);
+  background: linear-gradient(90deg, #0d1b2a 0%, rgba(13, 27, 42, 0.99) 28%, rgba(13, 27, 42, 0.92) 40%, rgba(13, 27, 42, 0.58) 55%, rgba(13, 27, 42, 0.12) 74%, rgba(13, 27, 42, 0) 88%);
 }
 
 .hero-inner {
@@ -577,7 +618,7 @@ main {
 .plan-card-premium {
   position: relative;
   background: linear-gradient(180deg, var(--white) 0%, var(--berry-160) 100%);
-  border-color: rgba(206, 0, 88, 0.44);
+  border-color: rgba(199, 18, 123, 0.44);
   box-shadow: var(--shadow-md);
 }
 
@@ -672,7 +713,7 @@ main {
   place-items: center;
   content: "✓";
   color: var(--magenta);
-  border: 1px solid rgba(206, 0, 88, 0.72);
+  border: 1px solid rgba(199, 18, 123, 0.72);
   font-size: 13px;
   font-weight: 700;
 }
@@ -813,7 +854,7 @@ main {
   line-height: 1;
   cursor: pointer;
   transform: translate(-50%, -50%);
-  box-shadow: 0 4px 16px rgba(13, 12, 34, 0.4);
+  box-shadow: 0 4px 16px rgba(20, 26, 36, 0.4);
   transition: opacity 350ms;
 }
 
@@ -982,7 +1023,7 @@ main {
 .journey-band a:hover,
 .journey-band a:focus-visible {
   color: var(--magenta);
-  border-color: rgba(206, 0, 88, 0.35);
+  border-color: rgba(199, 18, 123, 0.35);
 }
 
 /* Audiences */
@@ -1010,7 +1051,7 @@ main {
   z-index: 1;
   inset: 30% 0 0;
   content: "";
-  background: linear-gradient(180deg, rgba(25, 23, 79, 0) 0%, rgba(25, 23, 79, 0.72) 52%, rgba(25, 23, 79, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0) 0%, rgba(13, 27, 42, 0.72) 52%, rgba(13, 27, 42, 0.96) 100%);
 }
 
 .audience-card::after {
@@ -1019,7 +1060,7 @@ main {
   inset: 0 auto 0 0;
   width: 3px;
   content: "";
-  background: linear-gradient(180deg, var(--magenta), rgba(206, 0, 88, 0));
+  background: linear-gradient(180deg, var(--magenta), rgba(199, 18, 123, 0));
 }
 
 .audience-card img {
@@ -1062,7 +1103,7 @@ main {
      Glow radial no lugar das ondas da campanha; escala em gradiente ate Berry 70,
      conforme a regra do manual. */
   background:
-    radial-gradient(1000px 620px at 76% 28%, rgba(93, 90, 191, 0.55), rgba(93, 90, 191, 0) 62%),
+    radial-gradient(1000px 620px at 76% 28%, rgba(139, 168, 216, 0.55), rgba(139, 168, 216, 0) 62%),
     linear-gradient(160deg, var(--berry-50) 0%, var(--berry-20) 100%);
 }
 
@@ -1274,8 +1315,8 @@ main {
   padding: 6px 10px;
   margin-bottom: 20px;
   color: var(--magenta);
-  background: rgba(206, 0, 88, 0.06);
-  border: 1px solid rgba(206, 0, 88, 0.1);
+  background: rgba(199, 18, 123, 0.06);
+  border: 1px solid rgba(199, 18, 123, 0.1);
   font-size: 14px;
   font-weight: 700;
 }
@@ -1439,7 +1480,7 @@ main {
 
 .social-links a:hover {
   color: var(--magenta);
-  border-color: rgba(206, 0, 88, 0.3);
+  border-color: rgba(199, 18, 123, 0.3);
   transform: translateY(-2px);
 }
 
@@ -2225,7 +2266,7 @@ main {
   /* Texto na base e escurecimento invertido: o rosto do médico fica no topo da foto
      e precisa permanecer visível; o contraste do texto vem da faixa escura inferior. */
   .hero-overlay {
-    background: linear-gradient(0deg, #19174f 0%, rgba(25, 23, 79, 0.95) 30%, rgba(25, 23, 79, 0.55) 58%, rgba(25, 23, 79, 0.14) 82%, rgba(25, 23, 79, 0) 100%);
+    background: linear-gradient(0deg, #0d1b2a 0%, rgba(13, 27, 42, 0.95) 30%, rgba(13, 27, 42, 0.55) 58%, rgba(13, 27, 42, 0.14) 82%, rgba(13, 27, 42, 0) 100%);
   }
 
   .hero-inner {
@@ -2676,14 +2717,14 @@ main {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 8px 20px rgba(206, 0, 88, 0.35);
+  box-shadow: 0 8px 20px rgba(199, 18, 123, 0.35);
 }
 
 /* Premium invertido para o Berry escuro do manual — mesma familia das faixas
    do explorador e da credibilidade; o Free permanece branco */
 .plan-card-premium {
   background: linear-gradient(180deg, var(--berry-20) 0%, var(--berry-10) 100%);
-  border-color: rgba(206, 0, 88, 0.55);
+  border-color: rgba(199, 18, 123, 0.55);
 }
 
 .plan-card-premium h3,
@@ -2721,7 +2762,7 @@ main {
 @media (min-width: 901px) {
   .plan-card-premium {
     z-index: 1;
-    box-shadow: 0 28px 64px rgba(25, 23, 79, 0.28);
+    box-shadow: 0 28px 64px rgba(13, 27, 42, 0.28);
   }
 }
 
@@ -2804,12 +2845,12 @@ main {
 .plans-toggle-group button.is-active {
   background: var(--white);
   color: var(--berry-10);
-  box-shadow: 0 4px 14px rgba(25, 23, 79, 0.14);
+  box-shadow: 0 4px 14px rgba(13, 27, 42, 0.14);
 }
 
 .plans-toggle-save {
   padding: 6px 14px;
-  background: rgba(206, 0, 88, 0.1);
+  background: rgba(199, 18, 123, 0.1);
   border-radius: var(--radius-chip);
   color: var(--magenta);
   font-size: 12.5px;
@@ -2999,7 +3040,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(180deg, rgba(25, 23, 79, 0) 45%, rgba(25, 23, 79, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0) 45%, rgba(13, 27, 42, 0.85) 100%);
 }
 
 .journey-band .journey-moment-card span {
@@ -3503,9 +3544,9 @@ main {
   height: 230px;
   background: linear-gradient(
     180deg,
-    rgba(229, 229, 241, 0) 0%,
-    rgba(229, 229, 241, 0.18) 35%,
-    rgba(229, 229, 241, 0.55) 68%,
+    rgba(227, 227, 238, 0) 0%,
+    rgba(227, 227, 238, 0.18) 35%,
+    rgba(227, 227, 238, 0.55) 68%,
     var(--berry-150) 100%
   );
   pointer-events: none;
@@ -3579,7 +3620,7 @@ main {
   height: 26px;
   place-items: center;
   border-radius: 8px;
-  background: rgba(206, 0, 88, 0.12);
+  background: rgba(199, 18, 123, 0.12);
   color: var(--magenta);
   font-size: 14px;
   font-style: normal;
@@ -3625,16 +3666,16 @@ main {
 
 .ia-msg-user {
   align-self: flex-end;
-  background: #e9e7ef;
+  background: #e7e9f0;
   border-bottom-right-radius: 4px;
 }
 
 .ia-msg-assist {
   align-self: flex-start;
   background: #ffffff;
-  border: 1px solid rgba(25, 23, 79, 0.08);
+  border: 1px solid rgba(13, 27, 42, 0.08);
   border-bottom-left-radius: 4px;
-  box-shadow: 0 4px 14px rgba(25, 23, 79, 0.05);
+  box-shadow: 0 4px 14px rgba(13, 27, 42, 0.05);
 }
 
 .ia-typing {
@@ -3643,7 +3684,7 @@ main {
   gap: 4px;
   padding: 12px;
   background: #ffffff;
-  border: 1px solid rgba(25, 23, 79, 0.08);
+  border: 1px solid rgba(13, 27, 42, 0.08);
   border-radius: 14px;
   border-bottom-left-radius: 4px;
 }
@@ -3652,7 +3693,7 @@ main {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #b9b6cd;
+  background: #b4bdc9;
   animation: ia-bounce 1s infinite;
 }
 
@@ -3671,7 +3712,7 @@ main {
   gap: 8px;
   padding: 8px 14px;
   border-radius: var(--radius-chip);
-  background: rgba(206, 0, 88, 0.1);
+  background: rgba(199, 18, 123, 0.1);
   color: var(--magenta);
   font-size: 12px;
   font-weight: 700;
@@ -3686,10 +3727,10 @@ main {
 .ia-input {
   margin: 0 14px 16px;
   padding: 12px 16px;
-  border: 1px solid rgba(25, 23, 79, 0.1);
+  border: 1px solid rgba(13, 27, 42, 0.1);
   border-radius: var(--radius-chip);
   background: #ffffff;
-  color: rgba(25, 23, 79, 0.45);
+  color: rgba(13, 27, 42, 0.45);
   font-size: 13px;
 }
 
@@ -3770,7 +3811,7 @@ main {
   justify-content: center;
   gap: 8px;
   padding: 10px 16px 8px;
-  border-bottom: 1px solid rgba(25, 23, 79, 0.06);
+  border-bottom: 1px solid rgba(13, 27, 42, 0.06);
   color: var(--berry-10);
   font-size: 14px;
   font-weight: 700;
@@ -3789,7 +3830,7 @@ main {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(25, 23, 79, 0.16);
+  background: rgba(13, 27, 42, 0.16);
 }
 
 /* Conversa centralizada em coluna, como um web app */
@@ -4023,7 +4064,7 @@ main {
   padding: 10px;
   background: var(--white);
   border: 1px solid var(--line);
-  box-shadow: 0 18px 48px rgba(25, 23, 79, 0.14);
+  box-shadow: 0 18px 48px rgba(13, 27, 42, 0.14);
   visibility: hidden;
   opacity: 0;
   transform: translateY(-6px);
@@ -4164,7 +4205,7 @@ main {
 .moment-card:hover,
 .moment-card:focus-visible {
   transform: translateY(-4px);
-  box-shadow: 0 22px 48px rgba(25, 23, 79, 0.14);
+  box-shadow: 0 22px 48px rgba(13, 27, 42, 0.14);
 }
 
 .moment-card img {
@@ -4241,7 +4282,7 @@ main {
 
 .resource-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 48px rgba(25, 23, 79, 0.12);
+  box-shadow: 0 22px 48px rgba(13, 27, 42, 0.12);
 }
 
 .resource-card h3 {
@@ -4427,7 +4468,7 @@ main {
   padding: 26px 28px 28px;
   border-top: 4px solid var(--magenta);
   background: var(--white);
-  box-shadow: 0 28px 64px rgba(25, 23, 79, 0.14);
+  box-shadow: 0 28px 64px rgba(13, 27, 42, 0.14);
 }
 
 .demo-title {
@@ -5005,13 +5046,13 @@ main {
 .preview-journey .journey-moment-card {
   height: clamp(330px, 30vw, 430px);
   border-radius: 24px;
-  box-shadow: 0 14px 32px rgba(25, 23, 79, 0.13);
+  box-shadow: 0 14px 32px rgba(13, 27, 42, 0.13);
   transition: box-shadow 300ms ease, transform 300ms ease;
 }
 
 .preview-journey .journey-moment-card:hover,
 .preview-journey .journey-moment-card:focus-visible {
-  box-shadow: 0 22px 44px rgba(25, 23, 79, 0.2);
+  box-shadow: 0 22px 44px rgba(13, 27, 42, 0.2);
   transform: translateY(-4px);
 }
 
@@ -5021,7 +5062,7 @@ main {
 }
 
 .preview-journey .journey-moment-card::after {
-  background: linear-gradient(180deg, rgba(25, 23, 79, 0.02) 38%, rgba(25, 23, 79, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.02) 38%, rgba(13, 27, 42, 0.9) 100%);
 }
 
 .preview-journey .journey-moment-card span {
@@ -5221,7 +5262,7 @@ main {
 @media (max-width: 600px) {
 
   .hero-photo {
-    content: url("/assets/images/hero/hero-plantao-v4-mobile.webp");
+    content: url("/assets/images/hero/hero-consultorio-mobile.webp");
     object-position: center;
   }
 
@@ -5455,7 +5496,7 @@ main {
 }
 
 .compare-matrix tbody td:last-child {
-  background: rgba(245, 245, 250, 0.55);
+  background: rgba(244, 246, 251, 0.55);
 }
 
 .compare-row summary {
@@ -6792,4 +6833,296 @@ main {
    ========================================================================== */
 a:not([href]) {
   cursor: default;
+}
+
+/* ==========================================================================
+   Prescricao Afya — ajustes proprios da home
+   A home reaproveita os componentes herdados do Whitebook. As regras abaixo
+   cobrem so o que nao existia: marca em texto, a nota de apoio do hero, o
+   grid de quatro passos e os contextos do bloco "Onde voce prescreve".
+   ========================================================================== */
+
+/* O lockup de Prescricao (assets/images/afya-prescricao-lockup.png) e um pouco
+   mais largo que o do Whitebook, porque "PRESCRICAO" tem uma letra a mais. */
+.footer-brand img {
+  width: clamp(158px, 12vw, 186px);
+  height: auto;
+  margin-bottom: 12px;
+}
+
+/* O olho e a nota de apoio sao filhos diretos de .hero-copy e herdariam o
+   corpo de 27px do subtitulo. */
+
+/* Olho do hero: etiqueta branca com texto roxo, de canto reto. */
+.hero-copy > p.section-eyebrow {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border-radius: 0;
+  color: var(--action);
+  background: var(--white);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+.hero-copy > p strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* O negrito alargou o subtitulo e jogava "continuidade." para uma terceira
+   linha. A coluna do hero comporta 680px, entao as duas frases voltam a caber
+   em uma linha cada. O seletor pega so o subtitulo, que e o unico <p> sem
+   classe dentro de .hero-copy. */
+.hero-copy > p:not([class]) {
+  max-width: 680px;
+}
+
+/* Sem limite de largura: a linha cabe inteira na coluna do hero (680px). */
+.hero-copy > p.hero-note {
+  max-width: none;
+  margin-top: 24px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Quatro passos, contra os tres do grid herdado. */
+.steps-grid.steps-four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .steps-grid.steps-four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .steps-grid.steps-four {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Bloco 5: o titulo do card ocupa o lugar que era do preco, entao volta a um
+   corpo de subtitulo — 34px quebraria em quatro linhas. */
+.plans-grid .plan-card h3 {
+  margin-bottom: 12px;
+  font-size: clamp(21px, 2vw, 26px);
+  line-height: 1.25;
+}
+
+.plans-grid .plan-card .plan-more {
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* CTA final: a caixa e escura, entao o apoio e o botao secundario precisam de
+   contraste invertido. */
+.final-cta-inner > p {
+  max-width: 620px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 18px;
+}
+
+.final-cta-inner .hero-actions {
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   Faixas claras no padrao da LP do iClinic
+   A LP e uma pagina clara: azul e lavanda nas faixas, escuro so no rodape.
+   As duas secoes que aqui eram blocos escuros (Para quem e Ecossistema) passam
+   a superficie clara, entao o texto branco herdado precisa voltar para a tinta.
+   -------------------------------------------------------------------------- */
+
+/* Faixa de numeros logo abaixo do hero — lavanda, como a da LP. */
+.proof {
+  background: linear-gradient(180deg, #ceceea 0%, #dcdcef 100%);
+}
+
+/* Faixa do marco regulatorio. */
+.afya-band {
+  background: linear-gradient(180deg, #f4f6fb 0%, #e6ebf8 100%);
+}
+
+/* "Para quem" — era um bloco navy; vira a faixa azul da LP. */
+.trust-band {
+  color: var(--text);
+  background: linear-gradient(135deg, #ceceea 0%, #b7d2f8 100%);
+}
+
+.trust-copy h2 {
+  color: var(--text);
+}
+
+.trust-copy > p {
+  color: var(--text-body);
+}
+
+.trust-list li {
+  color: var(--text-body);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(13, 27, 42, 0.1);
+}
+
+.trust-list li strong {
+  color: var(--text);
+}
+
+.trust-list svg {
+  color: var(--action);
+}
+
+/* "Ecossistema" — mesma logica, em azul mais lavado, para o cartao de receita
+   branco continuar destacando. */
+.credibility {
+  background:
+    radial-gradient(900px 560px at 78% 26%, rgba(183, 210, 248, 0.7), rgba(183, 210, 248, 0) 64%),
+    linear-gradient(160deg, #eef2fc 0%, #dde5f6 100%);
+}
+
+.credibility-copy h2 {
+  color: var(--text);
+}
+
+.credibility-copy > p {
+  color: var(--text-body);
+}
+
+.credibility-copy > .credibility-context {
+  color: var(--text-muted);
+}
+
+.credibility .source-list li {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(13, 27, 42, 0.14);
+}
+
+.credibility .demo-ref {
+  color: var(--text-muted);
+}
+
+/* Faixa de numeros: o destaque aqui e roxo, nao o magenta do resto do site, e
+   os tres seguem a mesma formula — "+" e a unidade em cor, o numero em tinta.
+   Padding e corpo reduzidos para os tres titulos caberem em uma linha so. */
+.proof-item {
+  padding-inline: clamp(18px, 2.2vw, 32px);
+  gap: 4px 14px;
+}
+
+.proof-item .proof-highlight {
+  font-size: clamp(20px, 1.8vw, 25px);
+}
+
+/* O nowrap so vale onde a coluna comporta a linha inteira. Abaixo disso ele
+   empurraria a pagina para fora da tela. */
+@media (min-width: 1000px) {
+  .proof-item .proof-highlight {
+    white-space: nowrap;
+  }
+}
+
+.proof-highlight .hl {
+  color: var(--action);
+}
+
+/* Faixa do marco regulatorio: o olho e filho direto de .afya-copy e herdava o
+   cinza de ".afya-copy > p", que vence ".section-eyebrow" na especificidade. */
+.afya-copy > p.section-eyebrow {
+  color: var(--action);
+}
+
+/* Cards de beneficio: "Receituario adequado automaticamente" e o unico titulo
+   que nao cabia em uma linha a 21px na coluna de ~426px. */
+.outcome-grid .outcome-card h3 {
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+
+/* Cards de contexto: o card inteiro reage ao mouse. */
+.plans-grid .plan-card {
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+
+.plans-grid .plan-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--action);
+  box-shadow: 0 24px 60px rgba(13, 27, 42, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plans-grid .plan-card,
+  .plans-grid .plan-card:hover {
+    transform: none;
+    transition: box-shadow var(--ease), border-color var(--ease);
+  }
+}
+
+/* "Quero prescrever e gerenciar minha clinica" tem 41 caracteres e nao cabia
+   em uma linha na largura do card a 16px. O corpo acompanha a viewport. */
+.plans-grid .plan-card .button-block {
+  padding-inline: 18px;
+  font-size: clamp(13px, 1.05vw, 15px);
+}
+
+@media (min-width: 1000px) {
+  .plans-grid .plan-card .button-block {
+    white-space: nowrap;
+  }
+}
+
+/* "Da busca ao paciente, em poucos cliques" precisa de ~1055px e o
+   .section-heading limita a 940px. O container comporta 1320px. */
+#como-funciona .section-heading {
+  max-width: none;
+}
+
+/* Duvidas: bloco centralizado na pagina. O acordeao e a linha de CTA ja tem
+   max-width 880px; faltava a margem automatica. As perguntas seguem alinhadas
+   a esquerda dentro do bloco — centralizar linha a linha atrapalharia a
+   leitura e brigaria com o "+" a direita. */
+#duvidas .section-heading {
+  margin-inline: auto;
+  text-align: center;
+}
+
+#duvidas .faq-list,
+#duvidas .faq-cta {
+  margin-inline: auto;
+}
+
+/* Hero mais curto, para caber inteiro na primeira tela: altura maxima de 760px
+   para 700px e respiro interno de 124px para 70px em cada lado.
+   Restrito a partir de 721px porque abaixo disso a folha usa um padding-top
+   proprio (300px), que empurra o texto para baixo da foto. */
+@media (min-width: 721px) {
+  .hero {
+    min-height: clamp(560px, calc(100svh - var(--header-height)), 700px);
+  }
+
+  .hero-copy {
+    padding-block: 70px;
+  }
+}
+
+/* Ecossistema: o titulo tem duas frases separadas por <br>, e a primeira nao
+   cabia na coluna de ~549px, quebrando em tres linhas. Alarga a coluna de texto
+   (o cartao de receita tem 520px de largura maxima e continua folgado) e reduz
+   o corpo o suficiente para cada frase ocupar uma linha. */
+@media (min-width: 901px) {
+  .credibility-layout {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  }
+
+  .credibility-copy h2 {
+    font-size: clamp(34px, 3.4vw, 48px);
+  }
 }
