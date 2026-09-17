@@ -70,13 +70,14 @@ removidos.
 Whitebook: o símbolo "Afya" é recorte pixel a pixel do arquivo original, e
 "PRESCRIÇÃO" foi composto em AfyaSans ExtraBold com os parâmetros medidos no
 original — caixa-alta de 81px, inclinação de 10°, condensação de 0,95 e
-entreletra de −4,51px. O script que gera o arquivo está ao lado dele
-(`afya-prescricao-lockup.gen.js`) e se autocalibra: ele recompõe a palavra
-"WHITEBOOK" como controle e ajusta a entreletra até reproduzir os 686px de
-largura do original.
+entreletra de −4,51px. O script que gera o arquivo é
+`tools/afya-prescricao-lockup.js` — fica em `tools/` porque o `.dockerignore`
+barra essa pasta, e script de build não deve ser servido pelo site. Ele se
+autocalibra: recompõe a palavra "WHITEBOOK" como controle e ajusta a entreletra
+até reproduzir os 686px de largura do original.
 
 Para gerar outra variante (por exemplo, uma versão em branco para fundo
-escuro), rode o script com a palavra desejada. É uma reprodução, não o arquivo
+escuro), rode `node tools/afya-prescricao-lockup.js "PALAVRA" saida.png`. É uma reprodução, não o arquivo
 oficial da marca — se a Afya fornecer o lockup vetorial de Prescrição,
 substitua.
 
