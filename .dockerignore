@@ -1,0 +1,21 @@
+# Contexto de build do Dockerfile na raiz. O Dockerfile copia o contexto inteiro para o
+# nginx, então tudo o que não faz parte do site publicado precisa ser barrado aqui.
+.git
+.gitignore
+.codex-analysis
+.playwright-mcp
+playwright-report
+test-results
+design
+docs
+audit-comparativo
+*.md
+**/*.md
+*.pdf
+*.docx
+
+# Scripts de derivacao de assets (nao entram na imagem)
+tools/
+
+# Manifesto de procedencia dos derivados do cliente: documentacao, nao asset do site
+assets/client-assets-manifest.json

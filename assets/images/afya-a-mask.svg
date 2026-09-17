@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30.8" height="26.8" viewBox="0 0 30.8 26.8">
+  <!-- Silhueta do "A" da Afya, usada como mascara do hero das paginas de persona
+       (A11 do plano de 08/09). Extraida do lockup vetorial que ja existia no repositorio,
+       assets/images/ecosystem/afya-iclinic.svg: o primeiro path e a letra, e dele so o
+       contorno externo — o segundo subpath e o vazado interno, que aqui nao entra porque
+       a mascara precisa da silhueta cheia. Nao e arte nova: e a mesma curva da marca. -->
+  <path d="M21.4642 0C20.262 0 19.5118 0.498957 18.8118 1.44284C14.1033 7.76403 0 26.7053 0 26.7053C0 26.7053 2.7717 26.7053 3.69455 26.7053C5.85102 26.7053 7.31377 25.8822 9.93167 24.0008C12.107 22.4372 14.6746 20.4223 16.8468 19.043C19.7221 17.2188 21.6902 16.7834 22.7606 18.4265C25.7677 23.0378 26.1004 23.9785 27.9587 23.9785C28.6524 23.9785 30.7304 23.9785 30.7304 23.9785L23.9189 0C23.9189 0 22.0794 0 21.4642 0Z" fill="#000"/>
+</svg>

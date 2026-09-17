@@ -1,0 +1,3 @@
+# Ambiente de homologação: liberar a indexação somente no lançamento oficial.
+User-agent: *
+Disallow: /
