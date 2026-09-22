@@ -141,13 +141,37 @@ docker run --rm -p 8080:80 site-prescricao
 
 ## Deploy
 
-Coolify no VPS, mesmo padrão do iClinic: Build Pack "Dockerfile", Base
-Directory `/`, Dockerfile Location `/Dockerfile`, porta 80. O `Dockerfile`
-copia o contexto inteiro (o `.dockerignore` barra `docs/` e os Markdown), então
-uma página nova não exige alteração no build.
+No ar desde 22/09/2026 em https://prescricao.conversion.com.br/, num container
+nginx orquestrado pelo Coolify no VPS, no mesmo padrão do Whitebook e do
+iClinic. O `Dockerfile` copia o contexto inteiro (o `.dockerignore` barra
+`docs/`, `tools/` e os Markdown), então uma página nova não exige alteração no
+build.
 
-DNS: um registro A de `prescricao.conversion.com.br` apontando para o IP do
-VPS. O TLS é emitido pelo proxy do Coolify.
+| Item | Valor |
+|---|---|
+| VPS | `148.230.73.9` (`srv915770`, Hostinger); Coolify em `http://148.230.73.9:8000` |
+| Projeto Coolify | `prescricao` · uuid `cldesnd0gynu5hx7jx7dikqq` · ambiente `production` |
+| Aplicação | `prescricao-site` · uuid `4cbwuxavvyzmsfe4vrw0qoak` |
+| Build | Build Pack "Dockerfile", Base Directory `/`, Dockerfile Location `/Dockerfile`, porta 80 |
+| Repositório | `git@github.com:bicom2016/Site-Prescricao.git`, branch `main` |
+| Deploy key (GitHub) | somente-leitura, título `coolify-vps-srv915770-prescricao` |
+| Webhook (GitHub) | push → `/webhooks/source/github/events/manual` no Coolify = **autodeploy** |
+| DNS | registro A `prescricao` → `148.230.73.9`, **DNS only** (nuvem cinza no Cloudflare) |
+
+Os UUIDs não são segredos — são identificadores para as chamadas de API do
+Coolify. Nenhum segredo fica neste repositório: a chave privada do deploy está
+no Coolify (Security → Keys), o secret do webhook é o
+`manual_webhook_secret_github` da aplicação, e o token de API é criado sob
+demanda e revogado depois.
+
+**Publicar:** todo push na `main` dispara o webhook e o Coolify reconstrói e
+troca o container (cerca de 40 s). Acompanhe em Coolify → projeto `prescricao`
+→ `prescricao-site` → Deployments. Redeploy manual sem commit: botão **Deploy**
+na UI, ou `POST /api/v1/applications/4cbwuxavvyzmsfe4vrw0qoak/start` com um
+token de API.
+
+O TLS é emitido pelo proxy do Coolify (Let's Encrypt). Por isso o DNS precisa
+ficar sem o proxy da Cloudflare: com a nuvem laranja o desafio HTTP-01 falha.
 
 ### Antes de indexar
 
@@ -166,6 +190,6 @@ saem no lançamento com o domínio oficial — em homologação devem continuar:
 - [ ] Substituir os assets herdados do Whitebook (favicon e imagem social)
 - [ ] Decidir o destino dos assets e scripts do Whitebook sem uso (ver "Origem")
 - [ ] Definir as páginas internas a partir de `docs/Estrutura Páginas Site Prescrição.pdf`
-- [ ] Apontar o DNS de prescricao.conversion.com.br e criar a app no Coolify
+- [x] Apontar o DNS de prescricao.conversion.com.br e criar a app no Coolify (22/09/2026)
 - [ ] Instalar medição (GA4/GTM) — hoje a página não tem nenhum script de análise
 - [ ] Liberar a indexação nos três pontos acima, no lançamento
