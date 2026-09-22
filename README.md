@@ -106,7 +106,8 @@ assets/         fontes, ícones, imagens e vídeos usados pela home
 robots.txt      bloqueando indexação — liberar só no lançamento
 Dockerfile      imagem nginx para deploy
 nginx.conf      configuração do servidor
-docs/           documentação de referência do projeto
+DEPLOY_VPS.md   runbook do ambiente no VPS (Coolify): operar, domínio, lançamento
+docs/           documentação de referência do projeto e registros de sessão
 tools/          scripts de derivação de assets (fora da imagem publicada)
 ```
 
@@ -173,6 +174,10 @@ token de API.
 O TLS é emitido pelo proxy do Coolify (Let's Encrypt). Por isso o DNS precisa
 ficar sem o proxy da Cloudflare: com a nuvem laranja o desafio HTTP-01 falha.
 
+Operação completa — logs, redeploy manual, adicionar domínio, checklist de
+lançamento, como o ambiente foi criado — em `DEPLOY_VPS.md`. O que foi feito
+em cada sessão fica em `docs/registro-DD-MM-AAAA.md`.
+
 ### Antes de indexar
 
 O ambiente está fechado para busca em três lugares, de propósito. Os três só
@@ -186,10 +191,42 @@ saem no lançamento com o domínio oficial — em homologação devem continuar:
 
 ## Pendências
 
-- [ ] Validar o conteúdo da home com a Afya e resolver as 8 pendências do documento
-- [ ] Substituir os assets herdados do Whitebook (favicon e imagem social)
-- [ ] Decidir o destino dos assets e scripts do Whitebook sem uso (ver "Origem")
+Lista de trabalho do projeto. Concluídos ficam marcados com a data.
+
+**Feito**
+
+- [x] Home de Prescrição com conteúdo, paleta e identidade próprios (17/09/2026)
+- [x] Revisão pré-publicação: 404 de Prescrição, nginx sem restos do Whitebook,
+      gerador do lockup portável, preload do hero (22/09/2026, `e4e7ddb`)
+- [x] DNS de prescricao.conversion.com.br, app no Coolify, deploy key, autodeploy
+      por webhook — site no ar (22/09/2026, ver `DEPLOY_VPS.md`)
+
+**Conteúdo e marca**
+
+- [ ] Validar o conteúdo da home com a Afya e resolver as 8 pendências da seção 5 de
+      `docs/Conteudo Home - Prescricao Afya v1.docx` (data dos controlados, nome da
+      norma, números de prova, CliqueFarma, nome da seção "Para quem", CTAs, domínio,
+      depoimentos)
+- [ ] Substituir os assets herdados do Whitebook: favicon (`whitebook-logo.svg`) e
+      imagem social (`assets/images/og-home.png`)
+- [ ] Pedir à Afya o lockup vetorial oficial de Prescrição e trocar o PNG reproduzido
+- [ ] Receber telas e GIFs do produto para o bloco "Como funciona"
+
+**Site**
+
 - [ ] Definir as páginas internas a partir de `docs/Estrutura Páginas Site Prescrição.pdf`
-- [x] Apontar o DNS de prescricao.conversion.com.br e criar a app no Coolify (22/09/2026)
+      (Recursos, Para quem, Dúvidas, Para parceiros, Blog, RDC 1000/2025) e reativar
+      os links inertes (`grep -rn 'data-link-original' *.html`)
+- [ ] Decidir o destino dos assets e scripts do Whitebook sem uso (ver "Origem"):
+      apagar ou reaproveitar quando as páginas internas existirem
 - [ ] Instalar medição (GA4/GTM) — hoje a página não tem nenhum script de análise
-- [ ] Liberar a indexação nos três pontos acima, no lançamento
+
+**Lançamento**
+
+- [ ] Confirmar a grafia do domínio oficial (`prescricaodigital.com`, reunião de 15/09)
+- [ ] Liberar a indexação nos três pontos de "Antes de indexar" e trocar canonical,
+      `og:url` e `og:image` para o domínio oficial
+- [ ] Apontar o domínio oficial e adicioná-lo à aplicação no Coolify
+      (`DEPLOY_VPS.md` §5)
+- [ ] Opcional: rotacionar o secret do webhook do GitHub (passou pelo log da sessão
+      de 22/09)
