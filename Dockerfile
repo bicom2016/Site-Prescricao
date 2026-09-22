@@ -1,4 +1,4 @@
-# Homepage estática do Afya Whitebook servida por nginx.
+# Site estático de Prescrição Afya servido por nginx.
 # No Coolify: Build Pack "Dockerfile", Base Directory "/", Dockerfile Location "/Dockerfile",
 # porta 80 (mesmo padrão de container do deploy do iClinic no VPS).
 

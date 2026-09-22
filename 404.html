@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Página não encontrada | Afya Whitebook</title>
+    <title>Página não encontrada | Prescrição Digital Afya</title>
     <meta name="description" content="A página que você procura não existe ou mudou de endereço.">
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#ffffff">
+    <!-- Favicon ainda e o do Whitebook: falta arte propria de Prescricao (ver README). -->
     <link rel="icon" href="/assets/images/whitebook-logo.svg" type="image/svg+xml">
     <link rel="preload" href="/assets/fonts/AfyaSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="/assets/fonts/AfyaSans-Light.ttf" as="font" type="font/ttf" crossorigin>
@@ -15,10 +16,11 @@
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
+    <!-- Mesmo header da home (index.html). Ao mexer no menu, alterar nos dois arquivos. -->
     <header class="site-header" data-header>
       <div class="header-shell">
-        <a class="brand" href="/" aria-label="Afya Whitebook — início">
-          <img src="/assets/images/afya-whitebook-lockup.png" alt="Afya Whitebook" width="257" height="34">
+        <a class="brand" href="/" aria-label="Afya Prescrição — início">
+          <img src="/assets/images/afya-prescricao-lockup.png" alt="Afya Prescrição" width="260" height="34">
         </a>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu-toggle>
@@ -28,29 +30,15 @@
 
         <div class="header-menu" id="menu-principal" data-menu>
           <nav class="main-nav" aria-label="Navegação principal">
-            <div class="nav-group" data-nav-group>
-              <button type="button" class="nav-group-toggle" aria-expanded="false" aria-controls="nav-para-quem" data-nav-toggle>Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown" id="nav-para-quem">
-                <a data-link-original="/para-quem/estudos-e-internato/">Estudos e internato<small>Da anamnese ao raciocínio clínico</small></a>
-                <a data-link-original="/para-quem/plantao/">Plantão<small>Decisões seguras na emergência</small></a>
-                <a data-link-original="/para-quem/consultorio/">Consultas e atendimento<small>No celular e no navegador</small></a>
-              </div>
-            </div>
-            <div class="nav-group" data-nav-group>
-              <button type="button" class="nav-group-toggle" aria-expanded="false" aria-controls="nav-recursos" data-nav-toggle>Recursos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown" id="nav-recursos">
-                <a data-link-original="/calculadoras-e-ferramentas/">Calculadoras e ferramentas<small>+250 calculadoras, escores e fluxogramas</small></a>
-                <a data-link-original="/prescricao/">Prescrição<small>Digital, com assinatura eletrônica</small></a>
-                <a href="/#como-funciona">Todos os recursos do app<small>Explore as telas do Whitebook</small></a>
-              </div>
-            </div>
-            <a data-link-original="/planos/">Planos</a>
-            <a data-link-original="/producao-de-conteudo/">Como produzimos</a>
-            <a data-link-original="/beneficios/">Parceiros</a>
+            <a href="/">Home</a>
+            <a data-link-original="/recursos/">Recursos</a>
+            <a data-link-original="/para-quem/">Para quem</a>
+            <a data-link-original="/duvidas/">Dúvidas</a>
+            <a data-link-original="/parceiros/">Para parceiros</a>
+            <a data-link-original="/blog/">Blog</a>
           </nav>
           <div class="header-actions">
-            <a class="header-login" href="https://whitebook.pebmed.com.br/perfil/">Entrar</a>
-            <a class="button button-primary button-header" href="https://whitebook.pebmed.com.br/perfil/">Comece gratuitamente</a>
+            <a class="button button-primary button-header" href="https://whitebook.pebmed.com.br/perfil/">Comece grátis</a>
           </div>
         </div>
       </div>
@@ -61,11 +49,13 @@
         <div class="content-container">
           <span class="page-eyebrow">Erro 404</span>
           <h1 id="page-title" class="reveal">Não encontramos esta página</h1>
-          <p class="reveal" data-delay="1">O endereço pode ter mudado ou nunca existiu. Estes caminhos ajudam a retomar a consulta</p>
+          <p class="reveal" data-delay="1">O endereço pode ter mudado ou nunca existiu. Estes caminhos ajudam a retomar de onde você parou.</p>
+          <!-- Só destinos que existem hoje: a home e duas âncoras dela. Quando as páginas
+               internas nascerem, trocar por /recursos/ e /duvidas/. -->
           <div class="error-actions reveal" data-delay="2">
             <a class="button button-primary" href="/">Ir para o início</a>
-            <a class="button button-outline" data-link-original="/medicamentos/">Bulário de medicamentos</a>
-            <a class="button button-outline" data-link-original="/faq/">Perguntas frequentes</a>
+            <a class="button button-outline" href="/#como-funciona">Como funciona</a>
+            <a class="button button-outline" href="/#duvidas">Dúvidas frequentes</a>
           </div>
         </div>
       </section>

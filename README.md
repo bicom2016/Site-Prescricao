@@ -34,6 +34,17 @@ componentes existentes (`hero`, `proof`, `afya-band`, `outcome-grid`,
 `final-cta`). O bloco no fim de `styles.css` cobre só o que não existia — marca
 em texto, a nota de apoio do hero e o grid de quatro passos.
 
+Também ficaram no repositório assets e scripts do Whitebook que a home de
+Prescrição não usa: os logos do clube de benefícios (`assets/images/benefits/`),
+as fotos da equipe e dos depoimentos (`team/`, `testimonials/`), as telas,
+avatares e cards de persona (`screens/`, `photos/`), o vídeo do Whitebook IA
+(`assets/video/`, `images/video/`), os selos de download das lojas e dez ícones
+soltos em `assets/icons/`. Em `script.js`, os blocos do explorador de produto,
+do carrossel de benefícios, dos acordeões da jornada, do toggle de planos, da
+demo do WB Assist e dos grupos do menu só rodam se encontrarem seus elementos,
+que a home não tem. Tudo isso entra na imagem publicada; a decisão de remover ou
+reaproveitar fica para quando as páginas internas forem definidas.
+
 ## Paleta
 
 As cores vêm da LP de Prescrição do iClinic
@@ -61,8 +72,7 @@ Ainda são do Whitebook e precisam de arte própria: o favicon
 A foto do hero (`assets/images/hero/hero-consultorio-*.webp`) é própria de
 Prescrição, gerada a partir de `capa-afya-prescricao.jpg` em três recortes:
 1280w e 1920w para o `srcset` e um 4:3 (960x720) que a folha troca em telas de
-até 600px. Os arquivos `hero-plantao-v4-*` ficaram sem uso e podem ser
-removidos.
+até 600px.
 
 ### Lockup da marca
 
@@ -77,15 +87,19 @@ autocalibra: recompõe a palavra "WHITEBOOK" como controle e ajusta a entreletra
 até reproduzir os 686px de largura do original.
 
 Para gerar outra variante (por exemplo, uma versão em branco para fundo
-escuro), rode `node tools/afya-prescricao-lockup.js "PALAVRA" saida.png`. É uma reprodução, não o arquivo
-oficial da marca — se a Afya fornecer o lockup vetorial de Prescrição,
-substitua.
+escuro), instale a dependência uma vez com
+`npm install --no-save --no-package-lock @napi-rs/canvas` (o `node_modules/`
+já está no `.gitignore`) e rode
+`node tools/afya-prescricao-lockup.js "PALAVRA" saida.png`. O script resolve o
+lockup de origem e a fonte a partir da própria pasta do repositório, então roda
+de qualquer máquina. É uma reprodução, não o arquivo oficial da marca — se a
+Afya fornecer o lockup vetorial de Prescrição, substitua.
 
 ## Estrutura
 
 ```
 index.html      home page
-404.html        página de erro
+404.html        página de erro (mesmo header da home; alterar nos dois)
 styles.css      estilos (folha completa herdada do Whitebook)
 script.js       menu, animações de reveal e sprite de ícones
 assets/         fontes, ícones, imagens e vídeos usados pela home
@@ -93,6 +107,7 @@ robots.txt      bloqueando indexação — liberar só no lançamento
 Dockerfile      imagem nginx para deploy
 nginx.conf      configuração do servidor
 docs/           documentação de referência do projeto
+tools/          scripts de derivação de assets (fora da imagem publicada)
 ```
 
 ## Navegação desativada
@@ -101,7 +116,8 @@ A home aponta para 19 destinos que ainda não existem — as cinco páginas do m
 (Recursos, Para quem, Dúvidas, Para parceiros e Blog), a subpágina da RDC
 1000/2025 e os links de rodapé. Os elementos `<a>` foram mantidos (preservando
 layout e espaçamento), mas sem `href` — ficam inertes. O destino pretendido de
-cada um está guardado em `data-link-original`.
+cada um está guardado em `data-link-original`. A `404.html` repete o menu da
+home e, com ele, os mesmos cinco itens inertes.
 
 Para reativar um link ao criar a página correspondente:
 
@@ -148,6 +164,7 @@ saem no lançamento com o domínio oficial — em homologação devem continuar:
 
 - [ ] Validar o conteúdo da home com a Afya e resolver as 8 pendências do documento
 - [ ] Substituir os assets herdados do Whitebook (favicon e imagem social)
+- [ ] Decidir o destino dos assets e scripts do Whitebook sem uso (ver "Origem")
 - [ ] Definir as páginas internas a partir de `docs/Estrutura Páginas Site Prescrição.pdf`
 - [ ] Apontar o DNS de prescricao.conversion.com.br e criar a app no Coolify
 - [ ] Instalar medição (GA4/GTM) — hoje a página não tem nenhum script de análise

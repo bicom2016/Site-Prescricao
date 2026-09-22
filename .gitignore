@@ -42,3 +42,6 @@ desktop.ini
 
 # Claude Code
 .claude/settings.local.json
+
+# Playwright MCP (capturas e snapshots de verificacao local)
+.playwright-mcp/

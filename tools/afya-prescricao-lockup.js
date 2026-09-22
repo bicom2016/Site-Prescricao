@@ -1,15 +1,29 @@
 // Monta o lockup "Afya <PALAVRA>" a partir do lockup original do Whitebook.
 // O simbolo Afya e recortado pixel a pixel do arquivo existente, para ficar
 // identico. A palavra e composta na AfyaSans ExtraBold com os parametros
-// medidos no original: caixa-alta de 81px, inclinacao de 10 graus, condensacao
-// de 0.95 e entreletra de -2.19px — combinacao que reproduz o "WHITEBOOK"
-// original com a largura exata de 686px.
+// medidos no original: caixa-alta de 81px, inclinacao de 10 graus e
+// condensacao de 0.95. A entreletra nao e fixa: o script recompoe "WHITEBOOK"
+// como controle e ajusta o valor por bissecao ate reproduzir os 686px de
+// largura do original — so entao compoe a palavra pedida, com o mesmo ajuste.
+//
+// Uso (uma vez):  npm install --no-save --no-package-lock @napi-rs/canvas
+//                 (node_modules/ ja esta no .gitignore)
+// Depois:         node tools/afya-prescricao-lockup.js "PALAVRA" saida.png
 const fs = require('fs');
 const path = require('path');
 const { createCanvas, loadImage, GlobalFonts } = require('@napi-rs/canvas');
 
-const SRC = 'C:/Users/mathe/Downloads/Site-Prescricao/assets/images/afya-whitebook-lockup.png';
-const FONT = 'C:/Users/mathe/Downloads/Site-Prescricao/assets/fonts/AfyaSans-ExtraBold.ttf';
+// Caminhos resolvidos a partir da raiz do repositorio, para rodar de qualquer maquina.
+const ROOT = path.resolve(__dirname, '..');
+const SRC = path.join(ROOT, 'assets', 'images', 'afya-whitebook-lockup.png');
+const FONT = path.join(ROOT, 'assets', 'fonts', 'AfyaSans-ExtraBold.ttf');
+
+const WORD = process.argv[2];
+const OUT = process.argv[3];
+if (!WORD || !OUT) {
+  console.error('Uso: node tools/afya-prescricao-lockup.js "PALAVRA" saida.png');
+  process.exit(1);
+}
 
 const AFYA_X1 = 353;
 const GAP = 56;
@@ -19,12 +33,9 @@ const SLANT = Math.tan((10 * Math.PI) / 180);
 const SCALE_X = 0.95;
 const CANVAS_H = 145;
 const LARGURA_ORIGINAL = 686; // tinta do "WHITEBOOK" no lockup de referencia
-let TRACKING = -2.19;         // ajustado abaixo ate o controle bater com o original
+let TRACKING = 0;             // calibrado abaixo ate o controle bater com o original
 
 GlobalFonts.registerFromPath(FONT, 'AfyaSansXB');
-
-const WORD = process.argv[2];
-const OUT = process.argv[3];
 
 const probe = createCanvas(10, 10).getContext('2d');
 probe.font = '100px AfyaSansXB';
