@@ -41,8 +41,12 @@
   --berry-120: #bccae5;
   --berry-140: #ceceea;
   --berry-150: #e3e3ee;
+  --berry-152: #e6ebf8; /* fim do degrade das faixas claras */
+  --berry-155: #eaeaf4; /* faixa de numeros */
   --berry-160: #f4f6fb;
   --white: #ffffff;
+  /* Cor de marca de terceiros: so no credito da Conversion, no rodape */
+  --conversion-blue: #1649ff;
   /* A LP usa tinta cinza-carvao neutra, nao o indigo do Whitebook. */
   --text: #2d2d2d;
   --text-body: #4a4a4a;
@@ -6792,7 +6796,7 @@ main {
 
 /* Conversion leva o azul da marca, como Afya leva o magenta */
 .footer-bottom .site-credit strong {
-  color: #1649ff;
+  color: var(--conversion-blue);
 }
 
 @media (max-width: 720px) {
@@ -6824,11 +6828,33 @@ a:not([href]) {
    grid de quatro passos e os contextos do bloco "Onde voce prescreve".
    ========================================================================== */
 
-/* O lockup de Prescricao (assets/images/afya-prescricao-lockup.png) e um pouco
-   mais largo que o do Whitebook, porque "PRESCRICAO" tem uma letra a mais. */
-.footer-brand img {
-  width: clamp(158px, 12vw, 186px);
-  height: auto;
+/* Marca: logo da Afya + "Prescricao digital" em texto. Ata de 22/09: Prescricao e
+   produto, nao marca, entao saiu o lockup "Afya Prescricao" e ficou a mencao neutra.
+   O logo (assets/images/afya-logo.svg) e recortado do lockup do iClinic ate a Afya
+   mandar o arquivo oficial. */
+.brand {
+  width: auto;
+  gap: 12px;
+  margin: 0;
+}
+
+.brand img,
+.footer-brand .brand img {
+  width: auto;
+  height: 28px;
+  margin: 0;
+}
+
+.brand-product {
+  padding-left: 12px;
+  border-left: 1px solid var(--line-strong);
+  color: var(--text-body);
+  font-size: 16px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.footer-brand .brand {
   margin-bottom: 12px;
 }
 
@@ -6869,23 +6895,6 @@ a:not([href]) {
   color: rgba(255, 255, 255, 0.82);
   font-size: 16px;
   line-height: 1.5;
-}
-
-/* Quatro passos, contra os tres do grid herdado. */
-.steps-grid.steps-four {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-@media (max-width: 1100px) {
-  .steps-grid.steps-four {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 620px) {
-  .steps-grid.steps-four {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Bloco 5: o titulo do card ocupa o lugar que era do preco, entao volta a um
@@ -6947,43 +6956,14 @@ a:not([href]) {
    a superficie clara, entao o texto branco herdado precisa voltar para a tinta.
    -------------------------------------------------------------------------- */
 
-/* Faixa de numeros logo abaixo do hero — lavanda chapado (#eaeaf4). */
+/* Faixa de numeros logo abaixo do hero — lavanda chapado. */
 .proof {
-  background: #eaeaf4;
+  background: var(--berry-155);
 }
 
 /* Faixa do marco regulatorio. */
 .afya-band {
-  background: linear-gradient(180deg, #f4f6fb 0%, #e6ebf8 100%);
-}
-
-/* "Para quem" — era um bloco navy; vira a faixa azul da LP. */
-.trust-band {
-  color: var(--text);
-  /* Mesmo fundo da faixa do marco regulatorio (.afya-band). */
-  background: linear-gradient(180deg, #f4f6fb 0%, #e6ebf8 100%);
-}
-
-.trust-copy h2 {
-  color: var(--text);
-}
-
-.trust-copy > p {
-  color: var(--text-body);
-}
-
-.trust-list li {
-  color: var(--text-body);
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(13, 27, 42, 0.1);
-}
-
-.trust-list li strong {
-  color: var(--text);
-}
-
-.trust-list svg {
-  color: var(--action);
+  background: linear-gradient(180deg, #f4f6fb 0%, var(--berry-152) 100%);
 }
 
 /* "Ecossistema" — mesma logica, em azul mais lavado, para o cartao de receita
@@ -7154,4 +7134,896 @@ a:not([href]) {
 
 .plan-logo-iclinic {
   height: 30px;
+}
+
+/* ==========================================================================
+   Versao de 29/09 (ata de 22/09): "Como funciona" com tela unica, casos de
+   uso no lugar de "Uma receita, quatro pessoas" e beneficios em carrossel no
+   celular. Objetivo comum: mais recurso visual sem esticar a pagina.
+   ========================================================================== */
+
+/* --- Como funciona: passos (abas) + tela ilustrativa ---------------------- */
+.how-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.how-copy .section-heading {
+  margin-bottom: 28px;
+}
+
+.how-steps {
+  display: grid;
+  gap: 6px;
+}
+
+.how-step {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 8px;
+  width: 100%;
+  padding: 14px 18px;
+  border: 0;
+  border-left: 3px solid var(--line);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--ease), border-color var(--ease);
+}
+
+.how-step:hover {
+  background: var(--berry-160);
+}
+
+.how-step[aria-selected="true"] {
+  border-left-color: var(--magenta);
+  background: var(--berry-160);
+}
+
+.how-step:focus-visible {
+  outline: 2px solid var(--action);
+  outline-offset: 2px;
+}
+
+.how-step-num {
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.how-step[aria-selected="true"] .how-step-num {
+  color: var(--magenta);
+}
+
+.how-step-body strong {
+  display: block;
+  color: var(--berry-10);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.how-step-body span {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Janela da receita */
+.rx-app {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.rx-app-bar,
+.ic-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--berry-160);
+}
+
+.rx-app-bar i,
+.ic-bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--berry-140);
+}
+
+.rx-app-bar span,
+.ic-bar span {
+  margin-left: 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.rx-app-panel {
+  min-height: 340px;
+  padding: 24px 26px;
+}
+
+.rx-app-panel[hidden] {
+  display: none;
+}
+
+.rx-app-label {
+  margin: 0 0 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rx-app-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 2px solid var(--action);
+  border-radius: 8px;
+  color: var(--berry-10);
+  font-size: 17px;
+}
+
+.rx-app-search svg {
+  width: 20px;
+  height: 20px;
+  color: var(--action);
+}
+
+.rx-app-caret {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  margin-left: 1px;
+  vertical-align: -3px;
+  background: var(--berry-10);
+  animation: rx-caret 1s steps(1) infinite;
+}
+
+@keyframes rx-caret {
+  50% { opacity: 0; }
+}
+
+.rx-app-suggest,
+.rx-app-chips,
+.rx-app-items,
+.rx-app-options,
+.rx-app-send,
+.ic-nav,
+.ic-main ol,
+.wb-phone ol,
+.use-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rx-app-suggest {
+  margin-top: 8px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.rx-app-suggest li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+.rx-app-suggest li.is-active {
+  background: var(--berry-160);
+}
+
+.rx-app-suggest strong {
+  color: var(--berry-10);
+  font-size: 15px;
+}
+
+.rx-app-suggest small {
+  flex: none;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.rx-app-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rx-app-chips li {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-chip);
+  color: var(--text-body);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rx-app-chips li.is-active {
+  border-color: var(--action);
+  background: var(--action);
+  color: var(--white);
+}
+
+.rx-app-items {
+  margin: 14px 0 0;
+}
+
+.rx-app-items li,
+.ic-main li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.rx-app-items i,
+.ic-main i {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--berry-160);
+  color: var(--action);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.rx-app-items strong,
+.ic-main strong {
+  display: block;
+  color: var(--berry-10);
+  font-size: 15.5px;
+}
+
+.rx-app-items small,
+.ic-main small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.rx-app-items em {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(140, 39, 155, 0.08);
+  color: var(--action);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.rx-app-ok,
+.rx-app-toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  color: var(--berry-10);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.rx-app-ok svg,
+.rx-app-toast svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--magenta);
+}
+
+.rx-app-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rx-app-options li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--berry-10);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.rx-app-options small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.rx-app-options svg,
+.rx-app-send svg {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  color: var(--berry-50);
+}
+
+.rx-app-options li.is-active,
+.rx-app-send li.is-active {
+  border-color: var(--action);
+  background: var(--berry-160);
+}
+
+.rx-app-options li.is-active svg,
+.rx-app-send li.is-active svg {
+  color: var(--action);
+}
+
+.rx-app-send {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rx-app-send li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--berry-10);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.rx-app-toast {
+  margin-top: 22px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: var(--berry-160);
+}
+
+.rx-app-foot {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 22px;
+  border-top: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* --- Casos de uso ---------------------------------------------------------- */
+.use-cases {
+  background: linear-gradient(180deg, var(--berry-160) 0%, var(--berry-152) 100%);
+}
+
+.use-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
+  gap: clamp(32px, 4vw, 56px);
+  align-items: start;
+}
+
+.use-intro h2 {
+  margin-bottom: 28px;
+  font-size: clamp(30px, 3vw, 42px);
+}
+
+.use-tabs {
+  display: grid;
+  gap: 10px;
+}
+
+.use-tab {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.use-tab:hover {
+  border-color: var(--line-strong);
+}
+
+.use-tab[aria-selected="true"] {
+  border-color: var(--action);
+  box-shadow: var(--shadow-sm);
+}
+
+.use-tab:focus-visible {
+  outline: 2px solid var(--action);
+  outline-offset: 2px;
+}
+
+.use-tab svg {
+  width: 28px;
+  height: 28px;
+  color: var(--berry-50);
+}
+
+.use-tab[aria-selected="true"] svg {
+  color: var(--action);
+}
+
+.use-tab strong {
+  display: block;
+  color: var(--berry-10);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.use-tab small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.use-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: center;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.use-panel[hidden] {
+  display: none;
+}
+
+.use-screen {
+  display: flex;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, var(--berry-160) 0%, var(--berry-150) 100%);
+}
+
+/* Tela do iClinic (reproducao em HTML) */
+.ic-app {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.ic-bar span {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 11px;
+}
+
+.ic-body {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+}
+
+.ic-nav {
+  padding: 12px 8px;
+  border-right: 1px solid var(--line);
+}
+
+.ic-nav li {
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+.ic-nav li.is-active {
+  background: var(--berry-160);
+  color: var(--berry-10);
+  font-weight: 700;
+}
+
+.ic-main {
+  padding: 16px 18px;
+}
+
+.ic-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 0 12px;
+  color: var(--berry-10);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ic-title span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.ic-sub {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ic-main li {
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.ic-main i {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+}
+
+.ic-main strong {
+  font-size: 13px;
+}
+
+.ic-main small {
+  font-size: 12px;
+}
+
+.ic-history {
+  margin: 12px 0 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--berry-160);
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Celular do Whitebook: tela em HTML (caso 2) ou print real (caso 3) */
+.wb-phone,
+.wb-shot {
+  border: 8px solid #1c1c24;
+  border-radius: 30px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.wb-phone {
+  width: 236px;
+  padding: 22px 14px;
+}
+
+.wb-phone p {
+  margin: 0;
+}
+
+.wb-phone-top {
+  color: var(--berry-10);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.wb-phone .wb-phone-patient {
+  margin-bottom: 14px;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.wb-phone li {
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.wb-phone strong {
+  display: block;
+  color: var(--berry-10);
+  font-size: 13px;
+}
+
+.wb-phone small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+.wb-phone-ok,
+.wb-phone-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.wb-phone .wb-phone-ok {
+  margin: 4px 0 12px;
+  color: var(--berry-10);
+}
+
+.wb-phone-ok svg {
+  width: 16px;
+  height: 16px;
+  color: var(--magenta);
+}
+
+.wb-phone-send {
+  padding: 10px;
+  border-radius: 999px;
+  background: var(--action);
+  color: var(--white);
+}
+
+.wb-phone-send svg {
+  width: 16px;
+  height: 16px;
+  color: var(--white);
+}
+
+.wb-shot {
+  display: block;
+  width: auto;
+  height: 360px;
+}
+
+.use-product {
+  margin: 0 0 10px;
+  color: var(--magenta);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.use-detail h3 {
+  margin: 0 0 10px;
+  color: var(--berry-10);
+  font-size: clamp(22px, 1.8vw, 26px);
+}
+
+.use-detail > p:not(.use-product) {
+  margin: 0 0 16px;
+  color: var(--text-body);
+  font-size: 16px;
+}
+
+.use-list {
+  margin-bottom: 20px;
+}
+
+.use-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-body);
+  font-size: 15px;
+}
+
+.use-list svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--magenta);
+}
+
+.use-impact {
+  max-width: 820px;
+  margin: 36px auto 0;
+  color: var(--text-body);
+  font-size: 16px;
+  text-align: center;
+}
+
+.use-impact strong {
+  color: var(--berry-10);
+}
+
+@media (max-width: 1100px) {
+  .use-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .use-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .how-layout,
+  .use-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .use-tabs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .use-screen {
+    height: 340px;
+  }
+
+  .wb-shot {
+    height: 300px;
+  }
+}
+
+@media (max-width: 520px) {
+  .rx-app-panel {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .rx-app-suggest small {
+    display: none;
+  }
+
+  .rx-app-send {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rx-app-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .use-panel {
+    padding: 14px;
+  }
+
+  .use-screen {
+    height: 300px;
+    padding: 16px;
+  }
+
+  .ic-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ic-nav {
+    display: none;
+  }
+
+  .use-tab {
+    padding: 12px 14px;
+  }
+}
+
+/* --- Compensacao de altura ---------------------------------------------------
+   As duas secoes novas sao mais altas que as que substituiram. Para a pagina
+   nao crescer no desktop: a descricao de cada passo so aparece no passo ativo,
+   a tela dos casos de uso fica mais baixa e os cards de beneficio poem o icone
+   ao lado do titulo em vez de em cima. */
+.how-step:not([aria-selected="true"]) .how-step-body span {
+  display: none;
+}
+
+.how .section-heading h2 {
+  font-size: clamp(34px, 3.4vw, 48px);
+}
+
+.use-screen {
+  height: 340px;
+}
+
+.wb-shot {
+  height: 300px;
+}
+
+.use-panel {
+  padding: 20px;
+}
+
+/* O celular em HTML do caso 2 e mais alto que a tela: sai da base do quadro,
+   como um aparelho cortado, em vez de ser cortado em cima e embaixo. */
+.use-screen-phone:has(.wb-phone) {
+  align-items: flex-start;
+  padding-bottom: 0;
+}
+
+.wb-phone {
+  border-bottom: 0;
+  border-radius: 30px 30px 0 0;
+  padding: 18px 12px 12px;
+}
+
+.wb-phone li {
+  padding: 8px 10px;
+}
+
+.use-impact {
+  margin-top: 28px;
+}
+
+@media (min-width: 861px) {
+  .outcome-card {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    column-gap: 16px;
+    padding: 24px 24px 26px;
+  }
+
+  .outcome-card svg {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+}
+
+/* --- Beneficios: carrossel horizontal no celular ----------------------------
+   Empilhados, os seis cards somavam ~1.850 px de rolagem a 390 px de largura.
+   Em linha, com o proximo card aparecendo pela borda, ocupam uma altura so. */
+@media (max-width: 860px) {
+  .outcome-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(78%, 320px);
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 4px var(--gutter) 20px;
+    overflow-x: auto;
+    scroll-padding-inline: var(--gutter);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .outcome-card {
+    scroll-snap-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rx-app-caret {
+    animation: none;
+  }
+
+  .how-step,
+  .use-tab {
+    transition: none;
+  }
 }

@@ -502,3 +502,32 @@
     if (event.key === "Escape") groups.forEach(close);
   });
 })();
+
+/* Abas genericas ([data-tabs] com role="tab"): "Como funciona" e "Casos de uso" (29/09).
+   Bloco proprio porque o anterior sai cedo quando a pagina nao tem grupos no menu. */
+(function () {
+  // Padrao WAI-ARIA com ativacao automatica: setas, Home e End movem o foco e ja trocam
+  // o painel. Sem JS, o primeiro painel fica visivel (os demais vem com hidden no HTML).
+  document.querySelectorAll("[data-tabs]").forEach((list) => {
+    const tabs = Array.from(list.querySelectorAll('[role="tab"]'));
+    const select = (tab) => {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => select(tab));
+      tab.addEventListener("keydown", (event) => {
+        const keys = { ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 };
+        if (!(event.key in keys)) return;
+        event.preventDefault();
+        const next = tabs[(keys[event.key] + tabs.length) % tabs.length];
+        next.focus();
+        select(next);
+      });
+    });
+  });
+})();

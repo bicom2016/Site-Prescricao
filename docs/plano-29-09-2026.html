@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de alterações — 29/09</title>
+<style>
+  :root {
+    --bg: #f6f6fb;
+    --card: #ffffff;
+    --text: #1d1d2b;
+    --muted: #5d5d72;
+    --line: #e2e2ee;
+    --done: #0f7a4a;
+    --done-bg: #e3f5ec;
+    --part: #8a5a00;
+    --part-bg: #fdf1d8;
+    --wait: #a4133c;
+    --wait-bg: #fce6ec;
+    --skip: #4a4a5e;
+    --skip-bg: #ebebf2;
+    --accent: #8b2a9b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15151d;
+      --card: #1e1e29;
+      --text: #ececf4;
+      --muted: #a6a6bb;
+      --line: #2f2f3e;
+      --done: #5fd39a;
+      --done-bg: #173327;
+      --part: #f2c265;
+      --part-bg: #3a2e14;
+      --wait: #ff8fab;
+      --wait-bg: #3d1a25;
+      --skip: #c4c4d6;
+      --skip-bg: #2a2a38;
+      --accent: #d58ae3;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p { color: var(--muted); margin: 4px 0; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  a { color: var(--accent); }
+  code { font-size: 0.92em; }
+
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .summary div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .summary strong { display: block; font-size: 28px; line-height: 1.1; }
+  .summary .n-done strong { color: var(--done); }
+  .summary .n-part strong { color: var(--part); }
+  .summary .n-wait strong { color: var(--wait); }
+  .summary .n-skip strong { color: var(--skip); }
+  .summary span { color: var(--muted); font-size: 14px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+  .tag.done { background: var(--done-bg); color: var(--done); }
+  .tag.part { background: var(--part-bg); color: var(--part); }
+  .tag.wait { background: var(--wait-bg); color: var(--wait); }
+  .tag.skip { background: var(--skip-bg); color: var(--skip); }
+
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .item h3 { margin: 0; font-size: 17px; }
+  .item .src { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .item ul { margin: 8px 0 0; padding-left: 20px; }
+  .item li { margin: 4px 0; }
+  .item li .tag { margin-right: 6px; }
+  .note { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-size: 14.5px; }
+  .note.need { background: var(--wait-bg); }
+  .note.need b { color: var(--wait); }
+  .note.info { background: var(--done-bg); }
+  .note.info b { color: var(--done); }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 720px) {
+    .summary { grid-template-columns: repeat(2, 1fr); }
+    .item-head { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Plano de alterações — site Prescrição</h1>
+    <p>A partir da ata da reunião Conversion × Afya de 22/09/2026 · entrega na terça, <strong>29/09</strong></p>
+    <p>Site: <a href="https://prescricao.conversion.com.br/">prescricao.conversion.com.br</a> · local: <a href="http://localhost:8080/">localhost:8080</a></p>
+    <p><strong>Atualizado em 25/09/2026:</strong> tudo o que não dependia de material foi feito, menos o topo, que ficou fora desta rodada.</p>
+
+    <div class="summary">
+      <div class="n-done"><strong>17</strong><span>feitos</span></div>
+      <div class="n-part"><strong>3</strong><span>feitos com provisório, a trocar quando o material chegar</span></div>
+      <div class="n-skip"><strong>5</strong><span>do topo, fora desta rodada</span></div>
+      <div class="n-wait"><strong>10</strong><span>itens a receber ou decidir (tabela no fim)</span></div>
+    </div>
+    <div class="legend">
+      <span><span class="tag done">Feito</span> pronto e publicado</span>
+      <span><span class="tag part">Provisório</span> feito com material provisório</span>
+      <span><span class="tag skip">Fora da rodada</span> topo, a pedido</span>
+      <span><span class="tag wait">Falta</span> preciso receber algo</span>
+    </div>
+  </header>
+
+  <h2>0. Antes de tudo</h2>
+  <div class="item">
+    <div class="item-head"><h3>Publicar os ajustes de hoje (25/09)</h3><span class="tag done">Feito</span></div>
+    <p class="src">Commit <code>527eaa9</code>, no ar</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Botão "Assinada e enviada" arredondado</li>
+      <li><span class="tag done">Feito</span>Chamada final de ponta a ponta, encostando no rodapé</li>
+      <li><span class="tag done">Feito</span>Faixa de números em <code>#EAEAF4</code></li>
+      <li><span class="tag done">Feito</span>"Desenvolvido por Conversion" no rodapé, ao lado de Afya, com separador; sem a faixa escura</li>
+    </ul>
+  </div>
+
+  <h2>1. Logo e marca</h2>
+  <div class="item">
+    <div class="item-head"><h3>Remover "Afya Prescrição" como marca</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · Decisão 1 e "Logo": Prescrição é produto, não marca</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Cabeçalho, rodapé e 404: logo da Afya + "Prescrição digital" em texto neutro</li>
+      <li><span class="tag done">Feito</span>Nome revisto no site todo: título da aba, nome de compartilhamento, texto acima do título do topo, faixa da Anvisa, texto do ecossistema e título do rodapé</li>
+      <li><span class="tag part">Provisório</span>Logo da Afya recortado do lockup do iClinic; troco pelo arquivo oficial quando vier</li>
+    </ul>
+  </div>
+
+  <h2>2. Topo (hero)</h2>
+  <div class="item">
+    <div class="item-head"><h3>Duas imagens alternando: iClinic e Whitebook</h3><span class="tag skip">Fora da rodada</span></div>
+    <p class="src">Ata · "Proposta: duas imagens alternando" e "Incluir a figura do paciente"</p>
+    <ul>
+      <li><span class="tag skip">Fora da rodada</span>Estrutura com as duas cenas: indicadores, botão de pausar, parada para quem desativou animações</li>
+      <li><span class="tag skip">Fora da rodada</span>Texto e botão de cada cena apontando para o produto dela</li>
+      <li><span class="tag skip">Fora da rodada</span>Fotos: iClinic (médico mais velho, consultório, laptop, diante do paciente) e Whitebook (médico no corredor do plantão, com celular)</li>
+      <li><span class="tag skip">Fora da rodada</span>Mensagem central no subtítulo do topo</li>
+    </ul>
+    <div class="note need"><b>Falta:</b> as duas fotos, com o paciente em cena · decisão: uma versão, duas versões ou troca automática (ponto em aberto da ata)</div>
+  </div>
+
+  <h2>3. Seção de públicos → casos de uso</h2>
+  <div class="item">
+    <div class="item-head"><h3>"Uma receita, quatro pessoas envolvidas" virou "Em qual momento você está?"</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · "Seção de públicos → casos de uso" e item 5 (referência visual do Whitebook)</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Três casos focados no médico: <em>no consultório, dentro do prontuário</em> (iClinic) · <em>fora do consultório, em contextos rápidos</em> (Whitebook) · <em>no momento da decisão clínica</em> (Whitebook)</li>
+      <li><span class="tag done">Feito</span>Visual da referência: abas à esquerda, tela no centro, recursos e link para o produto à direita</li>
+      <li><span class="tag done">Feito</span>Paciente e farmácia saíram como público e viraram uma linha de impacto</li>
+      <li><span class="tag part">Provisório</span>Tela do iClinic recriada em HTML a partir do print da ata; a do caso "decisão clínica" já é o print real do Whitebook IA</li>
+    </ul>
+    <div class="note need"><b>Falta:</b> print em alta resolução da tela de prescrição do iClinic</div>
+  </div>
+
+  <h2>4. Elementos gráficos para quebrar o texto</h2>
+  <div class="item">
+    <div class="item-head"><h3>Mais visual, sem esticar a página</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · "Conteúdo e layout" (item grifado) e item 5</p>
+    <ul>
+      <li><span class="tag done">Feito</span><strong>Por que prescrever digital:</strong> ícone ao lado do título no computador; carrossel horizontal no celular</li>
+      <li><span class="tag done">Feito</span><strong>Como funciona:</strong> passos clicáveis (Busque, Monte, Assine, Envie), cada um trocando a tela ao lado</li>
+      <li><span class="tag done">Feito</span>Altura medida antes e depois (ver abaixo)</li>
+      <li><span class="tag part">Provisório</span>Telas de cada passo ilustradas em HTML; troco pelas telas e GIFs reais quando chegarem</li>
+    </ul>
+    <div class="note info"><b>Altura da página:</b> celular 11.437 → 10.683 px (−6,6%). Computador 6.735 → 6.849 px (+1,7%): as seções novas são mais altas e a compensação cobriu a maior parte.</div>
+  </div>
+
+  <h2>5. Clareza dos produtos e mensagem central</h2>
+  <div class="item">
+    <div class="item-head"><h3>O que é cada produto + "2 minutos, tela única"</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · "Conteúdo e layout"</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Cards de "Onde você prescreve": etiquetas "Software de gestão de consultório" (iClinic) e "App de apoio à decisão clínica" (Whitebook), e o texto de abertura da seção</li>
+      <li><span class="tag done">Feito</span>Mensagem central no título de "Como funciona": "Da busca ao paciente, em cerca de 2 minutos" + "Prescrição moderna, segura, rápida e fácil. Tudo em uma tela só."</li>
+      <li><span class="tag skip">Fora da rodada</span>Mensagem central no subtítulo do topo</li>
+    </ul>
+    <div class="note need"><b>Falta decidir:</b> o site diz <em>"Gratuita e ilimitada no Whitebook"</em>, mas a ata fala em versão gratuita <em>limitada</em>. Qual está certo?</div>
+  </div>
+
+  <h2>6. Paleta</h2>
+  <div class="item">
+    <div class="item-head"><h3>Preparar para a troca de cores</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · Decisão 2 e pontos em aberto</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Cores soltas viraram variáveis da paleta (<code>--berry-152</code>, <code>--berry-155</code>, <code>--conversion-blue</code>)</li>
+      <li><span class="tag wait">Falta</span>Paleta neutra entre iClinic e Whitebook (com o Lucas)</li>
+    </ul>
+  </div>
+
+  <h2>7. Fechamento</h2>
+  <div class="item">
+    <div class="item-head"><h3>Registro e publicação</h3><span class="tag done">Feito</span></div>
+    <ul>
+      <li><span class="tag done">Feito</span>Pendências do README atualizadas e registro em <code>docs/registro-25-09-2026.md</code></li>
+      <li><span class="tag done">Feito</span>Conferido no celular e no computador, publicado e verificado no ar</li>
+    </ul>
+  </div>
+
+  <h2>O que falta receber</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>O quê</th><th>De quem</th><th>Trava</th></tr></thead>
+    <tbody>
+      <tr><td>Fotos do topo: iClinic (consultório + paciente) e Whitebook (plantão + celular)</td><td>Conversion / Afya</td><td>Rodada do topo</td></tr>
+      <tr><td>Decisão do topo: uma versão, duas versões ou troca automática</td><td>Conjunta</td><td>Rodada do topo</td></tr>
+      <tr><td>Print da tela de prescrição do iClinic em alta resolução</td><td>Afya</td><td>Troca da tela recriada nos casos de uso</td></tr>
+      <tr><td>Whitebook gratuito: "ilimitado" ou "limitado"?</td><td>Afya</td><td>Texto do topo e do card do Whitebook</td></tr>
+      <tr><td>Feedback consolidado das páginas (prazo era 24/09)</td><td>Vivi e time</td><td>Ajustes de texto que ainda não conheço</td></tr>
+      <tr><td>Paleta neutra iClinic × Whitebook</td><td>Lucas</td><td>Troca de cores</td></tr>
+      <tr><td>Big numbers do ecossistema Afya (médicos e prescrições em todos os canais)</td><td>Afya</td><td>Faixa de números; mantidos os atuais</td></tr>
+      <tr><td>Fotos das pessoas dos depoimentos</td><td>Afya</td><td>Seção de depoimentos (hoje não existe na home)</td></tr>
+      <tr><td>Vídeo: objetivo, local e formato</td><td>Vivi e Paulinha</td><td>Vídeo no topo ou em seção própria</td></tr>
+      <tr><td>Logo oficial da Afya em vetor</td><td>Afya</td><td>Nada: o recorte está no ar até lá</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <footer>Gerado em 25/09/2026 a partir de <em>NOVO Reunião 22_9 site Prescrição: Conversion x Afya</em> e atualizado no mesmo dia. Próxima reunião: 29/09/2026.</footer>
+</div>
+</body>
+</html>

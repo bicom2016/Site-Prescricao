@@ -30,9 +30,12 @@ depoimentos) continuam em aberto.
 
 A folha de estilo segue sendo a herdada do Whitebook: a home reaproveita os
 componentes existentes (`hero`, `proof`, `afya-band`, `outcome-grid`,
-`plans-grid`, `steps-grid`, `trust-band`, `credibility`, `rx-demo`, `faq-list`,
-`final-cta`). O bloco no fim de `styles.css` cobre só o que não existia — marca
-em texto, a nota de apoio do hero e o grid de quatro passos.
+`plans-grid`, `credibility`, `rx-demo`, `faq-list`, `final-cta`). Os blocos no
+fim de `styles.css` cobrem só o que não existia: a marca (logo da Afya + texto), a
+nota de apoio do hero e, desde 25/09, "Como funciona" com tela única (`how`,
+`rx-app`), os casos de uso (`use-cases`, `ic-app`, `wb-phone`) e o carrossel de
+benefícios no celular. As duas seções novas usam abas genéricas (`[data-tabs]`, no
+fim de `script.js`).
 
 Também ficaram no repositório assets e scripts do Whitebook que a home de
 Prescrição não usa: os logos do clube de benefícios (`assets/images/benefits/`),
@@ -58,13 +61,21 @@ As cores vêm da LP de Prescrição do iClinic
 | Azul acinzentado | `--berry-120` | `#bccae5` |
 | Lavanda | `--berry-140` | `#ceceea` |
 | Navy das faixas escuras | `--berry-10` | `#0d1b2a` |
+| Faixa de números | `--berry-155` | `#eaeaf4` |
+| Fim do degradê das faixas claras | `--berry-152` | `#e6ebf8` |
 | Tinta | `--text` | `#2d2d2d` |
+| Crédito da Conversion (só no rodapé) | `--conversion-blue` | `#1649ff` |
+
+A reunião de 22/09 decidiu buscar uma paleta neutra entre iClinic e Whitebook (o
+Lucas, da Afya, apoia a definição). Até lá nenhuma cor nova entra solta no CSS:
+toda cor passa por um token, para a troca acontecer num lugar só.
 
 A escala manteve os nomes `--berry-*` herdados do Whitebook — trocar os nomes
 exigiria reescrever as ~6900 linhas que já os referenciam. O que mudou foram os
 valores. Seguindo a LP, que é uma página clara, as seções "Para quem" e
 "Ecossistema" deixaram de ser blocos escuros e passaram a faixas em azul e
-lavanda; o escuro ficou no hero e na chamada final.
+lavanda; o escuro ficou só no hero (a chamada final também passou a clara em 25/09,
+e "Para quem" virou a seção de casos de uso).
 
 Ainda são do Whitebook e precisam de arte própria: o favicon
 (`whitebook-logo.svg`) e a imagem social (`assets/images/og-home.png`).
@@ -74,7 +85,16 @@ Prescrição, gerada a partir de `capa-afya-prescricao.jpg` em três recortes:
 1280w e 1920w para o `srcset` e um 4:3 (960x720) que a folha troca em telas de
 até 600px.
 
-### Lockup da marca
+### Marca
+
+Desde 25/09 o cabeçalho, o rodapé e o 404 usam o logo da Afya seguido de
+"Prescrição digital" em texto. Na reunião de 22/09 ficou decidido que Prescrição
+é produto, não marca, então o lockup "Afya Prescrição" saiu de uso.
+`assets/images/afya-logo.svg` são as quatro letras do lockup do iClinic
+(`afya-iclinic-lockup.svg`), sem o iClinic — provisório até a Afya mandar o
+arquivo oficial.
+
+O lockup antigo e seu gerador continuam no repositório, sem uso na página:
 
 `assets/images/afya-prescricao-lockup.png` foi montado a partir do lockup do
 Whitebook: o símbolo "Afya" é recorte pixel a pixel do arquivo original, e
@@ -200,6 +220,10 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       gerador do lockup portável, preload do hero (22/09/2026, `e4e7ddb`)
 - [x] DNS de prescricao.conversion.com.br, app no Coolify, deploy key, autodeploy
       por webhook — site no ar (22/09/2026, ver `DEPLOY_VPS.md`)
+- [x] Ata de 22/09, tudo menos o topo: marca neutra, casos de uso, "Como funciona"
+      com tela única, benefícios em carrossel no celular, papel de cada produto,
+      cores em tokens (25/09/2026, ver `docs/registro-25-09-2026.md` e
+      `docs/plano-29-09-2026.html`)
 
 **Conteúdo e marca**
 
@@ -209,8 +233,18 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       depoimentos)
 - [ ] Substituir os assets herdados do Whitebook: favicon (`whitebook-logo.svg`) e
       imagem social (`assets/images/og-home.png`)
-- [ ] Pedir à Afya o lockup vetorial oficial de Prescrição e trocar o PNG reproduzido
-- [ ] Receber telas e GIFs do produto para o bloco "Como funciona"
+- [ ] Topo com duas cenas alternando (iClinic no consultório e Whitebook no plantão,
+      com o paciente) e a mensagem central no subtítulo — ata de 22/09, fora da
+      rodada de 25/09; depende das fotos e da decisão entre uma versão, duas ou
+      troca automática
+- [ ] Confirmar se a prescrição no Whitebook gratuito é "ilimitada" (texto atual do
+      topo e do card) ou "limitada" (ata de 22/09)
+- [ ] Pedir à Afya o logo oficial da Afya em vetor e trocar `afya-logo.svg`
+- [ ] Receber telas e GIFs reais do produto e o print da tela de prescrição do
+      iClinic: hoje "Como funciona" e os casos de uso usam telas recriadas em HTML
+- [ ] Paleta neutra entre iClinic e Whitebook (Afya, com o Lucas)
+- [ ] Números do ecossistema Afya para a faixa de prova, fotos dos depoimentos e
+      definição do vídeo (Afya, ata de 22/09)
 
 **Site**
 
