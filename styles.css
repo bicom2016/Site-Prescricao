@@ -6763,7 +6763,9 @@ main {
    rodape institucional do cliente — some junto se o cliente pedir, sem mexer no rodape.
    ============================================================ */
 .site-credit {
-  background: #1649ff;
+  /* Era o azul da marca Conversion (#1649ff); trocado pelo cinza-carvao da
+     paleta do site, que nao compete com o rodape da Afya logo acima. */
+  background: #2d2d2d;
   padding-block: 16px;
 }
 
@@ -6921,13 +6923,29 @@ a:not([href]) {
   font-size: 15px;
 }
 
-/* CTA final: a caixa e escura, entao o apoio e o botao secundario precisam de
-   contraste invertido. */
+/* Chamada final em caixa clara, com o mesmo fundo dos cards de "Como funciona"
+   (--berry-160). Desfaz o bloco escuro herdado do Whitebook, que pintava o
+   fundo em degrade navy e o texto em branco. */
+.final-cta-inner {
+  background: var(--berry-160);
+  border-color: transparent;
+}
+
+.final-cta h2 {
+  color: var(--text);
+}
+
 .final-cta-inner > p {
   max-width: 620px;
   margin-inline: auto;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-body);
   font-size: 18px;
+}
+
+/* O botao branco do hero desapareceria sobre esta base clara; ganha o contorno
+   roxo para continuar lendo como secundario. */
+.final-cta-inner .button-invert {
+  border-color: var(--action);
 }
 
 .final-cta-inner .hero-actions {
@@ -6955,7 +6973,8 @@ a:not([href]) {
 /* "Para quem" — era um bloco navy; vira a faixa azul da LP. */
 .trust-band {
   color: var(--text);
-  background: linear-gradient(135deg, #ceceea 0%, #b7d2f8 100%);
+  /* Mesmo fundo da faixa do marco regulatorio (.afya-band). */
+  background: linear-gradient(180deg, #f4f6fb 0%, #e6ebf8 100%);
 }
 
 .trust-copy h2 {
@@ -6982,10 +7001,10 @@ a:not([href]) {
 
 /* "Ecossistema" — mesma logica, em azul mais lavado, para o cartao de receita
    branco continuar destacando. */
+/* Mesmo fundo da secao "Onde voce prescreve" (.plans). O glow radial azul saiu
+   junto: sobre esta base quase branca ele viraria uma mancha. */
 .credibility {
-  background:
-    radial-gradient(900px 560px at 78% 26%, rgba(183, 210, 248, 0.7), rgba(183, 210, 248, 0) 64%),
-    linear-gradient(160deg, #eef2fc 0%, #dde5f6 100%);
+  background: linear-gradient(180deg, var(--berry-160) 0%, var(--white) 100%);
 }
 
 .credibility-copy h2 {
@@ -7030,8 +7049,15 @@ a:not([href]) {
   }
 }
 
+/* Nesta faixa o texto e todo tinta (--berry-10, #0d1b2a): o "+", a unidade e o
+   rotulo. A cor fica so nos icones, que seguem magenta. O rotulo abaixo usava
+   --text-muted (a mesma tinta a 72%) e agora vem cheio. */
 .proof-highlight .hl {
-  color: var(--action);
+  color: var(--berry-10);
+}
+
+.proof-item .proof-label {
+  color: var(--berry-10);
 }
 
 /* Faixa do marco regulatorio: o olho e filho direto de .afya-copy e herdava o
@@ -7125,4 +7151,20 @@ a:not([href]) {
   .credibility-copy h2 {
     font-size: clamp(34px, 3.4vw, 48px);
   }
+}
+
+/* Logo do produto no topo de cada card de contexto, centralizado.
+   Os dois lockups tem proporcoes internas diferentes: medido na mesma altura, o
+   "Afya" do Whitebook sai 14% maior que o do iClinic. Por isso as alturas nao
+   sao iguais — sao calibradas para que o simbolo "Afya" fique do mesmo tamanho
+   nos dois, que e o que o olho usa para comparar. */
+.plan-logo {
+  display: block;
+  width: auto;
+  height: 26px;
+  margin: 0 auto 22px;
+}
+
+.plan-logo-iclinic {
+  height: 30px;
 }
