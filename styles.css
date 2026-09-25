@@ -4631,6 +4631,8 @@ main {
 .rx-demo-sign {
   display: inline-flex;
   padding: 10px 16px;
+  /* Mesmo radius pill dos botoes (.button) */
+  border-radius: var(--radius-cta);
   background: var(--magenta);
   color: var(--white);
   font-size: 14px;
@@ -6758,71 +6760,49 @@ main {
 }
 
 /* ============================================================
-   17/09 — Tarja de credito da Conversion, no fim de todas as paginas.
-   Fica FORA do <footer> da Afya de proposito: e credito de autoria do site, nao parte do
-   rodape institucional do cliente — some junto se o cliente pedir, sem mexer no rodape.
+   Credito da Conversion, no fim de todas as paginas.
+   Era uma tarja escura propria abaixo do rodape; agora e uma linha do
+   .footer-bottom, ao lado de "Parte do ecossistema Afya" e no mesmo padrao dela
+   (texto muted, marca em negrito). Para remover, basta apagar o <p class="site-credit">.
    ============================================================ */
-.site-credit {
-  /* Era o azul da marca Conversion (#1649ff); trocado pelo cinza-carvao da
-     paleta do site, que nao compete com o rodape da Afya logo acima. */
-  background: #2d2d2d;
-  padding-block: 16px;
-}
-
-.site-credit-inner {
+.footer-signatures {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
   flex-wrap: wrap;
+  gap: 8px 14px;
 }
 
-/* O SVG ja vem na versao negativa (branco com as ondas recortadas na cor da tarja);
-   ver o comentario dentro do arquivo. */
-/* O logo agora e um link para conversion.com.br. Sem sublinhado nem a cor de link do
-   site, que foi feita para fundo claro; o retorno visual vem da opacidade, e o foco
-   ganha contorno branco para ficar visivel sobre o azul. */
-.site-credit-link {
-  display: block;
-  line-height: 0;
-  border-radius: 3px;
+/* Separador "|" entre a linha da Afya e o credito. Via CSS para ser so visual
+   (leitor de tela nao anuncia) e sumir quando as linhas empilham no celular. */
+.site-credit::before {
+  content: "|";
+  margin-right: 14px;
+  color: var(--line-strong);
+}
+
+.site-credit a {
+  color: inherit;
+  text-decoration: none;
   transition: opacity var(--ease);
 }
 
-.site-credit-link:hover {
-  opacity: 0.82;
+.site-credit a:hover {
+  opacity: 0.8;
 }
 
-.site-credit-link:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 4px;
+/* Conversion leva o azul da marca, como Afya leva o magenta */
+.footer-bottom .site-credit strong {
+  color: #1649ff;
 }
 
-.site-credit img {
-  height: 20px;
-  width: auto;
-  flex: none;
-}
-
-.site-credit p {
-  margin: 0;
-  color: #fff;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-@media (max-width: 520px) {
-  .site-credit-inner {
-    gap: 10px;
+@media (max-width: 720px) {
+  .footer-signatures {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
-  .site-credit img {
-    height: 18px;
-  }
-
-  .site-credit p {
-    font-size: 0.8125rem;
+  .site-credit::before {
+    content: none;
   }
 }
 
@@ -6925,9 +6905,16 @@ a:not([href]) {
 
 /* Chamada final em caixa clara, com o mesmo fundo dos cards de "Como funciona"
    (--berry-160). Desfaz o bloco escuro herdado do Whitebook, que pintava o
-   fundo em degrade navy e o texto em branco. */
-.final-cta-inner {
+   fundo em degrade navy e o texto em branco. O fundo fica na secao, nao na
+   caixa: vai de ponta a ponta da tela e desce ate o rodape, sem a faixa branca
+   que o padding da secao deixava em volta. */
+.final-cta {
+  padding-block: 0;
   background: var(--berry-160);
+}
+
+.final-cta-inner {
+  background: transparent;
   border-color: transparent;
 }
 
@@ -6960,9 +6947,9 @@ a:not([href]) {
    a superficie clara, entao o texto branco herdado precisa voltar para a tinta.
    -------------------------------------------------------------------------- */
 
-/* Faixa de numeros logo abaixo do hero — lavanda, como a da LP. */
+/* Faixa de numeros logo abaixo do hero — lavanda chapado (#eaeaf4). */
 .proof {
-  background: linear-gradient(180deg, #ceceea 0%, #dcdcef 100%);
+  background: #eaeaf4;
 }
 
 /* Faixa do marco regulatorio. */
