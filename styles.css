@@ -6794,9 +6794,27 @@ main {
   opacity: 0.8;
 }
 
-/* Conversion leva o azul da marca, como Afya leva o magenta */
-.footer-bottom .site-credit strong {
-  color: var(--conversion-blue);
+/* Logo da Conversion no lugar do nome, no azul da marca (--conversion-blue,
+   embutido no SVG), alinhado a linha de texto ao lado. */
+.site-credit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-credit a {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.site-credit img {
+  width: auto;
+  height: 16px;
+}
+
+/* Com o flex, o gap soma a margem do separador: 6 + 8 = os 14px de antes */
+.site-credit::before {
+  margin-right: 6px;
 }
 
 @media (max-width: 720px) {
