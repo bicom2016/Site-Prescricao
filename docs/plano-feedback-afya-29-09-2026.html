@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano — feedback da Afya</title>
+<style>
+  :root {
+    --bg: #f6f6fb;
+    --card: #ffffff;
+    --text: #1d1d2b;
+    --muted: #5d5d72;
+    --line: #e2e2ee;
+    --done: #0f7a4a;
+    --done-bg: #e3f5ec;
+    --part: #8a5a00;
+    --part-bg: #fdf1d8;
+    --todo: #1d4f91;
+    --todo-bg: #e2ecfa;
+    --wait: #a4133c;
+    --wait-bg: #fce6ec;
+    --accent: #1d4f91;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15151d;
+      --card: #1e1e29;
+      --text: #ececf4;
+      --muted: #a6a6bb;
+      --line: #2f2f3e;
+      --done: #5fd39a;
+      --done-bg: #173327;
+      --part: #f2c265;
+      --part-bg: #3a2e14;
+      --todo: #8fbcf5;
+      --todo-bg: #172a44;
+      --wait: #ff8fab;
+      --wait-bg: #3d1a25;
+      --accent: #8fbcf5;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15151d;
+    --card: #1e1e29;
+    --text: #ececf4;
+    --muted: #a6a6bb;
+    --line: #2f2f3e;
+    --done: #5fd39a;
+    --done-bg: #173327;
+    --part: #f2c265;
+    --part-bg: #3a2e14;
+    --todo: #8fbcf5;
+    --todo-bg: #172a44;
+    --wait: #ff8fab;
+    --wait-bg: #3d1a25;
+    --accent: #8fbcf5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p { color: var(--muted); margin: 4px 0; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  a { color: var(--accent); }
+  code { font-size: 0.92em; }
+
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .summary div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .summary strong { display: block; font-size: 28px; line-height: 1.1; }
+  .summary .n-done strong { color: var(--done); }
+  .summary .n-part strong { color: var(--part); }
+  .summary .n-todo strong { color: var(--todo); }
+  .summary .n-wait strong { color: var(--wait); }
+  .summary span { color: var(--muted); font-size: 14px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+  .tag.done { background: var(--done-bg); color: var(--done); }
+  .tag.part { background: var(--part-bg); color: var(--part); }
+  .tag.todo { background: var(--todo-bg); color: var(--todo); }
+  .tag.wait { background: var(--wait-bg); color: var(--wait); }
+
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .item h3 { margin: 0; font-size: 17px; }
+  .item .src { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .item ul { margin: 8px 0 0; padding-left: 20px; }
+  .item li { margin: 6px 0; }
+  .item li .tag { margin-right: 6px; }
+  .note { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-size: 14.5px; }
+  .note.need { background: var(--wait-bg); }
+  .note.need b { color: var(--wait); }
+  .note.info { background: var(--todo-bg); }
+  .note.info b { color: var(--todo); }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  ol.rounds { padding-left: 20px; }
+  ol.rounds li { margin: 8px 0; }
+
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 720px) {
+    .summary { grid-template-columns: repeat(2, 1fr); }
+    .item-head { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Plano de alterações — feedback da Afya</h1>
+    <p>A partir do documento <em>Feedback Consolidado — Site Institucional Prescrição</em>, cruzado com o site que estava publicado até 28/09/2026 (commit <code>2bf611b</code>).</p>
+    <p>Site: <a href="https://prescricao.conversion.com.br/">prescricao.conversion.com.br</a> · local: <a href="http://localhost:8080/">localhost:8080</a></p>
+    <p><strong>Atualizado em 29/09/2026:</strong> tudo o que estava como "dá para fazer" foi feito, incluindo os fundos das seções, que ficaram brancos na maior parte, com quebras em azul acinzentado. As alterações foram publicadas em 29/09 no ambiente de revisão. Detalhes em <code>docs/registro-29-09-2026.md</code>.</p>
+
+    <div class="summary">
+      <div class="n-done"><strong>22</strong><span>feitos (15 deles em 29/09)</span></div>
+      <div class="n-part"><strong>0</strong><span>feitos em parte</span></div>
+      <div class="n-todo"><strong>0</strong><span>restantes que não dependem de ninguém</span></div>
+      <div class="n-wait"><strong>13</strong><span>dependem de contexto ou material</span></div>
+    </div>
+    <div class="legend">
+      <span><span class="tag done">Feito</span> nossa parte está pronta e publicada</span>
+      <span><span class="tag part">Em parte</span> existe, mas não atende o pedido inteiro</span>
+      <span><span class="tag todo">Dá para fazer</span> não depende de ninguém</span>
+      <span><span class="tag wait">Falta</span> precisa de resposta ou material</span>
+    </div>
+  </header>
+
+  <h2>Antes de começar: qual versão a Afya avaliou?</h2>
+  <div class="item">
+    <p style="margin:0">O documento não tem data. O feedback consolidado era esperado para 24/09, e a rodada de 25/09 mudou a marca, os casos de uso e "Como funciona". Se a Afya avaliou a versão anterior a 25/09, parte dos pedidos abaixo (logo, áreas clicáveis, menos texto) já foi atendida em parte. Vale confirmar antes da próxima call.</p>
+  </div>
+
+  <h2>1. Logo e marca</h2>
+  <div class="item">
+    <div class="item-head"><h3>Usar só a marca Afya, sem a palavra "prescrição"</h3><span class="tag done">Feito</span></div>
+    <p class="src">Feedback · 1. Diretrizes de marca e cores · Uso da logo</p>
+    <ul>
+      <li><span class="tag done">Feito</span>O lockup "Afya Prescrição" saiu do cabeçalho, do rodapé e da página 404 em 25/09.</li>
+      <li><span class="tag done">Feito</span>O texto "Prescrição digital" saiu do lado do logo (cabeçalho, rodapé e 404).</li>
+      <li><span class="tag done">Feito</span>Ícone da aba do navegador trocado do Whitebook para o "A" da Afya.</li>
+      <li><span class="tag wait">Falta</span>Logo oficial da Afya em vetor. O que está no ar é um recorte do lockup do iClinic.</li>
+    </ul>
+  </div>
+
+  <h2>2. Paleta</h2>
+  <div class="item">
+    <div class="item-head"><h3>Base sóbria: azul-escuro, azul acinzentado, cinza e pouco magenta</h3><span class="tag done">Feito</span></div>
+    <p class="src">Feedback · 1. Diretrizes de marca e cores · Paleta visual</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Todas as cores do site passam por variáveis, então a troca acontece em um lugar só.</li>
+      <li><span class="tag done">Feito</span>Botões em azul-escuro (<code>#1b3f7a</code>). No topo, que é escuro, o botão principal é branco.</li>
+      <li><span class="tag done">Feito</span>Magenta só em detalhes: rótulo acima dos títulos, sublinhado do menu e marcador do passo ativo. Palavras destacadas, ícones e links passaram para azul (<code>#2f62b0</code>).</li>
+      <li><span class="tag done">Feito</span>Roxo fora da base do site; aparece só no banner (item 4).</li>
+      <li><span class="tag wait">Falta</span>Aprovação dos valores exatos. O feedback dá a direção, não os códigos das cores. A paleta sai como proposta para a Afya validar.</li>
+    </ul>
+    <div class="note info"><b>Por que muda bastante:</b> a paleta atual foi copiada da landing page de Prescrição do iClinic, que é justamente a campanha válida até dezembro que o feedback pede para não seguir.</div>
+  </div>
+
+  <h2>3. Fundo das seções</h2>
+  <div class="item">
+    <div class="item-head"><h3>Dobras em branco na maior parte, com quebras leves</h3><span class="tag done">Feito</span></div>
+    <p class="src">Feedback · 1. Diretrizes de marca e cores · Aplicação institucional</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Os blocos escuros já tinham saído; só o topo é escuro.</li>
+      <li><span class="tag done">Feito</span>Página branca na maior parte, com quatro quebras em azul acinzentado claro (<code>#ebeff6</code>): faixa de números, personas, depoimentos e chamada final. Os degradês e a lavanda saíram.</li>
+      <li><span class="tag done">Feito</span>Linguagem institucional que serve aos dois produtos: a home apresenta Whitebook e iClinic como duas portas de entrada, sem hierarquia.</li>
+    </ul>
+  </div>
+
+  <h2>4. Banner da nova prescrição</h2>
+  <div class="item">
+    <div class="item-head"><h3>Definir o tamanho para a Afya produzir a imagem</h3><span class="tag done">Feito</span></div>
+    <p class="src">Feedback · Paleta visual (uso do roxo) e Banner da nova prescrição</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Texto com as dimensões pronto para envio em <code>docs/pedido-afya-banner-e-telas-29-09-2026.md</code>. O envio em si ainda precisa ser feito.</li>
+      <li><span class="tag done">Feito</span>Espaço reservado depois de "Como funciona": faixa roxa de 1320 × 400 px, com título curto e um botão.</li>
+      <li><span class="tag wait">Falta</span>Saber onde o banner entra: no topo da página ou em uma faixa no meio. O documento não diz, e o tamanho depende disso.</li>
+      <li><span class="tag wait">Falta</span>Texto do banner e para onde ele leva ao clicar.</li>
+      <li><span class="tag wait">Falta</span>A imagem, produzida pela Afya com as duas personas.</li>
+    </ul>
+    <div class="note info"><b>Tamanhos no pedido à Afya:</b><br>
+      Topo, de ponta a ponta: 1920 × 1080 px no computador e 960 × 720 px no celular, com a metade esquerda livre para o texto.<br>
+      Faixa no meio da página: 2640 × 800 px no computador (exibida em 1320 × 400) e 750 × 900 px no celular.</div>
+  </div>
+
+  <h2>5. Menos texto, mais imagem</h2>
+  <div class="item">
+    <div class="item-head"><h3>Seguir a construção da home do iClinic</h3><span class="tag done">Feito</span></div>
+    <p class="src">Feedback · 2. Reestruturação visual · Seguir a referência do site de iClinic e Diagramação</p>
+    <ul>
+      <li><span class="tag done">Feito</span>"Como funciona" virou quatro passos clicáveis com uma tela ao lado (25/09).</li>
+      <li><span class="tag done">Feito</span>Benefícios com ícone e uma frase curta; carrossel no celular (25/09).</li>
+      <li><span class="tag done">Feito</span>"Por que prescrever digital": a grade de seis cards virou duas linhas que alternam foto de um lado e três benefícios do outro.</li>
+      <li><span class="tag done">Feito</span>"Onde você prescreve" e "Casos de uso" viraram uma seção só (item 7).</li>
+      <li><span class="tag wait">Falta</span>Capturas da home do iClinic ou a indicação dos blocos a espelhar. O site do iClinic bloqueia acesso automatizado, então não foi possível abrir a referência.</li>
+    </ul>
+    <div class="note need"><b>Situação agora:</b> a home tem três fotografias grandes (topo e as duas personas) e duas pequenas nas abas. Até 28/09 havia uma só.</div>
+  </div>
+
+  <h2>6. Telas do produto</h2>
+  <div class="item">
+    <div class="item-head"><h3>Mais telas reais das funcionalidades</h3><span class="tag wait">Falta</span></div>
+    <p class="src">Feedback · 2. Reestruturação visual · Telas do produto</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Do nosso lado está pronto: uma tela real (Whitebook IA) e seis ilustradas em HTML marcando o lugar. A troca pelas reais depende do envio da Afya.</li>
+      <li><span class="tag done">Feito</span>Lista das telas, com tamanho e formato, no mesmo texto do pedido do banner.</li>
+      <li><span class="tag wait">Falta</span>As telas: busca de medicamento, montagem da receita, assinatura, envio, prescrição dentro do prontuário do iClinic e prescrição no app do Whitebook.</li>
+      <li><span class="tag wait">Falta</span>Decidir se a home passa a falar de transcrição automática e prontuário. O feedback cita essas telas, mas o conteúdo aprovado da home não trata desses recursos.</li>
+    </ul>
+  </div>
+
+  <h2>7. Segmentação por público</h2>
+  <div class="item">
+    <div class="item-head"><h3>Área por persona, com clique que revela os recursos</h3><span class="tag done">Feito</span></div>
+    <p class="src">Feedback · 2. Reestruturação visual · Segmentação por público</p>
+    <ul>
+      <li><span class="tag done">Feito</span>A interação clicável que existia em "Em qual momento você está?" passou de três momentos de uso para duas personas, com foto.</li>
+      <li><span class="tag done">Feito</span>Seção reorganizada em duas personas, cada uma com foto, tela, descrição e recursos revelados no clique: "Em formação ou recém-formado" (Whitebook) e "Em consultório ou clínica" (iClinic). O texto das abas é novo e precisa de validação.</li>
+      <li><span class="tag wait">Falta</span>Confirmar a troca. Na reunião de 22/09 ficou decidido usar casos de uso no lugar de públicos; este feedback pede personas. As duas coisas cabem juntas, mas a decisão precisa ser da Afya.</li>
+    </ul>
+  </div>
+
+  <h2>8. Depoimentos</h2>
+  <div class="item">
+    <div class="item-head"><h3>Incluir depoimentos com fotos pequenas na home</h3><span class="tag wait">Falta</span></div>
+    <p class="src">Feedback · 2. Reestruturação visual · Depoimentos e imagens</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Seção montada antes de "Dúvidas", com três cards de marcação, sem nome nem fala de ninguém.</li>
+      <li><span class="tag wait">Falta</span>Texto, nome, especialidade e foto de cada depoimento. Os que existem no repositório são sobre o Whitebook, não sobre prescrição.</li>
+      <li><span class="tag wait">Falta</span>Confirmar se são os mesmos depoimentos da landing page. Se forem, basta copiar de lá o texto e as fotos.</li>
+    </ul>
+  </div>
+
+  <h2>9. Personas fotográficas</h2>
+  <div class="item">
+    <div class="item-head"><h3>Duas personas presentes em várias partes do site</h3><span class="tag done">Feito</span></div>
+    <p class="src">Feedback · 2. Reestruturação visual · Personas fotográficas</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Em uso, como provisórias, duas fotos que já estavam no repositório e batem com a descrição: médico experiente de jaleco Afya, com paciente e laptop (<code>consultorio-card.webp</code>), e médica jovem com celular no hospital (<code>plantao-card.webp</code>).</li>
+      <li><span class="tag wait">Falta</span>Fotos definitivas em alta resolução. As do repositório têm 768 × 818 px: servem dentro das seções, não no topo.</li>
+      <li><span class="tag wait">Falta</span>Decisão do topo, aberta desde 22/09: uma cena, duas cenas ou troca automática. A foto atual (médica jovem, sozinha, no computador de mesa) não corresponde a nenhuma das duas personas.</li>
+    </ul>
+    <div class="note need"><b>Atenção:</b> a foto do plantão tem aparência de imagem gerada por IA, o que o feedback pede para evitar, e mostra uma enfermaria, não um corredor. Serve para validar o layout, não para a versão final.</div>
+  </div>
+
+  <h2>Ordem sugerida</h2>
+  <div class="item">
+    <ol class="rounds">
+      <li><strong>Rodada 1, sem depender de ninguém.</strong> Feita em 29/09, incluindo os fundos. Falta enviar à Afya o pedido de banner e telas, que já está escrito.</li>
+      <li><strong>Rodada 2, estrutura com material provisório.</strong> Feita em 29/09: personas, benefícios em linhas alternadas, banner e depoimentos.</li>
+      <li><strong>Rodada 3, quando o material chegar.</strong> Telas reais, depoimentos, imagem do banner, fotos definitivas e topo.</li>
+    </ol>
+  </div>
+
+  <h2>O que falta saber ou receber</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>O quê</th><th>De quem</th><th>Trava</th></tr></thead>
+    <tbody>
+      <tr><td>Qual versão do site foi avaliada: antes ou depois de 25/09</td><td>Afya</td><td>O tamanho real de cada pedido</td></tr>
+      <tr><td>Banner: no topo ou em faixa no meio; texto e link</td><td>Afya</td><td>Dimensões finais e espaço na página</td></tr>
+      <tr><td>Imagem do banner com as duas personas</td><td>Afya, depois de receber as dimensões</td><td>Publicação do banner</td></tr>
+      <tr><td>Aprovação da paleta proposta</td><td>Afya (Lucas)</td><td>Nada: a proposta entra no ar para validação</td></tr>
+      <tr><td>Personas no lugar dos casos de uso decididos em 22/09</td><td>Afya</td><td>Reorganização da seção</td></tr>
+      <tr><td>Telas reais do produto</td><td>Afya, a partir da nossa lista</td><td>Troca das telas desenhadas</td></tr>
+      <tr><td>Transcrição automática e prontuário entram no conteúdo da home?</td><td>Afya</td><td>Quais telas pedir</td></tr>
+      <tr><td>Depoimentos: texto, nome, especialidade e foto</td><td>Afya</td><td>Seção de depoimentos</td></tr>
+      <tr><td>Capturas da home do iClinic com os blocos de referência</td><td>Conversion</td><td>Fidelidade à referência</td></tr>
+      <tr><td>Fotos definitivas das duas personas, em alta resolução</td><td>Afya / Conversion</td><td>Topo e versão final das seções</td></tr>
+      <tr><td>Decisão do topo: uma cena, duas ou troca automática</td><td>Conjunta</td><td>Rodada do topo</td></tr>
+      <tr><td>Logo oficial da Afya em vetor</td><td>Afya</td><td>Nada: o recorte segue no ar</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="color:var(--muted);font-size:14px">Seguem abertas da reunião de 22/09, sem menção neste feedback: prescrição "ilimitada" ou "limitada" no Whitebook gratuito, números do ecossistema Afya e definição do vídeo.</p>
+
+  <footer>Gerado e atualizado em 29/09/2026 a partir de <em>Feedback_Consolidado_Site_Afya.pdf</em>. Plano anterior: <code>docs/plano-29-09-2026.html</code>.</footer>
+</div>
+</body>
+</html>

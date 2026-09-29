@@ -22,16 +22,24 @@
   font-display: swap;
 }
 
-/* Paleta extraida da LP de Prescricao do iClinic (lps.iclinic.com.br/prescricao-home/):
-   magenta #c7127b para destaque de texto e icones, roxo #8c279b para acao,
-   azul #b7d2f8 / lavanda #ceceea nas superficies e navy nas faixas escuras.
+/* Paleta sobria (feedback consolidado da Afya, 29/09): azul-escuro na acao, azul
+   no destaque de texto e icones, azul acinzentado nas superficies e magenta so em
+   detalhes. Ate 28/09 a acao era roxa (#8c279b) e o destaque, magenta: cores da LP
+   de Prescricao do iClinic (lps.iclinic.com.br/prescricao-home/), campanha valida
+   ate dezembro. O roxo ficou reservado ao banner da nova prescricao.
    A escala mantem os nomes "berry" herdados do Whitebook para nao quebrar as
    ~6900 linhas que ja referenciam esses tokens — o que mudou foram os valores. */
 :root {
+  /* Detalhe: olho das secoes, sublinhado do menu, traco do ecossistema e marcador
+     do passo ativo em "Como funciona". */
   --magenta: #c7127b;
-  /* Roxo de acao: na LP o botao e roxo e o magenta fica so no texto. */
-  --action: #8c279b;
-  --action-strong: #731f80;
+  /* Destaque de texto, icones e links. */
+  --accent: #2f62b0;
+  --action: #1b3f7a;
+  --action-strong: #142f5c;
+  /* Campanha da nova prescricao: so no banner (.campaign-banner). */
+  --campaign: #8c279b;
+  --campaign-strong: #731f80;
   --berry-10: #0d1b2a;
   --berry-20: #16283c;
   --berry-30: #22384f;
@@ -39,10 +47,10 @@
   --berry-70: #8ba8d8;
   --berry-100: #b7d2f8;
   --berry-120: #bccae5;
-  --berry-140: #ceceea;
-  --berry-150: #e3e3ee;
-  --berry-152: #e6ebf8; /* fim do degrade das faixas claras */
-  --berry-155: #eaeaf4; /* faixa de numeros */
+  /* 140 a 160: azul acinzentado desde 29/09 (ate 28/09, lavanda). */
+  --berry-140: #cbd5e3;
+  --berry-150: #e2e8f0;
+  --berry-155: #ebeff6; /* faixas de quebra entre as secoes brancas */
   --berry-160: #f4f6fb;
   --white: #ffffff;
   /* Cor de marca de terceiros: so no credito da Conversion, no rodape */
@@ -237,12 +245,12 @@ h3 {
 .button-primary {
   color: var(--white);
   background: var(--action);
-  box-shadow: 0 10px 24px rgba(140, 39, 155, 0.2);
+  box-shadow: 0 10px 24px rgba(27, 63, 122, 0.2);
 }
 
 .button-primary:hover {
   background: var(--action-strong);
-  box-shadow: 0 14px 30px rgba(140, 39, 155, 0.28);
+  box-shadow: 0 14px 30px rgba(27, 63, 122, 0.28);
 }
 
 /* 11/09 (call de 08/09) — hierarquia de CTA: um botao preenchido por dobra. O
@@ -314,8 +322,8 @@ h3 {
 }
 
 .icon-button:hover {
-  color: var(--magenta);
-  border-color: rgba(199, 18, 123, 0.35);
+  color: var(--accent);
+  border-color: rgba(47, 98, 176, 0.35);
   transform: translateY(-2px);
 }
 
@@ -414,7 +422,7 @@ h3 {
 }
 
 .header-login:hover {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .button-header {
@@ -558,7 +566,7 @@ main {
   align-self: center;
   width: 48px;
   height: 48px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .proof-item p {
@@ -592,7 +600,7 @@ main {
 
 .proof-link:hover,
 .proof-link:focus-visible {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* Plans */
@@ -622,7 +630,7 @@ main {
 .plan-card-premium {
   position: relative;
   background: linear-gradient(180deg, var(--white) 0%, var(--berry-160) 100%);
-  border-color: rgba(199, 18, 123, 0.44);
+  border-color: rgba(47, 98, 176, 0.44);
   box-shadow: var(--shadow-md);
 }
 
@@ -634,7 +642,7 @@ main {
   height: 6px;
   content: "";
   /* Degrade oficial da marca: 60% Magenta Afya -> 40% Berry 10 */
-  background: linear-gradient(90deg, var(--magenta), 60%, var(--berry-10));
+  background: linear-gradient(90deg, var(--accent), 60%, var(--berry-10));
 }
 
 .plan-card h3 {
@@ -675,7 +683,7 @@ main {
 
 .price-note {
   margin-bottom: 24px;
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 17px;
 }
 
@@ -716,8 +724,8 @@ main {
   height: 20px;
   place-items: center;
   content: "✓";
-  color: var(--magenta);
-  border: 1px solid rgba(199, 18, 123, 0.72);
+  color: var(--accent);
+  border: 1px solid rgba(47, 98, 176, 0.72);
   font-size: 13px;
   font-weight: 700;
 }
@@ -790,7 +798,7 @@ main {
 
 .explorer-rail button[aria-pressed="true"] {
   background: rgba(255, 255, 255, 0.14);
-  border-left-color: var(--magenta);
+  border-left-color: var(--accent);
 }
 
 .explorer-rail button small {
@@ -852,7 +860,7 @@ main {
   border: 0;
   border-radius: 50%;
   background: var(--white);
-  color: var(--magenta);
+  color: var(--accent);
   font: inherit;
   font-size: 19px;
   line-height: 1;
@@ -937,7 +945,7 @@ main {
 }
 
 .explorer-steps button[aria-pressed="true"] .step-n {
-  background: var(--magenta);
+  background: var(--accent);
   color: var(--white);
 }
 
@@ -945,7 +953,7 @@ main {
   min-height: 128px;
   padding: 18px 22px;
   margin-top: 20px;
-  border-left: 3px solid var(--magenta);
+  border-left: 3px solid var(--accent);
   background: rgba(255, 255, 255, 0.06);
 }
 
@@ -1026,8 +1034,8 @@ main {
 
 .journey-band a:hover,
 .journey-band a:focus-visible {
-  color: var(--magenta);
-  border-color: rgba(199, 18, 123, 0.35);
+  color: var(--accent);
+  border-color: rgba(47, 98, 176, 0.35);
 }
 
 /* Audiences */
@@ -1064,7 +1072,7 @@ main {
   inset: 0 auto 0 0;
   width: 3px;
   content: "";
-  background: linear-gradient(180deg, var(--magenta), rgba(199, 18, 123, 0));
+  background: linear-gradient(180deg, var(--accent), rgba(47, 98, 176, 0));
 }
 
 .audience-card img {
@@ -1318,9 +1326,9 @@ main {
   display: inline-flex;
   padding: 6px 10px;
   margin-bottom: 20px;
-  color: var(--magenta);
-  background: rgba(199, 18, 123, 0.06);
-  border: 1px solid rgba(199, 18, 123, 0.1);
+  color: var(--accent);
+  background: rgba(47, 98, 176, 0.06);
+  border: 1px solid rgba(47, 98, 176, 0.1);
   font-size: 14px;
   font-weight: 700;
 }
@@ -1332,7 +1340,7 @@ main {
 
 .benefits-copy h3 {
   margin-bottom: 14px;
-  color: var(--magenta);
+  color: var(--accent);
   font-size: clamp(22px, 2vw, 28px);
   letter-spacing: -0.02em;
 }
@@ -1406,7 +1414,7 @@ main {
 }
 
 .benefit-card strong {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* Final CTA and footer */
@@ -1483,8 +1491,8 @@ main {
 }
 
 .social-links a:hover {
-  color: var(--magenta);
-  border-color: rgba(199, 18, 123, 0.3);
+  color: var(--accent);
+  border-color: rgba(47, 98, 176, 0.3);
   transform: translateY(-2px);
 }
 
@@ -1513,7 +1521,7 @@ main {
 }
 
 .footer-column a:hover {
-  color: var(--magenta);
+  color: var(--accent);
   transform: translateX(2px);
 }
 
@@ -1532,7 +1540,7 @@ main {
 }
 
 .footer-bottom strong {
-  color: var(--magenta);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -1588,7 +1596,7 @@ main {
 
 .page-stat {
   padding-left: 20px;
-  border-left: 3px solid var(--magenta);
+  border-left: 3px solid var(--accent);
 }
 
 .page-stat strong {
@@ -1778,7 +1786,7 @@ main {
 .faq-item summary::after {
   flex: 0 0 auto;
   content: "+";
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 26px;
   font-weight: 400;
   line-height: 1;
@@ -1845,7 +1853,7 @@ main {
   padding: 26px;
   background: var(--white);
   border: 1px solid var(--line);
-  border-top: 3px solid var(--magenta);
+  border-top: 3px solid var(--accent);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1917,7 +1925,7 @@ main {
   width: 12px;
   height: 2px;
   content: "";
-  background: var(--magenta);
+  background: var(--accent);
 }
 
 /* Timeline com anos no marcador (Quem somos) */
@@ -2213,7 +2221,7 @@ main {
   }
 
   .explorer-rail button[aria-pressed="true"] {
-    border-bottom-color: var(--magenta);
+    border-bottom-color: var(--accent);
   }
 
   .explorer-rail button small {
@@ -2464,7 +2472,7 @@ main {
 }
 
 .compare-table .check {
-  color: var(--magenta);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -2567,8 +2575,8 @@ main {
 
 .az-nav a:hover,
 .az-nav a:focus-visible {
-  border-color: var(--magenta);
-  color: var(--magenta);
+  border-color: var(--accent);
+  color: var(--accent);
   background: var(--white);
 }
 
@@ -2606,7 +2614,7 @@ main {
 
 .drug-list a:hover,
 .drug-list a:focus-visible {
-  color: var(--magenta);
+  color: var(--accent);
   text-decoration: underline;
 }
 
@@ -2713,7 +2721,7 @@ main {
   left: 50%;
   transform: translateX(-50%);
   padding: 6px 16px;
-  background: var(--magenta);
+  background: var(--accent);
   color: var(--white);
   border-radius: var(--radius-chip);
   font-size: 12.5px;
@@ -2721,14 +2729,14 @@ main {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 8px 20px rgba(199, 18, 123, 0.35);
+  box-shadow: 0 8px 20px rgba(47, 98, 176, 0.35);
 }
 
 /* Premium invertido para o Berry escuro do manual — mesma familia das faixas
    do explorador e da credibilidade; o Free permanece branco */
 .plan-card-premium {
   background: linear-gradient(180deg, var(--berry-20) 0%, var(--berry-10) 100%);
-  border-color: rgba(199, 18, 123, 0.55);
+  border-color: rgba(47, 98, 176, 0.55);
 }
 
 .plan-card-premium h3,
@@ -2756,7 +2764,7 @@ main {
 }
 
 .plan-card-premium .feature-list li::before {
-  background: var(--magenta);
+  background: var(--accent);
   border-color: transparent;
   color: var(--white);
 }
@@ -2792,14 +2800,14 @@ main {
 }
 
 .plan-ia .plan-ia-spark {
-  color: var(--magenta);
+  color: var(--accent);
   font-style: normal;
   font-size: 16px;
 }
 
 .plan-card-premium .plan-ia {
   background: rgba(255, 255, 255, 0.08);
-  border-left-color: var(--magenta);
+  border-left-color: var(--accent);
   color: var(--white);
 }
 
@@ -2854,9 +2862,9 @@ main {
 
 .plans-toggle-save {
   padding: 6px 14px;
-  background: rgba(199, 18, 123, 0.1);
+  background: rgba(47, 98, 176, 0.1);
   border-radius: var(--radius-chip);
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 12.5px;
   font-weight: 700;
 }
@@ -2883,7 +2891,7 @@ main {
   left: 0;
   width: 22px;
   height: 22px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .plan-card-premium .feature-list-icons li svg {
@@ -2898,7 +2906,7 @@ main {
 /* 7.1 — palavra-acento magenta (usar SO em secoes de fundo claro; no Berry
    escuro o magenta nao tem contraste) */
 .hl {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* 7.2 — CTA final: caixa escura (a pagina fecha com autoridade) */
@@ -2953,7 +2961,7 @@ main {
   content: "\201C";
   display: block;
   margin-bottom: 2px;
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 58px;
   font-weight: 700;
   line-height: 0.7;
@@ -2962,7 +2970,7 @@ main {
 .testimonial-card figcaption img {
   width: 64px;
   height: 64px;
-  border: 3px solid var(--magenta);
+  border: 3px solid var(--accent);
 }
 
 /* 7.5 — micro-interacoes: cards com elevacao no hover (reduced-motion fica parado) */
@@ -3085,12 +3093,12 @@ main {
 /* 7.7 — beneficios com cor: desconto como protagonista (logo permanece em
    fundo branco para nao arriscar logos com fundo chapado) */
 .benefit-card {
-  border-left: 3px solid var(--magenta);
+  border-left: 3px solid var(--accent);
 }
 
 .benefit-card p strong {
   display: block;
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 26px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -3153,13 +3161,13 @@ main {
   left: 24%;
   height: 3px;
   content: "";
-  background: var(--magenta);
+  background: var(--accent);
   transform: scaleX(0);
   transition: transform var(--ease);
 }
 
 .journey-tabs button[aria-selected="true"] {
-  color: var(--magenta);
+  color: var(--accent);
   background: var(--berry-160);
 }
 
@@ -3173,7 +3181,7 @@ main {
 }
 
 .journey-tabs button[aria-selected="true"] .icon {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .journey-panels {
@@ -3210,7 +3218,7 @@ main {
   display: grid;
   min-height: 420px;
   overflow: hidden;
-  border-left: 4px solid var(--magenta);
+  border-left: 4px solid var(--accent);
   background: var(--white);
   box-shadow: var(--shadow-sm);
   grid-template-columns: 1.1fr 0.9fr;
@@ -3274,8 +3282,8 @@ main {
   left: 8px;
   width: 8px;
   height: 8px;
-  border-right: 2px solid var(--magenta);
-  border-bottom: 2px solid var(--magenta);
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
   content: "";
   transform: rotate(45deg);
 }
@@ -3310,7 +3318,7 @@ main {
   flex: 1;
   overflow: hidden;
   border: 1px solid var(--berry-150);
-  border-left: 3px solid var(--magenta);
+  border-left: 3px solid var(--accent);
   background: var(--berry-160);
 }
 
@@ -3358,7 +3366,7 @@ main {
 .tool-card-plus::after {
   position: absolute;
   content: "";
-  background: var(--magenta);
+  background: var(--accent);
   transition: transform var(--ease);
 }
 
@@ -3537,7 +3545,7 @@ main {
 
 /* Ajuste fino 25/08: transicao suave hero -> faixa de numeros. Degrade
    vertical reto (sem onda/diagonal, conforme preferencia do cliente)
-   dissolvendo a cena na cor do topo da faixa (berry-150). */
+   dissolvendo a cena na cor da faixa de numeros (berry-155). */
 .hero::after {
   content: "";
   position: absolute;
@@ -3548,10 +3556,10 @@ main {
   height: 230px;
   background: linear-gradient(
     180deg,
-    rgba(227, 227, 238, 0) 0%,
-    rgba(227, 227, 238, 0.18) 35%,
-    rgba(227, 227, 238, 0.55) 68%,
-    var(--berry-150) 100%
+    rgba(235, 239, 246, 0) 0%,
+    rgba(235, 239, 246, 0.18) 35%,
+    rgba(235, 239, 246, 0.55) 68%,
+    var(--berry-155) 100%
   );
   pointer-events: none;
 }
@@ -3624,8 +3632,8 @@ main {
   height: 26px;
   place-items: center;
   border-radius: 8px;
-  background: rgba(199, 18, 123, 0.12);
-  color: var(--magenta);
+  background: rgba(47, 98, 176, 0.12);
+  color: var(--accent);
   font-size: 14px;
   font-style: normal;
 }
@@ -3716,8 +3724,8 @@ main {
   gap: 8px;
   padding: 8px 14px;
   border-radius: var(--radius-chip);
-  background: rgba(199, 18, 123, 0.1);
-  color: var(--magenta);
+  background: rgba(47, 98, 176, 0.1);
+  color: var(--accent);
   font-size: 12px;
   font-weight: 700;
 }
@@ -3992,7 +4000,7 @@ main {
 }
 
 .page-hero .hl {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* A faixa de numeros que segue o hero fica branca (o hero ja e a faixa tint) */
@@ -4045,7 +4053,7 @@ main {
   left: 0;
   height: 2px;
   content: "";
-  background: var(--magenta);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--ease);
@@ -4113,7 +4121,7 @@ main {
 }
 
 .main-nav .nav-dropdown a[aria-current="page"] {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .nav-dropdown a small {
@@ -4198,7 +4206,7 @@ main {
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  border-top: 4px solid var(--magenta);
+  border-top: 4px solid var(--accent);
   background: var(--white);
   color: inherit;
   box-shadow: var(--shadow-sm);
@@ -4248,7 +4256,7 @@ main {
   gap: 8px;
   margin-top: auto;
   padding-top: 8px;
-  color: var(--magenta);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -4278,7 +4286,7 @@ main {
   display: flex;
   flex-direction: column;
   padding: 26px 26px 28px;
-  border-left: 3px solid var(--magenta);
+  border-left: 3px solid var(--accent);
   background: var(--white);
   box-shadow: var(--shadow-sm);
   transition: transform var(--ease), box-shadow var(--ease);
@@ -4396,7 +4404,7 @@ main {
   height: 22px;
   flex: 0 0 auto;
   margin-top: 1px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .group-chip small {
@@ -4428,7 +4436,7 @@ main {
 .step-card::before {
   display: block;
   margin-bottom: 8px;
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 30px;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -4470,14 +4478,14 @@ main {
   max-width: 520px;
   margin-inline: auto;
   padding: 26px 28px 28px;
-  border-top: 4px solid var(--magenta);
+  border-top: 4px solid var(--accent);
   background: var(--white);
   box-shadow: 0 28px 64px rgba(13, 27, 42, 0.14);
 }
 
 .demo-title {
   margin: 0 0 16px;
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -4594,7 +4602,7 @@ main {
   height: 26px;
   place-items: center;
   background: var(--berry-160);
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -4629,7 +4637,7 @@ main {
 .rx-demo-check svg {
   width: 18px;
   height: 18px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .rx-demo-sign {
@@ -4637,7 +4645,7 @@ main {
   padding: 10px 16px;
   /* Mesmo radius pill dos botoes (.button) */
   border-radius: var(--radius-cta);
-  background: var(--magenta);
+  background: var(--accent);
   color: var(--white);
   font-size: 14px;
   font-weight: 700;
@@ -4849,7 +4857,7 @@ main {
   inset: 10px auto 10px 0;
   width: 3px;
   border-radius: 0 3px 3px 0;
-  background: var(--magenta);
+  background: var(--accent);
   content: "";
   opacity: 0;
 }
@@ -4950,17 +4958,17 @@ main {
   height: 54px;
   place-items: center;
   padding: 0;
-  border: 1px solid var(--magenta);
+  border: 1px solid var(--accent);
   border-radius: 50%;
   background: transparent;
-  color: var(--magenta);
+  color: var(--accent);
   cursor: pointer;
   transition: background-color 300ms ease, color 300ms ease, transform 300ms ease;
 }
 
 .preview-resource-prev:hover,
 .preview-resource-next:hover {
-  background: var(--magenta);
+  background: var(--accent);
   color: #fff;
 }
 
@@ -5030,7 +5038,7 @@ main {
 
 .preview-journey-eyebrow {
   margin: 0 0 12px;
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -5063,7 +5071,7 @@ main {
 }
 
 .preview-journey .journey-moment-card:focus-visible {
-  outline: 3px solid var(--magenta);
+  outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
 
@@ -5312,7 +5320,7 @@ main {
 .text-link {
   display: inline-block;
   margin-top: 6px;
-  color: var(--magenta);
+  color: var(--accent);
   font-weight: 600;
   text-decoration: none;
 }
@@ -5424,7 +5432,7 @@ main {
 
 .offline-info-btn:hover,
 .offline-info:focus-within .offline-info-btn {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* Ancorado a esquerda, e nao centralizado no icone: as faixas de grupo comecam
@@ -5567,7 +5575,7 @@ main {
 }
 
 .compare-matrix td:last-child .tick {
-  background: var(--magenta);
+  background: var(--accent);
   color: var(--white);
 }
 
@@ -5583,7 +5591,7 @@ main {
 }
 
 .compare-matrix .level.is-premium {
-  color: var(--magenta);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -5931,7 +5939,7 @@ main {
 
 /* Faixa de prova social: icones Elsie no magenta da formula de 01/09 */
 .proof-item svg {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* 3 · Outcomes */
@@ -5944,7 +5952,7 @@ main {
 .outcome-card {
   padding: 30px 28px;
   border: 1px solid var(--line);
-  border-top: 4px solid var(--magenta);
+  border-top: 4px solid var(--accent);
   background: var(--white);
   box-shadow: var(--shadow-sm);
 }
@@ -6069,7 +6077,7 @@ main {
   gap: 40px;
   padding: clamp(28px, 4vw, 48px);
   border: 1px solid var(--berry-140);
-  border-left: 4px solid var(--magenta);
+  border-left: 4px solid var(--accent);
   background: var(--white);
 }
 
@@ -6522,7 +6530,7 @@ main {
   height: 17px;
   flex: none;
   margin-top: 2px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* A seta empurra para a direita e sobe junto com a primeira linha do texto, que pode ter
@@ -6544,7 +6552,7 @@ main {
 
 .objective-tabs button[aria-selected="true"] .objective-go {
   opacity: 1;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* Abaixo de 700px a regra base transforma as duas colunas de escolha em carrosseis
@@ -6647,7 +6655,7 @@ main {
   height: 17px;
   flex: none;
   margin-top: 1px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* A linha da lista e uma grade de duas colunas (icone + texto); a seta pede a terceira. */
@@ -6670,7 +6678,7 @@ main {
 
 .tools-explorer .preview-resource-tabs button[aria-selected="true"] .tools-go {
   opacity: 1;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* ============================================================
@@ -6700,7 +6708,7 @@ main {
 }
 
 .tools-explorer .objective-tabs button[aria-selected="true"] {
-  border-color: var(--magenta);
+  border-color: var(--accent);
   background: var(--white);
   color: var(--berry-10);
   box-shadow: var(--shadow-sm);
@@ -6723,7 +6731,7 @@ main {
 
 .tools-explorer .objective-tabs button[aria-selected="true"] .tools-go {
   opacity: 1;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 /* A ferramenta do objetivo nao escolhido sai da lista; o botao e `display: grid`, e regra
@@ -6842,17 +6850,17 @@ a:not([href]) {
 /* ==========================================================================
    Prescricao Afya — ajustes proprios da home
    A home reaproveita os componentes herdados do Whitebook. As regras abaixo
-   cobrem so o que nao existia: marca em texto, a nota de apoio do hero, o
-   grid de quatro passos e os contextos do bloco "Onde voce prescreve".
+   cobrem so o que nao existia: a marca, a nota de apoio do hero e as faixas
+   claras.
    ========================================================================== */
 
-/* Marca: logo da Afya + "Prescricao digital" em texto. Ata de 22/09: Prescricao e
-   produto, nao marca, entao saiu o lockup "Afya Prescricao" e ficou a mencao neutra.
+/* Marca: so o logo da Afya. Ata de 22/09: Prescricao e produto, nao marca, entao
+   saiu o lockup "Afya Prescricao". Feedback de 29/09: sem a palavra "prescricao"
+   junto do logo, entao saiu tambem o texto "Prescricao digital" que ficava ao lado.
    O logo (assets/images/afya-logo.svg) e recortado do lockup do iClinic ate a Afya
    mandar o arquivo oficial. */
 .brand {
   width: auto;
-  gap: 12px;
   margin: 0;
 }
 
@@ -6863,15 +6871,6 @@ a:not([href]) {
   margin: 0;
 }
 
-.brand-product {
-  padding-left: 12px;
-  border-left: 1px solid var(--line-strong);
-  color: var(--text-body);
-  font-size: 16px;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
 .footer-brand .brand {
   margin-bottom: 12px;
 }
@@ -6879,7 +6878,7 @@ a:not([href]) {
 /* O olho e a nota de apoio sao filhos diretos de .hero-copy e herdariam o
    corpo de 27px do subtitulo. */
 
-/* Olho do hero: etiqueta branca com texto roxo, de canto reto. */
+/* Olho do hero: etiqueta branca com texto azul-escuro, de canto reto. */
 .hero-copy > p.section-eyebrow {
   display: inline-block;
   margin-bottom: 20px;
@@ -6915,29 +6914,13 @@ a:not([href]) {
   line-height: 1.5;
 }
 
-/* Bloco 5: o titulo do card ocupa o lugar que era do preco, entao volta a um
-   corpo de subtitulo — 34px quebraria em quatro linhas. */
-.plans-grid .plan-card h3 {
-  margin-bottom: 12px;
-  font-size: clamp(21px, 2vw, 26px);
-  line-height: 1.25;
-}
-
-.plans-grid .plan-card .plan-more {
-  margin-top: auto;
-  padding-top: 18px;
-  color: var(--text-muted);
-  font-size: 15px;
-}
-
-/* Chamada final em caixa clara, com o mesmo fundo dos cards de "Como funciona"
-   (--berry-160). Desfaz o bloco escuro herdado do Whitebook, que pintava o
-   fundo em degrade navy e o texto em branco. O fundo fica na secao, nao na
-   caixa: vai de ponta a ponta da tela e desce ate o rodape, sem a faixa branca
-   que o padding da secao deixava em volta. */
+/* Chamada final em faixa clara, na cor das quebras (--berry-155). Desfaz o bloco
+   escuro herdado do Whitebook, que pintava o fundo em degrade navy e o texto em
+   branco. O fundo fica na secao, nao na caixa: vai de ponta a ponta da tela e
+   desce ate o rodape, sem a faixa branca que o padding da secao deixava em volta. */
 .final-cta {
   padding-block: 0;
-  background: var(--berry-160);
+  background: var(--berry-155);
 }
 
 .final-cta-inner {
@@ -6957,7 +6940,7 @@ a:not([href]) {
 }
 
 /* O botao branco do hero desapareceria sobre esta base clara; ganha o contorno
-   roxo para continuar lendo como secundario. */
+   azul-escuro para continuar lendo como secundario. */
 .final-cta-inner .button-invert {
   border-color: var(--action);
 }
@@ -6968,28 +6951,34 @@ a:not([href]) {
 }
 
 /* --------------------------------------------------------------------------
-   Faixas claras no padrao da LP do iClinic
-   A LP e uma pagina clara: azul e lavanda nas faixas, escuro so no rodape.
-   As duas secoes que aqui eram blocos escuros (Para quem e Ecossistema) passam
-   a superficie clara, entao o texto branco herdado precisa voltar para a tinta.
+   Fundos das secoes (feedback da Afya, 29/09)
+   A pagina e branca na maior parte, com quebras leves em azul acinzentado
+   chapado (--berry-155), sem degrade. Escuro so no topo; roxo so no banner.
+   Quebras: faixa de numeros, personas, depoimentos e chamada final. O resto e
+   branco: marco regulatorio, beneficios, "Como funciona", banner, ecossistema
+   e duvidas. As secoes que eram blocos escuros no Whitebook (Ecossistema)
+   precisam do texto de volta na tinta.
    -------------------------------------------------------------------------- */
 
-/* Faixa de numeros logo abaixo do hero — lavanda chapado. */
 .proof {
   background: var(--berry-155);
 }
 
-/* Faixa do marco regulatorio. */
+/* Marco regulatorio: a secao e branca e a quebra fica na caixa. */
 .afya-band {
-  background: linear-gradient(180deg, #f4f6fb 0%, var(--berry-152) 100%);
+  background: var(--white);
 }
 
-/* "Ecossistema" — mesma logica, em azul mais lavado, para o cartao de receita
-   branco continuar destacando. */
-/* Mesmo fundo da secao "Onde voce prescreve" (.plans). O glow radial azul saiu
-   junto: sobre esta base quase branca ele viraria uma mancha. */
+.afya-inner {
+  background: var(--berry-160);
+}
+
 .credibility {
-  background: linear-gradient(180deg, var(--berry-160) 0%, var(--white) 100%);
+  background: var(--white);
+}
+
+.testimonials {
+  background: var(--berry-155);
 }
 
 .credibility-copy h2 {
@@ -7014,8 +7003,7 @@ a:not([href]) {
   color: var(--text-muted);
 }
 
-/* Faixa de numeros: o destaque aqui e roxo, nao o magenta do resto do site, e
-   os tres seguem a mesma formula — "+" e a unidade em cor, o numero em tinta.
+/* Faixa de numeros: os tres seguem a mesma formula — "+" e a unidade em cor, o numero em tinta.
    Padding e corpo reduzidos para os tres titulos caberem em uma linha so. */
 .proof-item {
   padding-inline: clamp(18px, 2.2vw, 32px);
@@ -7035,7 +7023,7 @@ a:not([href]) {
 }
 
 /* Nesta faixa o texto e todo tinta (--berry-10, #0d1b2a): o "+", a unidade e o
-   rotulo. A cor fica so nos icones, que seguem magenta. O rotulo abaixo usava
+   rotulo. A cor fica so nos icones, no azul de destaque. O rotulo abaixo usava
    --text-muted (a mesma tinta a 72%) e agora vem cheio. */
 .proof-highlight .hl {
   color: var(--berry-10);
@@ -7049,45 +7037,6 @@ a:not([href]) {
    cinza de ".afya-copy > p", que vence ".section-eyebrow" na especificidade. */
 .afya-copy > p.section-eyebrow {
   color: var(--action);
-}
-
-/* Cards de beneficio: "Receituario adequado automaticamente" e o unico titulo
-   que nao cabia em uma linha a 21px na coluna de ~426px. */
-.outcome-grid .outcome-card h3 {
-  font-size: 19px;
-  letter-spacing: -0.01em;
-}
-
-/* Cards de contexto: o card inteiro reage ao mouse. */
-.plans-grid .plan-card {
-  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
-}
-
-.plans-grid .plan-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--action);
-  box-shadow: 0 24px 60px rgba(13, 27, 42, 0.16);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .plans-grid .plan-card,
-  .plans-grid .plan-card:hover {
-    transform: none;
-    transition: box-shadow var(--ease), border-color var(--ease);
-  }
-}
-
-/* "Quero prescrever e gerenciar minha clinica" tem 41 caracteres e nao cabia
-   em uma linha na largura do card a 16px. O corpo acompanha a viewport. */
-.plans-grid .plan-card .button-block {
-  padding-inline: 18px;
-  font-size: clamp(13px, 1.05vw, 15px);
-}
-
-@media (min-width: 1000px) {
-  .plans-grid .plan-card .button-block {
-    white-space: nowrap;
-  }
 }
 
 /* "Da busca ao paciente, em poucos cliques" precisa de ~1055px e o
@@ -7138,26 +7087,11 @@ a:not([href]) {
   }
 }
 
-/* Logo do produto no topo de cada card de contexto, centralizado.
-   Os dois lockups tem proporcoes internas diferentes: medido na mesma altura, o
-   "Afya" do Whitebook sai 14% maior que o do iClinic. Por isso as alturas nao
-   sao iguais — sao calibradas para que o simbolo "Afya" fique do mesmo tamanho
-   nos dois, que e o que o olho usa para comparar. */
-.plan-logo {
-  display: block;
-  width: auto;
-  height: 26px;
-  margin: 0 auto 22px;
-}
-
-.plan-logo-iclinic {
-  height: 30px;
-}
-
 /* ==========================================================================
-   Versao de 29/09 (ata de 22/09): "Como funciona" com tela unica, casos de
-   uso no lugar de "Uma receita, quatro pessoas" e beneficios em carrossel no
-   celular. Objetivo comum: mais recurso visual sem esticar a pagina.
+   Versao de 29/09 (ata de 22/09): "Como funciona" com tela unica e abas com
+   tela ao lado no lugar de "Uma receita, quatro pessoas". Objetivo comum: mais
+   recurso visual sem esticar a pagina. As abas viraram personas e os beneficios
+   viraram linhas alternadas no bloco do feedback da Afya, no fim da folha.
    ========================================================================== */
 
 /* --- Como funciona: passos (abas) + tela ilustrativa ---------------------- */
@@ -7429,7 +7363,7 @@ a:not([href]) {
   margin-top: 6px;
   padding: 2px 8px;
   border-radius: 999px;
-  background: rgba(140, 39, 155, 0.08);
+  background: rgba(27, 63, 122, 0.08);
   color: var(--action);
   font-size: 12px;
   font-style: normal;
@@ -7452,7 +7386,7 @@ a:not([href]) {
   flex: none;
   width: 20px;
   height: 20px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .rx-app-options {
@@ -7535,9 +7469,9 @@ a:not([href]) {
   font-weight: 600;
 }
 
-/* --- Casos de uso ---------------------------------------------------------- */
+/* --- Onde voce prescreve, por persona (ate 28/09: casos de uso) ------------ */
 .use-cases {
-  background: linear-gradient(180deg, var(--berry-160) 0%, var(--berry-152) 100%);
+  background: var(--berry-155);
 }
 
 .use-layout {
@@ -7559,8 +7493,8 @@ a:not([href]) {
 
 .use-tab {
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
   align-items: center;
   width: 100%;
   padding: 16px 18px;
@@ -7588,14 +7522,11 @@ a:not([href]) {
   outline-offset: 2px;
 }
 
-.use-tab svg {
-  width: 28px;
-  height: 28px;
-  color: var(--berry-50);
-}
-
-.use-tab[aria-selected="true"] svg {
-  color: var(--action);
+.use-tab img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .use-tab strong {
@@ -7809,7 +7740,7 @@ a:not([href]) {
 .wb-phone-ok svg {
   width: 16px;
   height: 16px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .wb-phone-send {
@@ -7833,7 +7764,7 @@ a:not([href]) {
 
 .use-product {
   margin: 0 0 10px;
-  color: var(--magenta);
+  color: var(--accent);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -7870,7 +7801,7 @@ a:not([href]) {
   flex: none;
   width: 20px;
   height: 20px;
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .use-impact {
@@ -7891,7 +7822,7 @@ a:not([href]) {
   }
 
   .use-tabs {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -7956,9 +7887,8 @@ a:not([href]) {
 
 /* --- Compensacao de altura ---------------------------------------------------
    As duas secoes novas sao mais altas que as que substituiram. Para a pagina
-   nao crescer no desktop: a descricao de cada passo so aparece no passo ativo,
-   a tela dos casos de uso fica mais baixa e os cards de beneficio poem o icone
-   ao lado do titulo em vez de em cima. */
+   nao crescer no desktop: a descricao de cada passo so aparece no passo ativo
+   e a tela das abas fica mais baixa. */
 .how-step:not([aria-selected="true"]) .how-step-body span {
   display: none;
 }
@@ -8000,41 +7930,6 @@ a:not([href]) {
   margin-top: 28px;
 }
 
-@media (min-width: 861px) {
-  .outcome-card {
-    display: grid;
-    grid-template-columns: 34px minmax(0, 1fr);
-    column-gap: 16px;
-    padding: 24px 24px 26px;
-  }
-
-  .outcome-card svg {
-    grid-row: span 2;
-    margin-bottom: 0;
-  }
-}
-
-/* --- Beneficios: carrossel horizontal no celular ----------------------------
-   Empilhados, os seis cards somavam ~1.850 px de rolagem a 390 px de largura.
-   Em linha, com o proximo card aparecendo pela borda, ocupam uma altura so. */
-@media (max-width: 860px) {
-  .outcome-grid {
-    grid-template-columns: none;
-    grid-auto-flow: column;
-    grid-auto-columns: min(78%, 320px);
-    margin-inline: calc(var(--gutter) * -1);
-    padding: 4px var(--gutter) 20px;
-    overflow-x: auto;
-    scroll-padding-inline: var(--gutter);
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-  }
-
-  .outcome-card {
-    scroll-snap-align: start;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .rx-app-caret {
     animation: none;
@@ -8044,4 +7939,316 @@ a:not([href]) {
   .use-tab {
     transition: none;
   }
+}
+
+/* ==========================================================================
+   Feedback consolidado da Afya (29/09): paleta sobria, marca so com o logo,
+   beneficios em linhas que alternam foto e texto, personas no lugar de "Onde
+   voce prescreve" + "Casos de uso", banner da nova prescricao e depoimentos.
+   Os fundos das secoes estao no bloco "Fundos das secoes", mais acima.
+   ========================================================================== */
+
+/* Topo: o azul-escuro do botao primario sumiria sobre o navy da foto. Aqui o
+   primario e o botao branco e o secundario, o contorno branco. */
+.hero .button-primary {
+  color: var(--action);
+  background: var(--white);
+  border-color: var(--white);
+  box-shadow: 0 10px 24px rgba(13, 27, 42, 0.2);
+}
+
+.hero .button-primary:hover {
+  color: var(--action-strong);
+  background: var(--white);
+  box-shadow: 0 14px 30px rgba(13, 27, 42, 0.28);
+}
+
+.hero .button-invert {
+  color: var(--white);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.72);
+  box-shadow: none;
+}
+
+.hero .button-invert:hover,
+.hero .button-invert:focus-visible {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--white);
+  box-shadow: none;
+}
+
+/* --- Por que prescrever digital: linhas alternadas ------------------------- */
+.why-rows {
+  display: grid;
+  gap: clamp(36px, 4vw, 52px);
+}
+
+.why-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 6vw, 88px);
+  align-items: center;
+}
+
+.why-row-flip {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+}
+
+.why-row-flip .why-media {
+  order: -1;
+}
+
+.why-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.why-list li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.why-list li:first-child {
+  padding-top: 0;
+}
+
+.why-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.why-list svg {
+  width: 34px;
+  height: 34px;
+  color: var(--berry-50);
+}
+
+.why-list h3 {
+  margin: 0 0 6px;
+  color: var(--berry-10);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.why-list p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.why-media {
+  position: relative;
+  margin: 0;
+}
+
+/* As fotos provisorias sao quase quadradas (768x818); o recorte privilegia o
+   rosto, que fica no terco de cima. */
+.why-media img {
+  width: 100%;
+  height: clamp(280px, 26vw, 360px);
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+/* Etiqueta sobre a foto: nao clica, entao usa o raio de chip. */
+.why-chip {
+  position: absolute;
+  bottom: 28px;
+  left: -18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: var(--radius-chip);
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  color: var(--berry-10);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.why-row-flip .why-chip {
+  right: -18px;
+  left: auto;
+}
+
+.why-chip svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .why-row,
+  .why-row-flip {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .why-media {
+    order: -1;
+  }
+
+  .why-media img {
+    height: 220px;
+  }
+
+  .why-chip,
+  .why-row-flip .why-chip {
+    right: auto;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .why-list li {
+    padding: 16px 0;
+  }
+}
+
+/* --- Personas: complemento das regras de .use-* ---------------------------- */
+.use-intro h2 {
+  margin-bottom: 16px;
+}
+
+.use-lead {
+  margin: 0 0 24px;
+  color: var(--text-body);
+  font-size: 17px;
+}
+
+/* Painel do Whitebook: a tela em HTML na frente e o print real do Whitebook IA
+   atras, com as bordas sobrepostas para os dois caberem na coluna. */
+.use-screen-phone .wb-phone {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: 216px;
+}
+
+.use-screen-phone .wb-phone + .wb-shot {
+  flex: none;
+  height: 270px;
+  margin: 26px 0 0 -34px;
+}
+
+/* Os dois lockups tem proporcoes internas diferentes: medido na mesma altura, o
+   "Afya" do Whitebook sai 14% maior que o do iClinic. As alturas sao calibradas
+   para o simbolo "Afya" ficar do mesmo tamanho nos dois. */
+.use-logo {
+  display: block;
+  width: auto;
+  height: 22px;
+  margin: 0 0 16px;
+}
+
+.use-logo-iclinic {
+  height: 25px;
+}
+
+/* "Quero prescrever e gerenciar minha clinica" tem 41 caracteres e nao cabe em
+   uma linha na coluna do painel a 16px. */
+.use-detail .button {
+  padding-inline: 22px;
+  font-size: 15px;
+}
+
+/* --- Banner da nova prescricao ---------------------------------------------
+   Unico lugar do site com o roxo da campanha. A arte da Afya entra como imagem
+   de fundo de .campaign-banner; o "A" em marca-d'agua sai junto. */
+.campaign {
+  padding-bottom: var(--section-space);
+}
+
+.campaign-banner {
+  position: relative;
+  display: flex;
+  min-height: 400px;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(28px, 5vw, 72px);
+  border-radius: 16px;
+  background: linear-gradient(105deg, var(--campaign-strong) 0%, var(--campaign) 100%);
+}
+
+.campaign-banner::after {
+  content: "";
+  position: absolute;
+  right: 4%;
+  bottom: -14%;
+  width: min(48%, 560px);
+  aspect-ratio: 30.8 / 26.8;
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-mask: url("/assets/images/afya-a-mask.svg") center / contain no-repeat;
+  mask: url("/assets/images/afya-a-mask.svg") center / contain no-repeat;
+}
+
+.campaign-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.campaign-copy .section-eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.campaign-copy h2 {
+  margin-bottom: 28px;
+  color: var(--white);
+  font-size: clamp(34px, 3.6vw, 52px);
+}
+
+.campaign-banner .button-invert {
+  color: var(--campaign-strong);
+}
+
+@media (max-width: 720px) {
+  .campaign-banner {
+    min-height: 420px;
+    align-items: flex-end;
+  }
+
+  .campaign-banner::after {
+    top: 8%;
+    right: -12%;
+    bottom: auto;
+    width: 84%;
+  }
+}
+
+/* --- Depoimentos: cards de marcacao ate o conteudo chegar ------------------- */
+.testimonial-card .testimonial-avatar {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--berry-160);
+  color: var(--berry-50);
+}
+
+.testimonial-avatar svg {
+  width: 30px;
+  height: 30px;
+}
+
+.testimonial-card[data-placeholder] {
+  border-style: dashed;
+  border-color: var(--line-strong);
+  box-shadow: none;
+}
+
+.testimonial-card[data-placeholder] blockquote {
+  color: var(--text-muted);
 }
