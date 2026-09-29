@@ -6820,6 +6820,20 @@ main {
   height: 16px;
 }
 
+/* Logo da Afya no lugar do nome, como no credito ao lado, e na mesma altura do
+   logo da Conversion (16px). Nessa altura a base das letras dos dois logos cai
+   na mesma linha. */
+.afya-credit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.afya-credit img {
+  width: auto;
+  height: 16px;
+}
+
 /* Com o flex, o gap soma a margem do separador: 6 + 8 = os 14px de antes */
 .site-credit::before {
   margin-right: 6px;
