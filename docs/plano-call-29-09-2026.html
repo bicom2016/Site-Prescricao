@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano — call de 29/09</title>
+<style>
+  :root {
+    --bg: #f6f6fb;
+    --card: #ffffff;
+    --text: #1d1d2b;
+    --muted: #5d5d72;
+    --line: #e2e2ee;
+    --done: #0f7a4a;
+    --done-bg: #e3f5ec;
+    --todo: #1d4f91;
+    --todo-bg: #e2ecfa;
+    --wait: #8a5a00;
+    --wait-bg: #fdf1d8;
+    --no: #a4133c;
+    --no-bg: #fce6ec;
+    --accent: #1d4f91;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15151d;
+      --card: #1e1e29;
+      --text: #ececf4;
+      --muted: #a6a6bb;
+      --line: #2f2f3e;
+      --done: #5fd39a;
+      --done-bg: #173327;
+      --todo: #8fbcf5;
+      --todo-bg: #172a44;
+      --wait: #f2c265;
+      --wait-bg: #3a2e14;
+      --no: #ff8fab;
+      --no-bg: #3d1a25;
+      --accent: #8fbcf5;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15151d;
+    --card: #1e1e29;
+    --text: #ececf4;
+    --muted: #a6a6bb;
+    --line: #2f2f3e;
+    --done: #5fd39a;
+    --done-bg: #173327;
+    --todo: #8fbcf5;
+    --todo-bg: #172a44;
+    --wait: #f2c265;
+    --wait-bg: #3a2e14;
+    --no: #ff8fab;
+    --no-bg: #3d1a25;
+    --accent: #8fbcf5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p { color: var(--muted); margin: 4px 0; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  a { color: var(--accent); }
+  code { font-size: 0.92em; }
+
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .summary div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .summary strong { display: block; font-size: 28px; line-height: 1.1; }
+  .summary .n-done strong { color: var(--done); }
+  .summary .n-todo strong { color: var(--todo); }
+  .summary .n-wait strong { color: var(--wait); }
+  .summary .n-no strong { color: var(--no); }
+  .summary span { color: var(--muted); font-size: 14px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+  .tag.done { background: var(--done-bg); color: var(--done); }
+  .tag.todo { background: var(--todo-bg); color: var(--todo); }
+  .tag.wait { background: var(--wait-bg); color: var(--wait); }
+  .tag.no { background: var(--no-bg); color: var(--no); }
+
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .item h3 { margin: 0; font-size: 17px; }
+  .item .src { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .item ul { margin: 8px 0 0; padding-left: 20px; }
+  .item li { margin: 6px 0; }
+  .item li .tag { margin-right: 6px; }
+  .note { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-size: 14.5px; }
+  .note.need { background: var(--wait-bg); }
+  .note.need b { color: var(--wait); }
+  .note.info { background: var(--todo-bg); }
+  .note.info b { color: var(--todo); }
+  .note.stop { background: var(--no-bg); }
+  .note.stop b { color: var(--no); }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  ol.rounds { padding-left: 20px; }
+  ol.rounds li { margin: 8px 0; }
+
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 720px) {
+    .summary { grid-template-columns: 1fr; }
+    .item-head { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Plano de alterações — call de 29/09</h1>
+    <p>A partir do <em>Resumo da call Afya 29/9: site de prescrição</em>, cruzado com o site publicado (commit <code>8c20874</code>, de 29/09).</p>
+    <p>Site: <a href="https://prescricao.conversion.com.br/">prescricao.conversion.com.br</a></p>
+    <p><strong>Situação em 05/10/2026:</strong> nenhum material novo chegou ao projeto: nem a paleta do Lucas, nem o copy e a estrutura das páginas internas, que o cliente enviaria na sexta.</p>
+    <p><strong>Atualizado em 05/10/2026:</strong> tudo o que estava como "dá para fazer" foi feito e publicado em 05/10 no ambiente de revisão. A proposta de estrutura das páginas internas está em <code>docs/proposta-paginas-internas-05-10-2026.html</code>. Detalhes em <code>docs/registro-05-10-2026.md</code>.</p>
+
+    <div class="summary">
+      <div class="n-done"><strong>16</strong><span>feitos e publicados em 05/10</span></div>
+      <div class="n-todo"><strong>1</strong><span>dá para fazer quando a paleta chegar</span></div>
+      <div class="n-wait"><strong>6</strong><span>faltam contexto ou material</span></div>
+      <div class="n-no"><strong>3</strong><span>não dá para fazer como está</span></div>
+    </div>
+    <div class="legend">
+      <span><span class="tag done">Feito</span> pronto e publicado</span>
+      <span><span class="tag todo">Dá para fazer</span> não depende de ninguém</span>
+      <span><span class="tag wait">Falta contexto</span> precisa de resposta ou material</span>
+      <span><span class="tag no">Não dá</span> inviável sem material, ou fora do prazo</span>
+    </div>
+  </header>
+
+  <h2>Antes de tudo: "iBook"</h2>
+  <div class="item">
+    <div class="item-head"><h3>O resumo chama o Whitebook de "iBook"</h3><span class="tag wait">Falta contexto</span></div>
+    <ul>
+      <li><span class="tag wait">Falta contexto</span>"iBook" aparece oito vezes, inclusive em "o iBook está sendo reposicionado". Pode ser erro da transcrição ou um nome novo. O site diz "Whitebook" em todos os lugares, e assim fica até alguém confirmar.</li>
+    </ul>
+  </div>
+
+  <h2>1. Topo: posicionamento e copy</h2>
+  <div class="item">
+    <div class="item-head"><h3>Deixar claro, de cara, que são duas soluções e quando usar cada uma</h3><span class="tag done">Feito</span></div>
+    <p class="src">Resumo · 1. Posicionamento e copy do topo</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Subtítulo com as frases sugeridas na call, cada uma amarrada ao produto: <em>"Simples quando você está no plantão, com o Whitebook. Integrada quando você está no consultório, com o iClinic."</em></li>
+      <li><span class="tag done">Feito</span>Manter os dois botões, que já nomeiam o caminho de cada produto, e a nota "Gratuita e ilimitada no Whitebook. Inclusa em todos os planos do iClinic."</li>
+      <li><span class="tag done">Feito</span>O título "A prescrição certa para cada momento da prática clínica" fica, como posicionamento, e o subtítulo explica os produtos. Decidido em 05/10; a call dizia que o título funciona como posicionamento, "mas não necessariamente como copy principal". Se a Afya quiser trocar, é uma linha.</li>
+    </ul>
+  </div>
+
+  <h2>2. Etiquetas das personas</h2>
+  <div class="item">
+    <div class="item-head"><h3>Contexto de uso no lugar do perfil do médico</h3><span class="tag done">Feito</span></div>
+    <p class="src">Resumo · 1 (evitar "recém-formado") e 2. Tags das personas</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Abas por contexto: <em>"No plantão e fora do consultório"</em> (Whitebook) e <em>"No consultório e na clínica"</em> (iClinic). Nenhuma menção a perfil ou fase de carreira.</li>
+      <li><span class="tag done">Feito</span>Etiqueta "Whitebook · no celular" virou "Whitebook · app ou web". Os recursos da aba já dizem "No celular ou no computador". A foto da persona com o celular pode ficar: ela mostra o plantão, não limita o uso.</li>
+      <li><span class="tag done">Feito</span>O resto da página não tinha outra menção a perfil. O e-mail e o registro de 29/09 ficam como registro histórico.</li>
+    </ul>
+    <div class="note info"><b>Aprovado na call:</b> as etiquetas por contexto (decisão rápida × cuidado integrado). Só o texto muda.</div>
+  </div>
+
+  <h2>3. Seção de alternância Whitebook × iClinic</h2>
+  <div class="item">
+    <div class="item-head"><h3>Em cima, abas + tela + uma frase; embaixo, recursos lado a lado</h3><span class="tag done">Feito</span></div>
+    <p class="src">Resumo · 3. Seção de prescrição com alternância (solução acordada)</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Parte de cima: as duas abas, a tela do produto e uma frase curta por produto. Sai o bloco de descrição, recursos e botão de dentro do painel.</li>
+      <li><span class="tag done">Feito</span>Parte de baixo: duas colunas fixas, iClinic e Whitebook, com os recursos de cada um e o botão de cada produto, visíveis ao mesmo tempo, sem clique. É o formato da landing page atual, que a call pediu para combinar com a alternância.</li>
+      <li><span class="tag done">Feito</span>Texto das colunas a partir da landing page, que já está no ar e é da Afya: "Prescreva sem sair do seu fluxo clínico" (iClinic) e "Prescreva no instante em que decide a conduta" (Whitebook), com os cinco recursos de cada uma.</li>
+      <li><span class="tag done">Feito</span>Título em uma linha e sem subtítulo: "Onde você prescreve". Hoje o título tem duas linhas e o subtítulo, duas.</li>
+      <li><span class="tag done">Feito</span>Telas com menos informação: um item na receita em vez de dois, sem as linhas secundárias. A call apontou que a tela "já traz muita informação visual".</li>
+      <li><span class="tag done">Feito</span>Medir a altura antes e depois. A seção ganha a comparação embaixo, mas perde o texto do painel; a página não deve crescer.</li>
+      <li><span class="tag wait">Falta contexto</span>Botões do iClinic: a landing page usa "Testar o iClinic grátis" e "Falar com especialista"; o site usa "Quero prescrever e gerenciar minha clínica", que leva aos planos. Qual fica, e para onde vai "Falar com especialista"?</li>
+      <li><span class="tag wait">Falta contexto</span>A landing page diz "Prescreva de qualquer lugar de forma gratuita e ilimitada". Isso encerra a dúvida "ilimitada × limitada" aberta desde 22/09? Se sim, o site já está certo.</li>
+    </ul>
+    <div class="note info"><b>Referência:</b> os dois cards da landing page estão no resumo da call (página 2). A seção nova junta o preview com alternância, que foi elogiado, e essa comparação.</div>
+  </div>
+
+  <h2>4. Cada palavra precisa ser essencial</h2>
+  <div class="item">
+    <div class="item-head"><h3>Corte de texto</h3><span class="tag done">Feito</span></div>
+    <p class="src">Resumo · 3 (princípio geral)</p>
+    <ul>
+      <li><span class="tag done">Feito</span>No topo e na seção de alternância, onde a call foi específica, o corte entra junto com os itens 1 e 3.</li>
+      <li><span class="tag done">Feito</span>Nas outras seções (marco regulatório, benefícios, ecossistema, dúvidas e chamada final) a versão enxuta está aplicada na versão de revisão: 14 trechos, de 271 para 200 palavras, sem tirar nenhum fato. O quadro antes e depois para a Afya aprovar está em <code>docs/corte-de-texto-05-10-2026.html</code>.</li>
+    </ul>
+  </div>
+
+  <h2>5. Paleta do Lucas</h2>
+  <div class="item">
+    <div class="item-head"><h3>"A paleta de cores passada pelo Lucas já dá uma identidade visual mais clara"</h3><span class="tag wait">Falta contexto</span></div>
+    <p class="src">Resumo · 4. Próximos passos (observação final)</p>
+    <ul>
+      <li><span class="tag wait">Falta contexto</span>A frase sugere que o Lucas enviou uma paleta, mas não há arquivo nenhum no projeto. Ou a "paleta" é a que aplicamos em 29/09 e ele validou, ou chegou por outro canal. Precisamos do arquivo, ou da confirmação.</li>
+      <li><span class="tag todo">Dá para fazer</span>Se a paleta chegar, a troca é rápida: todas as cores do site passam por variáveis, num lugar só.</li>
+    </ul>
+  </div>
+
+  <h2>6. Páginas internas</h2>
+  <div class="item">
+    <div class="item-head"><h3>Visão na terça e publicação de todas até a próxima reunião</h3><span class="tag no">Não dá</span></div>
+    <p class="src">Resumo · 4. Próximos passos</p>
+    <ul>
+      <li><span class="tag no">Não dá</span>Trazer na terça uma visão baseada no copy e na estrutura que o cliente enviaria na sexta: o material não chegou. Sem ele, a visão só pode partir do que já temos.</li>
+      <li><span class="tag done">Feito</span>Com o que já temos: proposta de estrutura das páginas internas, em <code>docs/proposta-paginas-internas-05-10-2026.html</code>, a partir do board <code>docs/Estrutura Páginas Site Prescrição.pdf</code> (de setembro), que define Recursos (com RDC 1000/2025 + SNCR), Para quem (médicos, clínicas, pacientes e farmácias), Dúvidas, Soluções para parceiros (Dispensador e Indústria farmacêutica), Blog e um modelo de página por especialidade. Serve para a terça, com o aviso de que o copy será o do cliente.</li>
+      <li><span class="tag done">Feito</span>Primeira versão das seis páginas do menu (Recursos, RDC 1000/2025, Para quem, Dúvidas, Para parceiros e Blog), com copy dos documentos do projeto, feita e publicada em 05/10. O copy definitivo é o que a Afya enviar; a indústria farmacêutica entrou como bloco curto em "Para parceiros".</li>
+      <li><span class="tag no">Não dá</span>Blog com artigos: depende de definir como os posts serão publicados. O site é estático, sem painel de edição. A página do blog existe com as linhas editoriais, sem artigos.</li>
+      <li><span class="tag no">Não dá</span>Modelo de página por especialidade (SEO): depende da lista de especialidades e do conteúdo de cada uma. Sem isso, só o esqueleto.</li>
+      <li><span class="tag wait">Falta contexto</span>Datas e responsáveis: o resumo diz "sexta" e "terça" sem data. Pelo calendário, a sexta seria 02/10 e a terça, 06/10. Confirmar, e saber se a reunião de terça está mantida.</li>
+    </ul>
+    <div class="note info"><b>Para a reunião:</b> o site com os itens 1 a 4 aplicados, a proposta de estrutura e uma primeira versão das seis páginas internas, tudo publicado no ambiente de revisão.</div>
+  </div>
+
+  <h2>7. Pontos a confirmar do próprio resumo</h2>
+  <div class="item">
+    <div class="item-head"><h3>Trechos que o resumo marca como incertos</h3><span class="tag wait">Falta contexto</span></div>
+    <ul>
+      <li><span class="tag wait">Falta contexto</span>A frase "não querer vincular só para ser informada" não aparece no resumo com contexto. Pode ser sobre o uso do Whitebook no computador, ou sobre outra coisa. Vale perguntar a quem esteve na call.</li>
+    </ul>
+  </div>
+
+  <h2>Ordem sugerida</h2>
+  <div class="item">
+    <ol class="rounds">
+      <li><strong>Agora, sem depender de ninguém:</strong> feito em 05/10 (itens 1, 2 e 3). Falta publicar.</li>
+      <li><strong>Para a terça:</strong> feita em 05/10: proposta de estrutura das páginas internas, com as perguntas em aberto.</li>
+      <li><strong>Quando o material chegar:</strong> paleta do Lucas (item 5), copy e estrutura das páginas internas, página a página.</li>
+    </ol>
+  </div>
+
+  <h2>O que falta saber ou receber</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>O quê</th><th>De quem</th><th>Trava</th></tr></thead>
+    <tbody>
+      <tr><td>"iBook": nome novo do Whitebook ou erro de transcrição?</td><td>Afya</td><td>Nome do produto no site inteiro</td></tr>
+      <tr><td>Botões do iClinic na comparação, e o destino de "Falar com especialista"</td><td>Afya</td><td>Botões da seção de alternância</td></tr>
+      <tr><td>"Gratuita e ilimitada" da landing page vale como confirmação?</td><td>Afya</td><td>Texto do topo e da coluna do Whitebook</td></tr>
+      <tr><td>Paleta do Lucas: arquivo, ou confirmação de que é a de 29/09</td><td>Lucas (Afya)</td><td>Cores do site e das páginas internas</td></tr>
+      <tr><td>Copy e estrutura das páginas internas</td><td>Lari e time (Afya)</td><td>Páginas internas</td></tr>
+      <tr><td>Ferramenta do blog (como os posts serão publicados)</td><td>Conjunta</td><td>Blog</td></tr>
+      <tr><td>Datas: qual sexta, qual terça, e se a reunião está mantida</td><td>Conjunta</td><td>Planejamento das rodadas</td></tr>
+      <tr><td>Sentido da frase "não querer vincular só para ser informada"</td><td>Quem esteve na call</td><td>Pode esconder um pedido não registrado</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="color:var(--muted);font-size:14px">Seguem abertas de 29/09, sem menção neste resumo: posição e arte do banner, telas reais, depoimentos, fotos definitivas, logo oficial, números do ecossistema e vídeo. Ver <code>docs/plano-feedback-afya-29-09-2026.html</code>.</p>
+
+  <footer>Gerado em 05/10/2026 a partir de <em>Resumo da call Afya 29_9: site de prescrição (iBook e iClinic)</em>. Plano anterior: <code>docs/plano-feedback-afya-29-09-2026.html</code>.</footer>
+</div>
+</body>
+</html>

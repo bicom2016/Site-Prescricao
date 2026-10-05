@@ -6910,12 +6910,18 @@ a:not([href]) {
   font-weight: 700;
 }
 
-/* O negrito alargou o subtitulo e jogava "continuidade." para uma terceira
-   linha. A coluna do hero comporta 680px, entao as duas frases voltam a caber
-   em uma linha cada. O seletor pega so o subtitulo, que e o unico <p> sem
-   classe dentro de .hero-copy. */
+/* Subtitulo da call de 29/09: uma frase por linha, com quebra no HTML. A frase
+   mais longa precisa de ~700px a 27px, entao a coluna do hero alarga de 680 para
+   740px (ainda dentro da metade escura da foto). O seletor pega so o subtitulo,
+   que e o unico <p> sem classe dentro de .hero-copy. */
+@media (min-width: 721px) {
+  .hero-copy {
+    width: min(56%, 740px);
+  }
+}
+
 .hero-copy > p:not([class]) {
-  max-width: 680px;
+  max-width: 740px;
 }
 
 /* Sem limite de largura: a linha cabe inteira na coluna do hero (680px). */
@@ -7488,21 +7494,20 @@ a:not([href]) {
   background: var(--berry-155);
 }
 
-.use-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
-  gap: clamp(32px, 4vw, 56px);
-  align-items: start;
-}
-
-.use-intro h2 {
+/* Call de 29/09: titulo de uma linha, abas centralizadas em cima, a tela com
+   uma frase no meio e os recursos lado a lado embaixo. */
+.use-heading {
+  margin-inline: auto;
   margin-bottom: 28px;
-  font-size: clamp(30px, 3vw, 42px);
+  text-align: center;
 }
 
 .use-tabs {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 380px));
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .use-tab {
@@ -7684,9 +7689,8 @@ a:not([href]) {
   font-size: 12px;
 }
 
-/* Celular do Whitebook: tela em HTML (caso 2) ou print real (caso 3) */
-.wb-phone,
-.wb-shot {
+/* Celular do Whitebook, em HTML */
+.wb-phone {
   border: 8px solid #1c1c24;
   border-radius: 30px;
   background: var(--white);
@@ -7770,12 +7774,6 @@ a:not([href]) {
   color: var(--white);
 }
 
-.wb-shot {
-  display: block;
-  width: auto;
-  height: 360px;
-}
-
 .use-product {
   margin: 0 0 10px;
   color: var(--accent);
@@ -7786,15 +7784,10 @@ a:not([href]) {
 }
 
 .use-detail h3 {
-  margin: 0 0 10px;
+  margin: 0;
   color: var(--berry-10);
-  font-size: clamp(22px, 1.8vw, 26px);
-}
-
-.use-detail > p:not(.use-product) {
-  margin: 0 0 16px;
-  color: var(--text-body);
-  font-size: 16px;
+  font-size: clamp(26px, 2.4vw, 34px);
+  line-height: 1.2;
 }
 
 .use-list {
@@ -7830,16 +7823,6 @@ a:not([href]) {
   color: var(--berry-10);
 }
 
-@media (max-width: 1100px) {
-  .use-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .use-tabs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 900px) {
   .how-layout,
   .use-panel {
@@ -7847,15 +7830,17 @@ a:not([href]) {
   }
 
   .use-tabs {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .use-screen {
     height: 340px;
   }
+}
 
-  .wb-shot {
-    height: 300px;
+@media (max-width: 600px) {
+  .use-tabs {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -7912,15 +7897,11 @@ a:not([href]) {
 }
 
 .use-screen {
-  height: 340px;
-}
-
-.wb-shot {
   height: 300px;
 }
 
 .use-panel {
-  padding: 20px;
+  padding: 16px;
 }
 
 /* O celular em HTML do caso 2 e mais alto que a tela: sai da base do quadro,
@@ -8127,30 +8108,60 @@ a:not([href]) {
   }
 }
 
-/* --- Personas: complemento das regras de .use-* ---------------------------- */
-.use-intro h2 {
-  margin-bottom: 16px;
-}
-
-.use-lead {
-  margin: 0 0 24px;
-  color: var(--text-body);
-  font-size: 17px;
-}
-
-/* Painel do Whitebook: a tela em HTML na frente e o print real do Whitebook IA
-   atras, com as bordas sobrepostas para os dois caberem na coluna. */
+/* --- Onde voce prescreve: complemento das regras de .use-* ------------------ */
 .use-screen-phone .wb-phone {
-  position: relative;
-  z-index: 1;
   flex: none;
   width: 216px;
 }
 
-.use-screen-phone .wb-phone + .wb-shot {
-  flex: none;
-  height: 270px;
-  margin: 26px 0 0 -34px;
+/* Recursos lado a lado (call de 29/09): duas colunas fixas, sem clique, com o
+   botao de cada produto. */
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.compare-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(22px, 2.2vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+}
+
+.compare-card > p:not(.use-product) {
+  margin: 0 0 14px;
+  color: var(--text-body);
+  font-size: 16px;
+}
+
+/* No flex em coluna o logo esticaria na largura do card. */
+.compare-card .use-logo {
+  align-self: flex-start;
+}
+
+.compare-card .use-list {
+  margin-bottom: 22px;
+}
+
+.compare-card .use-list li {
+  padding: 6px 0;
+}
+
+@media (max-width: 900px) {
+  .compare-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.compare-card .button {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-inline: 22px;
+  font-size: 15px;
 }
 
 /* Os dois lockups tem proporcoes internas diferentes: medido na mesma altura, o
@@ -8165,13 +8176,6 @@ a:not([href]) {
 
 .use-logo-iclinic {
   height: 25px;
-}
-
-/* "Quero prescrever e gerenciar minha clinica" tem 41 caracteres e nao cabe em
-   uma linha na coluna do painel a 16px. */
-.use-detail .button {
-  padding-inline: 22px;
-  font-size: 15px;
 }
 
 /* --- Banner da nova prescricao ---------------------------------------------
@@ -8265,4 +8269,257 @@ a:not([href]) {
 
 .testimonial-card[data-placeholder] blockquote {
   color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Paginas internas (05/10): Recursos, RDC 1000/2025, Para quem, Duvidas,
+   Para parceiros e Blog. Reaproveitam os componentes da home (linhas
+   alternadas, telas ilustrativas, colunas de produto, duvidas, chamada final)
+   e ganham so o que a home nao tinha: hero interno com midia, lista de
+   ancoras, cards numerados e cards de informacao.
+   ========================================================================== */
+
+/* Hero interno: chapado, na cor das quebras, sem degrade (feedback de 29/09). */
+.page-hero {
+  padding-block: clamp(48px, 6vw, 80px);
+  background: var(--berry-155);
+}
+
+.page-hero-inner {
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+}
+
+.page-hero-with-media {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
+.page-hero h1 {
+  margin-bottom: 16px;
+  font-size: clamp(34px, 4vw, 54px);
+}
+
+.page-hero p {
+  color: var(--text-body);
+}
+
+.page-hero .hero-actions {
+  margin-top: 28px;
+}
+
+.page-hero-media .rx-app,
+.page-hero-media .rx-demo {
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+/* Lista de ancoras no hero (Para quem, Duvidas): um botao por bloco da pagina. */
+.anchor-list {
+  display: grid;
+  gap: 10px;
+}
+
+.anchor-list a {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.anchor-list a:hover {
+  border-color: var(--action);
+  box-shadow: var(--shadow-sm);
+}
+
+.anchor-list svg {
+  width: 26px;
+  height: 26px;
+  color: var(--accent);
+}
+
+.anchor-list strong {
+  display: block;
+  color: var(--berry-10);
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.anchor-list small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+/* Linhas de recurso: texto + tela, no mesmo grid das fotos da home. */
+.feature-copy h2 {
+  margin-bottom: 14px;
+  font-size: clamp(30px, 3vw, 42px);
+}
+
+.feature-copy h3 {
+  margin: 0 0 12px;
+  color: var(--berry-10);
+  font-size: clamp(24px, 2.2vw, 30px);
+  line-height: 1.2;
+}
+
+.feature-copy > p:not(.section-eyebrow) {
+  margin: 0 0 18px;
+  color: var(--text-body);
+  font-size: 17px;
+}
+
+.feature-copy .use-list {
+  margin-bottom: 22px;
+}
+
+.feature-copy .button,
+.feature-copy .text-link {
+  margin-top: 4px;
+}
+
+.feature-media {
+  min-width: 0;
+}
+
+.why-row-flip .feature-media {
+  order: -1;
+}
+
+/* Telas estaticas das paginas internas: sem a altura minima das abas. */
+.rx-app-static .rx-app-panel {
+  min-height: 0;
+}
+
+/* Cards numerados (passo a passo sem abas). */
+.step-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step-card {
+  padding: 26px 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+}
+
+/* O .step-card herdado do Whitebook ja numera com ::before; aqui o numero e o .step-num. */
+.step-cards .step-card::before {
+  content: none;
+}
+
+.step-num {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.step-card h3 {
+  margin: 0 0 8px;
+  color: var(--berry-10);
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.step-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+/* Cards de informacao (RDC, Blog): icone, titulo, uma frase e, se houver, um link. */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.info-grid .category-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  border-top-width: 4px;
+}
+
+.info-grid .category-card > svg {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 16px;
+  color: var(--berry-50);
+}
+
+.info-grid .category-card h3 {
+  color: var(--berry-10);
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.info-grid .category-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.info-grid .category-card .text-link {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+/* Central de duvidas: um titulo por tema, listas centralizadas como na home. */
+.faq-topics .faq-topic-title {
+  max-width: 880px;
+  margin: 0 auto 18px;
+  padding-top: 8px;
+  font-size: clamp(24px, 2.4vw, 30px);
+  scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.faq-topics .faq-list {
+  margin-inline: auto;
+  margin-bottom: 44px;
+}
+
+.faq-topics .faq-cta {
+  margin-inline: auto;
+}
+
+.faq-cta .hero-actions {
+  justify-content: center;
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .page-hero-with-media {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-hero-media .rx-app,
+  .page-hero-media .rx-demo {
+    max-width: none;
+  }
+
+  .info-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .feature-media {
+    order: -1;
+  }
 }

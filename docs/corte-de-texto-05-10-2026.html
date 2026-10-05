@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corte de texto — proposta</title>
+<style>
+  :root { --bg: #f6f6fb; --card: #ffffff; --text: #1d1d2b; --muted: #5d5d72; --line: #e2e2ee; --accent: #1d4f91; --accent-bg: #e2ecfa; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e; --accent: #8fbcf5; --accent-bg: #172a44; } }
+  :root[data-theme="dark"] { --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e; --accent: #8fbcf5; --accent-bg: #172a44; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p { color: var(--muted); margin: 4px 0; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .item ul { margin: 8px 0 0; padding-left: 20px; }
+  .item li { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  td:first-child { width: 20%; font-weight: 600; }
+  td:nth-child(2) { width: 40%; color: var(--muted); }
+  td:nth-child(3) { background: var(--accent-bg); }
+  small { display: block; margin-top: 4px; color: var(--muted); font-size: 12.5px; font-weight: 400; }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Corte de texto — proposta para a Afya</h1>
+    <p>Call de 29/09: "cada palavra precisa ser essencial para a leitura ficar fluida". A call foi específica sobre o topo e a seção de alternância; este quadro cobre as outras seções, cujo texto vem do documento de conteúdo aprovado em setembro.</p>
+    <p>Aplicado na versão de revisão para a Afya ver no contexto. Nenhum fato saiu: só palavras que repetiam o título ao lado ou enfeitavam a frase. <strong>271 palavras viraram 200</strong> (−26%).</p>
+  </header>
+
+  <h2>Critério</h2>
+  <div class="item">
+    <ul>
+      <li>O que o título já diz não se repete na frase de apoio ("Assinatura digital válida" dispensa "com validade jurídica").</li>
+      <li>Números e nomes ficam: 30 de setembro, RDC 1000/2025, SNCR, Vidaas, BirdID, A1, A3, Harvard Medical Practice Study.</li>
+      <li>Frases de efeito viram frases diretas ("Menos tempo na receita, mais tempo com o paciente").</li>
+      <li>Nada de novo entra. Só sai.</li>
+    </ul>
+  </div>
+
+  <h2>Antes e depois</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Onde</th><th>Antes</th><th>Depois (proposta)</th></tr></thead>
+    <tbody>
+      <tr><td>Marco regulatório<br><small>Parágrafo</small></td><td>A partir de 30 de setembro, a Anvisa autoriza a prescrição digital de medicamentos controlados. A prescrição digital da Afya já faz a adequação automática ao tipo de receituário e cuida da gestão de numerações junto ao SNCR, em conformidade com a RDC 1000/2025.<br><small>44 palavras</small></td><td>Desde 30 de setembro, a Anvisa autoriza a prescrição digital de medicamentos controlados. A Afya adequa o receituário automaticamente e cuida das numerações do SNCR, conforme a RDC 1000/2025.<br><small>29 palavras</small></td></tr>
+      <tr><td>Por que prescrever digital<br><small>Apoio do título</small></td><td>Segundo a <em>Harvard Medical Practice Study</em>, 39% dos erros de medicação acontecem na prescrição. A receita digital elimina boa parte deles antes de chegar à farmácia.<br><small>26 palavras</small></td><td>39% dos erros de medicação acontecem na prescrição (<em>Harvard Medical Practice Study</em>). A receita digital evita boa parte deles.<br><small>19 palavras</small></td></tr>
+      <tr><td>Por que prescrever digital<br><small>Envio em segundos</small></td><td>WhatsApp, PDF, link ou impressão, como o paciente preferir.<br><small>9 palavras</small></td><td>WhatsApp, PDF, link ou impressão.<br><small>5 palavras</small></td></tr>
+      <tr><td>Por que prescrever digital<br><small>Alertas de interação medicamentosa</small></td><td>Avisos automáticos enquanto você monta a receita.<br><small>7 palavras</small></td><td>Avisos enquanto você monta a receita.<br><small>6 palavras</small></td></tr>
+      <tr><td>Por que prescrever digital<br><small>Assinatura digital válida</small></td><td>Vidaas, BirdID, A1 e A3, com validade jurídica.<br><small>8 palavras</small></td><td>Vidaas, BirdID, A1 ou A3.<br><small>5 palavras</small></td></tr>
+      <tr><td>Onde você prescreve<br><small>Linha de impacto</small></td><td>o paciente recebe no celular, legível e sem risco de perder o papel, e a farmácia valida a receita digital pelo dispensador da Afya.<br><small>24 palavras</small></td><td>o paciente recebe no celular, sem papel para perder, e a farmácia valida pelo dispensador da Afya.<br><small>17 palavras</small></td></tr>
+      <tr><td>Como funciona<br><small>Passo 1, Busque</small></td><td>Digite o medicamento e a base com mais de 22 mil itens completa o resto. Ou escreva em texto livre.<br><small>20 palavras</small></td><td>Digite o medicamento e a base completa o resto. Ou escreva em texto livre.<br><small>14 palavras</small></td></tr>
+      <tr><td>Ecossistema Afya<br><small>Parágrafo</small></td><td>A prescrição digital é a camada que atravessa o ecossistema Afya, do prontuário no iClinic ao apoio à decisão no Whitebook. Menos tempo montando receita é mais tempo olhando para quem está na sua frente.<br><small>35 palavras</small></td><td>A mesma prescrição atravessa o ecossistema Afya, do prontuário no iClinic ao apoio à decisão no Whitebook. Menos tempo na receita, mais tempo com o paciente.<br><small>26 palavras</small></td></tr>
+      <tr><td>Dúvidas<br><small>A prescrição da Afya é gratuita?</small></td><td>No Whitebook, sim: gratuita e ilimitada, inclusive no plano free. No iClinic, está inclusa em todos os planos da assinatura.<br><small>20 palavras</small></td><td>No Whitebook, sim, inclusive no plano gratuito. No iClinic, está inclusa em todos os planos.<br><small>15 palavras</small></td></tr>
+      <tr><td>Dúvidas<br><small>Preciso de certificado digital para assinar?</small></td><td>Sim, e você escolhe: Vidaas, BirdID ou um certificado A1 ou A3 que já tenha.<br><small>15 palavras</small></td><td>Sim: Vidaas, BirdID ou um certificado A1 ou A3 que você já tenha.<br><small>13 palavras</small></td></tr>
+      <tr><td>Dúvidas<br><small>Posso prescrever medicamentos controlados?</small></td><td>Sim. Receitas azuis e amarelas podem ser emitidas digitalmente, com adequação automática do receituário e gestão das numerações no SNCR.<br><small>20 palavras</small></td><td>Sim. Receitas azuis e amarelas saem digitais, com o receituário adequado automaticamente e as numerações do SNCR.<br><small>17 palavras</small></td></tr>
+      <tr><td>Dúvidas<br><small>O paciente precisa instalar algum aplicativo?</small></td><td>Não. Ele recebe um link ou PDF e apresenta na farmácia pelo próprio celular.<br><small>14 palavras</small></td><td>Não. Ele recebe um link ou PDF e apresenta na farmácia pelo celular.<br><small>13 palavras</small></td></tr>
+      <tr><td>Dúvidas<br><small>A farmácia aceita receita digital?</small></td><td>Sim. A validação é feita pelo dispensador da Afya, disponível para qualquer farmácia.<br><small>13 palavras</small></td><td>Sim. Qualquer farmácia valida a receita pelo dispensador da Afya.<br><small>10 palavras</small></td></tr>
+      <tr><td>Chamada final<br><small>Apoio do título</small></td><td>Escolha o caminho que combina com a sua rotina. A prescrição é a mesma nos dois.<br><small>16 palavras</small></td><td>A prescrição é a mesma nos dois caminhos. Escolha o seu.<br><small>11 palavras</small></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>O que não mexi</h2>
+  <div class="item">
+    <ul>
+      <li>Títulos das seções e dos benefícios.</li>
+      <li>Faixa de números, nota do topo, passos 2 a 4 de "Como funciona" e os rótulos acima dos títulos.</li>
+      <li>"Afya: parceiro da jornada médica, da formação ao crescimento", no ecossistema: é assinatura institucional da Afya, não texto do site.</li>
+      <li>Perguntas das dúvidas: só as respostas encurtaram.</li>
+      <li>Topo e seção de alternância: já cortados na rodada de 05/10, conforme a call.</li>
+    </ul>
+  </div>
+
+  <footer>Gerado em 05/10/2026. Aplicado em <code>index.html</code> e publicado no ambiente de revisão, para aprovação da Afya.</footer>
+</div>
+</body>
+</html>

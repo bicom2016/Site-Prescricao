@@ -82,7 +82,8 @@ valores. Seguindo a LP, que é uma página clara, as seções "Para quem" e
 "Ecossistema" deixaram de ser blocos escuros e passaram a faixas em azul e
 lavanda; o escuro ficou só no hero (a chamada final também passou a clara em 25/09,
 e "Para quem" virou a seção de casos de uso, que em 29/09 se juntou a "Onde você
-prescreve" numa seção só, por persona).
+prescreve" numa seção só; desde 05/10 ela tem as abas por contexto de uso em cima
+e os recursos dos dois produtos lado a lado embaixo).
 
 Desde 29/09 a página é branca na maior parte, com quebras em azul acinzentado
 chapado (`--berry-155`), sem degradê: faixa de números, personas, depoimentos e
@@ -134,10 +135,15 @@ Afya fornecer o lockup vetorial de Prescrição, substitua.
 
 ```
 index.html      home page
-404.html        página de erro (mesmo header da home; alterar nos dois)
+404.html        página de erro (mesmo header da home; alterar em todas)
+recursos/       Recursos, com a subpágina recursos/rdc-1000-2025/
+para-quem/      médicos, clínicas, pacientes e farmácias, em página única com âncoras
+duvidas/        central de dúvidas, por tema
+parceiros/      dispensador para farmácias (#dispensador) e indústria farmacêutica
+blog/           linhas editoriais; sem artigos até a decisão de ferramenta
 styles.css      estilos (folha completa herdada do Whitebook)
 script.js       menu, animações de reveal e sprite de ícones
-assets/         fontes, ícones, imagens e vídeos usados pela home
+assets/         fontes, ícones, imagens e vídeos usados pelas páginas
 robots.txt      bloqueando indexação — liberar só no lançamento
 Dockerfile      imagem nginx para deploy
 nginx.conf      configuração do servidor
@@ -146,16 +152,32 @@ docs/           documentação de referência do projeto e registros de sessão
 tools/          scripts de derivação de assets (fora da imagem publicada)
 ```
 
+## Páginas internas
+
+Desde 05/10 as cinco páginas do menu e a subpágina da RDC 1000/2025 existem, como
+pastas com `index.html` (o nginx serve `/recursos/` pelo `index`). Elas repetem
+o cabeçalho e o rodapé da home e reaproveitam os componentes dela: hero interno
+claro (`.page-hero`), linhas que alternam texto e tela (`.why-row` +
+`.feature-copy`), telas ilustrativas (`.rx-app`, `.ic-app`, `.wb-phone`,
+`.rx-demo`), colunas de produto (`.compare-grid`), dúvidas (`.faq-item`) e a
+chamada final. O que a home não tinha está no fim de `styles.css`: lista de
+âncoras, cards numerados e cards de informação.
+
+O copy das páginas veio dos documentos do projeto (Arquitetura Narrativa, Visão
+360, Guia Mar Aberto e o board de estrutura) e da proposta em
+`docs/proposta-paginas-internas-05-10-2026.html`. É uma primeira versão, a ser
+trocada pelo copy que a Afya enviar. Ao mexer no menu ou no rodapé, alterar em
+todas as páginas: `grep -rln 'site-header' --include=index.html --include=404.html .`
+
 ## Navegação desativada
 
-A home aponta para 19 destinos que ainda não existem — as cinco páginas do menu
-(Recursos, Para quem, Dúvidas, Para parceiros e Blog), a subpágina da RDC
-1000/2025 e os links de rodapé. Os elementos `<a>` foram mantidos (preservando
-layout e espaçamento), mas sem `href` — ficam inertes. O destino pretendido de
-cada um está guardado em `data-link-original`. A `404.html` repete o menu da
-home e, com ele, os mesmos cinco itens inertes.
+Continuam sem `href`, inertes, os links cujo destino ainda não existe: os três
+legais do rodapé (Termos de uso, Privacidade, Políticas e diretrizes) e, em
+`parceiros/`, os botões "Acessar o dispensador" e "Fale com o time comercial",
+cujos endereços dependem da Afya. O destino pretendido de cada um está em
+`data-link-original`.
 
-Para reativar um link ao criar a página correspondente:
+Para reativar um link quando o destino existir:
 
 ```html
 <!-- de -->
@@ -244,6 +266,14 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       benefícios em linhas alternadas, personas, banner, depoimentos e fundos
       (29/09/2026, ver `docs/registro-29-09-2026.md` e
       `docs/plano-feedback-afya-29-09-2026.html`)
+- [x] Call de 29/09: subtítulo do topo amarrado aos produtos, abas por contexto de
+      uso sem amarra ao celular, seção "Onde você prescreve" com abas + tela + frase
+      em cima e recursos lado a lado embaixo, corte de texto, proposta de estrutura
+      das páginas internas (05/10/2026, ver `docs/registro-05-10-2026.md` e
+      `docs/plano-call-29-09-2026.html`)
+- [x] Páginas internas do menu, primeira versão: Recursos, RDC 1000/2025, Para quem,
+      Dúvidas, Para parceiros e Blog, com copy dos documentos do projeto
+      (05/10/2026, ver `docs/registro-05-10-2026.md`)
 
 **Conteúdo e marca**
 
@@ -258,8 +288,14 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       especialidade e foto) antes de publicar no domínio oficial
 - [ ] Banner da nova prescrição: receber a arte da Afya e confirmar posição, texto e
       destino do botão
-- [ ] Validar com a Afya o texto das abas de persona e a troca de casos de uso por
-      personas
+- [ ] Confirmar com a Afya os botões do iClinic na comparação (a LP usa "Testar o
+      iClinic grátis" e "Falar com especialista") e se "iBook", no resumo da call de
+      29/09, é nome novo do Whitebook ou erro de transcrição
+- [ ] Validar com a Afya o corte de texto aplicado em 05/10
+      (`docs/corte-de-texto-05-10-2026.html`)
+- [ ] Blog: decidir a ferramenta e quem escreve; a página mostra só as linhas editoriais
+- [ ] RDC 1000/2025: confirmar a data (30/09) e o passo a passo real da numeração no
+      SNCR antes de detalhar a subpágina
 - [ ] Trocar as fotos provisórias das personas (herdadas do Whitebook) pelas
       definitivas
 - [ ] Topo com duas cenas alternando (iClinic no consultório e Whitebook no plantão,
@@ -278,9 +314,11 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
 
 **Site**
 
-- [ ] Definir as páginas internas a partir de `docs/Estrutura Páginas Site Prescrição.pdf`
-      (Recursos, Para quem, Dúvidas, Para parceiros, Blog, RDC 1000/2025) e reativar
-      os links inertes (`grep -rn 'data-link-original' *.html`)
+- [ ] Páginas internas: trocar o copy desta primeira versão pelo da Afya, página a
+      página, e receber os endereços do dispensador e do contato comercial
+      (`grep -rn 'data-link-original' --include=*.html -r .`)
+- [ ] Páginas legais (Termos de uso, Privacidade, Políticas e diretrizes): conteúdo
+      jurídico da Afya
 - [ ] Decidir o destino dos assets e scripts do Whitebook sem uso (ver "Origem"):
       apagar ou reaproveitar quando as páginas internas existirem
 - [ ] Instalar medição (GA4/GTM) — hoje a página não tem nenhum script de análise

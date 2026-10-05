@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Páginas internas — proposta</title>
+<style>
+  :root {
+    --bg: #f6f6fb;
+    --card: #ffffff;
+    --text: #1d1d2b;
+    --muted: #5d5d72;
+    --line: #e2e2ee;
+    --accent: #1d4f91;
+    --accent-bg: #e2ecfa;
+    --ask: #8a5a00;
+    --ask-bg: #fdf1d8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e;
+      --accent: #8fbcf5; --accent-bg: #172a44; --ask: #f2c265; --ask-bg: #3a2e14;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e;
+    --accent: #8fbcf5; --accent-bg: #172a44; --ask: #f2c265; --ask-bg: #3a2e14;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p { color: var(--muted); margin: 4px 0; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  h3 { margin: 0; font-size: 17px; }
+  a { color: var(--accent); }
+  code { font-size: 0.92em; }
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .item .src { color: var(--muted); font-size: 13.5px; margin: 4px 0 12px; }
+  .item ol, .item ul { margin: 8px 0 0; padding-left: 20px; }
+  .item li { margin: 6px 0; }
+  .item li b { color: var(--accent); }
+  .lab { display: inline-block; margin-right: 6px; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; background: var(--accent-bg); color: var(--accent); }
+  .lab.ask { background: var(--ask-bg); color: var(--ask); }
+  .note { margin-top: 12px; padding: 10px 12px; border-radius: 10px; font-size: 14.5px; background: var(--ask-bg); }
+  .note b { color: var(--ask); }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Páginas internas — proposta de estrutura</h1>
+    <p>Visão para a reunião de terça, a partir do board <em>Estrutura — Site Prescrição</em> (setembro) e da home publicada. O copy de cada página é o que a Afya vai enviar; esta proposta define blocos, ordem e o que cada página precisa para existir.</p>
+    <p>Menu atual do site, já reservado: Home · Recursos · Para quem · Dúvidas · Para parceiros · Blog.</p>
+  </header>
+
+  <h2>Regras que valem para todas as páginas</h2>
+  <div class="item">
+    <ul>
+      <li><b>Mesmo cabeçalho, rodapé e paleta da home.</b> As páginas nascem do mesmo arquivo de estilos; nada novo de identidade.</li>
+      <li><b>Duas portas de entrada em toda página.</b> Cada página termina com a chamada dupla da home (Whitebook e iClinic), sem hierarquia entre os dois.</li>
+      <li><b>As duas personas percorrem o site.</b> As fotos do plantão e do consultório aparecem nas páginas internas, como o feedback pediu.</li>
+      <li><b>Cada palavra essencial.</b> Blocos curtos, uma ideia por bloco, telas e ícones no lugar de parágrafos.</li>
+      <li><b>Uma página por rodada.</b> Cada página entra no ar assim que o copy dela chegar e for aprovado, sem esperar as outras.</li>
+    </ul>
+  </div>
+
+  <h2>1. Recursos (Como funciona)</h2>
+  <div class="item">
+    <h3>Mostrar os recursos, como a prescrição funciona e o valor para o médico</h3>
+    <p class="src">Board: "Funcionalidades + benefícios · pilares de valor e casos de uso · passo a passo com gifs/telas do produto".</p>
+    <ol>
+      <li><b>Abertura:</b> uma frase sobre o que a prescrição digital da Afya faz, com a tela do produto.</li>
+      <li><b>Recursos, um por bloco:</b> busca na base de medicamentos, posologia sugerida, alertas de interação, receituário adequado automaticamente, exames e vacinas na mesma receita, assinatura digital, envio ao paciente, histórico e renovação, modelos de conduta, Whitebook IA. Cada bloco com tela ou GIF, título e uma frase; telas e texto alternando de lado, como na home.</li>
+      <li><b>Passo a passo:</b> os quatro passos da home (Busque, Monte, Assine, Envie), com as telas reais quando chegarem.</li>
+      <li><b>Pilares de valor:</b> menos etapas, mais segurança, mais tempo com o paciente, com os números do ecossistema.</li>
+      <li><b>Casos de uso:</b> as duas abas da home (plantão × consultório), apontando para a página "Para quem".</li>
+      <li><b>Chamada dupla.</b></li>
+    </ol>
+    <div class="note"><b>Precisamos da Afya:</b> a lista definitiva de recursos e a tela ou GIF de cada um. O copy dos blocos.</div>
+  </div>
+
+  <div class="item">
+    <h3>Subpágina: RDC 1000/2025 + SNCR</h3>
+    <p class="src">Board: "Ambientar sobre prescrição de controlados, mostrar conformidade e como é simples prescrever esses receituários com a gente". Já tem link reservado na home e no rodapé.</p>
+    <ol>
+      <li><b>Abertura:</b> o que mudou com a RDC 1000/2025, em uma frase, com a data.</li>
+      <li><b>O que muda para quem prescreve:</b> receitas azuis e amarelas digitais, numeração pelo SNCR, validade e dispensação.</li>
+      <li><b>Como a Afya cuida disso:</b> adequação automática do receituário, gestão das numerações, notificações.</li>
+      <li><b>Passo a passo:</b> como solicitar numerações e prescrever um controlado, com telas.</li>
+      <li><b>Dúvidas sobre controlados:</b> as perguntas mais comuns, ligadas à central de dúvidas.</li>
+      <li><b>Chamada dupla.</b></li>
+    </ol>
+    <div class="note"><b>Precisamos da Afya:</b> confirmação da data e do nome da norma (pendência desde setembro), o fluxo real de solicitação de numerações e as telas.</div>
+  </div>
+
+  <h2>2. Para quem (nome a repensar)</h2>
+  <div class="item">
+    <h3>Uma página só, com os quatro perfis em sequência</h3>
+    <p class="src">Board: "Subpáginas ou página única com todos os perfis". Proposta: página única com âncoras, porque o conteúdo de cada perfil é curto e a comparação entre eles é parte da mensagem. Subpáginas ficam para quando houver volume.</p>
+    <ol>
+      <li><b>Abertura:</b> "Uma receita, quem ela alcança", com as quatro âncoras.</li>
+      <li><b>Médicos (foco de conversão):</b> os recursos que tiram etapas da rotina (histórico, modelos, assinatura, renovação em um clique) e os contextos de uso, com a chamada para o produto certo em cada um. Fotos das duas personas.</li>
+      <li><b>Clínicas e consultórios:</b> padronização, organização das informações no prontuário, várias especialidades, integração com a gestão do iClinic. Chamada para o iClinic.</li>
+      <li><b>Pacientes:</b> recebe a receita no celular, sem depender de impressão, apresenta na farmácia. Sem chamada de produto.</li>
+      <li><b>Farmácias:</b> recebimento e conferência de receitas digitais, menos etapas manuais, conformidade. Chamada para o Dispensador (página de parceiros).</li>
+    </ol>
+    <div class="note"><b>Precisamos da Afya:</b> o nome da seção no menu (o board marca "repensar") e o copy de cada perfil, a partir do macro do board. Sugestões de nome: "Para cada perfil" ou "Soluções".</div>
+  </div>
+
+  <h2>3. Dúvidas</h2>
+  <div class="item">
+    <h3>Central de informação para reduzir barreiras e aliviar o atendimento</h3>
+    <p class="src">Board: "FAQ sobre prescrição digital, tipos de receituário, assinatura, validade, envio, funcionamento. Visão agnóstica de produto, sem focar apenas em iClinic/Whitebook".</p>
+    <ol>
+      <li><b>Abertura:</b> campo de busca nas perguntas e os temas em botões.</li>
+      <li><b>Perguntas por tema:</b> prescrição digital, receituários e controlados, assinatura digital, validade e farmácia, envio ao paciente, Whitebook e iClinic (só o que é diferente entre eles).</li>
+      <li><b>Não achou:</b> os canais de atendimento de cada produto.</li>
+    </ol>
+    <div class="note"><b>Precisamos da Afya:</b> a lista de perguntas e respostas (as cinco da home são o ponto de partida) e os canais de atendimento que podem aparecer no site.</div>
+  </div>
+
+  <h2>4. Para parceiros</h2>
+  <div class="item">
+    <h3>Dispensador para farmácias; indústria farmacêutica a definir</h3>
+    <p class="src">Board: subpáginas "Dispensador" (link do dispensador / validador de receita para farmácias) e "Indústria farmacêutica" (TBD, B2B, exige validação interna, tratamento diferente).</p>
+    <ol>
+      <li><b>Dispensador:</b> o que é, como a farmácia valida uma receita digital da Afya, passo a passo com telas, link para acessar. Já tem link reservado no rodapé da home.</li>
+      <li><b>Indústria farmacêutica:</b> fica fora desta fase. Entra quando a Afya definir a proposta.</li>
+    </ol>
+    <div class="note"><b>Precisamos da Afya:</b> o endereço do dispensador, as telas e o copy. E a decisão sobre a página de indústria.</div>
+  </div>
+
+  <h2>5. Blog</h2>
+  <div class="item">
+    <h3>Depende de uma decisão de ferramenta antes de existir</h3>
+    <p class="src">Board: "Construir autoridade e gerar tráfego orgânico com conteúdos relacionados à prescrição e contexto regulatório".</p>
+    <ul>
+      <li>O site é estático, sem painel de edição. Publicar um post hoje exige mexer no código a cada texto.</li>
+      <li>Caminhos: <b>(a)</b> blog dentro deste site, com os posts escritos pela Conversion a cada rodada; <b>(b)</b> blog em ferramenta própria, com painel para a Afya publicar; <b>(c)</b> o menu "Blog" apontar para um blog que a Afya já tenha.</li>
+    </ul>
+    <div class="note"><b>Decisão conjunta:</b> qual caminho, quem escreve e com que frequência. Sem isso, o item do menu continua inerte.</div>
+  </div>
+
+  <h2>6. Modelo de página por especialidade (SEO)</h2>
+  <div class="item">
+    <h3>Um modelo replicável; psiquiatria como primeira</h3>
+    <p class="src">Board: "Template replicável por especialidade, explorando prescrição + especialidade + necessidades/casos de uso. Utilizar psiquiatria como modelo".</p>
+    <ol>
+      <li><b>Abertura:</b> prescrição digital em [especialidade], com o contexto típico (em psiquiatria, controlados e receita azul).</li>
+      <li><b>Necessidades da especialidade:</b> três ou quatro blocos com o recurso que responde a cada uma.</li>
+      <li><b>Casos de uso:</b> plantão × consultório na especialidade.</li>
+      <li><b>Dúvidas da especialidade</b> e chamada dupla.</li>
+    </ol>
+    <div class="note"><b>Precisamos da Afya:</b> a lista de especialidades e, para cada uma, as necessidades e o copy. O modelo pode ser montado com psiquiatria assim que o conteúdo dela chegar.</div>
+  </div>
+
+  <h2>Ordem sugerida de publicação</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Rodada</th><th>Página</th><th>Por quê</th><th>Depende de</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Recursos</td><td>É o destino dos links "Recursos" da home e sustenta as outras</td><td>Lista de recursos, telas e copy</td></tr>
+      <tr><td>1</td><td>RDC 1000/2025 + SNCR</td><td>Tem link na home e no rodapé; o marco regulatório já está no ar</td><td>Data e nome da norma, fluxo e telas</td></tr>
+      <tr><td>2</td><td>Para quem</td><td>Aprofunda as duas abas da home</td><td>Nome da seção e copy dos quatro perfis</td></tr>
+      <tr><td>2</td><td>Dúvidas</td><td>Alivia o atendimento, objetivo da ata de 22/09</td><td>Perguntas e respostas, canais</td></tr>
+      <tr><td>3</td><td>Para parceiros (Dispensador)</td><td>Destino do link "Dispensador" do rodapé</td><td>Endereço, telas e copy</td></tr>
+      <tr><td>4</td><td>Especialidade (psiquiatria)</td><td>Modelo para as demais</td><td>Lista de especialidades e copy</td></tr>
+      <tr><td>—</td><td>Blog</td><td>Sem ferramenta definida</td><td>Decisão de caminho</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Perguntas para a terça</h2>
+  <div class="item">
+    <ul>
+      <li><span class="lab ask">Nome</span>"Para quem" fica, ou vira "Para cada perfil" ou "Soluções"?</li>
+      <li><span class="lab ask">Formato</span>"Para quem" em página única com âncoras, ou subpáginas desde já?</li>
+      <li><span class="lab ask">Blog</span>Qual dos três caminhos, quem escreve e com que frequência?</li>
+      <li><span class="lab ask">Indústria</span>A página de indústria farmacêutica fica fora desta fase?</li>
+      <li><span class="lab ask">Especialidades</span>Quais, e em que ordem?</li>
+      <li><span class="lab ask">Prazo</span>Uma página por rodada: qual rodada entra em cada reunião?</li>
+    </ul>
+  </div>
+
+  <footer>Gerado em 05/10/2026 a partir de <em>Estrutura Páginas Site Prescrição.pdf</em> (setembro), do resumo da call de 29/09 e da home publicada.</footer>
+</div>
+</body>
+</html>
