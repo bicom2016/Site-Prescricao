@@ -274,6 +274,8 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
 - [x] Páginas internas do menu, primeira versão: Recursos, RDC 1000/2025, Para quem,
       Dúvidas, Para parceiros e Blog, com copy dos documentos do projeto
       (05/10/2026, ver `docs/registro-05-10-2026.md`)
+- [x] Depoimentos reais na home: três médicos, com texto e foto enviados pela Afya
+      (20/10/2026, ver `docs/registro-20-10-2026.md`)
 
 **Conteúdo e marca**
 
@@ -284,8 +286,6 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
 - [ ] Substituir a imagem social herdada do Whitebook (`assets/images/og-home.png`)
 - [ ] Enviar à Afya o pedido de banner e telas
       (`docs/pedido-afya-banner-e-telas-29-09-2026.md`)
-- [ ] Depoimentos: trocar os três cards de marcação pelo conteúdo real (texto, nome,
-      especialidade e foto) antes de publicar no domínio oficial
 - [ ] Banner da nova prescrição: receber a arte da Afya e confirmar posição, texto e
       destino do botão
 - [ ] Confirmar com a Afya os botões do iClinic na comparação (a LP usa "Testar o
@@ -309,8 +309,8 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       iClinic: hoje "Como funciona" e as personas usam telas recriadas em HTML
 - [ ] Validar com a Afya os valores da paleta sóbria e o ritmo dos fundos aplicados
       em 29/09
-- [ ] Números do ecossistema Afya para a faixa de prova, fotos dos depoimentos e
-      definição do vídeo (Afya, ata de 22/09)
+- [ ] Números do ecossistema Afya para a faixa de prova e definição do vídeo (Afya,
+      ata de 22/09)
 
 **Site**
 

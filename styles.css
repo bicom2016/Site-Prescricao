@@ -8242,33 +8242,18 @@ a:not([href]) {
   }
 }
 
-/* --- Depoimentos: cards de marcacao ate o conteudo chegar ------------------- */
-.testimonial-card .testimonial-avatar {
-  display: flex;
-  width: 64px;
-  height: 64px;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--berry-160);
-  color: var(--berry-50);
+/* --- Depoimentos (20/10): estrelas acima da fala; o retrato com anel discreto,
+   no azul acinzentado, em vez do anel magenta herdado. --- */
+.testimonial-stars {
+  margin: 0 0 -10px;
+  color: var(--accent);
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  line-height: 1;
 }
 
-.testimonial-avatar svg {
-  width: 30px;
-  height: 30px;
-}
-
-.testimonial-card[data-placeholder] {
-  border-style: dashed;
-  border-color: var(--line-strong);
-  box-shadow: none;
-}
-
-.testimonial-card[data-placeholder] blockquote {
-  color: var(--text-muted);
+.testimonial-card figcaption img {
+  border-color: var(--berry-140);
 }
 
 /* ==========================================================================
@@ -8521,5 +8506,111 @@ a:not([href]) {
 @media (max-width: 860px) {
   .feature-media {
     order: -1;
+  }
+}
+
+/* ==========================================================================
+   Elevacao ao passar o mouse (20/10)
+   Os blocos "de cartao" sobem 6px e ganham a sombra media, com a borda um
+   tom mais firme. Vale para depoimentos, colunas de produto, cards numerados,
+   cards de informacao, atalhos do hero interno e as fotos das linhas
+   alternadas. Quem desativou animacoes no sistema ve so a sombra, sem o
+   movimento. Os cards de depoimento ja subiam 5px pela regra herdada do
+   Whitebook; aqui tudo passa a usar a mesma medida.
+   Os cards chegam com a animacao de entrada (.reveal), que tambem usa
+   transform e tem prioridade maior (.js .reveal.is-visible). Por isso o
+   movimento do hover vem com !important, e o card revelado passa a
+   transicionar no ritmo do hover, nao no da entrada (680ms).
+   ========================================================================== */
+.testimonial-card,
+.compare-card,
+.step-card,
+.info-grid .category-card,
+.anchor-list a,
+.why-media,
+.js .reveal.is-visible:is(.testimonial-card, .compare-card, .step-card, .category-card, .why-media) {
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+
+.testimonial-card:hover,
+.compare-card:hover,
+.step-card:hover,
+.info-grid .category-card:hover,
+.anchor-list a:hover {
+  border-color: var(--berry-120);
+  box-shadow: var(--shadow-md);
+}
+
+/* A foto nao tem borda nem sombra propria; a elevacao fica no movimento e na
+   etiqueta sobre ela, que ganha a sombra maior. */
+.why-media .why-chip {
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+
+.why-media:hover .why-chip {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px rgba(13, 27, 42, 0.2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .testimonial-card:hover,
+  .compare-card:hover,
+  .step-card:hover,
+  .info-grid .category-card:hover,
+  .anchor-list a:hover,
+  .why-media:hover {
+    transform: translateY(-6px) !important;
+  }
+}
+
+/* O card de informacao herda uma borda superior colorida; ela nao muda no hover. */
+.info-grid .category-card:hover {
+  border-top-color: var(--accent);
+}
+
+/* Mesma elevacao nas demais caixas: faixa do marco regulatorio, abas e painel
+   de "Onde voce prescreve", janelas das telas ilustrativas, cartao de receita,
+   banner da campanha e quadros das telas nas paginas internas. As abas sobem
+   menos (3px): sao botoes, e o painel abaixo delas tambem reage. */
+.afya-inner,
+.use-tab,
+.use-panel,
+.rx-app,
+.rx-demo,
+.campaign-banner,
+.feature-media .use-screen,
+.js .reveal.is-visible:is(.afya-inner, .use-panel, .rx-app, .rx-demo, .campaign-banner) {
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+
+.afya-inner:hover,
+.use-panel:hover,
+.rx-app:hover,
+.feature-media .use-screen:hover {
+  border-color: var(--berry-120);
+  box-shadow: var(--shadow-md);
+}
+
+.use-tab:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.rx-demo:hover,
+.campaign-banner:hover {
+  box-shadow: 0 24px 60px rgba(13, 27, 42, 0.2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .afya-inner:hover,
+  .use-panel:hover,
+  .rx-app:hover,
+  .rx-demo:hover,
+  .campaign-banner:hover,
+  .feature-media .use-screen:hover {
+    transform: translateY(-6px) !important;
+  }
+
+  .use-tab:hover {
+    transform: translateY(-3px);
   }
 }
