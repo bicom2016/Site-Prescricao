@@ -6916,7 +6916,7 @@ a:not([href]) {
    que e o unico <p> sem classe dentro de .hero-copy. */
 @media (min-width: 721px) {
   .hero-copy {
-    width: min(60%, 800px);
+    width: min(62%, 800px);
   }
 }
 
