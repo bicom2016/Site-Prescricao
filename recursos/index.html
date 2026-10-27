@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Recursos | Prescrição digital | Afya</title>
-    <meta name="description" content="Medicamentos, exames, vacinas e dermocosméticos na mesma receita, com busca, alertas de interação, modelos, assinatura digital e envio ao paciente.">
+    <title>Recursos da prescrição digital | Prescrição digital | Afya</title>
+    <meta name="description" content="Base completa com +22 mil medicamentos, sugestão de posologia, modelos, alertas de interação, assinatura digital e envio por WhatsApp. Veja tudo o que a prescrição digital da Afya faz por você.">
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://prescricao.conversion.com.br/recursos/">
@@ -12,8 +12,8 @@
     <meta property="og:site_name" content="Afya">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:url" content="https://prescricao.conversion.com.br/recursos/">
-    <meta property="og:title" content="Recursos">
-    <meta property="og:description" content="Medicamentos, exames, vacinas e dermocosméticos na mesma receita, com busca, alertas de interação, modelos, assinatura digital e envio ao paciente.">
+    <meta property="og:title" content="Recursos da prescrição digital">
+    <meta property="og:description" content="Base completa com +22 mil medicamentos, sugestão de posologia, modelos, alertas de interação, assinatura digital e envio por WhatsApp. Veja tudo o que a prescrição digital da Afya faz por você.">
     <!-- Imagem social ainda e a do Whitebook: falta arte propria de Prescricao. -->
     <meta property="og:image" content="https://prescricao.conversion.com.br/assets/images/og-home.png">
     <meta property="og:image:width" content="1200">
@@ -23,11 +23,14 @@
     <link rel="preload" href="/assets/fonts/AfyaSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="/assets/fonts/AfyaSans-Light.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="/styles.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Posso criar meus próprios modelos?","acceptedAnswer":{"@type":"Answer","text":"Sim. Você salva as receitas que mais usa como modelo e reaproveita em poucos cliques. Também pode partir de modelos prontos por especialidade."}},{"@type":"Question","name":"Preciso de certificado digital?","acceptedAnswer":{"@type":"Answer","text":"Para assinar a receita digitalmente, sim. Você pode usar BirdID, VaultID, VIDaaS ou certificados A1 e A3, e manter a assinatura ativa por até 7 dias. Também é possível finalizar sem assinatura digital em receitas simples ou, se preferir, imprimir a receita, carimbar e assinar no papel."}},{"@type":"Question","name":"O paciente precisa instalar algum app?","acceptedAnswer":{"@type":"Answer","text":"Não. Ele recebe a receita por WhatsApp, link ou PDF."}},{"@type":"Question","name":"Os alertas substituem a minha avaliação?","acceptedAnswer":{"@type":"Answer","text":"Não. Eles apoiam a decisão. A conduta é sempre do médico."}},{"@type":"Question","name":"Posso começar sem escolher o paciente?","acceptedAnswer":{"@type":"Answer","text":"Sim. Você pode iniciar pela prescrição e selecionar ou cadastrar o paciente a qualquer momento."}}]}</script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <!-- Mesmo header da home (index.html). Ao mexer no menu, alterar em todas as paginas. -->
+    <!-- Mesmo header em todas as paginas; ao mexer no menu, alterar em todas. Mega menu
+         (copy e wireframes v9, 26/10): Recursos, Para quem e Para parceiros abrem submenu
+         com icone e uma linha. -->
     <header class="site-header" data-header>
       <div class="header-shell">
         <a class="brand" href="/" aria-label="Afya — início">
@@ -42,10 +45,31 @@
         <div class="header-menu" id="menu-principal" data-menu>
           <nav class="main-nav" aria-label="Navegação principal">
             <a href="/">Home</a>
-            <a href="/recursos/" aria-current="page">Recursos</a>
-            <a href="/para-quem/">Para quem</a>
+            <div class="nav-group is-current" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Recursos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/recursos/" aria-current="page"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg></span><span><strong>Recursos</strong><small>Tudo o que a prescrição faz</small></span></a>
+                <a href="/recursos/receita-controlada-digital/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg></span><span><strong>RDC 1000/2025</strong><small>O que muda nos receituários controlados</small></span></a>
+                <a href="/recursos/#como-funciona"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Como funciona</strong><small>Uma prescrição do início ao fim</small></span></a>
+              </div>
+            </div>
+            <div class="nav-group" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/para-quem/#medicos"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg></span><span><strong>Médicos</strong><small>Menos etapas, com apoio à decisão</small></span></a>
+                <a href="/para-quem/#clinicas"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg></span><span><strong>Clínicas e consultórios</strong><small>Padronize a prescrição da equipe</small></span></a>
+                <a href="/para-quem/#pacientes"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg></span><span><strong>Pacientes</strong><small>A receita no celular</small></span></a>
+                <a href="/para-quem/#farmacias"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Farmácias</strong><small>Receitas digitais conferidas</small></span></a>
+              </div>
+            </div>
             <a href="/duvidas/">Dúvidas</a>
-            <a href="/parceiros/">Para parceiros</a>
+            <div class="nav-group" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para parceiros<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/parceiros/dispensador/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg></span><span><strong>Dispensador para farmácias</strong><small>Confira receitas digitais no balcão</small></span></a>
+                <a href="/parceiros/industria/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#radar"></use></svg></span><span><strong>Indústria farmacêutica</strong><small>Chegue aos médicos no contexto certo</small></span></a>
+              </div>
+            </div>
             <a href="/blog/">Blog</a>
           </nav>
           <div class="header-actions">
@@ -56,170 +80,276 @@
     </header>
 
     <main id="conteudo">
-      <!-- Hero interno: tipografico, claro, com a tela da busca ao lado. Copy do Guia
-           Mar Aberto ("Tudo o que precisa para prescrever, de forma simples e intuitiva")
-           e da Visao 360 (funcionalidades). -->
+      <!-- Recursos (copy v9, 26/10): a pagina segue a ordem real da prescricao (buscar,
+           montar, revisar, assinar, enviar, acompanhar) e liga cada recurso ao ganho pratico.
+           Status confirmado pelo time em 22/10: V1 liberada, touchpoints do Whitebook, LME e
+           RDC ativos. Marcacoes "validar" do documento estao em comentarios no bloco. -->
       <section class="page-hero" aria-labelledby="page-title">
         <div class="content-container page-hero-inner page-hero-with-media">
           <div class="page-hero-copy reveal">
             <p class="page-eyebrow">Recursos</p>
-            <h1 id="page-title">Tudo o que você precisa para prescrever, em <span class="hl">uma tela só</span></h1>
-            <p>Medicamentos, exames, vacinas, dermocosméticos e suplementos na mesma receita. Busca, alertas, assinatura e envio no mesmo fluxo, no Whitebook e no iClinic.</p>
+            <h1 id="page-title">Tudo o que você precisa para prescrever, <span class="hl">em um só lugar</span></h1>
+            <p>Medicamentos, exames e vacinas na mesma prescrição, com busca inteligente, sugestão de posologia, alertas de interação, assinatura digital e envio ao paciente.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="https://whitebook.pebmed.com.br/perfil/">Quero prescrever grátis</a>
-              <a class="button button-outline" href="https://www.iclinic.com.br/planos/">Quero prescrever e gerenciar minha clínica</a>
+              <a class="text-link" href="#buscar">Ver recursos em ação</a>
             </div>
+            <p class="hero-micro">Gratuita e ilimitada no Whitebook. Inclusa em todos os planos do iClinic.</p>
           </div>
-          <div class="page-hero-media reveal" data-delay="1"><figure class="why-media">
-              <img src="/assets/images/hero/hero-consultorio-mobile.webp" alt="Médica de jaleco branco no consultório, prescrevendo pelo computador" width="960" height="720" loading="eager">
-              <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg>Tela única · cerca de 2 minutos</figcaption>
-            </figure></div>
+          <div class="page-hero-media reveal" data-delay="1"><div class="rx-app rx-app-static rx-hero">
+                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Nova prescrição · Maria S., 42 anos</span></div>
+                  <div class="rx-app-panel">
+                    <ol class="rx-app-items">
+                      <li><a class="hotspot" href="#buscar" aria-label="Ir para Buscar e posologia">1</a><span><strong>Amoxicilina 500 mg — 21 cápsulas</strong><small>1 cápsula de 8 em 8 horas, por 7 dias</small><em>Posologia sugerida</em></span></li>
+                      <li><a class="hotspot" href="#reaproveitar" aria-label="Ir para Modelos e histórico">2</a><span><strong>Ibuprofeno 600 mg — 10 comprimidos</strong><small>1 comprimido de 12 em 12 horas, se dor</small><em>Do modelo "Dor aguda"</em></span></li>
+                    </ol>
+                    <p class="rx-app-ok"><a class="hotspot" href="#revisar" aria-label="Ir para Alertas de interação">3</a><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</p>
+                    <p class="rx-app-toast"><a class="hotspot" href="#assinar" aria-label="Ir para Assinatura e envio">4</a><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg>Assinar e enviar</p>
+                  </div>
+                  <div class="rx-app-foot" aria-hidden="true"><span>Tudo em um só lugar</span><span>Do primeiro item ao envio</span></div>
+                </div></div>
         </div>
       </section>
 
-      <!-- Faixa de numeros, como na home. -->
-      <section class="page-stats" aria-label="Indicadores">
-        <div class="content-container page-stats-grid">
-          <div class="page-stat reveal"><strong>+22 mil</strong><span>medicamentos na base, com bulário completo</span></div>
-          <div class="page-stat reveal" data-delay="1"><strong>≈ 2 min</strong><span>da busca ao envio, em uma tela só</span></div>
-          <div class="page-stat reveal" data-delay="2"><strong>4</strong><span>formas de assinar: Vidaas, BirdID, A1 e A3</span></div>
-        </div>
-      </section>
-
-      <!-- Recursos em quatro grupos (Visao 360, item 7): montar, prescrever com seguranca,
-           ganhar tempo, entregar. Cada grupo com a tela correspondente ao lado. -->
-      <section class="section" id="recursos" aria-labelledby="recursos-title">
+      <!-- Barra de etapas: fixa abaixo do menu; o chip ativo acompanha a rolagem (script.js). -->
+      <nav class="stage-nav" aria-label="Ir para a etapa da prescrição" data-stage-nav>
         <div class="content-container">
-          <header class="section-heading reveal">
-            <p class="section-eyebrow">Recursos</p>
-            <h2 id="recursos-title">Da busca ao paciente, <span class="hl">sem trocar de tela</span></h2>
-          </header>
+          <a href="#buscar"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg>Buscar</a>
+          <a href="#montar"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg>Montar</a>
+          <a href="#revisar"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#interacao-medicamentosa"></use></svg>Revisar</a>
+          <a href="#assinar"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg>Assinar</a>
+          <a href="#enviar"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg>Enviar</a>
+          <a href="#acompanhar"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg>Acompanhar</a>
+        </div>
+      </nav>
 
+      <section class="section" aria-label="Recursos por etapa">
+        <div class="content-container">
           <div class="why-rows feature-rows">
-            <div class="why-row feature-row reveal">
+            <div class="why-row feature-row reveal" id="buscar">
               <div class="feature-copy">
-                <p class="section-eyebrow">Monte a receita</p>
-                <h3>Busque, escreva ou escolha</h3>
-                <p>A base completa o nome do medicamento e sugere a posologia. Se preferir, escreva a receita do seu jeito, em texto livre.</p>
+                <p class="section-eyebrow">01 · Buscar</p>
+                <h2>Encontre o medicamento em poucos segundos</h2>
+                <p>Comece a digitar e a busca sugere o que você precisa, em uma base completa e atualizada. Menos esforço para achar, mais atenção ao paciente.</p>
                 <ul class="use-list">
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Base com mais de 22 mil medicamentos</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Busca com autocomplete e bulário completo</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sugestão de posologia</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Texto livre, sem travas</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Medicamentos, exames, vacinas, dermocosméticos e suplementos na mesma receita</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Separador e reordenação de itens</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Base completa e atualizada, com +22 mil medicamentos</strong></li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Autocomplete</strong> por produto ou substância</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Medicamentos, exames e vacinas</strong> na mesma prescrição</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Texto livre</strong> para o que não estiver no catálogo</li>
                 </ul>
+
 
               </div>
               <div class="feature-media">
                 <div class="rx-app rx-app-static">
-                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Nova receita · Maria S., 42 anos</span></div>
+                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Nova prescrição · Maria S., 42 anos</span></div>
                   <div class="rx-app-panel">
                     <p class="rx-app-label">Medicamento</p>
                     <div class="rx-app-search"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg><span>Amoxi<b class="rx-app-caret"></b></span></div>
                     <ul class="rx-app-suggest">
                       <li class="is-active"><strong>Amoxicilina 500 mg</strong><small>Cápsula · genérico e referência</small></li>
                       <li><strong>Amoxicilina 875 mg</strong><small>Comprimido revestido</small></li>
-                      <li><strong>Amoxicilina 250 mg/5 mL</strong><small>Suspensão oral</small></li>
-                      <li><strong>Amoxicilina + clavulanato de potássio</strong><small>875 mg + 125 mg</small></li>
+                      <li><strong>Amoxicilina + clavulanato</strong><small>875 mg + 125 mg</small></li>
                     </ul>
                   </div>
-                  <div class="rx-app-foot" aria-hidden="true"><span>Base com +22 mil itens</span><span>Texto livre</span></div>
+                  <div class="rx-app-foot" aria-hidden="true"><span>Base com +22 mil medicamentos</span><span>Texto livre</span></div>
                 </div>
               </div>
             </div>
-            <div class="why-row feature-row why-row-flip reveal">
+            <div class="why-row feature-row why-row-flip reveal" id="montar">
               <div class="feature-copy">
-                <p class="section-eyebrow">Prescreva com segurança</p>
-                <h3>A receita certa, no receituário certo</h3>
-                <p>Alertas de interação enquanto você monta a receita, e o tipo de receituário definido automaticamente pelo medicamento.</p>
+                <p class="section-eyebrow">02 · Montar</p>
+                <h2>Parta de uma posologia sugerida e ajuste só o que precisar</h2>
+                <p>A prescrição apresenta posologias sugeridas e você edita quando necessário. Para o que foge do catálogo, o texto livre dá liberdade.</p>
                 <ul class="use-list">
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Alertas de interação medicamentosa</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Receituário simples, de controle especial ou antimicrobiano</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Receitas azuis e amarelas, com numeração do SNCR</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>LME para medicamentos de alto custo</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Inclusão de CID</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Sugestão de posologia:</strong> comece de sugestões prontas e edite quando precisar.</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Texto livre:</strong> personalize itens e recomendações ao paciente sem ficar limitado ao catálogo.</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Tudo na mesma receita:</strong> medicamentos, exames e vacinas.</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Paciente a qualquer momento:</strong> selecione, cadastre ou corrija os dados durante a prescrição.</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Dados já carregados:</strong> os dados cadastrados do médico e do paciente entram automaticamente, com menos retrabalho.</li>
                 </ul>
-                <a class="text-link" href="/recursos/rdc-1000-2025/">Entenda a RDC 1000/2025</a>
+
+
               </div>
               <div class="feature-media">
                 <div class="rx-app rx-app-static">
-                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Nova receita · Maria S., 42 anos</span></div>
+                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Nova prescrição · Maria S., 42 anos</span></div>
                   <div class="rx-app-panel">
                     <ul class="rx-app-chips" aria-label="Tipos de item">
                       <li class="is-active">Medicamentos</li><li>Exames</li><li>Vacinas</li>
                     </ul>
                     <ol class="rx-app-items">
-                      <li><i>1</i><span><strong>Amoxicilina 500 mg — 21 cápsulas</strong><small>1 cápsula de 8 em 8 horas, por 7 dias</small><em>Posologia sugerida</em></span></li>
+                      <li><i>1</i><span><strong>Amoxicilina 500 mg — 21 cápsulas</strong><small>1 cápsula de 8 em 8 horas, por 7 dias</small><em>Posologia sugerida · editar</em></span></li>
                       <li><i>2</i><span><strong>Hemograma completo</strong><small>Exame laboratorial</small></span></li>
                     </ol>
-                    <p class="rx-app-ok"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</p>
+                    <p class="rx-app-ok"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Paciente: Maria S. · dados já carregados</p>
                   </div>
-                  <div class="rx-app-foot" aria-hidden="true"><span>Receituário: simples</span><span>Definido automaticamente</span></div>
+                  <div class="rx-app-foot" aria-hidden="true"><span>Medicamentos, exames e vacinas</span><span>Mesma receita</span></div>
                 </div>
               </div>
             </div>
-            <div class="why-row feature-row reveal">
+            <div class="why-row feature-row reveal" id="reaproveitar">
               <div class="feature-copy">
-                <p class="section-eyebrow">Ganhe tempo</p>
-                <h3>Condutas recorrentes em um clique</h3>
-                <p>Na maior parte das vezes você já sabe o que prescrever. Histórico, modelos e renovação tiram o retrabalho do caminho.</p>
+                <p class="section-eyebrow">02b · Reaproveitar</p>
+                <h2>Não comece do zero: modelos, histórico e renovação</h2>
+                <p>Salve as prescrições recorrentes, parta de modelos prontos por especialidade e renove tratamentos a partir do histórico.</p>
                 <ul class="use-list">
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Histórico de prescrições</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Renovação sem começar do zero</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Clonar uma receita anterior</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Modelos próprios para condutas recorrentes</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Modelos próprios:</strong> salve prescrições recorrentes como modelo e reutilize sempre que precisar.</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Biblioteca de modelos:</strong> comece de modelos por especialidade, desenvolvidos pela inteligência clínica do Whitebook.</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Histórico completo:</strong> consulte, reaproveite e renove prescrições anteriores.</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Renovação em 1 clique</strong> para tratamentos recorrentes.</li>
                 </ul>
+
 
               </div>
               <div class="feature-media">
                 <div class="rx-app rx-app-static">
                   <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Meus modelos</span></div>
                   <div class="rx-app-panel">
-                    <p class="rx-app-label">Modelos de prescrição</p>
+                    <p class="rx-app-label">Modelos e histórico</p>
                     <ol class="rx-app-items">
                       <li><i>1</i><span><strong>Hipertensão · manutenção</strong><small>Losartana 50 mg · Hidroclorotiazida 25 mg</small><em>Renovar</em></span></li>
                       <li><i>2</i><span><strong>Infecção de vias aéreas</strong><small>Amoxicilina 500 mg · Dipirona 1 g</small><em>Usar modelo</em></span></li>
-                      <li><i>3</i><span><strong>Última receita · João P.</strong><small>12/06 · 2 itens</small><em>Clonar</em></span></li>
+                      <li><i>3</i><span><strong>Biblioteca · Clínica médica</strong><small>Modelos por especialidade</small><em>Abrir</em></span></li>
                     </ol>
                   </div>
-                  <div class="rx-app-foot" aria-hidden="true"><span>Histórico completo</span><span>Renovação em 1 clique</span></div>
+                  <div class="rx-app-foot" aria-hidden="true"><span>Modelos próprios</span><span>Renovação em 1 clique</span></div>
                 </div>
               </div>
             </div>
-            <div class="why-row feature-row why-row-flip reveal">
+            <div class="why-row feature-row why-row-flip reveal" id="revisar">
               <div class="feature-copy">
-                <p class="section-eyebrow">Entregue ao paciente</p>
-                <h3>Assine e envie em segundos</h3>
-                <p>Assinatura digital com validade jurídica e envio por onde o paciente preferir. Ele recebe na hora, sem instalar nada.</p>
+                <p class="section-eyebrow">03 · Revisar</p>
+                <h2>Segurança que trabalha enquanto você prescreve</h2>
+                <p>Avisos aparecem enquanto você monta a receita, não depois que ela chega à farmácia.</p>
                 <ul class="use-list">
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Assinatura digital: Vidaas, BirdID, A1 ou A3</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>WhatsApp, PDF, link ou impressão</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Página da receita para o paciente</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Impressão com o seu logo</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Alertas automáticos de interação medicamentosa</strong> durante a prescrição</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Receituário adequado automaticamente:</strong> simples, controle especial, antimicrobiano, azul, amarela e demais receituários da RDC 1000/2025</li>
                 </ul>
+
+                <div class="stat-dark"><strong>39%</strong><span>dos erros de medicação acontecem na prescrição</span><small>Harvard Medical Practice Study</small></div>
+                <p class="disclaimer">Os alertas apoiam a decisão clínica e não substituem a avaliação do médico.</p>
+              </div>
+              <div class="feature-media">
+                <div class="rx-app rx-app-static">
+                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Revisão · João P., 61 anos</span></div>
+                  <div class="rx-app-panel">
+                    <ol class="rx-app-items">
+                      <li><i>1</i><span><strong>Varfarina 5 mg</strong><small>1 comprimido ao dia</small></span></li>
+                      <li><i>2</i><span><strong>Ácido acetilsalicílico 100 mg</strong><small>1 comprimido ao dia</small></span></li>
+                    </ol>
+                    <p class="rx-app-warn"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#interacao-medicamentosa"></use></svg>Interação: risco aumentado de sangramento</p>
+                    <p class="rx-app-label">Receituário</p>
+                    <ul class="rx-app-chips" aria-label="Tipos de receituário">
+                      <li>Simples</li><li class="is-active">Controle especial</li><li>Antimicrobiano</li><li>Azul</li><li>Amarela</li>
+                    </ul>
+                  </div>
+                  <div class="rx-app-foot" aria-hidden="true"><span>Alertas durante a prescrição</span><span>Receituário automático</span></div>
+                </div>
+              </div>
+            </div>
+            <!-- 03b · LME: o Guia so diz "apoia a emissao de prescricoes que exigem documentacao
+                 especifica"; a descricao do recurso depende do produto. -->
+            <div class="why-row feature-row reveal" id="lme">
+              <div class="feature-copy">
+                <p class="section-eyebrow">03b · LME</p>
+                <h2>Prescrições que exigem documentação específica, na mesma ferramenta</h2>
+                <p>A Afya apoia a emissão de LME, ampliando as necessidades que você consegue resolver digitalmente.</p>
+                <ul class="use-list">
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>LME</strong> emitida junto da prescrição, sem montar o documento à parte</li>
+                </ul>
+              </div>
+              <div class="feature-media">
+                <div class="info-grid cols-1">
+            <article class="category-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg>
+              <h3>LME</h3>
+              <p>Laudo para medicamentos de alto custo, emitido junto da prescrição, no Whitebook e no iClinic.</p>
+            </article>
+                </div>
+              </div>
+            </div>
+            <div class="why-row feature-row why-row-flip reveal" id="assinar">
+              <div class="feature-copy">
+                <p class="section-eyebrow">04 · Assinar</p>
+                <h2>Assine digitalmente e mantenha a assinatura ativa por até 7 dias</h2>
+                <p>Use o certificado que você já tem. Com certificado em nuvem, a autenticação é feita no app do seu provedor, por QR code ou notificação.</p>
+                <ul class="use-list">
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Certificados em nuvem:</strong> BirdID, VaultID e VIDaaS</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Certificados A1 e A3</strong>, com assinatura local</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Ative a assinatura a qualquer momento</strong>, inclusive antes de começar a prescrever</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Escolha por quanto tempo</strong> manter a assinatura ativa, por até 7 dias</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Padrão ICP-Brasil</strong>, exigido para notificações de receita e receitas de controle especial</li>
+                </ul>
+                <a class="text-link" href="/duvidas/#assinatura">Ainda não tem certificado? Veja como escolher</a>
 
               </div>
               <div class="feature-media">
                 <div class="rx-app rx-app-static">
-                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Nova receita · Maria S., 42 anos</span></div>
+                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Assinar prescrição</span></div>
                   <div class="rx-app-panel">
                     <p class="rx-app-label">Assinar com</p>
                     <ul class="rx-app-options">
-                      <li class="is-active"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>Vidaas<small>Certificado em nuvem</small></span></li>
-                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>BirdID<small>Certificado em nuvem</small></span></li>
-                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>A1<small>Arquivo no computador</small></span></li>
-                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>A3<small>Token ou cartão</small></span></li>
+                      <li class="is-active"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>BirdID<small>Certificado em nuvem</small></span></li>
+                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>VaultID<small>Certificado em nuvem</small></span></li>
+                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>VIDaaS<small>Certificado em nuvem</small></span></li>
+                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>A1 ou A3<small>Certificado local</small></span></li>
                     </ul>
-                    <p class="rx-app-label">Enviar para o paciente</p>
-                    <ul class="rx-app-send">
-                      <li class="is-active"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg>WhatsApp</li>
-                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg>PDF</li>
-                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#globo"></use></svg>Link</li>
-                      <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg>Imprimir</li>
-                    </ul>
+                    <p class="rx-app-label">Manter a assinatura ativa por</p>
+                    <ul class="rx-app-chips" aria-label="Prazo"><li>1 dia</li><li>3 dias</li><li class="is-active">7 dias</li></ul>
+                    <p class="rx-app-ok"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Autenticação por QR code ou notificação no app do provedor</p>
                   </div>
-                  <div class="rx-app-foot" aria-hidden="true"><span>Assinada</span><span>Enviada em segundos</span></div>
+                  <div class="rx-app-foot" aria-hidden="true"><span>Padrão ICP-Brasil</span><span>Até 7 dias</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="why-row feature-row reveal" id="enviar">
+              <div class="feature-copy">
+                <p class="section-eyebrow">05 · Enviar</p>
+                <h2>Envie ao paciente pelo canal mais conveniente</h2>
+                <p>Os campos de envio já vêm preenchidos com os dados do paciente. É só escolher como enviar. A receita chega legível, no celular.</p>
+                <ul class="use-list">
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>WhatsApp</strong>, direto do celular dele</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>PDF</strong>, para baixar</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Link</strong>, para abrir no navegador</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Impressão</strong>, quando necessário</li>
+                </ul>
+                <a class="text-link" href="/para-quem/#farmacias">Como funciona para farmácias</a>
+
+              </div>
+              <div class="feature-media">
+                <div class="use-screen use-screen-phone" aria-hidden="true"><div class="wb-phone"><p class="wb-phone-top">WhatsApp</p>
+                      <p class="wb-phone-patient">Dra. Maria S. · hoje, 14:32</p>
+                      <ol><li><strong>Sua receita</strong><small>Amoxicilina 500 mg · 1 cápsula de 8 em 8 h</small></li></ol>
+                      <p class="wb-phone-ok"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg>Assinada digitalmente</p>
+                      <p class="wb-phone-send"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg>Abrir PDF</p></div></div>
+              </div>
+            </div>
+            <div class="why-row feature-row why-row-flip reveal" id="acompanhar">
+              <div class="feature-copy">
+                <p class="section-eyebrow">06 · Acompanhar</p>
+                <h2>Tudo o que você prescreveu, organizado por paciente</h2>
+                <p>Consulte, reenvie ou renove a partir do histórico, e navegue entre prescrição e histórico sem perder o contexto.</p>
+                <ul class="use-list">
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Histórico:</strong> consulte e reaproveite as prescrições anteriores de cada paciente</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Renovação em 1 clique</strong> para tratamentos recorrentes</li>
+                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><strong>Abas Prescrição e Histórico</strong> no cabeçalho, em qualquer tela</li>
+                </ul>
+
+
+              </div>
+              <div class="feature-media">
+                <div class="rx-app rx-app-static">
+                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Histórico · Maria S.</span></div>
+                  <div class="rx-app-panel">
+                    <ul class="rx-app-chips" aria-label="Abas"><li>Prescrição</li><li class="is-active">Histórico</li></ul>
+                    <ol class="rx-app-items">
+                      <li><i>1</i><span><strong>12/06 · 2 itens</strong><small>Losartana 50 mg · Hidroclorotiazida 25 mg</small><em>Renovar</em></span></li>
+                      <li><i>2</i><span><strong>03/03 · 1 item</strong><small>Amoxicilina 500 mg</small><em>Reenviar</em></span></li>
+                      <li><i>3</i><span><strong>18/01 · 3 itens</strong><small>Receita de controle especial</small><em>Ver</em></span></li>
+                    </ol>
+                  </div>
+                  <div class="rx-app-foot" aria-hidden="true"><span>Por paciente</span><span>Reenvie ou renove</span></div>
                 </div>
               </div>
             </div>
@@ -227,36 +357,204 @@
         </div>
       </section>
 
-      <!-- Onde cada recurso esta: os dois produtos, como na home. -->
-      <section class="use-cases section" id="onde-prescrever" aria-labelledby="onde-title">
+      <!-- Contexto de uso: a prescricao e a mesma; o toggle troca card, tela, botao e a lista
+           de recursos especificos. "Financeiro" e personalizacao: validar com produto. -->
+      <section class="use-cases section" id="contexto" aria-labelledby="contexto-title">
         <div class="content-container">
           <header class="section-heading use-heading reveal">
-            <p class="section-eyebrow">Duas portas de entrada</p>
-            <h2 id="onde-title">Os mesmos recursos, <span class="hl">onde você está</span></h2>
+            <p class="section-eyebrow">Mesma prescrição, dois contextos</p>
+            <h2 id="contexto-title">Escolha pelo jeito que <span class="hl">você atende</span></h2>
           </header>
-          <div class="compare-grid reveal">
-            <article class="compare-card">
-              <img class="use-logo" src="/assets/images/afya-whitebook-lockup.png" alt="Afya Whitebook" width="1096" height="145" loading="lazy">
-              <p class="use-product">App de apoio à decisão clínica</p>
-              <p>Prescrição independente do prontuário, com histórico próprio. No plantão, na visita ou entre atendimentos, no app ou na web.</p>
-              <ul class="use-list">
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Gratuita e ilimitada, inclusive no plano free</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Integrada ao bulário, às condutas e ao Whitebook IA</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Calculadoras clínicas no mesmo app</li>
-              </ul>
-              <a class="button button-primary" href="https://whitebook.pebmed.com.br/perfil/">Quero prescrever grátis</a>
+
+          <div class="use-tabs reveal" role="tablist" aria-label="Contexto de uso" data-tabs>
+            <button class="use-tab" type="button" role="tab" id="ctx-tab-1" aria-controls="ctx-panel-1" aria-selected="true">
+              <img src="/assets/images/photos/avatars/plantao.webp" alt="" width="320" height="320" loading="lazy">
+              <span><strong>Preciso resolver rápido</strong><small>Whitebook</small></span>
+            </button>
+            <button class="use-tab" type="button" role="tab" id="ctx-tab-2" aria-controls="ctx-panel-2" aria-selected="false" tabindex="-1">
+              <img src="/assets/images/photos/avatars/consultorio.webp" alt="" width="320" height="320" loading="lazy">
+              <span><strong>Atendo no consultório ou na clínica</strong><small>iClinic</small></span>
+            </button>
+          </div>
+
+          <div class="use-panel use-panel-wide reveal" role="tabpanel" id="ctx-panel-1" aria-labelledby="ctx-tab-1">
+            <div class="use-panel-top">
+              <div class="use-screen use-screen-phone" aria-hidden="true"><div class="wb-phone"><p class="wb-phone-top">Bulário · Amoxicilina</p>
+                      <p class="wb-phone-patient">Posologia · interações · apresentações</p>
+                      <ol><li><strong>Prescrever a partir da bula</strong><small>Medicamento já carregado na receita</small></li></ol>
+                      <p class="wb-phone-send"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg>Prescrever</p></div></div>
+              <div class="use-detail">
+                <img class="use-logo" src="/assets/images/afya-whitebook-lockup.png" alt="Afya Whitebook" width="1096" height="145" loading="lazy">
+                <h3>Prescrição no Whitebook</h3>
+                <p>Simples quando você precisa resolver rápido. Prescrição e inteligência clínica de apoio à decisão na mesma ferramenta: consulte o Bulário, os conteúdos ou o WB Assist e prescreva sem trocar de ferramenta, de onde estiver. Gratuita e ilimitada.</p>
+                <a class="button button-primary" href="https://whitebook.pebmed.com.br/perfil/">Quero prescrever grátis</a>
+              </div>
+            </div>
+            <div class="use-specific">
+              <h4>Recursos específicos do Whitebook</h4>
+          <div class="info-grid cols-3">
+            <article class="category-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg>
+              <h3>Bulário</h3>
+              <p>Acesse a prescrição direto da bula, com o medicamento já carregado na receita.</p>
             </article>
-            <article class="compare-card">
-              <img class="use-logo use-logo-iclinic" src="/assets/images/afya-iclinic-lockup.svg" alt="Afya iClinic" width="186" height="39" loading="lazy">
-              <p class="use-product">Software de gestão de consultório</p>
-              <p>Prescrição dentro do prontuário, ligada ao histórico do paciente e ao atendimento. Inclusa em todos os planos.</p>
-              <ul class="use-list">
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Base de pacientes integrada ao prontuário</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Agenda, teleconsulta e financeiro no mesmo lugar</li>
-                <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Receita com a identidade da sua clínica</li>
-              </ul>
-              <a class="button button-primary" href="https://www.iclinic.com.br/planos/">Quero prescrever e gerenciar minha clínica</a>
+            <article class="category-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#livro-aberto"></use></svg>
+              <h3>Conteúdos clínicos</h3>
+              <p>Inicie a prescrição a partir dos conteúdos do Whitebook.</p>
             </article>
+            <article class="category-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whitebook-ia"></use></svg>
+              <h3>WB Assist</h3>
+              <p>Consulte e prescreva com IA.</p>
+            </article>
+          </div>
+            </div>
+          </div>
+
+          <div class="use-panel use-panel-wide" role="tabpanel" id="ctx-panel-2" aria-labelledby="ctx-tab-2" hidden>
+            <div class="use-panel-top">
+              <div class="use-screen use-screen-desktop" aria-hidden="true">
+                  <div class="ic-app">
+                    <div class="ic-bar"><i></i><i></i><i></i><span>app.iclinic.com.br/prontuario</span></div>
+                    <div class="ic-body">
+                      <ul class="ic-nav">
+                        <li>Prontuário</li><li>Agenda</li><li class="is-active">Prescrição</li><li>Teleconsulta</li><li>Gestão</li>
+                      </ul>
+                      <div class="ic-main">
+                        <p class="ic-title">Prescrição <span>Consulta · João P.</span></p>
+                        <p class="ic-sub">Itens da receita</p>
+                        <ol>
+                          <li><i>1</i><span><strong>Losartana potássica 50 mg</strong><small>1 comprimido ao dia, uso contínuo</small></span></li>
+                        </ol>
+                        <p class="ic-history">Histórico do paciente · última receita em 12/06</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="use-detail">
+                <img class="use-logo use-logo-iclinic" src="/assets/images/afya-iclinic-lockup.svg" alt="Afya iClinic" width="186" height="39" loading="lazy">
+                <h3>Prescrição no iClinic</h3>
+                <p>Integrada ao prontuário, no consultório, junto da agenda e da gestão da clínica.</p>
+                <a class="button button-primary" href="https://www.iclinic.com.br/planos/">Quero prescrever e gerenciar minha clínica</a>
+              </div>
+            </div>
+            <div class="use-specific">
+              <h4>Recursos específicos do iClinic</h4>
+          <div class="info-grid cols-3">
+            <article class="category-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg>
+              <h3>Prontuário</h3>
+              <p>A receita e o histórico ficam junto da informação clínica do paciente.</p>
+            </article>
+            <article class="category-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg>
+              <h3>Personalização</h3>
+              <p>A receita com a cara do seu consultório ou da sua clínica.</p>
+            </article>
+            <article class="category-card reveal">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#monitor"></use></svg>
+              <h3>Agenda, financeiro e gestão</h3>
+              <p>Prescrição no mesmo sistema da clínica.</p>
+            </article>
+          </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Como funciona: quatro passos, no mesmo componente da home (que tem tres). -->
+      <section class="section how" id="como-funciona" aria-labelledby="como-title">
+        <div class="content-container">
+          <header class="section-heading use-heading reveal">
+            <p class="section-eyebrow">Na prática</p>
+            <h2 id="como-title">Da busca ao paciente em <span class="hl">poucos cliques</span></h2>
+            <p>Medicamentos, exames e vacinas em uma única tela, com os recursos certos em cada etapa.</p>
+          </header>
+          <ol class="steps-visual cols-4">
+            <li class="step-visual reveal">
+              <span class="step-circle" aria-hidden="true">1</span>
+              <h3>Busque</h3>
+              <p>Digite o medicamento, o exame ou a vacina. A busca sugere o resto, ou escreva em texto livre.</p>
+              <div class="step-screen" aria-hidden="true"><div class="wb-phone"><p class="wb-phone-top">Busque</p>
+                      <div class="rx-app-search"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg><span>Amoxi<b class="rx-app-caret"></b></span></div>
+                      <ol><li><strong>Amoxicilina 500 mg</strong><small>1 cápsula de 8 em 8 h · posologia sugerida</small></li><li><strong>Hemograma completo</strong><small>Exame</small></li></ol></div></div>
+            </li>
+            <li class="step-visual reveal" data-delay="1">
+              <span class="step-circle" aria-hidden="true">2</span>
+              <h3>Monte</h3>
+              <p>Ajuste a posologia sugerida, use modelos e veja os alertas de interação.</p>
+              <div class="step-screen" aria-hidden="true"><div class="wb-phone"><p class="wb-phone-top">Monte</p>
+                      <ol><li><strong>Amoxicilina 500 mg</strong><small>1 cápsula de 8 em 8 h, 7 dias · editar</small></li><li><strong>Modelo: Dor aguda</strong><small>Ibuprofeno 600 mg</small></li></ol>
+                      <p class="wb-phone-ok"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações</p></div></div>
+            </li>
+            <li class="step-visual reveal" data-delay="2">
+              <span class="step-circle" aria-hidden="true">3</span>
+              <h3>Assine</h3>
+              <p>Assine com BirdID, VaultID, VIDaaS, A1 ou A3, com assinatura ativa por até 7 dias.</p>
+              <div class="step-screen" aria-hidden="true"><div class="wb-phone"><p class="wb-phone-top">Assine</p>
+                      <p class="wb-phone-patient">Assinatura digital</p>
+                      <ol><li><strong>BirdID</strong><small>Certificado em nuvem</small></li><li><strong>VaultID · VIDaaS</strong><small>Certificado em nuvem</small></li><li><strong>A1 · A3</strong><small>Certificado local</small></li></ol>
+                      <p class="wb-phone-send"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg>Assinar</p></div></div>
+            </li>
+            <li class="step-visual reveal" data-delay="3">
+              <span class="step-circle" aria-hidden="true">4</span>
+              <h3>Envie</h3>
+              <p>Mande ao paciente por WhatsApp, link, PDF ou impressão.</p>
+              <div class="step-screen" aria-hidden="true"><div class="wb-phone"><p class="wb-phone-top">Envie</p>
+                      <p class="wb-phone-patient">Prescrição concluída</p>
+                      <p class="wb-phone-ok"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Assinada</p>
+                      <p class="wb-phone-send"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg>Enviar pelo WhatsApp</p>
+                      <p class="wb-phone-patient">Link · PDF · Imprimir</p></div></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="afya-band section" aria-labelledby="rdc-band-title">
+        <div class="content-container">
+          <div class="afya-inner reveal">
+            <div class="afya-copy">
+              <p class="section-eyebrow">Novo marco regulatório</p>
+              <h2 id="rdc-band-title">RDC 1000/2025: sua prescrição já está em conformidade</h2>
+              <p>Solicite suas numerações do SNCR pela própria prescrição. A Afya aplica a numeração e o receituário certo para você.</p>
+              <div class="pill-row"><span class="rx-pill rx-pill-azul">Azul</span><span class="rx-pill rx-pill-amarela">Amarela</span><span class="rx-pill rx-pill-branca">Controle especial</span><span class="rx-pill rx-pill-retencao">Retenção</span></div>
+            </div>
+            <a class="button button-outline" href="/recursos/receita-controlada-digital/">Entenda o que muda</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="duvidas" aria-labelledby="faq-title">
+        <div class="content-container">
+          <header class="section-heading reveal">
+            <h2 id="faq-title">Perguntas sobre <span class="hl">os recursos</span></h2>
+          </header>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Posso criar meus próprios modelos?</summary>
+              <div class="faq-answer"><p>Sim. Você salva as receitas que mais usa como modelo e reaproveita em poucos cliques. Também pode partir de modelos prontos por especialidade.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Preciso de certificado digital?</summary>
+              <div class="faq-answer"><p>Para assinar a receita digitalmente, sim. Você pode usar BirdID, VaultID, VIDaaS ou certificados A1 e A3, e manter a assinatura ativa por até 7 dias. Também é possível finalizar sem assinatura digital em receitas simples ou, se preferir, imprimir a receita, carimbar e assinar no papel.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>O paciente precisa instalar algum app?</summary>
+              <div class="faq-answer"><p>Não. Ele recebe a receita por WhatsApp, link ou PDF.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Os alertas substituem a minha avaliação?</summary>
+              <div class="faq-answer"><p>Não. Eles apoiam a decisão. A conduta é sempre do médico.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Posso começar sem escolher o paciente?</summary>
+              <div class="faq-answer"><p>Sim. Você pode iniciar pela prescrição e selecionar ou cadastrar o paciente a qualquer momento.</p></div>
+            </details>
+          </div>
+          <div class="faq-cta reveal">
+            <p>Não achou o que procurava?</p>
+            <a class="button button-primary" href="/duvidas/">Ver todas as dúvidas</a>
           </div>
         </div>
       </section>
@@ -266,11 +564,12 @@
         <div class="content-container">
           <div class="final-cta-inner reveal">
             <h2 id="final-title">Comece a <span class="hl">prescrever hoje</span></h2>
-            <p>A prescrição é a mesma nos dois caminhos. Escolha o seu.</p>
+            <p>Escolha o caminho que combina com a sua rotina. A prescrição é a mesma nos dois.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="https://whitebook.pebmed.com.br/perfil/">Quero prescrever grátis</a>
               <a class="button button-invert" href="https://www.iclinic.com.br/planos/">Quero prescrever e gerenciar minha clínica<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
             </div>
+            <p class="final-micro">Gratuita e ilimitada no Whitebook. Inclusa em todos os planos do iClinic.</p>
           </div>
         </div>
       </section>
@@ -289,21 +588,22 @@
 
         <nav class="footer-column" aria-labelledby="footer-prescricao">
           <h2 id="footer-prescricao">Prescrição digital</h2>
-          <a href="/#como-funciona">Como funciona</a>
+          <a href="/recursos/#como-funciona">Como funciona</a>
           <a href="/recursos/">Recursos</a>
-          <a href="/recursos/rdc-1000-2025/">RDC 1000/2025</a>
+          <a href="/recursos/receita-controlada-digital/">RDC 1000/2025</a>
           <a href="/para-quem/">Para quem</a>
         </nav>
         <nav class="footer-column" aria-labelledby="footer-solucoes">
           <h2 id="footer-solucoes">Onde prescrever</h2>
           <a href="https://whitebook.pebmed.com.br/">Whitebook</a>
           <a href="https://www.iclinic.com.br/">iClinic</a>
-          <a href="/parceiros/#dispensador">Dispensador para farmácias</a>
+          <a href="/parceiros/dispensador/">Dispensador para farmácias</a>
         </nav>
         <nav class="footer-column" aria-labelledby="footer-ajuda">
           <h2 id="footer-ajuda">Ajuda</h2>
           <a href="/#duvidas">Dúvidas frequentes</a>
           <a href="/duvidas/">Central de informações</a>
+          <a href="/duvidas/#suporte">Fale com o suporte</a>
           <a href="/parceiros/">Para parceiros</a>
         </nav>
         <nav class="footer-column" aria-labelledby="footer-legal">

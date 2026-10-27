@@ -531,3 +531,207 @@
     });
   });
 })();
+
+
+/* ==========================================================================
+   Copy e wireframes v9 (26/10)
+   ========================================================================== */
+
+/* Barra de etapas (Recursos): o chip ativo acompanha a secao visivel. */
+(function () {
+  const nav = document.querySelector("[data-stage-nav]");
+  if (!nav || !("IntersectionObserver" in window)) return;
+  const links = Array.from(nav.querySelectorAll("a[href^='#']"));
+  const targets = links.map((a) => document.getElementById(a.getAttribute("href").slice(1))).filter(Boolean);
+  const set = (id) => {
+    links.forEach((a) => {
+      const on = a.getAttribute("href") === "#" + id;
+      if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      if (on) a.scrollIntoView({ inline: "center", block: "nearest" });
+    });
+  };
+  const io = new IntersectionObserver((entries) => {
+    const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) set(visible.target.id);
+  }, { rootMargin: "-40% 0px -45% 0px", threshold: [0, 0.2, 0.5] });
+  targets.forEach((t) => io.observe(t));
+})();
+
+/* Abas ativadas pelo hash (#medicos, #clinicas...): links do menu e de campanha abrem
+   direto o painel certo. Vale para qualquer [data-tabs] cujas abas controlem paineis
+   com esses ids. */
+(function () {
+  const open = () => {
+    const id = location.hash.slice(1);
+    if (!id) return;
+    const panel = document.getElementById(id);
+    const tab = panel && document.querySelector(`[role="tab"][aria-controls="${id}"]`);
+    if (!tab) return;
+    tab.click();
+    panel.scrollIntoView({ block: "start" });
+  };
+  window.addEventListener("hashchange", open);
+  if (location.hash) setTimeout(open, 50);
+})();
+
+/* Quiz de dois cliques (Para quem > Medicos): a segunda resposta define o resultado. */
+(function () {
+  document.querySelectorAll("[data-quiz]").forEach((quiz) => {
+    const results = quiz.querySelectorAll("[data-quiz-result]");
+    quiz.querySelectorAll("[data-quiz-q1] button").forEach((b) => {
+      b.addEventListener("click", () => b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") !== "true"));
+    });
+    quiz.querySelectorAll("[data-quiz-q2] button").forEach((b) => {
+      b.addEventListener("click", () => {
+        quiz.querySelectorAll("[data-quiz-q2] button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+        const key = b.dataset.answer;
+        results.forEach((r) => { r.hidden = r.dataset.quizResult !== key; });
+        const shown = quiz.querySelector("[data-quiz-result]:not([hidden])");
+        shown?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      });
+    });
+  });
+})();
+
+/* Central de duvidas: busca no navegador, filtro por perfil e contagem por categoria. */
+(function () {
+  const box = document.querySelector("[data-faq-search]");
+  if (!box) return;
+  const input = box.querySelector("input");
+  const items = Array.from(document.querySelectorAll(".faq-topics .faq-item"));
+  const groups = Array.from(document.querySelectorAll(".faq-group"));
+  const empty = document.querySelector("[data-faq-empty]");
+  const emptyTerm = empty?.querySelector("[data-faq-term]");
+  const perfilButtons = Array.from(document.querySelectorAll("[data-faq-perfil] button"));
+  let perfil = "todos";
+
+  const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const highlight = (el, term) => {
+    el.querySelectorAll("mark[data-hl]").forEach((m) => m.replaceWith(m.textContent));
+    el.normalize();
+    if (!term) return;
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+      const text = node.textContent, idx = norm(text).indexOf(norm(term));
+      if (idx < 0) return;
+      const mark = document.createElement("mark");
+      mark.dataset.hl = "1";
+      mark.textContent = text.slice(idx, idx + term.length);
+      const after = node.splitText(idx);
+      after.textContent = after.textContent.slice(term.length);
+      node.parentNode.insertBefore(mark, after);
+    });
+  };
+
+  const apply = () => {
+    const term = input.value.trim();
+    let shown = 0;
+    items.forEach((it) => {
+      const okPerfil = perfil === "todos" || (it.dataset.perfil || "").split(" ").includes(perfil);
+      const okTerm = !term || norm(it.textContent).includes(norm(term));
+      it.hidden = !(okPerfil && okTerm);
+      if (!it.hidden) shown++;
+      highlight(it, okPerfil && okTerm ? term : "");
+      if (term && !it.hidden) it.open = true;
+    });
+    groups.forEach((g) => {
+      const n = g.querySelectorAll(".faq-item:not([hidden])").length;
+      g.hidden = n === 0;
+      g.querySelectorAll("[data-faq-count]").forEach((c) => { c.textContent = n === 1 ? "1 pergunta" : n + " perguntas"; });
+      const card = document.querySelector(`[data-faq-card="${g.id}"]`);
+      if (card) { card.hidden = n === 0; const cc = card.querySelector("[data-faq-count]"); if (cc) cc.textContent = n === 1 ? "1 pergunta" : n + " perguntas"; }
+    });
+    if (empty) { empty.hidden = shown > 0; if (emptyTerm) emptyTerm.textContent = term; }
+  };
+
+  input.addEventListener("input", apply);
+  document.querySelectorAll("[data-faq-suggest] button").forEach((b) => b.addEventListener("click", () => { input.value = b.textContent; input.focus(); apply(); }));
+  perfilButtons.forEach((b) => b.addEventListener("click", () => {
+    perfil = b.dataset.perfil;
+    perfilButtons.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    apply();
+  }));
+  const fromUrl = new URLSearchParams(location.search).get("perfil");
+  const pre = fromUrl && perfilButtons.find((b) => b.dataset.perfil === fromUrl);
+  if (pre) pre.click(); else apply();
+})();
+
+/* Dialogo de escolha entre Whitebook e iClinic ("Comece a prescrever controlados",
+   "Falar com o suporte"). O produto escolhido troca [data-produto] na pagina. */
+(function () {
+  document.querySelectorAll("[data-pick]").forEach((btn) => {
+    const dialog = document.getElementById(btn.dataset.pick);
+    if (!dialog) return;
+    btn.addEventListener("click", (e) => { e.preventDefault(); if (typeof dialog.showModal === "function") dialog.showModal(); else dialog.setAttribute("open", ""); });
+    dialog.querySelector("[data-pick-close]")?.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.querySelectorAll("[data-produto-set]").forEach((a) => a.addEventListener("click", () => {
+      document.querySelectorAll("[data-produto]").forEach((el) => { el.textContent = a.dataset.produtoSet; });
+    }));
+  });
+})();
+
+/* Formularios sem destino ainda (caixa de e-mail, parcerias): validacao inline e aviso.
+   Quando houver endpoint, preencher data-endpoint e o envio passa a ser feito. */
+(function () {
+  document.querySelectorAll("[data-form]").forEach((form) => {
+    const msg = form.querySelector("[data-form-msg]");
+    const say = (text, ok) => { if (!msg) return; msg.textContent = text; msg.classList.toggle("is-ok", !!ok); msg.classList.toggle("is-error", !ok); };
+    const validEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    form.querySelectorAll("input[type='email']").forEach((input) => {
+      input.addEventListener("input", () => {
+        const bad = input.value && !validEmail(input.value);
+        input.setAttribute("aria-invalid", bad ? "true" : "false");
+        if (bad) say("Confira o e-mail. Ele precisa ter o formato nome@dominio.com.", false); else if (msg) { msg.textContent = ""; }
+      });
+    });
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const required = Array.from(form.querySelectorAll("[required]"));
+      const missing = required.filter((f) => !f.value.trim() || (f.type === "email" && !validEmail(f.value)));
+      required.forEach((f) => f.setAttribute("aria-invalid", missing.includes(f) ? "true" : "false"));
+      if (missing.length) { say(missing[0].type === "email" ? "Confira o e-mail. Ele precisa ter o formato nome@dominio.com." : "Preencha os campos obrigatórios.", false); missing[0].focus(); return; }
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) { say("O envio ainda não está ativo nesta versão de revisão.", false); return; }
+      try {
+        const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+        if (!res.ok) throw new Error(res.status);
+        form.reset();
+        say(form.dataset.success || "Inscrição feita! Confira sua caixa de entrada.", true);
+      } catch (err) {
+        say("Não foi possível enviar agora. Tente de novo em instantes.", false);
+      }
+    });
+  });
+})();
+
+/* Blog: filtro dos cards por categoria e por busca. */
+(function () {
+  const list = document.querySelector("[data-post-list]");
+  if (!list) return;
+  const cards = Array.from(list.querySelectorAll("[data-post]"));
+  const input = document.querySelector("[data-post-search] input");
+  const chips = Array.from(document.querySelectorAll("[data-post-cats] button"));
+  let cat = "todos";
+  const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const apply = () => {
+    const term = norm(input?.value.trim() || "");
+    cards.forEach((c) => { c.hidden = !((cat === "todos" || c.dataset.cat === cat) && (!term || norm(c.textContent).includes(term))); });
+  };
+  input?.addEventListener("input", apply);
+  chips.forEach((b) => b.addEventListener("click", () => { cat = b.dataset.cat; chips.forEach((x) => x.setAttribute("aria-pressed", String(x === b))); apply(); }));
+})();
+
+/* Indice do artigo: destaca a secao visivel. */
+(function () {
+  const toc = document.querySelector("[data-post-toc]");
+  if (!toc || !("IntersectionObserver" in window)) return;
+  const links = Array.from(toc.querySelectorAll("a[href^='#']"));
+  const heads = links.map((a) => document.getElementById(a.getAttribute("href").slice(1))).filter(Boolean);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) links.forEach((a) => { if (a.getAttribute("href") === "#" + e.target.id) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); }); });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  heads.forEach((h) => io.observe(h));
+})();

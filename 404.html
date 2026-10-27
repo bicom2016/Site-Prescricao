@@ -16,7 +16,9 @@
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <!-- Mesmo header da home (index.html). Ao mexer no menu, alterar nos dois arquivos. -->
+    <!-- Mesmo header em todas as paginas; ao mexer no menu, alterar em todas. Mega menu
+         (copy e wireframes v9, 26/10): Recursos, Para quem e Para parceiros abrem submenu
+         com icone e uma linha. -->
     <header class="site-header" data-header>
       <div class="header-shell">
         <a class="brand" href="/" aria-label="Afya — início">
@@ -31,10 +33,31 @@
         <div class="header-menu" id="menu-principal" data-menu>
           <nav class="main-nav" aria-label="Navegação principal">
             <a href="/">Home</a>
-            <a href="/recursos/">Recursos</a>
-            <a href="/para-quem/">Para quem</a>
+            <div class="nav-group" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Recursos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/recursos/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg></span><span><strong>Recursos</strong><small>Tudo o que a prescrição faz</small></span></a>
+                <a href="/recursos/receita-controlada-digital/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg></span><span><strong>RDC 1000/2025</strong><small>O que muda nos receituários controlados</small></span></a>
+                <a href="/recursos/#como-funciona"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Como funciona</strong><small>Uma prescrição do início ao fim</small></span></a>
+              </div>
+            </div>
+            <div class="nav-group" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/para-quem/#medicos"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg></span><span><strong>Médicos</strong><small>Menos etapas, com apoio à decisão</small></span></a>
+                <a href="/para-quem/#clinicas"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg></span><span><strong>Clínicas e consultórios</strong><small>Padronize a prescrição da equipe</small></span></a>
+                <a href="/para-quem/#pacientes"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg></span><span><strong>Pacientes</strong><small>A receita no celular</small></span></a>
+                <a href="/para-quem/#farmacias"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Farmácias</strong><small>Receitas digitais conferidas</small></span></a>
+              </div>
+            </div>
             <a href="/duvidas/">Dúvidas</a>
-            <a href="/parceiros/">Para parceiros</a>
+            <div class="nav-group" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para parceiros<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/parceiros/dispensador/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg></span><span><strong>Dispensador para farmácias</strong><small>Confira receitas digitais no balcão</small></span></a>
+                <a href="/parceiros/industria/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#radar"></use></svg></span><span><strong>Indústria farmacêutica</strong><small>Chegue aos médicos no contexto certo</small></span></a>
+              </div>
+            </div>
             <a href="/blog/">Blog</a>
           </nav>
           <div class="header-actions">
@@ -43,7 +66,6 @@
         </div>
       </div>
     </header>
-
     <main id="conteudo">
       <section class="page-hero error-hero" aria-labelledby="page-title">
         <div class="content-container">
@@ -62,6 +84,43 @@
     </main>
 
     <footer class="site-footer">
+      <div class="content-container footer-grid">
+        <div class="footer-brand">
+          <p class="brand brand-static"><img src="/assets/images/afya-logo.svg" alt="Afya" width="80" height="34" loading="lazy"></p>
+          <p>A prescrição certa para cada momento da prática clínica</p>
+          <div class="social-links" role="group" aria-label="Redes sociais">
+            <a href="https://www.linkedin.com/company/afyamedicina/" aria-label="LinkedIn da Afya"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#linkedin"></use></svg></a>
+            <a href="https://www.youtube.com/@afya.oficial" aria-label="YouTube da Afya"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#youtube"></use></svg></a>
+          </div>
+        </div>
+
+        <nav class="footer-column" aria-labelledby="footer-prescricao">
+          <h2 id="footer-prescricao">Prescrição digital</h2>
+          <a href="/recursos/#como-funciona">Como funciona</a>
+          <a href="/recursos/">Recursos</a>
+          <a href="/recursos/receita-controlada-digital/">RDC 1000/2025</a>
+          <a href="/para-quem/">Para quem</a>
+        </nav>
+        <nav class="footer-column" aria-labelledby="footer-solucoes">
+          <h2 id="footer-solucoes">Onde prescrever</h2>
+          <a href="https://whitebook.pebmed.com.br/">Whitebook</a>
+          <a href="https://www.iclinic.com.br/">iClinic</a>
+          <a href="/parceiros/dispensador/">Dispensador para farmácias</a>
+        </nav>
+        <nav class="footer-column" aria-labelledby="footer-ajuda">
+          <h2 id="footer-ajuda">Ajuda</h2>
+          <a href="/#duvidas">Dúvidas frequentes</a>
+          <a href="/duvidas/">Central de informações</a>
+          <a href="/duvidas/#suporte">Fale com o suporte</a>
+          <a href="/parceiros/">Para parceiros</a>
+        </nav>
+        <nav class="footer-column" aria-labelledby="footer-legal">
+          <h2 id="footer-legal">Legal</h2>
+          <a data-link-original="/termos-de-uso/">Termos de uso</a>
+          <a data-link-original="/privacidade/">Privacidade</a>
+          <a data-link-original="/politicas-e-diretrizes/">Políticas e diretrizes</a>
+        </nav>
+      </div>
       <div class="content-container footer-bottom">
         <p>© 2026 Afya Participações S.A.</p>
         <div class="footer-signatures">

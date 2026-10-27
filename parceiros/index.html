@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Para parceiros | Prescrição digital | Afya</title>
-    <meta name="description" content="Dispensador da Afya para farmácias validarem receitas digitais, e presença para a indústria farmacêutica no momento da prescrição.">
+    <title>Para parceiros: dispensador para farmácias e indústria farmacêutica</title>
+    <meta name="description" content="Soluções para as farmácias que recebem a receita digital e para a indústria farmacêutica que quer chegar aos médicos.">
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://prescricao.conversion.com.br/parceiros/">
@@ -12,8 +12,8 @@
     <meta property="og:site_name" content="Afya">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:url" content="https://prescricao.conversion.com.br/parceiros/">
-    <meta property="og:title" content="Para parceiros">
-    <meta property="og:description" content="Dispensador da Afya para farmácias validarem receitas digitais, e presença para a indústria farmacêutica no momento da prescrição.">
+    <meta property="og:title" content="Para parceiros: dispensador para farmácias e indústria farmacêutica">
+    <meta property="og:description" content="Soluções para as farmácias que recebem a receita digital e para a indústria farmacêutica que quer chegar aos médicos.">
     <!-- Imagem social ainda e a do Whitebook: falta arte propria de Prescricao. -->
     <meta property="og:image" content="https://prescricao.conversion.com.br/assets/images/og-home.png">
     <meta property="og:image:width" content="1200">
@@ -27,7 +27,9 @@
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <!-- Mesmo header da home (index.html). Ao mexer no menu, alterar em todas as paginas. -->
+    <!-- Mesmo header em todas as paginas; ao mexer no menu, alterar em todas. Mega menu
+         (copy e wireframes v9, 26/10): Recursos, Para quem e Para parceiros abrem submenu
+         com icone e uma linha. -->
     <header class="site-header" data-header>
       <div class="header-shell">
         <a class="brand" href="/" aria-label="Afya — início">
@@ -42,10 +44,31 @@
         <div class="header-menu" id="menu-principal" data-menu>
           <nav class="main-nav" aria-label="Navegação principal">
             <a href="/">Home</a>
-            <a href="/recursos/">Recursos</a>
-            <a href="/para-quem/">Para quem</a>
+            <div class="nav-group" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Recursos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/recursos/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg></span><span><strong>Recursos</strong><small>Tudo o que a prescrição faz</small></span></a>
+                <a href="/recursos/receita-controlada-digital/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg></span><span><strong>RDC 1000/2025</strong><small>O que muda nos receituários controlados</small></span></a>
+                <a href="/recursos/#como-funciona"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Como funciona</strong><small>Uma prescrição do início ao fim</small></span></a>
+              </div>
+            </div>
+            <div class="nav-group" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/para-quem/#medicos"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg></span><span><strong>Médicos</strong><small>Menos etapas, com apoio à decisão</small></span></a>
+                <a href="/para-quem/#clinicas"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg></span><span><strong>Clínicas e consultórios</strong><small>Padronize a prescrição da equipe</small></span></a>
+                <a href="/para-quem/#pacientes"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg></span><span><strong>Pacientes</strong><small>A receita no celular</small></span></a>
+                <a href="/para-quem/#farmacias"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Farmácias</strong><small>Receitas digitais conferidas</small></span></a>
+              </div>
+            </div>
             <a href="/duvidas/">Dúvidas</a>
-            <a href="/parceiros/" aria-current="page">Para parceiros</a>
+            <div class="nav-group is-current" data-nav-group>
+              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para parceiros<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="nav-dropdown">
+                <a href="/parceiros/dispensador/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg></span><span><strong>Dispensador para farmácias</strong><small>Confira receitas digitais no balcão</small></span></a>
+                <a href="/parceiros/industria/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#radar"></use></svg></span><span><strong>Indústria farmacêutica</strong><small>Chegue aos médicos no contexto certo</small></span></a>
+              </div>
+            </div>
             <a href="/blog/">Blog</a>
           </nav>
           <div class="header-actions">
@@ -56,106 +79,35 @@
     </header>
 
     <main id="conteudo">
-      <!-- Dispensador (link e telas ainda nao enviados pela Afya: o botao fica inerte, no
-           padrao data-link-original) e industria farmaceutica (board: TBD, B2B). -->
+      <!-- Parceiros (copy v9): hub com dois cards clicaveis por inteiro. -->
       <section class="page-hero" aria-labelledby="page-title">
-        <div class="content-container page-hero-inner page-hero-with-media">
+        <div class="content-container page-hero-inner">
           <div class="page-hero-copy reveal">
             <p class="page-eyebrow">Para parceiros</p>
-            <h1 id="page-title">A receita digital chega à farmácia <span class="hl">pronta para validar</span></h1>
-            <p>Dispensador para farmácias e presença no momento da prescrição para a indústria farmacêutica.</p>
+            <h1 id="page-title">Parcerias da <span class="hl">Prescrição Afya</span></h1>
+            <p>Soluções para as farmácias que recebem a receita digital e para a indústria farmacêutica que quer chegar aos médicos.</p>
+
 
           </div>
-          <div class="page-hero-media reveal" data-delay="1"><div class="rx-demo rx-demo-controlled" role="img" aria-label="Exemplo de receita de controle especial assinada digitalmente">
-              <p class="demo-title">Receita digital</p>
-              <div class="rx-demo-head">
-                <strong>Controle especial</strong>
-                <span>2 vias · numeração SNCR</span>
-              </div>
-              <ol>
-                <li><i>1</i><span>Sertralina 50 mg — 30 comprimidos<small>1 comprimido pela manhã, uso contínuo</small></span></li>
-                <li><i>2</i><span>Ácido fólico 5 mg — 30 comprimidos<small>1 comprimido ao dia</small></span></li>
-              </ol>
-              <div class="signature-providers">
-                <p>Assinatura digital</p>
-                <ul>
-                  <li>Vidaas</li>
-                  <li>BirdID</li>
-                  <li>A1</li>
-                  <li>A3</li>
-                </ul>
-              </div>
-              <div class="rx-demo-foot">
-                <span class="rx-demo-check"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</span>
-                <span class="rx-demo-sign">Assinada e enviada</span>
-              </div>
-            </div></div>
+
         </div>
       </section>
 
-      <section class="section" id="dispensador" aria-labelledby="dispensador-title">
+      <section class="section" aria-label="Parcerias">
         <div class="content-container">
-          <header class="section-heading reveal">
-            <p class="section-eyebrow">Dispensador para farmácias</p>
-            <h2 id="dispensador-title">Confira a receita <span class="hl">em segundos</span></h2>
-            <p>O dispensador da Afya valida qualquer receita digital emitida no Whitebook ou no iClinic: autenticidade, assinatura e itens, inclusive receitas de controle especial com numeração do SNCR.</p>
-          </header>
-          <ol class="step-cards">
-            <li class="step-card reveal">
-              <span class="step-num">01</span>
-              <h3>O paciente apresenta a receita</h3>
-              <p>Pelo link ou PDF que recebeu, no celular ou impresso.</p>
-            </li>
-            <li class="step-card reveal" data-delay="1">
-              <span class="step-num">02</span>
-              <h3>A farmácia acessa o dispensador</h3>
-              <p>Localiza a receita e confere a assinatura digital e os itens prescritos.</p>
-            </li>
-            <li class="step-card reveal" data-delay="2">
-              <span class="step-num">03</span>
-              <h3>Dispensa com segurança</h3>
-              <p>Sem papel para interpretar e com o registro da dispensação.</p>
-            </li>
-          </ol>
-          <div class="faq-cta reveal" data-delay="1">
-            <p>O dispensador está disponível para qualquer farmácia.</p>
-            <a class="button button-primary" data-link-original="dispensador">Acessar o dispensador</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section use-cases" id="industria" aria-labelledby="industria-title">
-        <div class="content-container">
-          <div class="why-rows">
-            <div class="why-row reveal">
-              <div class="feature-copy">
-                <p class="section-eyebrow">Indústria farmacêutica</p>
-                <h2 id="industria-title">Presença no momento <span class="hl">da prescrição</span></h2>
-                <p>Mais de 36 mil médicos prescreveram com a Afya em 2025, em mais de 21 milhões de receitas. Buscas e banners patrocinados colocam a sua marca no ponto em que a conduta vira receita.</p>
-                <ul class="use-list">
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Buscas patrocinadas na base de medicamentos</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Banners patrocinados nos pontos de prescrição</li>
-                  <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Presença no Whitebook e no iClinic</li>
-                </ul>
-                <a class="button button-outline" data-link-original="comercial">Fale com o time comercial</a>
-              </div>
-              <div class="feature-media">
-                <div class="rx-app rx-app-static">
-                  <div class="rx-app-bar" aria-hidden="true"><i></i><i></i><i></i><span>Nova receita · Maria S., 42 anos</span></div>
-                  <div class="rx-app-panel">
-                    <p class="rx-app-label">Medicamento</p>
-                    <div class="rx-app-search"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg><span>Amoxi<b class="rx-app-caret"></b></span></div>
-                    <ul class="rx-app-suggest">
-                      <li class="is-active"><strong>Amoxicilina 500 mg</strong><small>Cápsula · genérico e referência</small></li>
-                      <li><strong>Amoxicilina 875 mg</strong><small>Comprimido revestido</small></li>
-                      <li><strong>Amoxicilina 250 mg/5 mL</strong><small>Suspensão oral</small></li>
-                      <li><strong>Amoxicilina + clavulanato de potássio</strong><small>875 mg + 125 mg</small></li>
-                    </ul>
-                  </div>
-                  <div class="rx-app-foot" aria-hidden="true"><span>Base com +22 mil itens</span><span>Texto livre</span></div>
-                </div>
-              </div>
-            </div>
+          <div class="hub-grid">
+            <a class="hub-card reveal" href="/parceiros/dispensador/">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg>
+              <h2>Farmácias e drogarias</h2>
+              <p>Receba e confira receitas digitais com o dispensador da Afya.</p>
+              <span class="text-link">Conhecer o dispensador</span>
+            </a>
+            <a class="hub-card reveal" href="/parceiros/industria/" data-delay="1">
+              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#radar"></use></svg>
+              <h2>Indústria farmacêutica</h2>
+              <p>Chegue aos médicos de forma contextualizada e dê mais visibilidade à sua marca.</p>
+              <span class="text-link">Falar com o time</span>
+            </a>
           </div>
         </div>
       </section>
@@ -174,21 +126,22 @@
 
         <nav class="footer-column" aria-labelledby="footer-prescricao">
           <h2 id="footer-prescricao">Prescrição digital</h2>
-          <a href="/#como-funciona">Como funciona</a>
+          <a href="/recursos/#como-funciona">Como funciona</a>
           <a href="/recursos/">Recursos</a>
-          <a href="/recursos/rdc-1000-2025/">RDC 1000/2025</a>
+          <a href="/recursos/receita-controlada-digital/">RDC 1000/2025</a>
           <a href="/para-quem/">Para quem</a>
         </nav>
         <nav class="footer-column" aria-labelledby="footer-solucoes">
           <h2 id="footer-solucoes">Onde prescrever</h2>
           <a href="https://whitebook.pebmed.com.br/">Whitebook</a>
           <a href="https://www.iclinic.com.br/">iClinic</a>
-          <a href="/parceiros/#dispensador">Dispensador para farmácias</a>
+          <a href="/parceiros/dispensador/">Dispensador para farmácias</a>
         </nav>
         <nav class="footer-column" aria-labelledby="footer-ajuda">
           <h2 id="footer-ajuda">Ajuda</h2>
           <a href="/#duvidas">Dúvidas frequentes</a>
           <a href="/duvidas/">Central de informações</a>
+          <a href="/duvidas/#suporte">Fale com o suporte</a>
           <a href="/parceiros/">Para parceiros</a>
         </nav>
         <nav class="footer-column" aria-labelledby="footer-legal">

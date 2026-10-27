@@ -1,0 +1,337 @@
+{
+  "_nota": "Uma entrada por especialidade para gerar /prescricao/{slug}/. Exemplos de medicamento por principio ativo; revisao medica antes de publicar. Ordem do guia interno da RDC: psiquiatria, neurologia, dor, endocrinologia (as proximas: anestesiologia, pediatria, geriatria, dermatologia).",
+  "especialidades": [
+    {
+      "slug": "psiquiatria",
+      "nome": "psiquiatria",
+      "sub": "Receitas de controle especial, azuis e renovações de uso contínuo, com o receituário certo e numeração pelo SNCR.",
+      "mock": [
+        [
+          "Sertralina 50 mg — 30 comprimidos",
+          "1 comprimido pela manhã, uso contínuo"
+        ],
+        [
+          "Carbonato de lítio 300 mg — 60 comprimidos",
+          "1 comprimido de 12 em 12 h"
+        ]
+      ],
+      "desafios": [
+        [
+          "codigos",
+          "Muitos controlados",
+          "Receitas azuis e de controle especial no dia a dia."
+        ],
+        [
+          "documento",
+          "Renovações frequentes",
+          "Tratamentos de uso contínuo."
+        ],
+        [
+          "interacao-medicamentosa",
+          "Interações",
+          "Atenção constante a combinações entre psicofármacos."
+        ],
+        [
+          "monitor",
+          "Teleconsulta",
+          "Receita que precisa chegar ao paciente a distância."
+        ]
+      ],
+      "tabela": [
+        [
+          "Muitos controlados",
+          "Receituário escolhido automaticamente e numeração pelo SNCR",
+          "/recursos/#revisar"
+        ],
+        [
+          "Renovações frequentes",
+          "Renovação em 1 clique a partir do histórico",
+          "/recursos/#reaproveitar"
+        ],
+        [
+          "Interações",
+          "Alertas automáticos durante a prescrição",
+          "/recursos/#revisar"
+        ],
+        [
+          "Teleconsulta",
+          "Envio por WhatsApp, link ou PDF",
+          "/recursos/#enviar"
+        ]
+      ],
+      "faq": [
+        [
+          "Posso prescrever clonazepam com receita digital?",
+          "Sim, com assinatura ICP-Brasil e numeração pelo SNCR, conforme a RDC 1.000/2025."
+        ],
+        [
+          "Preciso solicitar numerações antes?",
+          "Sim. Para notificações azul e amarela, peça antes a liberação à Vigilância Sanitária local. Depois, transfira as numerações do SNCR para a Prescrição, na aba “Receitas controladas”. A Afya usa uma numeração por receita, automaticamente."
+        ],
+        [
+          "Como renovar a receita de uso contínuo?",
+          "Abra o histórico do paciente e use a renovação em 1 clique."
+        ],
+        [
+          "A receita digital vale em qualquer farmácia?",
+          "A farmácia confere a assinatura digital; parceiras também podem usar o dispensador da Afya."
+        ]
+      ],
+      "related": [
+        "Dúvidas sobre controlados",
+        "Numerações, CPF, data de emissão e validade.",
+        "/duvidas/#controlados",
+        "Ver as dúvidas"
+      ]
+    },
+    {
+      "slug": "neurologia",
+      "nome": "neurologia",
+      "sub": "Receitas de controle especial, azuis e renovações de uso contínuo, com o receituário certo e numeração pelo SNCR.",
+      "mock": [
+        [
+          "Levetiracetam 500 mg — 60 comprimidos",
+          "1 comprimido de 12 em 12 h, uso contínuo"
+        ],
+        [
+          "Clonazepam 2 mg — 30 comprimidos",
+          "1 comprimido à noite"
+        ]
+      ],
+      "desafios": [
+        [
+          "codigos",
+          "Controlados frequentes",
+          "Receitas azuis e de controle especial para antiepilépticos e psicofármacos."
+        ],
+        [
+          "documento",
+          "Tratamentos longos",
+          "Renovações de uso contínuo, consulta após consulta."
+        ],
+        [
+          "interacao-medicamentosa",
+          "Interações",
+          "Combinações entre antiepilépticos e outros fármacos."
+        ],
+        [
+          "monitor",
+          "Acompanhamento a distância",
+          "Receita que chega ao paciente entre os retornos."
+        ]
+      ],
+      "tabela": [
+        [
+          "Controlados frequentes",
+          "Receituário escolhido automaticamente e numeração pelo SNCR",
+          "/recursos/#revisar"
+        ],
+        [
+          "Tratamentos longos",
+          "Renovação em 1 clique a partir do histórico",
+          "/recursos/#reaproveitar"
+        ],
+        [
+          "Interações",
+          "Alertas automáticos durante a prescrição",
+          "/recursos/#revisar"
+        ],
+        [
+          "Acompanhamento a distância",
+          "Envio por WhatsApp, link ou PDF",
+          "/recursos/#enviar"
+        ]
+      ],
+      "faq": [
+        [
+          "Posso prescrever clonazepam com receita digital?",
+          "Sim, com assinatura ICP-Brasil e numeração pelo SNCR, conforme a RDC 1.000/2025."
+        ],
+        [
+          "Preciso solicitar numerações antes?",
+          "Sim. Para notificações azul e amarela, peça antes a liberação à Vigilância Sanitária local. Depois, transfira as numerações do SNCR para a Prescrição, na aba “Receitas controladas”. A Afya usa uma numeração por receita, automaticamente."
+        ],
+        [
+          "Como renovar a receita de uso contínuo?",
+          "Abra o histórico do paciente e use a renovação em 1 clique."
+        ],
+        [
+          "A receita digital vale em qualquer farmácia?",
+          "A farmácia confere a assinatura digital; parceiras também podem usar o dispensador da Afya."
+        ]
+      ],
+      "related": [
+        "Dúvidas sobre controlados",
+        "Numerações, CPF, data de emissão e validade.",
+        "/duvidas/#controlados",
+        "Ver as dúvidas"
+      ]
+    },
+    {
+      "slug": "dor",
+      "nome": "clínica da dor",
+      "sub": "Receitas amarelas, azuis e de controle especial, com o receituário certo e numeração pelo SNCR, para tratamentos que não podem esperar.",
+      "mock": [
+        [
+          "Morfina 10 mg — 30 comprimidos",
+          "1 comprimido de 12 em 12 h"
+        ],
+        [
+          "Pregabalina 75 mg — 60 cápsulas",
+          "1 cápsula de 12 em 12 h"
+        ]
+      ],
+      "desafios": [
+        [
+          "codigos",
+          "Notificações A e B",
+          "Opioides e adjuvantes em receituários diferentes, na mesma consulta."
+        ],
+        [
+          "documento",
+          "Ajustes frequentes",
+          "Doses que mudam a cada retorno."
+        ],
+        [
+          "interacao-medicamentosa",
+          "Interações",
+          "Opioides, antidepressivos e anticonvulsivantes combinados."
+        ],
+        [
+          "gerenciador-plantao",
+          "Paciente que não pode esperar",
+          "Receita que precisa chegar no mesmo dia."
+        ]
+      ],
+      "tabela": [
+        [
+          "Notificações A e B",
+          "A Afya separa os receituários automaticamente e aplica a numeração do SNCR",
+          "/recursos/#revisar"
+        ],
+        [
+          "Ajustes frequentes",
+          "Renovação e ajuste a partir do histórico",
+          "/recursos/#reaproveitar"
+        ],
+        [
+          "Interações",
+          "Alertas automáticos durante a prescrição",
+          "/recursos/#revisar"
+        ],
+        [
+          "Paciente que não pode esperar",
+          "Envio por WhatsApp, link ou PDF, na hora",
+          "/recursos/#enviar"
+        ]
+      ],
+      "faq": [
+        [
+          "Posso prescrever morfina com receita digital?",
+          "Sim, em Notificação de Receita A, com assinatura ICP-Brasil e numeração pelo SNCR, conforme a RDC 1.000/2025."
+        ],
+        [
+          "Posso colocar um opioide e um adjuvante na mesma receita?",
+          "Não. Cada notificação de receita tem um medicamento controlado; a Afya separa os receituários automaticamente."
+        ],
+        [
+          "Preciso solicitar numerações antes?",
+          "Sim. Para notificações azul e amarela, peça antes a liberação à Vigilância Sanitária local. Depois, transfira as numerações do SNCR para a Prescrição, na aba “Receitas controladas”."
+        ],
+        [
+          "A receita digital vale em qualquer farmácia?",
+          "A farmácia confere a assinatura digital; parceiras também podem usar o dispensador da Afya."
+        ]
+      ],
+      "related": [
+        "Dúvidas sobre controlados",
+        "Numerações, CPF, data de emissão e validade.",
+        "/duvidas/#controlados",
+        "Ver as dúvidas"
+      ]
+    },
+    {
+      "slug": "endocrinologia",
+      "nome": "endocrinologia",
+      "sub": "Receitas sujeitas à retenção, como as de análogos de GLP-1, e renovações de uso contínuo, com o receituário certo e numeração pelo SNCR.",
+      "mock": [
+        [
+          "Semaglutida 1 mg — 4 doses",
+          "1 aplicação por semana"
+        ],
+        [
+          "Levotiroxina 50 mcg — 30 comprimidos",
+          "1 comprimido em jejum, uso contínuo"
+        ]
+      ],
+      "desafios": [
+        [
+          "codigos",
+          "Análogos de GLP-1",
+          "Receita de retenção, com as regras da RDC 1000/2025."
+        ],
+        [
+          "documento",
+          "Uso contínuo",
+          "Tireoide, diabetes e obesidade: renovações a cada retorno."
+        ],
+        [
+          "laboratorio",
+          "Exames junto da receita",
+          "Pedidos de exame na mesma prescrição."
+        ],
+        [
+          "monitor",
+          "Teleconsulta",
+          "Acompanhamento a distância, com receita no celular."
+        ]
+      ],
+      "tabela": [
+        [
+          "Análogos de GLP-1",
+          "Receituário de retenção aplicado automaticamente",
+          "/recursos/#revisar"
+        ],
+        [
+          "Uso contínuo",
+          "Renovação em 1 clique a partir do histórico",
+          "/recursos/#reaproveitar"
+        ],
+        [
+          "Exames junto da receita",
+          "Medicamentos, exames e vacinas na mesma prescrição",
+          "/recursos/#montar"
+        ],
+        [
+          "Teleconsulta",
+          "Envio por WhatsApp, link ou PDF",
+          "/recursos/#enviar"
+        ]
+      ],
+      "faq": [
+        [
+          "Posso prescrever análogos de GLP-1 com receita digital?",
+          "Sim. São receitas sujeitas à retenção, emitidas com numeração do SNCR e assinatura qualificada ou avançada, conforme a RDC 1.000/2025."
+        ],
+        [
+          "Preciso solicitar numerações antes?",
+          "Sim. Para receitas de retenção, comece direto na aba “Receitas controladas” da Prescrição e transfira as numerações do SNCR. A Afya usa uma numeração por receita, automaticamente."
+        ],
+        [
+          "Como renovar a receita de uso contínuo?",
+          "Abra o histórico do paciente e use a renovação em 1 clique."
+        ],
+        [
+          "Posso pedir exames na mesma prescrição?",
+          "Sim. Medicamentos, exames e vacinas entram na mesma prescrição."
+        ]
+      ],
+      "related": [
+        "Dúvidas sobre receituários",
+        "Quais receitas saem digitais e como o receituário é definido.",
+        "/duvidas/#receituarios",
+        "Ver as dúvidas"
+      ]
+    }
+  ]
+}

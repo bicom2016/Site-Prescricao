@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano — copy e wireframes v9</title>
+<style>
+  :root {
+    --bg: #f6f6fb; --card: #ffffff; --text: #1d1d2b; --muted: #5d5d72; --line: #e2e2ee;
+    --done: #0f7a4a; --done-bg: #e3f5ec; --todo: #1d4f91; --todo-bg: #e2ecfa;
+    --wait: #8a5a00; --wait-bg: #fdf1d8; --check: #c2410c; --check-bg: #ffe4d1; --no: #a4133c; --no-bg: #fce6ec; --accent: #1d4f91;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e;
+      --done: #5fd39a; --done-bg: #173327; --todo: #8fbcf5; --todo-bg: #172a44;
+      --wait: #f2c265; --wait-bg: #3a2e14; --check: #ff9a5c; --check-bg: #45220f; --no: #ff8fab; --no-bg: #3d1a25; --accent: #8fbcf5;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e;
+    --done: #5fd39a; --done-bg: #173327; --todo: #8fbcf5; --todo-bg: #172a44;
+    --wait: #f2c265; --wait-bg: #3a2e14; --check: #ff9a5c; --check-bg: #45220f; --no: #ff8fab; --no-bg: #3d1a25; --accent: #8fbcf5;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p { color: var(--muted); margin: 4px 0; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  a { color: var(--accent); }
+  code { font-size: 0.92em; }
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .summary div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .summary strong { display: block; font-size: 28px; line-height: 1.1; }
+  .summary .n-done strong { color: var(--done); }
+  .summary .n-todo strong { color: var(--todo); }
+  .summary .n-check strong { color: var(--check); }
+  .summary .n-wait strong { color: var(--wait); }
+  .summary .n-no strong { color: var(--no); }
+  .summary span { color: var(--muted); font-size: 14px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-size: 14px; color: var(--muted); }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+  .tag.done { background: var(--done-bg); color: var(--done); }
+  .tag.todo { background: var(--todo-bg); color: var(--todo); }
+  .tag.wait { background: var(--wait-bg); color: var(--wait); }
+  .tag.no { background: var(--no-bg); color: var(--no); }
+  .tag.check { background: var(--check-bg); color: var(--check); }
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .item h3 { margin: 0; font-size: 17px; }
+  .item .src { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .item ul { margin: 8px 0 0; padding-left: 20px; }
+  .item li { margin: 6px 0; }
+  .item li .tag { margin-right: 6px; }
+  .note { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-size: 14.5px; }
+  .note.need { background: var(--wait-bg); } .note.need b { color: var(--wait); }
+  .note.info { background: var(--todo-bg); } .note.info b { color: var(--todo); }
+  .note.stop { background: var(--no-bg); } .note.stop b { color: var(--no); }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  ol.rounds { padding-left: 20px; } ol.rounds li { margin: 8px 0; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+  @media (max-width: 720px) { .summary { grid-template-columns: 1fr; } .item-head { flex-direction: column; gap: 6px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Plano de alterações — copy e wireframes v9</h1>
+    <p>A partir de <em>Site Prescrição Afya · Copy e Wireframes v9</em> (revisão da home e páginas 2 a 7), cruzado com o site publicado em 20/10 (commit <code>3ad09a6</code>).</p>
+    <p>Site: <a href="https://prescricao.conversion.com.br/">prescricao.conversion.com.br</a></p>
+    <p><strong>Atualizado em 27/10/2026 (tarde):</strong> tudo o que dava para fazer sem a Afya foi aplicado com o copy do documento e marcado "Feito · falta validar": textos marcados "validar", suporte e especialista com destino provisório, cinco rascunhos de artigo e três especialidades a mais.</p>
+    <p><strong>Atualizado em 27/10/2026:</strong> decisões de estrutura tomadas pela Conversion: 4 passos na home, Para quem em página única, nome "Para quem" e fotos mantidas nos benefícios.</p>
+    <p><strong>Atualizado em 26/10/2026:</strong> tudo o que estava como "dá para fazer" foi feito e publicado em 27/10 no ambiente de revisão. Detalhes em <code>docs/registro-26-10-2026.md</code>.</p>
+    <p><strong>Situação em 26/10/2026:</strong> o documento traz o copy final de cada seção, com as decisões do time de 22/10 (V1 liberada, RDC ativa nos dois produtos, publicação depois de 30/10). Boa parte é texto pronto para aplicar. O que trava são formulários, medição, conteúdo regulatório sem revisão jurídica e material que não existe (fotos, artigos, respostas do dispensador).</p>
+
+    <div class="summary">
+      <div class="n-done"><strong>50</strong><span>feitos</span></div>
+      <div class="n-check"><strong>21</strong><span>feitos, falta validar</span></div>
+      <div class="n-wait"><strong>5</strong><span>faltam contexto ou material</span></div>
+      <div class="n-no"><strong>6</strong><span>não dá como está</span></div>
+    </div>
+    <div class="legend">
+      <span><span class="tag done">Feito</span> pronto e publicado</span>
+      <span><span class="tag check">Feito · falta validar</span> aplicado com o copy do documento; validação da Afya antes do domínio oficial</span>
+      <span><span class="tag wait">Falta contexto</span> decisão, validação ou material</span>
+      <span><span class="tag no">Não dá</span> depende de algo que o site estático não tem, ou não deve ir ao ar</span>
+    </div>
+  </header>
+
+  <h2>Antes de tudo: o que o documento assume</h2>
+  <div class="item">
+    <ul>
+      <li><span class="tag wait">Falta contexto</span>O documento diz que o site "entra no ar depois de 30/10" e escreve a RDC no passado. O ambiente de revisão já está no ar, sem indexação; o domínio oficial ainda não foi apontado. Confirmar: a data de 30/10 é a do lançamento no domínio oficial?</li>
+      <li><span class="tag check">Feito · falta validar</span>Toda a parte regulatória (RDC, SNCR, prazos, validade de receitas, assinatura sem certificado) está no ambiente de revisão com o copy do documento. Vai ao domínio oficial depois da revisão jurídica.</li>
+      <li><span class="tag done">Feito</span>O "título cortado" do banner roxo não se reproduz no site: testei em 1366, 1920 e 390 px e o banner começa onde "Como funciona" termina, sem sobreposição. Deve ser quebra de página da captura em PDF. Peço a eles uma captura de tela do navegador para confirmar.</li>
+      <li><span class="tag done">Feito</span>O documento não conseguiu abrir a home (o site bloqueia leitura automatizada) e pede conferência manual das frases removidas. Essa conferência é parte deste plano: os itens abaixo já cruzam o copy novo com o que está no ar.</li>
+    </ul>
+  </div>
+
+  <h2>Regras que valem para o site inteiro</h2>
+  <div class="item">
+    <div class="item-head"><h3>Naming, grafia e palavras proibidas</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · Guia (Regras de copy) e Revisão de claims</p>
+    <ul>
+      <li><span class="tag done">Feito</span>"Vidaas" vira "VIDaaS" em 7 arquivos.</li>
+      <li><span class="tag done">Feito</span>"Fluxo" sai do texto ao médico: hoje aparece em 5 lugares ("Prescreva sem sair do seu fluxo clínico", "no mesmo fluxo", "fluxo integrado"). Vira "em um só lugar", "na mesma ferramenta", "sem sair do prontuário".</li>
+      <li><span class="tag done">Feito</span>Promessas de tempo saem onde o documento manda: "cerca de 2 minutos" e "≈ 2 min" (home e Recursos) viram "em poucos cliques". "Envio em segundos" fica na home, por decisão do time, e sai de Recursos, Para quem e Parceiros.</li>
+      <li><span class="tag done">Feito</span>Eyebrow do banner roxo: "Nova prescrição digital" vira "Prescrição digital da Afya" ("nova prescrição" não é a mensagem principal).</li>
+      <li><span class="tag done">Feito</span>Entram em todo o site: VaultID na lista de certificados, "ativa por até 7 dias", GLP-1 na lista de receituários, "sugestões prontas para você editar" no lugar de "o campo já vem preenchido".</li>
+      <li><span class="tag done">Feito</span>Estatística dos 39% sempre com a fonte "Harvard Medical Practice Study".</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="item-head"><h3>Navegação: mega menu, breadcrumb e âncoras</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · Guia (Navegação)</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Submenu em Recursos, Para quem e Para parceiros, com ícone e uma linha de descrição por item. A folha de estilos já tem o padrão de dropdown herdado do Whitebook (<code>.nav-group</code>).</li>
+      <li><span class="tag done">Feito</span>Breadcrumb nas subpáginas (RDC, Dispensador, Indústria) e no modelo de artigo.</li>
+      <li><span class="tag done">Feito</span>Âncoras legíveis (#buscar, #assinar, #medicos) e rodapé com "Como funciona" apontando para Recursos e "Central de informações" para Dúvidas.</li>
+      <li><span class="tag done">Feito</span>Dados estruturados: FAQPage, BreadcrumbList, Organization e Article, em JSON-LD.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="item-head"><h3>Medição, formulários e captura de e-mail</h3><span class="tag no">Não dá</span></div>
+    <p class="src">Doc · tracking (<code>cta_clicked</code>, <code>quiz_answered</code>, <code>faq_feedback</code>, <code>lead_submitted</code>), lead collector, formulário da indústria</p>
+    <ul>
+      <li><span class="tag no">Não dá</span>Eventos de medição: o site não tem GA4 nem GTM (pendência desde setembro). Sem a ferramenta instalada, não há para onde mandar os eventos.</li>
+      <li><span class="tag no">Não dá</span>Lead collector (RDC e Blog) e formulário "Falar com o time de parcerias": o site é estático, sem servidor para receber envios. Precisa de um destino: ferramenta de e-mail marketing, CRM ou um serviço de formulários.</li>
+      <li><span class="tag done">Feito</span>A parte visual dos dois (caixa de e-mail e formulário, com validação inline e mensagens de sucesso e erro) pode ser montada e ligada ao destino depois.</li>
+    </ul>
+    <div class="note need"><b>Decisões:</b> qual ferramenta de medição (GA4/GTM) e para onde vão os e-mails e os leads.</div>
+  </div>
+
+  <h2>1. Home (revisão)</h2>
+  <div class="item">
+    <div class="item-head"><h3>Texto novo, seção a seção</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · 01 Home (revisão)</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Hero: subtítulo "Simples quando você precisa resolver rápido, com o Whitebook. Integrada ao prontuário, para o consultório, com o iClinic." Sai o "plantão".</li>
+      <li><span class="tag done">Feito</span>Faixa de números: "+300 mil médicos já confiam na Afya", "+21 milhões de prescrições emitidas em 2025", "+4 milhões de pacientes beneficiados", com ícones de médico, prescrição e paciente e nota de fonte e data de corte. O "+22 mil" sai da faixa e fica só nos benefícios.</li>
+      <li><span class="tag done">Feito</span>Banner RDC: "Receitas controladas digitais, em conformidade com a RDC 1000/2025" e apoio citando azuis, amarelas, controle especial, antimicrobianos e GLP-1, com "gerencia o uso das numerações".</li>
+      <li><span class="tag done">Feito</span>Benefícios: os seis itens com o texto novo (base completa e atualizada, sugestões prontas, interações em tempo real, GLP-1, VaultID, 7 dias).</li>
+      <li><span class="tag done">Feito</span>Onde você prescreve: abas "Quando preciso resolver rápido" e "No consultório, integrada ao prontuário"; etiquetas, descrições e bullets novos (5 no Whitebook, 6 no iClinic); frase do iClinic no painel sem "fluxo".</li>
+      <li><span class="tag done">Feito</span>Como funciona: vira três passos em cards (Busque e monte, Assine, Envie), com círculo numerado, título, uma linha e a tela do celular embaixo. Título "Da busca ao paciente em poucos cliques". Sai o formato de abas com janela.</li>
+      <li><span class="tag done">Feito</span>Banner roxo: eyebrow novo, apoio "Simples quando você precisa resolver rápido. Integrada quando o cuidado exige continuidade." e os dois botões do hero no lugar de "Veja onde prescrever".</li>
+      <li><span class="tag done">Feito</span>Depoimentos: tirar as estrelas (entraram em 20/10; decisão do time é sem).</li>
+      <li><span class="tag done">Feito</span>FAQ: as sete respostas novas, incluindo as duas perguntas que entram (diferença entre os produtos; prontuário).</li>
+      <li><span class="tag done">Feito</span>Chamada final: "Escolha o caminho que combina com a sua rotina. As regras e o passo a passo são os mesmos nos dois."</li>
+      <li><span class="tag check">Feito · falta validar</span>Números da faixa (+300 mil, +21 milhões, +4 milhões) aplicados com nota de fonte. Confirmação com Marketing antes do domínio oficial.</li>
+      <li><span class="tag check">Feito · falta validar</span>"Celular, tablet ou computador" aplicado nos bullets do Whitebook. Confirmar que o app traz o novo fluxo de prescrição.</li>
+      <li><span class="tag done">Feito</span>Como funciona com 4 passos na home, os mesmos de Recursos (decisão de 27/10). O documento deixava 3 ou 4 em aberto; se a Afya preferir 3, é uma troca de bloco.</li>
+      <li><span class="tag check">Feito · falta validar</span>Rodapé com "Fale com o suporte", apontando para o bloco de suporte da central de dúvidas, que abre a escolha entre Whitebook e iClinic (sites dos produtos). Contato institucional e horário: a definir.</li>
+      <li><span class="tag done">Feito</span>Legendas sobre as fotos dos benefícios: decidido manter as fotos (27/10). O feedback de 29/09 pediu mais fotografia, e os mockups aparecem logo abaixo.</li>
+      <li><span class="tag wait">Falta contexto</span>Autorização por escrito dos três médicos dos depoimentos (jurídico). Não é do nosso lado, mas trava o domínio oficial.</li>
+    </ul>
+  </div>
+
+  <h2>2. Recursos</h2>
+  <div class="item">
+    <div class="item-head"><h3>Página reescrita na ordem do fluxo de prescrição</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · 02 Recursos</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Hero com o mockup da receita e quatro hotspots clicáveis (①–④), que rolam até o recurso e pulsam uma vez ao carregar.</li>
+      <li><span class="tag done">Feito</span>Barra de etapas fixa abaixo do menu (Buscar, Montar, Revisar, Assinar, Enviar, Acompanhar), com o chip ativo acompanhando a rolagem.</li>
+      <li><span class="tag done">Feito</span>Blocos 01 a 06, mais 02b (Reaproveitar) e 03b (LME), com o copy do documento. As "animações" e "telas" pedidas viram os mockups em HTML que já existem (busca, itens, modelos, assinatura, envio), mais dois novos: revisão com alerta de interação e histórico por paciente.</li>
+      <li><span class="tag done">Feito</span>Contexto de uso com toggle, trocando card, tela, botão e a lista de recursos específicos (Bulário, conteúdos e WB Assist; prontuário, personalização e agenda).</li>
+      <li><span class="tag done">Feito</span>Como funciona em 4 passos, banner RDC com os pills de receituário, FAQ de recursos (5 perguntas) e chamada final.</li>
+      <li><span class="tag done">Feito</span>Endereço: o documento usa <code>/recursos</code>; o site já está em <code>/recursos/</code>. Nada muda.</li>
+      <li><span class="tag check">Feito · falta validar</span>Exemplo de interação (varfarina + AAS) e dados dos mockups aplicados. Revisão médica.</li>
+      <li><span class="tag check">Feito · falta validar</span>LME descrita como "laudo para medicamentos de alto custo, emitido junto da prescrição". A descrição oficial vem do produto.</li>
+      <li><span class="tag check">Feito · falta validar</span>"Agenda, financeiro e gestão" na lista do iClinic, e "receita com a cara do consultório" na personalização. Validar com produto.</li>
+      <li><span class="tag check">Feito · falta validar</span>Receita simples sem assinatura digital, ou impressa e assinada no papel, está no FAQ da home, de Recursos e das Dúvidas. Validar jurídico.</li>
+    </ul>
+  </div>
+
+  <h2>3. RDC 1000/2025 e SNCR</h2>
+  <div class="item">
+    <div class="item-head"><h3>Subpágina reconstruída sobre o guia interno</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · 02b RDC</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Novo endereço <code>/recursos/receita-controlada-digital/</code>, com redirecionamento permanente do atual <code>/recursos/rdc-1000-2025/</code> no nginx.</li>
+      <li><span class="tag done">Feito</span>Seções no copy do documento: hero com mockup de Notificação B, "Em 30 segundos" (4 cards), receituários afetados (6 cards com a cor de cada um), "O que muda na prática" (tabela, acordeão no celular), passo a passo em 6 cartões com o primeiro destacado, tabela "o que é com você e o que é com a Afya", assinatura por receituário, linha do tempo de prazos, segurança, FAQ com 9 perguntas, chamada final.</li>
+      <li><span class="tag done">Feito</span>"Comece a prescrever controlados" abre um seletor leve entre Whitebook e iClinic.</li>
+      <li><span class="tag done">Feito</span>Na tabela, "[iClinic/Whitebook]" vira o nome do produto do contexto escolhido.</li>
+      <li><span class="tag check">Feito · falta validar</span>Redação normativa aplicada como no documento: tabela "O que muda na prática", receituários afetados, prazos, limites de itens e FAQ. Revisão jurídica antes do domínio oficial.</li>
+      <li><span class="tag check">Feito · falta validar</span>Exemplo de medicamento do mockup (clonazepam) aplicado. Revisão médica.</li>
+      <li><span class="tag wait">Falta contexto</span>Alinhar o FAQ com a Central de Ajuda "RDC 1000.2025 e Integração SNCR", que não temos.</li>
+      <li><span class="tag no">Não dá</span>Lead collector no fim da página: depende do destino dos e-mails (ver "Medição, formulários e captura").</li>
+    </ul>
+    <div class="note info"><b>Linha do tempo:</b> o documento escreve os marcos de 13/02, 18/05, 30/09 e 30/10 no passado. Hoje é 26/10: o marco de 30/10 ainda não aconteceu. Deixo a redação do documento, com uma nota para revisar se a publicação escorregar.</div>
+  </div>
+
+  <h2>4. Para quem</h2>
+  <div class="item">
+    <div class="item-head"><h3>Médicos e clínicas em destaque; paciente e farmácia em terceira pessoa</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · 03 Para quem</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Hero com os quatro cards como abas (dois grandes, dois menores sob "Do outro lado da receita"), com âncoras próprias.</li>
+      <li><span class="tag done">Feito</span>Médicos e clínicas: abertura, tabela "De → Para" (cartões no celular), grade de entregas com ícones, no copy do documento.</li>
+      <li><span class="tag done">Feito</span>Quiz de duas perguntas para médicos ("Onde você atende?" e "Precisa de prontuário e agenda?"), com o resultado no mesmo bloco, sem formulário.</li>
+      <li><span class="tag done">Feito</span>Ponte com o iClinic para clínicas; diagrama "médico → paciente → farmácia" em SVG com animação de entrada.</li>
+      <li><span class="tag done">Feito</span>Paciente e farmácia em blocos compactos, em terceira pessoa, com o passo a passo do paciente e o bloco do dispensador com o link informado: <code>https://farmacia.iclinicrx.com.br/</code>.</li>
+      <li><span class="tag done">Feito</span>Formato: página única com abas e âncoras (decisão de 27/10). Subpáginas por perfil entram quando houver campanha de mídia.</li>
+      <li><span class="tag done">Feito</span>Nome da seção no menu: fica "Para quem" (decisão de 27/10), que o rodapé e os links já usam.</li>
+      <li><span class="tag check">Feito · falta validar</span>"Falar com especialista" (clínicas) aponta para o site do iClinic. Trocar quando houver página de contato própria.</li>
+      <li><span class="tag wait">Falta contexto</span>Fotos: médico em atendimento, equipe de clínica, paciente na farmácia, balconista. Temos só as duas personas provisórias.</li>
+      <li><span class="tag check">Feito · falta validar</span>Dispensador descrito como conferência da assinatura e dos itens; aviso "em receitas controladas, o CPF do paciente passou a ser obrigatório" no bloco do paciente. Validar com produto.</li>
+    </ul>
+  </div>
+
+  <h2>5. Dúvidas</h2>
+  <div class="item">
+    <div class="item-head"><h3>Central com busca, filtro de perfil e 7 categorias</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · 04 Dúvidas</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Busca no navegador, sem recarregar, com destaque do termo e mensagem de "sem resultado"; filtro "Sou médico · Sou paciente · Tenho farmácia" escondendo o que não se aplica.</li>
+      <li><span class="tag done">Feito</span>Cards de categoria com contagem; acordeões com as 27 perguntas e respostas do documento; link copiável por pergunta.</li>
+      <li><span class="tag done">Feito</span>Bloco de suporte separado por produto no clique.</li>
+      <li><span class="tag check">Feito · falta validar</span>Respostas aplicadas: validade de cada receita, equivalência com o papel, assinatura opcional em receita simples, LGPD. Validar jurídico.</li>
+      <li><span class="tag check">Feito · falta validar</span>Canal do suporte: os sites do Whitebook e do iClinic, no seletor da central de dúvidas. Horário e canais próprios: a definir.</li>
+      <li><span class="tag no">Não dá</span>"Esta resposta ajudou?": o botão pode existir, mas sem medição a resposta não vai para lugar nenhum. Entra junto com a ferramenta de medição.</li>
+    </ul>
+  </div>
+
+  <h2>6. Para parceiros</h2>
+  <div class="item">
+    <div class="item-head"><h3>Hub com duas subpáginas</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · 05 Parceiros</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Hub com dois cards clicáveis; subpágina <code>/parceiros/dispensador/</code> com hero, botão para <code>https://farmacia.iclinicrx.com.br/</code> em nova aba, passo a passo de 4 etapas e benefícios; subpágina <code>/parceiros/industria/</code> com hero, três pilares e o formulário (parte visual).</li>
+      <li><span class="tag done">Feito</span>O botão do dispensador, inerte desde 05/10, passa a ter o endereço.</li>
+      <li><span class="tag wait">Falta contexto</span>FAQ do dispensador: as três respostas estão "[a definir]" no documento.</li>
+      <li><span class="tag check">Feito · falta validar</span>"Uso gratuito para farmácias" na subpágina do dispensador. Confirmar com produto.</li>
+      <li><span class="tag check">Feito · falta validar</span>Indústria: os três pilares, o compromisso com as regras de propaganda e o número "+300 mil médicos" aplicados. Validar com compliance, jurídico e B2B.</li>
+      <li><span class="tag no">Não dá</span>Envio do formulário da indústria: sem destino para os leads.</li>
+    </ul>
+  </div>
+
+  <h2>7. Blog</h2>
+  <div class="item">
+    <div class="item-head"><h3>Home do blog e modelo de artigo</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · 06 Blog</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Home do blog com busca, chips de categoria, destaque e grade de cards, e o modelo de artigo (breadcrumb, autoria com revisão médica, índice fixo, resumo em 30 segundos, CTA contextual por categoria, FAQ e "Leia também"), como páginas estáticas de exemplo.</li>
+      <li><span class="tag check">Feito · falta validar</span>Os cinco artigos viraram rascunhos a partir do conteúdo aprovado (Recursos, RDC, Dúvidas), com o selo "Rascunho · em revisão". Revisão médica e autoria antes de tirar o selo.</li>
+      <li><span class="tag no">Não dá</span>"Destaque editável pelo CMS", "Carregar mais", URLs por categoria: o site não tem CMS. A decisão de ferramenta (pendente desde 05/10) continua travando o blog de verdade.</li>
+      <li><span class="tag check">Feito · falta validar</span>Nome "Prescrição em pauta" mantido; autoria "Equipe Prescrição Afya" até haver nome e CRM do revisor.</li>
+    </ul>
+    <div class="note info"><b>Proposta:</b> montar a home e o modelo de artigo com um artigo real, o da RDC, escrito a partir do conteúdo já aprovado para a página de controlados. Os outros cinco entram quando houver texto.</div>
+  </div>
+
+  <h2>8. Modelo por especialidade</h2>
+  <div class="item">
+    <div class="item-head"><h3>Psiquiatria como modelo</h3><span class="tag done">Feito</span></div>
+    <p class="src">Doc · 07 Template especialidade</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Página <code>/prescricao/psiquiatria/</code> com o copy do documento: hero, desafios, tabela desafio → recurso, modelos, contexto de uso, FAQ, conteúdos relacionados e chamada final. Os trechos variáveis ficam marcados no código para replicar.</li>
+      <li><span class="tag done">Feito</span>O mapa de variáveis vira um arquivo de dados (uma linha por especialidade), para gerar as próximas páginas.</li>
+      <li><span class="tag check">Feito · falta validar</span>Exemplos de medicamento por princípio ativo em quatro especialidades; bloco de modelos oculto até haver modelos reais. Revisão médica.</li>
+      <li><span class="tag check">Feito · falta validar</span>Quatro especialidades na ordem do guia interno: psiquiatria, neurologia, dor e endocrinologia. As próximas (anestesiologia, pediatria, geriatria, dermatologia) saem do mesmo arquivo de dados.</li>
+      <li><span class="tag check">Feito · falta validar</span>"Conteúdos relacionados" aponta para o artigo da RDC, para o rascunho sobre validade e para as dúvidas.</li>
+    </ul>
+  </div>
+
+  <h2>Ordem sugerida</h2>
+  <div class="item">
+    <ol class="rounds">
+      <li><strong>Rodada 1, texto e regras globais (sem depender de ninguém):</strong> grafia, "fluxo", promessas de tempo, home inteira (hero, números, banner RDC, benefícios, abas, Como funciona em passos, banner roxo, estrelas, FAQ, chamada final), rodapé. Publicar no ambiente de revisão.</li>
+      <li><strong>Rodada 2, páginas internas reescritas:</strong> Recursos, RDC (com redirecionamento), Para quem (página única), Dúvidas, Parceiros (hub + 2 subpáginas), mega menu, breadcrumb e dados estruturados. Tudo com as marcações de validação visíveis só no código.</li>
+      <li><strong>Rodada 3, estruturas que dependem de decisão:</strong> blog (home + modelo + artigo da RDC), página de psiquiatria, caixas de e-mail e formulário ligados ao destino escolhido, eventos de medição.</li>
+      <li><strong>Antes do domínio oficial:</strong> revisão jurídica do conteúdo regulatório, confirmação dos números, autorização dos depoimentos, respostas do dispensador.</li>
+    </ol>
+  </div>
+
+  <h2>O que falta saber ou receber</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>O quê</th><th>De quem</th><th>Trava</th></tr></thead>
+    <tbody>
+      <tr><td>30/10 é a data do lançamento no domínio oficial?</td><td>Afya</td><td>Redação dos prazos da RDC e ordem das rodadas</td></tr>
+      <tr><td>Ferramenta de medição (GA4/GTM) e destino dos e-mails e leads</td><td>Afya e Conversion</td><td>Eventos, lead collector, formulário da indústria, feedback das dúvidas</td></tr>
+      <tr><td>Revisão jurídica do conteúdo regulatório (RDC, prazos, validade, assinatura sem certificado, LGPD)</td><td>Jurídico Afya</td><td>Domínio oficial</td></tr>
+      <tr><td>Revisão médica dos exemplos (interação, medicamentos, modelos)</td><td>Time médico Afya</td><td>Mockups e página de psiquiatria</td></tr>
+      <tr><td>Confirmação dos big numbers (+300 mil, +21 milhões, +4 milhões) e do uso em página B2B</td><td>Marketing Afya</td><td>Faixa de números e indústria</td></tr>
+      <tr><td>Autorização por escrito dos depoimentos</td><td>Jurídico Afya</td><td>Domínio oficial</td></tr>
+      <tr><td>Respostas do FAQ do dispensador; o que ele confere; se é gratuito</td><td>Produto Afya</td><td>Subpágina do dispensador</td></tr>
+      <tr><td>Indústria: pilares, formatos e compliance</td><td>B2B e compliance Afya</td><td>Subpágina da indústria</td></tr>
+      <tr><td>Fotos: médico em atendimento, equipe de clínica, paciente na farmácia, balconista</td><td>Afya</td><td>Para quem e Parceiros</td></tr>
+      <tr><td>Blog: ferramenta, nome, autores e revisores; texto dos artigos</td><td>Afya</td><td>Blog de verdade</td></tr>
+      <tr><td>Captura de tela do "título cortado" do banner roxo</td><td>Quem fez a revisão</td><td>Nada: não reproduzido</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="color:var(--muted);font-size:14px">O documento também fecha itens antigos: o print do dispensador vira link (<code>farmacia.iclinicrx.com.br</code>), o Whitebook gratuito é "ilimitado", e os big numbers do ecossistema chegaram. Seguem abertos de rodadas anteriores: arte e posição do banner, telas reais do produto, fotos definitivas, logo oficial, imagem de compartilhamento e páginas legais.</p>
+
+  <footer>Gerado em 26/10/2026 a partir de <em>Site_Prescricao_Afya_-_Copy_e_Wireframes_v9.html</em>. Planos anteriores: <code>docs/plano-call-29-09-2026.html</code> e <code>docs/plano-feedback-afya-29-09-2026.html</code>.</footer>
+</div>
+</body>
+</html>

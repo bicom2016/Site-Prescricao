@@ -136,11 +136,13 @@ Afya fornecer o lockup vetorial de Prescrição, substitua.
 ```
 index.html      home page
 404.html        página de erro (mesmo header da home; alterar em todas)
-recursos/       Recursos, com a subpágina recursos/rdc-1000-2025/
-para-quem/      médicos, clínicas, pacientes e farmácias, em página única com âncoras
-duvidas/        central de dúvidas, por tema
-parceiros/      dispensador para farmácias (#dispensador) e indústria farmacêutica
-blog/           linhas editoriais; sem artigos até a decisão de ferramenta
+recursos/       Recursos, com a subpágina recursos/receita-controlada-digital/ (RDC)
+para-quem/      médicos, clínicas, pacientes e farmácias, em abas (#medicos, #clinicas…)
+duvidas/        central de dúvidas, com busca, filtro por perfil e sete categorias
+parceiros/      hub, com parceiros/dispensador/ e parceiros/industria/
+blog/           home do blog, o artigo da RDC e cinco rascunhos, em blog/{categoria}/{slug}/
+prescricao/     páginas por especialidade (psiquiatria, neurologia, dor, endocrinologia);
+                dados em tools/especialidades.json
 styles.css      estilos (folha completa herdada do Whitebook)
 script.js       menu, animações de reveal e sprite de ícones
 assets/         fontes, ícones, imagens e vídeos usados pelas páginas
@@ -169,12 +171,19 @@ O copy das páginas veio dos documentos do projeto (Arquitetura Narrativa, Visã
 trocada pelo copy que a Afya enviar. Ao mexer no menu ou no rodapé, alterar em
 todas as páginas: `grep -rln 'site-header' --include=index.html --include=404.html .`
 
+Desde 26/10 as páginas seguem o documento *Copy e Wireframes v9*: mega menu com
+submenu em Recursos, Para quem e Para parceiros; breadcrumb nas subpáginas; dados
+estruturados (FAQPage, BreadcrumbList, Organization, Article) em JSON-LD. A
+subpágina da RDC mudou de `/recursos/rdc-1000-2025/` para
+`/recursos/receita-controlada-digital/`; o endereço antigo redireciona (301) no
+`nginx.conf`. A caixa de e-mail (RDC e Blog) e o formulário da indústria existem
+sem destino: `data-endpoint` vazio mostra o aviso de que o envio não está ativo.
+
 ## Navegação desativada
 
 Continuam sem `href`, inertes, os links cujo destino ainda não existe: os três
 legais do rodapé (Termos de uso, Privacidade, Políticas e diretrizes) e, em
-`parceiros/`, os botões "Acessar o dispensador" e "Fale com o time comercial",
-cujos endereços dependem da Afya. O destino pretendido de cada um está em
+`para-quem/`, o botão "Falar com especialista" das clínicas. O destino pretendido de cada um está em
 `data-link-original`.
 
 Para reativar um link quando o destino existir:
@@ -276,6 +285,11 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       (05/10/2026, ver `docs/registro-05-10-2026.md`)
 - [x] Depoimentos reais na home: três médicos, com texto e foto enviados pela Afya
       (20/10/2026, ver `docs/registro-20-10-2026.md`)
+- [x] Copy e wireframes v9: regras globais (VIDaaS, sem "fluxo", sem promessas de
+      tempo), home revisada, Recursos, RDC, Para quem, Dúvidas, Parceiros (hub + 2),
+      Blog (home + artigo), psiquiatria, mega menu, breadcrumb e dados estruturados
+      (26/10/2026, ver `docs/registro-26-10-2026.md` e
+      `docs/plano-copy-wireframes-v9-26-10-2026.html`)
 
 **Conteúdo e marca**
 
@@ -293,9 +307,13 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       29/09, é nome novo do Whitebook ou erro de transcrição
 - [ ] Validar com a Afya o corte de texto aplicado em 05/10
       (`docs/corte-de-texto-05-10-2026.html`)
-- [ ] Blog: decidir a ferramenta e quem escreve; a página mostra só as linhas editoriais
-- [ ] RDC 1000/2025: confirmar a data (30/09) e o passo a passo real da numeração no
-      SNCR antes de detalhar a subpágina
+- [ ] Blog: ferramenta, autores e revisores; os cinco rascunhos levam o selo "Rascunho ·
+      em revisão" até a revisão médica (`grep -rl "Rascunho" blog/`)
+- [ ] Especialidades: as próximas quatro (anestesiologia, pediatria, geriatria,
+      dermatologia) saem de `tools/especialidades.json`; revisão médica dos exemplos
+- [ ] Textos aplicados com o copy do documento e marcados "falta validar" no plano:
+      números da faixa, LME, financeiro e personalização, CPF no bloco do paciente,
+      "uso gratuito" do dispensador, pilares e "+300 mil" da indústria
 - [ ] Trocar as fotos provisórias das personas (herdadas do Whitebook) pelas
       definitivas
 - [ ] Topo com duas cenas alternando (iClinic no consultório e Whitebook no plantão,
@@ -314,9 +332,15 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
 
 **Site**
 
-- [ ] Páginas internas: trocar o copy desta primeira versão pelo da Afya, página a
-      página, e receber os endereços do dispensador e do contato comercial
-      (`grep -rn 'data-link-original' --include=*.html -r .`)
+- [ ] "Falar com especialista" aponta para o site do iClinic e o suporte para os sites dos
+      produtos: trocar quando houver página de contato e canais próprios
+- [ ] Ferramenta de medição (GA4/GTM) e destino dos e-mails e leads: preencher
+      `data-endpoint` da caixa de e-mail (RDC, Blog) e do formulário da indústria
+- [ ] Revisão jurídica do conteúdo regulatório (RDC, prazos, validade, assinatura sem
+      certificado, LGPD) e médica dos exemplos (interação, medicamentos) antes do
+      domínio oficial; confirmação dos big numbers com Marketing
+- [ ] Dispensador: respostas do FAQ, o que confere, se é gratuito (produto)
+- [ ] Indústria: pilares, formatos e compliance; uso de números em página B2B
 - [ ] Páginas legais (Termos de uso, Privacidade, Políticas e diretrizes): conteúdo
       jurídico da Afya
 - [ ] Decidir o destino dos assets e scripts do Whitebook sem uso (ver "Origem"):
