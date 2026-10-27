@@ -6916,12 +6916,15 @@ a:not([href]) {
    que e o unico <p> sem classe dentro de .hero-copy. */
 @media (min-width: 721px) {
   .hero-copy {
-    width: min(56%, 740px);
+    width: min(60%, 800px);
   }
 }
 
+/* 27/10: a frase do Whitebook nao cabia em uma linha a 27px e o subtitulo ia a tres ou
+   quatro linhas. A 24px, com a coluna em 800px, fica em duas de 1280px para cima. */
 .hero-copy > p:not([class]) {
-  max-width: 740px;
+  max-width: 800px;
+  font-size: clamp(20px, 1.9vw, 24px);
 }
 
 /* Sem limite de largura: a linha cabe inteira na coluna do hero (680px). */
