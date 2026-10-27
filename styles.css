@@ -10127,3 +10127,52 @@ input[aria-invalid="true"] {
 .compare-section .use-impact {
   margin-top: 40px;
 }
+
+/* 27/10: caixa que contem botao nao se mexe ao receber o mouse; so o botao sobe
+   (.button:hover ja faz isso). Vale para qualquer caixa com elevacao. */
+.testimonial-card:has(.button),
+.compare-card:has(.button),
+.step-card:has(.button),
+.info-grid .category-card:has(.button),
+.afya-inner:has(.button),
+.use-panel:has(.button),
+.rx-app:has(.button),
+.rx-demo:has(.button),
+.campaign-banner:has(.button),
+.hub-card:has(.button),
+.why-media:has(.button) {
+  transition: none;
+}
+
+.testimonial-card:has(.button):hover,
+.compare-card:has(.button):hover,
+.step-card:has(.button):hover,
+.info-grid .category-card:has(.button):hover,
+.afya-inner:has(.button):hover,
+.use-panel:has(.button):hover,
+.rx-app:has(.button):hover,
+.rx-demo:has(.button):hover,
+.campaign-banner:has(.button):hover,
+.hub-card:has(.button):hover,
+.why-media:has(.button):hover {
+  transform: none !important;
+}
+
+.compare-card:has(.button):hover,
+.step-card:has(.button):hover,
+.afya-inner:has(.button):hover,
+.campaign-banner:has(.button):hover,
+.hub-card:has(.button):hover {
+  box-shadow: none;
+  border-color: var(--line);
+}
+
+.info-grid .category-card:has(.button):hover,
+.use-panel:has(.button):hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--line);
+}
+
+.rx-demo:has(.button):hover {
+  box-shadow: var(--shadow-md);
+}
