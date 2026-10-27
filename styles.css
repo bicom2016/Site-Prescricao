@@ -10108,3 +10108,22 @@ input[aria-invalid="true"] {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* 27/10: na home, os recursos lado a lado viraram secao propria, branca, separada das
+   abas; mais respiro entre abas, painel e cards. */
+.compare-section {
+  background: var(--white);
+}
+
+.compare-section .compare-grid {
+  margin-top: 0;
+  gap: 28px;
+}
+
+.use-cases .use-tabs {
+  margin-bottom: 28px;
+}
+
+.compare-section .use-impact {
+  margin-top: 40px;
+}
