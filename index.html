@@ -206,13 +206,12 @@
         </div>
       </section>
 
-      <!-- Bloco 5 — Onde voce prescreve. Call de 29/09: em cima, as abas de alternancia,
-           a tela e uma frase curta; embaixo, os recursos dos dois produtos lado a lado,
-           visiveis sem clique, como na LP de Prescricao do iClinic. As etiquetas das
-           abas falam do contexto de uso, nao do perfil do medico, e o Whitebook nao fica
-           amarrado ao celular (uso meio a meio com o computador). Frases e recursos das
-           colunas vem da LP, que ja e da Afya. Sem preco e sem selo "recomendado". A tela
-           do iClinic e reproduzida em HTML ate chegar o print oficial. -->
+      <!-- Bloco 5 — Onde voce prescreve. 27/10: sem abas. Os dois produtos ficam lado a
+           lado, cada card com a tela do produto em cima (celular no Whitebook, computador
+           no iClinic), a frase curta do painel antigo e os recursos embaixo, visiveis sem
+           clique, como na LP de Prescricao do iClinic. Frases e recursos vem da LP, que
+           ja e da Afya. Sem preco e sem selo "recomendado". A tela do iClinic e
+           reproduzida em HTML ate chegar o print oficial. -->
       <section class="use-cases section" id="onde-prescrever" aria-labelledby="onde-title">
         <div class="content-container">
           <header class="section-heading use-heading reveal">
@@ -220,72 +219,22 @@
             <h2 id="onde-title">Onde você <span class="hl">prescreve</span></h2>
           </header>
 
-          <div class="use-tabs reveal" role="tablist" aria-label="Contexto de uso" data-tabs>
-            <button class="use-tab" type="button" role="tab" id="use-tab-1" aria-controls="use-panel-1" aria-selected="true">
-              <img src="/assets/images/photos/avatars/plantao.webp" alt="" width="320" height="320" loading="lazy">
-              <span><strong>Quando preciso resolver rápido</strong><small>Whitebook</small></span>
-            </button>
-            <button class="use-tab" type="button" role="tab" id="use-tab-2" aria-controls="use-panel-2" aria-selected="false" tabindex="-1">
-              <img src="/assets/images/photos/avatars/consultorio.webp" alt="" width="320" height="320" loading="lazy">
-              <span><strong>No consultório, integrada ao prontuário</strong><small>iClinic</small></span>
-            </button>
-          </div>
-
-          <div class="use-panel reveal" role="tabpanel" id="use-panel-1" aria-labelledby="use-tab-1">
-            <div class="use-screen use-screen-phone" aria-hidden="true">
-              <div class="wb-phone">
-                <p class="wb-phone-top">Nova receita</p>
-                <p class="wb-phone-patient">Paciente · Ana C.</p>
-                <ol>
-                  <li><strong>Dipirona 1 g</strong><small>1 comprimido de 6 em 6 horas, se dor ou febre</small></li>
-                </ol>
-                <p class="wb-phone-ok"><svg><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</p>
-                <p class="wb-phone-send"><svg><use href="/assets/icons/elsie.svg#whatsapp"></use></svg>Enviar pelo WhatsApp</p>
-              </div>
-            </div>
-            <div class="use-detail">
-              <img class="use-logo" src="/assets/images/afya-whitebook-lockup.png" alt="Afya Whitebook" width="1096" height="145" loading="lazy">
-              <h3>Prescreva no instante em que decide a conduta</h3>
-            </div>
-          </div>
-
-          <div class="use-panel" role="tabpanel" id="use-panel-2" aria-labelledby="use-tab-2" hidden>
-            <div class="use-screen use-screen-desktop" aria-hidden="true">
-              <div class="ic-app">
-                <div class="ic-bar"><i></i><i></i><i></i><span>app.iclinic.com.br/prontuario</span></div>
-                <div class="ic-body">
-                  <ul class="ic-nav">
-                    <li>Prontuário</li><li>Agenda</li><li class="is-active">Prescrição</li><li>Teleconsulta</li><li>Financeiro</li>
-                  </ul>
-                  <div class="ic-main">
-                    <p class="ic-title">Prescrição <span>Consulta · João P.</span></p>
-                    <p class="ic-sub">Itens da receita</p>
-                    <ol>
-                      <li><i>1</i><span><strong>Losartana potássica 50 mg</strong><small>1 comprimido ao dia, uso contínuo</small></span></li>
-                    </ol>
-                    <p class="ic-history">Histórico do paciente · última receita em 12/06</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="use-detail">
-              <img class="use-logo use-logo-iclinic" src="/assets/images/afya-iclinic-lockup.svg" alt="Afya iClinic" width="186" height="39" loading="lazy">
-              <h3>Prescreva sem sair do prontuário</h3>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Bloco 5b — Recursos de cada produto, lado a lado, sem clique (27/10: secao propria,
-           separada das abas, com fundo branco e mais respiro). Texto da LP de Prescricao do
-           iClinic. -->
-      <section class="section compare-section" aria-label="Recursos de cada produto">
-        <div class="content-container">
           <div class="compare-grid reveal">
             <article class="compare-card">
+              <div class="compare-screen use-screen use-screen-phone" aria-hidden="true">
+                <div class="wb-phone">
+                  <p class="wb-phone-top">Nova receita</p>
+                  <p class="wb-phone-patient">Paciente · Ana C.</p>
+                  <ol>
+                    <li><strong>Dipirona 1 g</strong><small>1 comprimido de 6 em 6 horas, se dor ou febre</small></li>
+                  </ol>
+                  <p class="wb-phone-ok"><svg><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</p>
+                  <p class="wb-phone-send"><svg><use href="/assets/icons/elsie.svg#whatsapp"></use></svg>Enviar pelo WhatsApp</p>
+                </div>
+              </div>
               <img class="use-logo" src="/assets/images/afya-whitebook-lockup.png" alt="Afya Whitebook" width="1096" height="145" loading="lazy">
-              <p class="use-product">Apoio à decisão clínica e prescrição</p>
+              <p class="use-product">Quando preciso resolver rápido</p>
+              <h3>Prescreva no instante em que decide a conduta</h3>
               <p>Simples quando você precisa resolver rápido: consulte conteúdos clínicos e prescreva na mesma ferramenta, onde e quando precisar.</p>
               <ul class="use-list">
                 <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Prescrição gratuita e ilimitada, de qualquer lugar</li>
@@ -298,8 +247,27 @@
             </article>
 
             <article class="compare-card">
+              <div class="compare-screen use-screen use-screen-desktop" aria-hidden="true">
+                <div class="ic-app">
+                  <div class="ic-bar"><i></i><i></i><i></i><span>app.iclinic.com.br/prontuario</span></div>
+                  <div class="ic-body">
+                    <ul class="ic-nav">
+                      <li>Prontuário</li><li>Agenda</li><li class="is-active">Prescrição</li><li>Teleconsulta</li><li>Financeiro</li>
+                    </ul>
+                    <div class="ic-main">
+                      <p class="ic-title">Prescrição <span>Consulta · João P.</span></p>
+                      <p class="ic-sub">Itens da receita</p>
+                      <ol>
+                        <li><i>1</i><span><strong>Losartana potássica 50 mg</strong><small>1 comprimido ao dia, uso contínuo</small></span></li>
+                      </ol>
+                      <p class="ic-history">Histórico do paciente · última receita em 12/06</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <img class="use-logo use-logo-iclinic" src="/assets/images/afya-iclinic-lockup.svg" alt="Afya iClinic" width="186" height="39" loading="lazy">
-              <p class="use-product">Gestão do consultório com prescrição integrada</p>
+              <p class="use-product">No consultório, integrada ao prontuário</p>
+              <h3>Prescreva sem sair do prontuário</h3>
               <p>Para o consultório: prescrição integrada ao prontuário, junto da agenda e da gestão dos atendimentos.</p>
               <ul class="use-list">
                 <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Prescrição dentro do prontuário do paciente</li>
