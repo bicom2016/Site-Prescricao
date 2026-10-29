@@ -137,7 +137,7 @@ Afya fornecer o lockup vetorial de Prescrição, substitua.
 index.html      home page
 404.html        página de erro (mesmo header da home; alterar em todas)
 recursos/       Recursos, com a subpágina recursos/receita-controlada-digital/ (RDC)
-para-quem/      médicos, clínicas, pacientes e farmácias, em abas (#medicos, #clinicas…)
+para-quem/      médicos, clínicas, pacientes e farmácias, em sequência (#medicos, #clinicas…)
 duvidas/        central de dúvidas, com busca, filtro por perfil e sete categorias
 parceiros/      hub, com parceiros/dispensador/ e parceiros/industria/
 blog/           home do blog, o artigo da RDC e cinco rascunhos, em blog/{categoria}/{slug}/
@@ -285,6 +285,10 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       (05/10/2026, ver `docs/registro-05-10-2026.md`)
 - [x] Depoimentos reais na home: três médicos, com texto e foto enviados pela Afya
       (20/10/2026, ver `docs/registro-20-10-2026.md`)
+- [x] Reunião de 29/10: home em três passos, Recursos em abas (sem barra fixa), Para
+      quem em sequência com cards por perfil, caixa do dispensador e espaçamentos
+      (29/10/2026, ver `docs/plano-reuniao-29-10-2026.html` e a seção 8 de
+      `docs/registro-26-10-2026.md`)
 - [x] Copy e wireframes v9: regras globais (VIDaaS, sem "fluxo", sem promessas de
       tempo), home revisada, Recursos, RDC, Para quem, Dúvidas, Parceiros (hub + 2),
       Blog (home + artigo), psiquiatria, mega menu, breadcrumb e dados estruturados
@@ -315,7 +319,8 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       números da faixa, LME, financeiro e personalização, CPF no bloco do paciente,
       "uso gratuito" do dispensador, pilares e "+300 mil" da indústria
 - [ ] Trocar as fotos provisórias das personas (herdadas do Whitebook) pelas
-      definitivas
+      definitivas; fotos por perfil (médico, clínica, paciente, farmácia) para os cards
+      do Para quem e a foto entre as telas de Recursos (Lucão, Afya)
 - [ ] Topo com duas cenas alternando (iClinic no consultório e Whitebook no plantão,
       com o paciente) e a mensagem central no subtítulo — ata de 22/09, fora da
       rodada de 25/09; depende das fotos e da decisão entre uma versão, duas ou

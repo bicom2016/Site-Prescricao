@@ -79,8 +79,9 @@
     </header>
 
     <main id="conteudo">
-      <!-- Para quem (copy v9): pagina unica com os quatro perfis como abas (medicos e
-           clinicas em destaque; paciente e farmacia em terceira pessoa). O documento tambem
+      <!-- Para quem (copy v9): pagina unica com os quatro perfis em sequencia, com
+           ancoras (reuniao de 29/10; antes eram abas). Medicos e clinicas em destaque;
+           paciente e farmacia em terceira pessoa. O documento tambem
            aceita hub + 4 subpaginas; fica para quando houver campanha. Nome da secao no menu
            ("Para voce", "Por perfil"): decisao da Afya. Fotos de clinica, paciente e
            balconista: a receber; por ora, as duas personas e a foto do consultorio. -->
@@ -91,18 +92,32 @@
             <h1 id="page-title">Como a prescrição atende <span class="hl">cada público</span></h1>
             <p>A mesma prescrição digital da Afya, com valor diferente para cada público. Primeiro para quem prescreve e para a clínica; depois, do outro lado da receita, para o paciente e para a farmácia.</p>
           </div>
-          <div class="perfil-tabs reveal" role="tablist" aria-label="Perfis" data-tabs>
-            <button class="perfil-tab" type="button" role="tab" id="tab-medicos" aria-controls="medicos" aria-selected="true"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg><span><strong>Médicos</strong><small>Prescreva em menos etapas, com apoio à decisão e menos retrabalho</small></span></button>
-            <button class="perfil-tab" type="button" role="tab" id="tab-clinicas" aria-controls="clinicas" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg><span><strong>Clínicas e consultórios</strong><small>Organize e padronize a prescrição da equipe</small></span></button>
-            <p class="perfil-label">Do outro lado da receita</p>
-            <button class="perfil-tab is-secondary" type="button" role="tab" id="tab-pacientes" aria-controls="pacientes" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg><span><strong>O paciente</strong><small>recebe a receita no celular, sem depender de impressão</small></span></button>
-            <button class="perfil-tab is-secondary" type="button" role="tab" id="tab-farmacias" aria-controls="farmacias" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg><span><strong>A farmácia</strong><small>recebe e confere receitas digitais com mais segurança</small></span></button>
-          </div>
+          <!-- Cards por perfil, no padrao do Memed (reuniao de 29/10): foto, titulo, duas ou tres
+               linhas e "Saiba mais" levando a ancora. Fotos provisorias (personas do
+               Whitebook); farmacia sem foto ate chegarem as imagens do Lucao. -->
+          <nav class="perfil-cards reveal" aria-label="Perfis">
+            <a class="perfil-card" href="#medicos">
+              <span class="perfil-card-media"><img src="/assets/images/photos/personas/plantao-card.webp" alt="" width="768" height="818" loading="lazy"><strong>Médicos</strong></span>
+              <span class="perfil-card-body"><span>Prescreva em menos etapas, com apoio à decisão e menos retrabalho.</span><span class="text-link">Saiba mais</span></span>
+            </a>
+            <a class="perfil-card" href="#clinicas">
+              <span class="perfil-card-media"><img src="/assets/images/photos/personas/consultorio-card.webp" alt="" width="768" height="818" loading="lazy"><strong>Clínicas e consultórios</strong></span>
+              <span class="perfil-card-body"><span>Organize e padronize a prescrição da equipe, integrada ao prontuário.</span><span class="text-link">Saiba mais</span></span>
+            </a>
+            <a class="perfil-card" href="#pacientes">
+              <span class="perfil-card-media"><img src="/assets/images/photos/personas/estudos-card.webp" alt="" width="768" height="818" loading="lazy"><strong>Pacientes</strong></span>
+              <span class="perfil-card-body"><span>Recebem a receita no celular, sem depender de impressão.</span><span class="text-link">Saiba mais</span></span>
+            </a>
+            <a class="perfil-card" href="#farmacias">
+              <span class="perfil-card-media is-placeholder"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg><strong>Farmácias</strong></span>
+              <span class="perfil-card-body"><span>Recebem e conferem receitas digitais com mais segurança.</span><span class="text-link">Saiba mais</span></span>
+            </a>
+          </nav>
         </div>
       </section>
 
       <!-- Medicos -->
-      <div class="perfil-panel" role="tabpanel" id="medicos" aria-labelledby="tab-medicos">
+      <div class="perfil-section" id="medicos">
         <section class="section" aria-labelledby="medicos-title">
           <div class="content-container">
             <div class="why-rows">
@@ -220,7 +235,7 @@
       </div>
 
       <!-- Clinicas e consultorios -->
-      <div class="perfil-panel" role="tabpanel" id="clinicas" aria-labelledby="tab-clinicas" hidden>
+      <div class="perfil-section" id="clinicas">
         <section class="section" aria-labelledby="clinicas-title">
           <div class="content-container">
             <div class="why-rows">
@@ -323,7 +338,7 @@
       </div>
 
       <!-- O paciente (terceira pessoa: a pagina fala com o medico) -->
-      <div class="perfil-panel" role="tabpanel" id="pacientes" aria-labelledby="tab-pacientes" hidden>
+      <div class="perfil-section" id="pacientes">
         <section class="section" aria-label="Do outro lado da receita: o paciente">
           <div class="content-container">
             <header class="section-heading use-heading reveal">
@@ -396,23 +411,7 @@
       </div>
 
       <!-- A farmacia -->
-      <div class="perfil-panel" role="tabpanel" id="farmacias" aria-labelledby="tab-farmacias" hidden>
-        <section class="section" aria-label="Do outro lado da receita: a farmácia">
-          <div class="content-container">
-            <header class="section-heading use-heading reveal">
-              <p class="section-eyebrow">Do outro lado da receita</p>
-              <h2>Depois que você prescreve, a receita segue para o paciente e para a farmácia</h2>
-            </header>
-          <div class="flow reveal">
-            <div class="flow-step"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg><strong>O médico</strong><small>prescreve e assina</small></div>
-            <svg class="flow-arrow" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h34M28 5l8 7-8 7"/></svg>
-            <div class="flow-step"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg><strong>O paciente</strong><small>recebe no celular</small></div>
-            <svg class="flow-arrow" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h34M28 5l8 7-8 7"/></svg>
-            <div class="flow-step"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg><strong>A farmácia</strong><small>confere e dispensa</small></div>
-          </div>
-          <p class="flow-legend">A mesma receita atende todos os lados, sem papel no meio do caminho.</p>
-          </div>
-        </section>
+      <div class="perfil-section" id="farmacias">
         <section class="section use-cases" aria-labelledby="farmacias-title">
           <div class="content-container">
             <div class="why-rows">
@@ -454,25 +453,31 @@
               <tr><td data-label="De">Dúvida sobre o tipo de receituário</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><span>Receituário já identificado pelo sistema</span></td></tr>
             </tbody>
           </table></div>
-            <!-- O que o dispensador confere alem da assinatura: validar com produto. -->
-            <div class="why-rows">
+            <!-- O que o dispensador confere alem da assinatura: validar com produto.
+                 Reuniao de 29/10: a caixa de texto saiu; entra a tela do validador, ate chegar
+                 a foto da farmacia. -->
+            <div class="why-rows topic-gap">
               <div class="why-row feature-row why-row-flip reveal">
                 <div class="feature-copy">
                   <p class="section-eyebrow">Dispensador Afya</p>
                   <h2>A farmácia confere a receita digital pelo dispensador</h2>
-                  <p>Acesso direto ao validador de receitas digitais da Afya.</p>
+                  <p>Acesso direto ao validador de receitas digitais da Afya, aberto a qualquer farmácia.</p>
                   <div class="hero-actions">
                     <a class="button button-primary" href="https://farmacia.iclinicrx.com.br/" target="_blank" rel="noopener">Acessar o dispensador</a>
                     <a class="button button-outline" href="/parceiros/dispensador/">Saiba mais</a>
                   </div>
                 </div>
                 <div class="feature-media">
-                  <div class="info-grid cols-1">
-            <article class="category-card reveal">
-              <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg>
-              <h3>Dispensador Afya</h3>
-              <p>Validador de receitas digitais, aberto a qualquer farmácia, no endereço farmacia.iclinicrx.com.br.</p>
-            </article>
+                  <div class="rx-app rx-app-static rx-app-clean" aria-hidden="true">
+                    <div class="rx-app-bar"><i></i><i></i><i></i><span>farmacia.iclinicrx.com.br</span></div>
+                    <div class="rx-app-panel">
+                      <p class="rx-app-label">Validador de receitas digitais</p>
+                      <div class="rx-app-search"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#codigos"></use></svg><span>Código da receita · 7F3K-21A9</span></div>
+                      <ol class="rx-app-items">
+                        <li><i>1</i><span><strong>Sertralina 50 mg — 30 comprimidos</strong><small>Controle especial · numeração SNCR conferida</small></span></li>
+                      </ol>
+                      <p class="rx-app-ok"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Receita válida · assinatura digital conferida</p>
+                    </div>
                   </div>
                 </div>
               </div>

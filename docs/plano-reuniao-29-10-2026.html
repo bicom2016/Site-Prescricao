@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano — reunião de 29/10</title>
+<style>
+  :root {
+    --bg: #f6f6fb; --card: #ffffff; --text: #1d1d2b; --muted: #5d5d72; --line: #e2e2ee;
+    --done: #0f7a4a; --done-bg: #e3f5ec; --todo: #1d4f91; --todo-bg: #e2ecfa;
+    --wait: #8a5a00; --wait-bg: #fdf1d8; --check: #c2410c; --check-bg: #ffe4d1; --no: #a4133c; --no-bg: #fce6ec; --accent: #1d4f91;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e;
+      --done: #5fd39a; --done-bg: #173327; --todo: #8fbcf5; --todo-bg: #172a44;
+      --wait: #f2c265; --wait-bg: #3a2e14; --check: #ff9a5c; --check-bg: #45220f; --no: #ff8fab; --no-bg: #3d1a25; --accent: #8fbcf5;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e;
+    --done: #5fd39a; --done-bg: #173327; --todo: #8fbcf5; --todo-bg: #172a44;
+    --wait: #f2c265; --wait-bg: #3a2e14; --check: #ff9a5c; --check-bg: #45220f; --no: #ff8fab; --no-bg: #3d1a25; --accent: #8fbcf5;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p { color: var(--muted); margin: 4px 0; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  a { color: var(--accent); }
+  code { font-size: 0.92em; }
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+  .summary div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .summary strong { display: block; font-size: 28px; line-height: 1.1; }
+  .summary .n-done strong { color: var(--done); }
+  .summary .n-wait strong { color: var(--wait); }
+  .summary .n-no strong { color: var(--no); }
+  .summary span { color: var(--muted); font-size: 14px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-size: 14px; color: var(--muted); }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+  .tag.done { background: var(--done-bg); color: var(--done); }
+  .tag.todo { background: var(--todo-bg); color: var(--todo); }
+  .tag.wait { background: var(--wait-bg); color: var(--wait); }
+  .tag.no { background: var(--no-bg); color: var(--no); }
+  .tag.check { background: var(--check-bg); color: var(--check); }
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .item h3 { margin: 0; font-size: 17px; }
+  .item .src { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .item ul { margin: 8px 0 0; padding-left: 20px; }
+  .item li { margin: 6px 0; }
+  .item li .tag { margin-right: 6px; }
+  .note { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-size: 14.5px; }
+  .note.need { background: var(--wait-bg); } .note.need b { color: var(--wait); }
+  .note.info { background: var(--todo-bg); } .note.info b { color: var(--todo); }
+  .note.stop { background: var(--no-bg); } .note.stop b { color: var(--no); }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  ol.rounds { padding-left: 20px; } ol.rounds li { margin: 8px 0; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+  @media (max-width: 720px) { .summary { grid-template-columns: 1fr; } .item-head { flex-direction: column; gap: 6px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Plano de alterações — reunião de 29/10</h1>
+    <p>A partir de <em>Reunião de alinhamento: ajustes do site</em> (29/10/2026, Thais, Vivi, Lari, Kauê e Rafael), cruzado com o site publicado em 28/10 (commit <code>9a356c2</code>).</p>
+    <p>Site: <a href="https://prescricao.conversion.com.br/">prescricao.conversion.com.br</a></p>
+    <p><strong>Atualizado em 29/10/2026 (noite):</strong> os 21 pontos "dá para fazer" foram feitos e publicados no ambiente de revisão, incluindo as duas reestruturações (Recursos em abas, Para quem em sequência com cards por perfil). Imagens provisórias onde ainda não há foto. Detalhes em <code>docs/registro-26-10-2026.md</code>, seção 9.</p>
+    <p><strong>Situação em 29/10/2026:</strong> a última versão foi bem recebida. O combinado é fechar o layout agora e deixar ajustes de conteúdo para depois. O diagnóstico geral é "muito texto e pouco respiro"; os pedidos se concentram em Home, Recursos e Para quem. A agência envia o material atualizado em 30/10; a Afya consolida os pontos de todos em um único documento depois da reunião interna (03 ou 04/11); versão final até o meio da semana de 09 a 13/11.</p>
+
+    <div class="summary">
+      <div class="n-done"><strong>21</strong><span>feitos</span></div>
+      <div class="n-wait"><strong>6</strong><span>faltam contexto ou material</span></div>
+      <div class="n-no"><strong>0</strong><span>não dá</span></div>
+    </div>
+    <div class="legend">
+      <span><span class="tag done">Feito</span> publicado no ambiente de revisão em 29/10</span>
+      <span><span class="tag wait">Falta contexto</span> decisão, confirmação ou material da Afya; feito com provisório quando possível</span>
+      <span><span class="tag no">Não dá</span> depende de algo que o site estático não tem</span>
+    </div>
+  </header>
+
+  <h2>Antes de tudo: o que a ata define</h2>
+  <div class="item">
+    <ul>
+      <li><span class="tag done">Feito</span>Esta rodada é de layout, não de conteúdo. Texto só muda onde a mudança de estrutura obriga (por exemplo, unir dois passos em um). Nada novo é escrito; o que sair da tela já existe em outra página (Dúvidas, Recursos).</li>
+      <li><span class="tag done">Feito</span>Entrega em duas rodadas: os ajustes pontuais (passos da home, rolagem, caixa do dispensador, espaçamentos) hoje; a reestruturação de Recursos e Para quem publicada em 30/10, com imagens provisórias onde ainda não há foto. Depois disso, o site fica parado até chegar o documento consolidado.</li>
+      <li><span class="tag wait">Falta contexto</span>A "proposta enviada" dos três passos é a imagem da ata, com fundo escuro e círculos rosa. A própria ata diz para ficar "com a cor do site atual e não precisar mudar para background escuro": aplicamos o conteúdo da proposta nas cores do site. Se a ideia era a arte escura, é só dizer.</li>
+    </ul>
+  </div>
+
+  <h2>1. Home: passo a passo em 3 passos</h2>
+  <div class="item">
+    <div class="item-head"><h3>Busque e monte → Assine → Envie</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · item 1 · hoje são quatro passos (Busque, Monte, Assine, Envie), decisão nossa de 27/10</p>
+    <ul>
+      <li><span class="tag done">Feito</span>Unir "Busque" e "Monte" em "Busque e monte", com a linha da proposta: "Encontre medicamentos, exames e vacinas e ajuste a posologia sugerida." Os outros dois seguem como na proposta: "Assine digitalmente com o certificado que você já tem." e "Mande para o paciente por WhatsApp, link, PDF ou impressão."</li>
+      <li><span class="tag done">Feito</span>Telas de cada passo como na proposta: 1) busca "Amoxi" com a lista Amoxicilina 500 mg (cápsula) e 875 mg (comprimido); 2) "Assinatura digital" com BirdID, VaultID, VIDaaS e o botão Assinar; 3) "Prescrição concluída", Assinada, WhatsApp e "Link · PDF · Imprimir". Três colunas; a grade já aceita.</li>
+      <li><span class="tag done">Feito</span>Cores atuais do site: fundo claro, círculo numerado em azul, telas do celular como estão. Sem fundo escuro.</li>
+      <li><span class="tag done">Feito</span>A versão completa, com os oito blocos (Buscar, Montar, Reaproveitar, Revisar, LME, Assinar, Enviar, Acompanhar), fica só em Recursos. Os links "Como funciona" do rodapé continuam apontando para lá.</li>
+    </ul>
+  </div>
+
+  <h2>2. Recursos: corrigir a rolagem</h2>
+  <div class="item">
+    <div class="item-head"><h3>Rolagem engasgando entre 01 Buscar e 02 Montar</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · item 2 · captura com a barra de etapas e o bloco "Parta de uma posologia sugerida"</p>
+    <ul>
+      <li><span class="tag done">Feito</span><strong>Diagnóstico.</strong> Em teste automatizado (Edge, 1440 px) a página rola a 60 quadros por segundo constantes, então o engasgo não é de carga da página e sim de custo de pintura na máquina de quem apresentava, somado ao compartilhamento de tela. Três coisas pesam exatamente nesse trecho: a barra de etapas fixa tem desfoque de fundo (blur) e passa por cima de telas grandes com sombra; o cursor piscando da busca e o pulso dos marcadores do topo são animações infinitas, que repintam o tempo todo; e o marcador da etapa ativa chama <code>scrollIntoView</code> a cada troca com a rolagem suave ligada na página, o que pode disputar com a rolagem do usuário.</li>
+      <li><span class="tag done">Feito</span><strong>Correção.</strong> Barra de etapas com fundo sólido, sem desfoque; o chip ativo rola a própria barra sem <code>scrollIntoView</code>; cursor e pulso só enquanto estão na tela (e parados fora dela); sombras das telas mais leves; blocos fora da tela deixam de ser pintados (<code>content-visibility</code>). Se o item 3 virar abas, a barra fixa some e o problema some junto.</li>
+      <li><span class="tag wait">Falta contexto</span>Confirmar depois da correção na máquina de quem apresentou, de preferência fora do Meet. Se ainda engasgar, precisamos saber navegador e se a página estava sendo compartilhada.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head"><h3>Para quem, farmácia: caixa sobreposta e texto fora da caixa</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · item 2, segunda captura (Para quem › Farmácias, bloco "Dispensador Afya")</p>
+    <ul>
+      <li><span class="tag done">Feito</span><strong>Causa encontrada.</strong> A caixa "Dispensador Afya" usa a grade de três colunas mesmo marcada para uma (a regra de coluna única não existe na folha de estilo), então fica com um terço da largura; o endereço farmacia.iclinicrx.com.br não quebra e sai da caixa. E a caixa encosta na tabela "O que muda para a farmácia" porque o bloco não tem margem acima.</li>
+      <li><span class="tag done">Feito</span><strong>Correção.</strong> A ata pede trocar esse bloco por imagem (item 4). Até a foto chegar, a caixa vira a tela do dispensador em largura total, com 56 px de margem acima, e o endereço vira link que quebra linha. O texto e os dois botões ficam como estão.</li>
+    </ul>
+  </div>
+
+  <h2>3. Recursos: menos texto, mais respiro</h2>
+  <div class="item">
+    <div class="item-head"><h3>Página no padrão do Prontuário do iClinic</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · item 3 · referência: iclinic.com.br/funcionalidades/prontuario-eletronico/ · hoje: 8 blocos alternando texto e tela, 82 parágrafos e 62 itens de lista</p>
+    <ul>
+      <li><span class="tag done">Feito</span><strong>Recursos em abas, um por vez.</strong> Os oito blocos viram abas no padrão da referência (Campos, Resumo IA, Prescrição...): Buscar, Montar, Reaproveitar, Revisar, LME, Assinar, Enviar, Acompanhar. Cada aba mostra uma tela à direita e, à esquerda, título, uma ou duas linhas e até três bullets. A barra de etapas fixa vira a própria barra de abas; sai o scroll-spy.</li>
+      <li><span class="tag done">Feito</span><strong>O que sai de cada bloco.</strong> Hoje cada um tem título, parágrafo, quatro a seis bullets e chips. Fica título, uma ou duas linhas e três bullets. Os bullets excedentes não somem do site: já estão na central de Dúvidas e nas páginas por especialidade.</li>
+      <li><span class="tag done">Feito</span><strong>Itens secundários em cards curtos e chips.</strong> "Na prática" (quatro passos) e os recursos específicos de cada produto (bloco "Escolha pelo jeito que você atende") viram grade de cards com ícone, título em negrito e uma linha. Os receituários da faixa da RDC seguem como chips.</li>
+      <li><span class="tag done">Feito</span><strong>Ícones e respiro.</strong> Ícone por etapa (o sprite já tem um para cada), distância entre blocos de 52 para cerca de 96 px, seções com mais altura, menos sombras.</li>
+      <li><span class="tag done">Feito</span><strong>Na prescrição, uma imagem limpa.</strong> O bloco de prescrição deixa de mostrar os cards de medicamento e posologia: fica uma tela única, limpa, com um item só, sem chips nem rodapé. Enquanto não chega o print oficial, é a tela em HTML simplificada.</li>
+      <li><span class="tag done">Feito</span><strong>Alinhamento à esquerda.</strong> A ata pede avaliar. Proposta: texto sempre à esquerda e tela à direita, como na referência, em vez de alternar. Aplicamos assim nas abas e a Afya confere no site.</li>
+      <li><span class="tag wait">Falta contexto</span><strong>Alternar telas com fotos reais.</strong> Temos só as três fotos das personas (plantão, consultório, estudos) e as dos depoimentos. Entram como quebra de leitura entre os grupos de abas, provisoriamente; as definitivas vêm do Lucão.</li>
+      <li><span class="tag wait">Falta contexto</span><strong>Print oficial da tela de prescrição</strong> (pedido desde 29/09). Troca direta quando chegar.</li>
+    </ul>
+    <div class="note info"><b>Como fica a ordem da página:</b> topo com a receita e os marcadores → abas de recursos (um por vez) → foto → "Na prática" em cards curtos → contexto de uso por produto em cards → faixa da RDC → FAQ.</div>
+  </div>
+
+  <h2>4. Para quem: estrutura e imagens por perfil</h2>
+  <div class="item">
+    <div class="item-head"><h3>Perfis em sequência, com cards no topo como no Memed</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · item 4 · referência: memed.com.br · hoje: quatro abas (Médicos, Clínicas e consultórios, Pacientes, Farmácia) trocando o conteúdo ao clicar</p>
+    <ul>
+      <li><span class="tag done">Feito</span><strong>Sai o formato de abas.</strong> Os quatro perfis ficam em sequência na mesma página, com âncoras (#medicos, #clinicas, #pacientes, #farmacias). O médico, ao rolar, vê também a proposta para paciente e farmácia. Os links do mega menu, do rodapé e de campanha continuam valendo, porque os ids são os mesmos.</li>
+      <li><span class="tag done">Feito</span><strong>Cards por perfil no topo.</strong> Quatro cards no estilo do Memed: foto, título ("Médicos", "Clínicas e consultórios", "Pacientes", "Farmácias"), duas ou três linhas e "Saiba mais" levando à âncora do perfil.</li>
+      <li><span class="tag done">Feito</span><strong>Enxugar o que repete.</strong> Com tudo na mesma página, "Do outro lado da receita" aparece uma vez (hoje está nos dois painéis de paciente e farmácia), a chamada final fica uma só e o quiz fica em Médicos. A página passa a ter cerca de 7 mil pixels de altura; o topo com os cards serve de índice.</li>
+      <li><span class="tag done">Feito</span><strong>Bloco da farmácia vira imagem.</strong> O card "Dispensador Afya" sai; entra uma imagem ao lado do texto e dos botões.</li>
+      <li><span class="tag wait">Falta contexto</span><strong>Fotos reais por perfil</strong> (ata: pedir ao Lucão antes da reunião interna). Até chegar: médico com a foto do plantão, clínica com a do consultório, paciente com a de estudos e farmácia com a tela do dispensador no lugar da foto. As quatro são trocadas de uma vez quando as imagens chegarem.</li>
+    </ul>
+  </div>
+
+  <h2>5. Para quem: espaçamento na parte de Paciente</h2>
+  <div class="item">
+    <div class="item-head"><h3>Títulos colados nos blocos de cima</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · item 5 · "O que muda para o paciente", "Como o paciente usa a receita digital"</p>
+    <ul>
+      <li><span class="tag done">Feito</span><strong>Medido.</strong> "O que muda para o paciente" fica a 20 px da tela acima e "Como o paciente usa a receita digital" encosta na tabela (0 px). Na farmácia o mesmo título tem cerca de 40 px. Padrão novo: 56 px acima de cada título de bloco, em todos os perfis, inclusive médicos e clínicas, que têm o mesmo tipo de título ("O que muda na sua rotina", "O que muda na operação da clínica").</li>
+      <li><span class="tag done">Feito</span>Conferir o mesmo espaçamento em todos os blocos de todos os perfis, já que a página vai ser remontada no item 4.</li>
+      <li><span class="tag wait">Falta contexto</span>"Conferir o mesmo problema no trecho do plano": não identificamos qual trecho. Pode ser a seção "A prescrição é uma parte. A gestão da clínica é o todo." (ponte com os planos do iClinic, em Clínicas). Vamos conferir todos de qualquer jeito; se for outro lugar, pedimos a captura.</li>
+    </ul>
+  </div>
+
+  <h2>Ordem sugerida</h2>
+  <div class="item">
+    <ol class="rounds">
+      <li><strong>Rodada 1, hoje (29/10), ajustes pontuais:</strong> home em três passos; rolagem de Recursos; caixa do dispensador; espaçamentos do Para quem. Publicar no ambiente de revisão.</li>
+      <li><strong>Rodada 2, até 30/10, reestruturação:</strong> Recursos em abas com cards curtos, ícones e respiro; Para quem em sequência com os cards por perfil (imagens provisórias). Publicar e enviar o material atualizado à Afya.</li>
+      <li><strong>Depois do documento consolidado (03 ou 04/11):</strong> trocar as imagens provisórias pelas fotos do Lucão, aplicar os pontos novos e entregar a versão final até o meio da semana de 09 a 13/11.</li>
+    </ol>
+  </div>
+
+  <h2>O que falta saber ou receber</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>O quê</th><th>De quem</th><th>Trava</th></tr></thead>
+    <tbody>
+      <tr><td>Fotos reais por perfil: médico, clínica, paciente, farmácia</td><td>Lucão (Afya)</td><td>Cards do Para quem e fotos entre os blocos de Recursos (vão com provisórias)</td></tr>
+      <tr><td>Print oficial da tela de prescrição</td><td>Afya</td><td>Imagem limpa em Recursos (vai com a tela em HTML)</td></tr>
+      <tr><td>Confirmação de que a rolagem ficou boa na máquina de quem apresentou</td><td>Quem apresentou</td><td>Nada: só fecha o item 2</td></tr>
+      <tr><td>Qual é o "trecho do plano" com espaçamento errado</td><td>Lari / Thais</td><td>Nada: conferimos todos</td></tr>
+      <tr><td>A proposta dos três passos era só o conteúdo ou também a arte escura?</td><td>Lari / Thais</td><td>Nada: vai nas cores do site, como a ata pede</td></tr>
+      <tr><td>Documento consolidado com os pontos de todos (incluindo Ani, Lucão, Victor e Kauê)</td><td>Afya, logo após a reunião interna</td><td>Versão final</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Calendário combinado</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Ação</th><th>Responsável</th><th>Prazo</th></tr></thead>
+    <tbody>
+      <tr><td>Enviar material atualizado</td><td>Conversion</td><td>30/10</td></tr>
+      <tr><td>Pedir imagens por perfil ao Lucão; pedir ao Kauê revisão e pontos adicionais</td><td>Afya</td><td>Antes da reunião interna</td></tr>
+      <tr><td>Reunião interna de consolidação</td><td>Afya (todos)</td><td>03 ou 04/11</td></tr>
+      <tr><td>Enviar documento consolidado</td><td>Afya</td><td>Logo após a reunião interna</td></tr>
+      <tr><td>Implementar ajustes e entregar versão final</td><td>Conversion</td><td>Até o meio da semana de 09 a 13/11</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <footer>Plano gerado em 29/10/2026 a partir da ata da reunião. Planos anteriores: <code>docs/plano-copy-wireframes-v9-26-10-2026.html</code>, <code>docs/plano-call-29-09-2026.html</code>.</footer>
+</div>
+</body>
+</html>
