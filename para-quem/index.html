@@ -337,9 +337,9 @@
         </section>
       </div>
 
-      <!-- O paciente (terceira pessoa: a pagina fala com o medico) -->
-      <div class="perfil-section" id="pacientes">
-        <section class="section" aria-label="Do outro lado da receita: o paciente">
+      <!-- Ponte para paciente e farmacia. Fica fora de #pacientes para o card do topo
+           cair direto na foto do perfil, como em Medicos e Clinicas. -->
+        <section class="section" aria-label="Do outro lado da receita">
           <div class="content-container">
             <header class="section-heading use-heading reveal">
               <p class="section-eyebrow">Do outro lado da receita</p>
@@ -355,6 +355,9 @@
           <p class="flow-legend">A mesma receita atende todos os lados, sem papel no meio do caminho.</p>
           </div>
         </section>
+
+      <!-- O paciente (terceira pessoa: a pagina fala com o medico) -->
+      <div class="perfil-section" id="pacientes">
         <section class="section use-cases" aria-labelledby="pacientes-title">
           <div class="content-container">
             <div class="why-rows">
@@ -365,11 +368,10 @@
                   <p>Com a prescrição digital, o paciente recebe a receita sem depender de impressão e apresenta na farmácia com mais praticidade.</p>
                   <ul class="chip-row"><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Recebimento digital</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Leitura fácil</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Na farmácia</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Compartilhamento</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Assinada digitalmente</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem app novo</li></ul>
                 </div>
-                <div class="feature-media"><div class="use-screen use-screen-phone" aria-hidden="true"><div class="wb-phone"><p class="wb-phone-top">Receita do paciente</p>
-                      <p class="wb-phone-patient">Dra. Maria S. · CRM 12345</p>
-                      <ol><li><strong>Dipirona 1 g</strong><small>1 comprimido de 6 em 6 horas, se dor</small></li></ol>
-                      <p class="wb-phone-ok"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg>Assinada digitalmente</p>
-                      <p class="wb-phone-send"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg>Abrir PDF</p></div></div></div>
+                <figure class="why-media">
+                  <img src="/assets/images/photos/personas/estudos-card.webp" alt="Dois jovens sorrindo em um corredor, um com livros e outro com o celular na mão" width="768" height="818" loading="lazy">
+                  <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Recebimento digital</figcaption>
+                </figure>
               </div>
             </div>
             <h3 class="faq-topic-title">O que muda para o paciente</h3>
@@ -422,7 +424,38 @@
                   <p>A receita digital chega à farmácia legível, assinada e fácil de conferir, com dispensador e validador próprios da Afya.</p>
                   <ul class="chip-row"><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Autenticidade</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Numeração oficial</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Receituário certo</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Legibilidade</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Menos etapas manuais</li><li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Dispensador Afya</li></ul>
                 </div>
-                <div class="feature-media"><div class="rx-demo rx-demo-controlled" role="img" aria-label="Exemplo de receita de controle especial assinada digitalmente">
+                <figure class="why-media">
+                  <img src="/assets/images/photos/farmacia.webp" alt="Prateleiras de uma farmácia, com medicamentos organizados e etiquetas de preço" width="1600" height="1067" loading="lazy">
+                  <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Receita conferida</figcaption>
+                </figure>
+              </div>
+            </div>
+            <h3 class="faq-topic-title">O que muda para a farmácia</h3>
+          <div class="table-wrap"><table class="data-table depara">
+            <thead><tr><th scope="col">De</th><th scope="col">Para</th></tr></thead>
+            <tbody>
+              <tr><td data-label="De">Dúvida se a receita é autêntica</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>Assinatura digital conferida</span></td></tr>
+              <tr><td data-label="De">Letra ilegível</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><span>Receita digitada, sem dúvida de letra</span></td></tr>
+              <tr><td data-label="De">Dúvida sobre a numeração de controlados</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#codigos"></use></svg><span>Numeração conferida no SNCR</span></td></tr>
+              <tr><td data-label="De">Dúvida sobre o tipo de receituário</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><span>Receituário já identificado pelo sistema</span></td></tr>
+            </tbody>
+          </table></div>
+            <!-- O que o dispensador confere alem da assinatura: validar com produto.
+                 Reuniao de 29/10: a caixa de texto saiu; entra uma imagem. A foto da farmacia
+                 subiu para a abertura do perfil (30/10); aqui fica a receita conferida, como
+                 no topo de /parceiros/dispensador/. -->
+            <div class="why-rows topic-gap">
+              <div class="why-row feature-row why-row-flip reveal">
+                <div class="feature-copy">
+                  <p class="section-eyebrow">Dispensador Afya</p>
+                  <h2>A farmácia confere a receita digital pelo dispensador</h2>
+                  <p>Acesso direto ao validador de receitas digitais da Afya, aberto a qualquer farmácia.</p>
+                  <div class="hero-actions">
+                    <a class="button button-primary" href="https://farmacia.iclinicrx.com.br/" target="_blank" rel="noopener">Acessar o dispensador</a>
+                    <a class="button button-outline" href="/parceiros/dispensador/">Saiba mais</a>
+                  </div>
+                </div>
+                <div class="feature-media"><div class="rx-demo rx-demo-controlled" role="img" aria-label="Exemplo de receita de controle especial com a assinatura digital conferida">
               <p class="demo-title">Receita digital</p>
               <div class="rx-demo-head">
                 <strong>Controle especial</strong>
@@ -437,39 +470,10 @@
                 <ul><li>BirdID</li><li>VaultID</li><li>VIDaaS</li><li>A1</li><li>A3</li></ul>
               </div>
               <div class="rx-demo-foot">
-                <span class="rx-demo-check"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</span>
-                <span class="rx-demo-sign">Assinada e enviada</span>
+                <span class="rx-demo-check"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Assinatura conferida</span>
+                <span class="rx-demo-sign">Receita válida</span>
               </div>
             </div></div>
-              </div>
-            </div>
-            <h3 class="faq-topic-title">O que muda para a farmácia</h3>
-          <div class="table-wrap"><table class="data-table depara">
-            <thead><tr><th scope="col">De</th><th scope="col">Para</th></tr></thead>
-            <tbody>
-              <tr><td data-label="De">Dúvida se a receita é autêntica</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>Assinatura digital conferida</span></td></tr>
-              <tr><td data-label="De">Letra ilegível</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><span>Receita digitada, sem dúvida de letra</span></td></tr>
-              <tr><td data-label="De">Dúvida sobre a numeração de controlados</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#codigos"></use></svg><span>Numeração conferida no SNCR</span></td></tr>
-              <tr><td data-label="De">Dúvida sobre o tipo de receituário</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><span>Receituário já identificado pelo sistema</span></td></tr>
-            </tbody>
-          </table></div>
-            <!-- O que o dispensador confere alem da assinatura: validar com produto.
-                 Reuniao de 29/10: a caixa de texto saiu; entra a foto da farmacia (enviada em 29/10). -->
-            <div class="why-rows topic-gap">
-              <div class="why-row feature-row why-row-flip reveal">
-                <div class="feature-copy">
-                  <p class="section-eyebrow">Dispensador Afya</p>
-                  <h2>A farmácia confere a receita digital pelo dispensador</h2>
-                  <p>Acesso direto ao validador de receitas digitais da Afya, aberto a qualquer farmácia.</p>
-                  <div class="hero-actions">
-                    <a class="button button-primary" href="https://farmacia.iclinicrx.com.br/" target="_blank" rel="noopener">Acessar o dispensador</a>
-                    <a class="button button-outline" href="/parceiros/dispensador/">Saiba mais</a>
-                  </div>
-                </div>
-                <figure class="why-media">
-                  <img src="/assets/images/photos/farmacia.webp" alt="Prateleiras de uma farmácia, com medicamentos organizados e etiquetas de preço" width="1600" height="1067" loading="lazy">
-                  <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Receita conferida</figcaption>
-                </figure>
               </div>
             </div>
           </div>
