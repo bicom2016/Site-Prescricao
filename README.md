@@ -294,6 +294,9 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       Blog (home + artigo), psiquiatria, mega menu, breadcrumb e dados estruturados
       (26/10/2026, ver `docs/registro-26-10-2026.md` e
       `docs/plano-copy-wireframes-v9-26-10-2026.html`)
+- [x] Respiro entre os textos: regras genéricas de parágrafo não sobrepõem mais os
+      componentes com classe; listas com ícone e provedores de assinatura sem quebra
+      (30/10/2026, ver `docs/registro-30-10-2026.md`)
 
 **Conteúdo e marca**
 

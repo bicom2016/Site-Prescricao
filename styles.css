@@ -1140,7 +1140,7 @@ main {
   font-size: clamp(38px, 4.4vw, 62px);
 }
 
-.credibility-copy > p {
+.credibility-copy > p:where(:not([class])) {
   max-width: 650px;
   margin-bottom: 28px;
   color: rgba(255, 255, 255, 0.82);
@@ -1571,7 +1571,10 @@ main {
   line-height: 1.06;
 }
 
-.page-hero p {
+/* So o paragrafo de abertura. Um "p" generico aqui vencia .page-eyebrow, .hero-micro
+   e os textos das telas ilustrativas na especificidade e zerava as margens deles.
+   O :where() exclui os paragrafos com classe sem mudar a especificidade da regra. */
+.page-hero-copy > p:where(:not([class])) {
   max-width: 680px;
   margin: 0;
   color: rgba(255, 255, 255, 0.88);
@@ -3995,7 +3998,7 @@ main {
   color: var(--berry-10);
 }
 
-.page-hero p {
+.page-hero-copy > p:where(:not([class])) {
   color: var(--text-muted);
 }
 
@@ -4328,7 +4331,7 @@ main {
   border-top: 1px solid var(--line);
 }
 
-.resource-card .signature-providers p {
+.signature-providers p {
   margin-bottom: 10px;
   font-size: 12px;
   font-weight: 700;
@@ -4586,7 +4589,7 @@ main {
   list-style: none;
 }
 
-.rx-demo li {
+.rx-demo ol > li {
   display: grid;
   grid-template-columns: 26px 1fr;
   gap: 12px;
@@ -4701,7 +4704,7 @@ main {
 }
 
 /* Paragrafo opcional do CTA final (paginas de recurso): claro sobre o Berry */
-.final-cta-inner p {
+.final-cta-inner > p:where(:not([class])) {
   max-width: 640px;
   margin: -6px auto 22px;
   color: rgba(255, 255, 255, 0.84);
@@ -6087,7 +6090,7 @@ main {
   font-size: clamp(26px, 2.6vw, 34px);
 }
 
-.afya-copy > p {
+.afya-copy > p:where(:not([class])) {
   max-width: 640px;
   margin: 0;
   color: var(--text-muted);
@@ -6955,7 +6958,7 @@ a:not([href]) {
   color: var(--text);
 }
 
-.final-cta-inner > p {
+.final-cta-inner > p:where(:not([class])) {
   max-width: 620px;
   margin-inline: auto;
   color: var(--text-body);
@@ -7008,7 +7011,7 @@ a:not([href]) {
   color: var(--text);
 }
 
-.credibility-copy > p {
+.credibility-copy > p:where(:not([class])) {
   color: var(--text-body);
 }
 
@@ -7056,8 +7059,7 @@ a:not([href]) {
   color: var(--berry-10);
 }
 
-/* Faixa do marco regulatorio: o olho e filho direto de .afya-copy e herdava o
-   cinza de ".afya-copy > p", que vence ".section-eyebrow" na especificidade. */
+/* Faixa do marco regulatorio: o olho fica no azul da acao, nao no magenta. */
 .afya-copy > p.section-eyebrow {
   color: var(--action);
 }
@@ -7797,21 +7799,24 @@ a:not([href]) {
   margin-bottom: 20px;
 }
 
+/* Item em bloco, com o icone posicionado: em flex, o <strong> e o texto solto que
+   vem depois dele viravam duas colunas ("Alertas..." | "durante a prescricao"). */
 .use-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 0;
+  position: relative;
+  padding: 8px 0 8px 30px;
   border-bottom: 1px solid var(--line);
   color: var(--text-body);
   font-size: 15px;
 }
 
 .use-list svg {
-  flex: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: 20px;
   height: 20px;
   color: var(--accent);
+  transform: translateY(-50%);
 }
 
 .use-impact {
@@ -8151,7 +8156,7 @@ a:not([href]) {
 }
 
 .compare-card .use-list li {
-  padding: 6px 0;
+  padding-block: 6px;
 }
 
 @media (max-width: 900px) {
@@ -8288,7 +8293,7 @@ a:not([href]) {
   font-size: clamp(34px, 4vw, 54px);
 }
 
-.page-hero p {
+.page-hero-copy > p:where(:not([class])) {
   color: var(--text-body);
 }
 
@@ -8357,7 +8362,7 @@ a:not([href]) {
   line-height: 1.2;
 }
 
-.feature-copy > p:not(.section-eyebrow) {
+.feature-copy > p:not([class]) {
   margin: 0 0 18px;
   color: var(--text-body);
   font-size: 17px;
@@ -8466,6 +8471,15 @@ a:not([href]) {
 .info-grid .category-card .text-link {
   margin-top: auto;
   padding-top: 16px;
+}
+
+/* Botao no pe do card: alinhado entre os cards e afastado do texto. */
+.info-grid .category-card .button {
+  margin-top: auto;
+}
+
+.info-grid .category-card p:has(+ .button) {
+  margin-bottom: 20px;
 }
 
 /* Central de duvidas: um titulo por tema, listas centralizadas como na home. */
@@ -8766,7 +8780,7 @@ a:not([href]) {
   font-size: 20px;
 }
 
-.step-visual p {
+.step-visual > p {
   min-height: 3.1em;
   margin: 0 0 18px;
   color: var(--text-muted);
@@ -8979,7 +8993,7 @@ a:not([href]) {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 0 0 16px;
+  margin: 16px 0;
 }
 
 /* --- Tabelas de dados (responsivas: viram cartoes no celular) ------------------- */
@@ -9848,7 +9862,7 @@ input[aria-invalid="true"] {
   scroll-margin-top: calc(var(--header-height) + 20px);
 }
 
-.post-body p,
+.post-body p:where(:not([class])),
 .post-body li {
   color: var(--text-body);
   font-size: 17px;
@@ -10330,12 +10344,8 @@ input[aria-invalid="true"] {
   font-size: clamp(26px, 2.4vw, 34px);
 }
 
-.feature-panel .feature-copy > p:not(.section-eyebrow) {
+.feature-panel .feature-copy > p:not([class]) {
   margin-bottom: 22px;
-}
-
-.feature-panel .use-list li {
-  padding: 8px 0;
 }
 
 .feature-panel .stat-dark {
