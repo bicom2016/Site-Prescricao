@@ -1,0 +1,35 @@
+name: Deploy to Coolify (prescricao-site)
+
+# Calls Coolify's deploy API through the Cloudflare Tunnel on every push; replaces the old GitHub webhook to port 8000.
+# Secrets: COOLIFY_DEPLOY_URL, COOLIFY_DEPLOY_TOKEN, CF_ACCESS_CLIENT_ID, CF_ACCESS_CLIENT_SECRET.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: coolify-deploy-4cbwuxavvyzmsfe4vrw0qoak
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Trigger the Coolify deployment
+        env:
+          DEPLOY_URL: ${{ secrets.COOLIFY_DEPLOY_URL }}
+          DEPLOY_TOKEN: ${{ secrets.COOLIFY_DEPLOY_TOKEN }}
+          ACCESS_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          ACCESS_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          code=$(curl -sS -o response.json -w '%{http_code}' --max-time 60 -X POST \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "CF-Access-Client-Id: $ACCESS_ID" \
+            -H "CF-Access-Client-Secret: $ACCESS_SECRET" \
+            "$DEPLOY_URL?uuid=4cbwuxavvyzmsfe4vrw0qoak")
+          echo "Coolify answered HTTP $code"
+          case "$code" in 2*) ;; *) exit 1 ;; esac
+          jq -er '.deployments[] | select(.deployment_uuid) | "\(.message) \(.deployment_uuid)"' response.json
