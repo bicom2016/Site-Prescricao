@@ -29,9 +29,7 @@
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <!-- Mesmo header em todas as paginas; ao mexer no menu, alterar em todas. Mega menu
-         (copy e wireframes v9, 26/10): Recursos, Para quem e Para parceiros abrem submenu
-         com icone e uma linha. -->
+    <!-- Navegação compartilhada: manter os links atualizados em todas as páginas. -->
     <header class="site-header" data-header>
       <div class="header-shell">
         <a class="brand" href="/" aria-label="Afya — início">
@@ -46,17 +44,14 @@
         <div class="header-menu" id="menu-principal" data-menu>
           <nav class="main-nav" aria-label="Navegação principal">
             <a href="/">Home</a>
-            <div class="nav-group is-current" data-nav-group>
-              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Recursos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown">
-                <a href="/recursos/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg></span><span><strong>Recursos</strong><small>Tudo o que a prescrição faz</small></span></a>
-                <a href="/recursos/receita-controlada-digital/" aria-current="page"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg></span><span><strong>RDC 1000/2025</strong><small>O que muda nos receituários controlados</small></span></a>
-                <a href="/recursos/#como-funciona"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Como funciona</strong><small>Uma prescrição do início ao fim</small></span></a>
-              </div>
-            </div>
+            <a href="/recursos/">Recursos</a>
+            <a href="/recursos/receita-controlada-digital/" aria-current="page">RDC 1000/2025</a>
             <div class="nav-group" data-nav-group>
-              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown">
+              <div class="nav-group-heading">
+                <a href="/para-quem/">Para quem</a>
+                <button class="nav-group-toggle nav-submenu-toggle" type="button" aria-expanded="false" aria-controls="menu-perfis" aria-label="Abrir submenu de Para quem" data-nav-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              </div>
+              <div class="nav-dropdown" id="menu-perfis">
                 <a href="/para-quem/#medicos"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg></span><span><strong>Médicos</strong><small>Menos etapas, com apoio à decisão</small></span></a>
                 <a href="/para-quem/#clinicas"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg></span><span><strong>Clínicas e consultórios</strong><small>Padronize a prescrição da equipe</small></span></a>
                 <a href="/para-quem/#pacientes"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg></span><span><strong>Pacientes</strong><small>A receita no celular</small></span></a>
@@ -268,6 +263,10 @@
             </li>
           </ol>
           <p class="step-note">A autorização na VISA vale apenas para Notificações de Receita. Para receitas de controle especial e de retenção, comece pela solicitação das numerações. O passo a passo é o mesmo no iClinic e no Whitebook.</p>
+          <div class="hero-actions regulation-actions reveal" aria-label="Materiais sobre a RDC">
+            <a class="button button-primary" href="https://lps.iclinic.com.br/notificacao-receita/">Saiba mais</a>
+            <a class="button button-outline" href="https://content.iclinic.com.br/prescricao-digital">Baixar materiais</a>
+          </div>
         </div>
       </section>
 
@@ -276,19 +275,88 @@
           <header class="section-heading reveal">
             <h2 id="voce-title">O que é com você e o que é <span class="hl">com a Afya</span></h2>
           </header>
-          <div class="table-wrap"><table class="data-table table-afya">
-            <thead><tr><th scope="col">O médico precisa fazer</th><th scope="col">O que a Prescrição Afya faz</th></tr></thead>
-            <tbody>
-              <tr><td data-label="O médico precisa fazer">Obter a autorização/numeração necessária junto à autoridade sanitária local, quando aplicável</td><td data-label="O que a Prescrição Afya faz">Integra o fluxo ao SNCR</td></tr>
-              <tr><td data-label="O médico precisa fazer">Manter seus dados/cadastro atualizados</td><td data-label="O que a Prescrição Afya faz">Utiliza os dados necessários no fluxo</td></tr>
-              <tr><td data-label="O médico precisa fazer">Manter os dados/cadastro dos seus pacientes completo e atualizado</td><td data-label="O que a Prescrição Afya faz">Utiliza os dados necessários no fluxo, com preenchimento automático</td></tr>
-              <tr><td data-label="O médico precisa fazer">Ter a assinatura digital exigida para o tipo de receita (ICP-Brasil ou avançada)</td><td data-label="O que a Prescrição Afya faz">Integra a assinatura ao fluxo de prescrição</td></tr>
-              <tr><td data-label="O médico precisa fazer">Escolher e prescrever corretamente o medicamento</td><td data-label="O que a Prescrição Afya faz">Identifica o tipo de receituário aplicável de forma automática</td></tr>
-              <tr><td data-label="O médico precisa fazer">Solicitar as numerações conforme o fluxo específico da prescrição <span data-produto>iClinic ou Whitebook</span></td><td data-label="O que a Prescrição Afya faz">Autenticação com SNCR, gerencia e utiliza as numerações disponíveis</td></tr>
-              <tr><td data-label="O médico precisa fazer">Conferir o conteúdo clínico da receita e definir a conduta</td><td data-label="O que a Prescrição Afya faz">Adequa o documento aos requisitos do receituário e modelo exigido correspondente</td></tr>
-              <tr><td data-label="O médico precisa fazer">Assinar e emitir</td><td data-label="O que a Prescrição Afya faz">Conduz o fluxo de emissão</td></tr>
-            </tbody>
-          </table></div>
+          <ul class="responsibility-grid">
+            <li class="responsibility-card reveal">
+              <div class="responsibility-side">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg>Você</h3>
+                <p>Obter a autorização/numeração necessária junto à autoridade sanitária local, quando aplicável</p>
+              </div>
+              <div class="responsibility-side responsibility-afya">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>A Prescrição Afya</h3>
+                <p>Integra o fluxo ao SNCR</p>
+              </div>
+            </li>
+            <li class="responsibility-card reveal">
+              <div class="responsibility-side">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg>Você</h3>
+                <p>Manter seus dados/cadastro atualizados</p>
+              </div>
+              <div class="responsibility-side responsibility-afya">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>A Prescrição Afya</h3>
+                <p>Utiliza os dados necessários no fluxo</p>
+              </div>
+            </li>
+            <li class="responsibility-card reveal">
+              <div class="responsibility-side">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg>Você</h3>
+                <p>Manter os dados/cadastro dos seus pacientes completo e atualizado</p>
+              </div>
+              <div class="responsibility-side responsibility-afya">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>A Prescrição Afya</h3>
+                <p>Utiliza os dados necessários no fluxo, com preenchimento automático</p>
+              </div>
+            </li>
+            <li class="responsibility-card reveal">
+              <div class="responsibility-side">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg>Você</h3>
+                <p>Ter a assinatura digital exigida para o tipo de receita (ICP-Brasil ou avançada)</p>
+              </div>
+              <div class="responsibility-side responsibility-afya">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>A Prescrição Afya</h3>
+                <p>Integra a assinatura ao fluxo de prescrição</p>
+              </div>
+            </li>
+            <li class="responsibility-card reveal">
+              <div class="responsibility-side">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg>Você</h3>
+                <p>Escolher e prescrever corretamente o medicamento</p>
+              </div>
+              <div class="responsibility-side responsibility-afya">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>A Prescrição Afya</h3>
+                <p>Identifica o tipo de receituário aplicável de forma automática</p>
+              </div>
+            </li>
+            <li class="responsibility-card reveal">
+              <div class="responsibility-side">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg>Você</h3>
+                <p>Solicitar as numerações conforme o fluxo específico da prescrição <span data-produto="">iClinic ou Whitebook</span></p>
+              </div>
+              <div class="responsibility-side responsibility-afya">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>A Prescrição Afya</h3>
+                <p>Autenticação com SNCR, gerencia e utiliza as numerações disponíveis</p>
+              </div>
+            </li>
+            <li class="responsibility-card reveal">
+              <div class="responsibility-side">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg>Você</h3>
+                <p>Conferir o conteúdo clínico da receita e definir a conduta</p>
+              </div>
+              <div class="responsibility-side responsibility-afya">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>A Prescrição Afya</h3>
+                <p>Adequa o documento aos requisitos do receituário e modelo exigido correspondente</p>
+              </div>
+            </li>
+            <li class="responsibility-card reveal">
+              <div class="responsibility-side">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg>Você</h3>
+                <p>Assinar e emitir</p>
+              </div>
+              <div class="responsibility-side responsibility-afya">
+                <h3 class="responsibility-label"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>A Prescrição Afya</h3>
+                <p>Conduz o fluxo de emissão</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -321,8 +389,8 @@
           <ol class="timeline-v9 reveal">
             <li><time datetime="2026-02-13">13/02/2026</time><strong>Entraram em vigor as regras que não dependem do SNCR</strong><p>Dados obrigatórios, data automática e novos layouts.</p></li>
             <li><time datetime="2026-05-18">18/05/2026</time><strong>Novos modelos físicos obrigatórios</strong><p>A versão 2 passou a ser obrigatória para novas impressões de notificações de receita e receitas de controle especial.</p></li>
-            <li><time datetime="2026-09-30">30/09/2026</time><strong>SNCR eletrônico em operação</strong><p>As notificações de receita passaram a poder ser emitidas eletronicamente em plataformas integradas. Começou a transição, de 30 dias.</p></li>
-            <li class="is-now"><time datetime="2026-10-30">30/10/2026</time><strong>Fim da transição</strong><p>A partir dessa data, receitas eletrônicas só são aceitas se geradas por plataformas integradas ao SNCR, com numeração oficial. As regras valem também para receitas de controle especial e de retenção.</p></li>
+            <li><time datetime="2026-09-30">30/09/2026</time><strong>SNCR eletrônico em operação</strong><p>As notificações de receita passaram a poder ser emitidas eletronicamente em plataformas integradas. Começou o período de transição.</p></li>
+            <li class="is-now"><time datetime="2027-03-03">03/03/2027</time><strong>Fim da transição</strong><p>A partir dessa data, receitas eletrônicas só são aceitas se geradas por plataformas integradas ao SNCR, com numeração oficial. As regras valem também para receitas de controle especial e de retenção.</p></li>
           </ol>
           <p class="disclaimer">Em qualquer cenário, o papel continua disponível, inclusive como alternativa de contingência.</p>
         </div>
@@ -419,14 +487,14 @@
       </section>
       <section class="lead section" aria-labelledby="lead-title">
         <div class="content-container">
-          <form class="lead-box reveal" data-form data-source="rdc" data-endpoint="" novalidate>
+          <form class="lead-box reveal" data-form data-source="recursos/receita-controlada-digital" data-endpoint="" novalidate>
             <div class="lead-copy">
               <h2 id="lead-title">Mantenha-se atualizado</h2>
               <p>Receba as novidades da prescrição e da regulamentação em primeira mão.</p>
             </div>
             <div class="lead-fields">
-              <label class="sr-only" for="lead-email-rdc">Seu e-mail</label>
-              <input id="lead-email-rdc" name="email" type="email" placeholder="Seu e-mail" autocomplete="email" required>
+              <label class="sr-only" for="lead-email">Seu e-mail</label>
+              <input id="lead-email" name="email" type="email" placeholder="Seu e-mail" autocomplete="email" required>
               <button class="button button-primary" type="submit">Quero receber</button>
             </div>
             <p class="form-msg" data-form-msg aria-live="polite"></p>

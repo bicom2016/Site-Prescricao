@@ -27,9 +27,7 @@
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <!-- Mesmo header em todas as paginas; ao mexer no menu, alterar em todas. Mega menu
-         (copy e wireframes v9, 26/10): Recursos, Para quem e Para parceiros abrem submenu
-         com icone e uma linha. -->
+    <!-- Navegação compartilhada: manter os links atualizados em todas as páginas. -->
     <header class="site-header" data-header>
       <div class="header-shell">
         <a class="brand" href="/" aria-label="Afya — início">
@@ -44,17 +42,14 @@
         <div class="header-menu" id="menu-principal" data-menu>
           <nav class="main-nav" aria-label="Navegação principal">
             <a href="/">Home</a>
-            <div class="nav-group" data-nav-group>
-              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Recursos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown">
-                <a href="/recursos/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg></span><span><strong>Recursos</strong><small>Tudo o que a prescrição faz</small></span></a>
-                <a href="/recursos/receita-controlada-digital/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg></span><span><strong>RDC 1000/2025</strong><small>O que muda nos receituários controlados</small></span></a>
-                <a href="/recursos/#como-funciona"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Como funciona</strong><small>Uma prescrição do início ao fim</small></span></a>
-              </div>
-            </div>
+            <a href="/recursos/">Recursos</a>
+            <a href="/recursos/receita-controlada-digital/">RDC 1000/2025</a>
             <div class="nav-group is-current" data-nav-group>
-              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown">
+              <div class="nav-group-heading">
+                <a href="/para-quem/" aria-current="page">Para quem</a>
+                <button class="nav-group-toggle nav-submenu-toggle" type="button" aria-expanded="false" aria-controls="menu-perfis" aria-label="Abrir submenu de Para quem" data-nav-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              </div>
+              <div class="nav-dropdown" id="menu-perfis">
                 <a href="/para-quem/#medicos"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg></span><span><strong>Médicos</strong><small>Menos etapas, com apoio à decisão</small></span></a>
                 <a href="/para-quem/#clinicas"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg></span><span><strong>Clínicas e consultórios</strong><small>Padronize a prescrição da equipe</small></span></a>
                 <a href="/para-quem/#pacientes"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg></span><span><strong>Pacientes</strong><small>A receita no celular</small></span></a>
@@ -118,7 +113,7 @@
 
       <!-- Medicos -->
       <div class="perfil-section" id="medicos">
-        <section class="section" aria-labelledby="medicos-title">
+        <section class="section profile-intro" aria-labelledby="medicos-title">
           <div class="content-container">
             <div class="why-rows">
               <div class="why-row feature-row reveal">
@@ -133,20 +128,17 @@
                 </div>
                 <figure class="why-media">
                 <img src="/assets/images/photos/personas/plantao-card.webp" alt="Médica de plantão, de touca e estetoscópio, com o celular na mão" width="768" height="818" loading="lazy">
-                <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</figcaption>
+
               </figure>
               </div>
             </div>
             <h3 class="faq-topic-title">O que muda na sua rotina</h3>
-          <div class="table-wrap"><table class="data-table depara">
-            <thead><tr><th scope="col">De</th><th scope="col">Para</th></tr></thead>
-            <tbody>
-              <tr><td data-label="De">Reescrever a mesma receita toda semana</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><span>Modelos e renovação em 1 clique</span></td></tr>
-              <tr><td data-label="De">Conferir interações de cabeça</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#interacao-medicamentosa"></use></svg><span>Alertas automáticos de interação</span></td></tr>
-              <tr><td data-label="De">Talonário físico e numeração à mão</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#codigos"></use></svg><span>Numeração do SNCR aplicada automaticamente</span></td></tr>
-              <tr><td data-label="De">Carimbo e assinatura no papel</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>Assinatura digital, ativa por até 7 dias</span></td></tr>
-            </tbody>
-          </table></div>
+          <ul class="profile-benefits">
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><p>Modelos e renovação em 1 clique, sem retrabalho.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#interacao-medicamentosa"></use></svg><p>Alertas automáticos de interação, sem precisar memorizar.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#codigos"></use></svg><p>Numeração do SNCR aplicada automaticamente, sem preenchimento manual.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><p>Assinatura digital, sem necessidade de carimbo ou assinatura no papel.</p></li>
+            </ul>
           </div>
         </section>
         <section class="section" aria-label="Entregas para médicos">
@@ -159,13 +151,13 @@
             </article>
             <article class="category-card reveal">
               <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg>
-              <h3>Modelos</h3>
+              <h3>Modelos de Prescrição</h3>
               <p>Próprios ou da biblioteca por especialidade.</p>
             </article>
             <article class="category-card reveal">
               <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#interacao-medicamentosa"></use></svg>
               <h3>Alertas de interação</h3>
-              <p>Durante a prescrição.</p>
+              <p>Alertas em tempo real, durante a prescrição.</p>
             </article>
             <article class="category-card reveal">
               <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg>
@@ -180,7 +172,7 @@
             <article class="category-card reveal">
               <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#codigos"></use></svg>
               <h3>Controlados em dia</h3>
-              <p>Azul, amarela, controle especial e retenção, com numeração do SNCR.</p>
+              <p>Receitas azuis, amarelas, de controle especial e retenção, com numeração do SNCR.</p>
             </article>
             <article class="category-card reveal">
               <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#livro-aberto"></use></svg>
@@ -194,13 +186,13 @@
             </article>
             <article class="category-card reveal">
               <svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg>
-              <h3>Envio digital</h3>
+              <h3>Envio rápido</h3>
               <p>WhatsApp, PDF, link ou impressão.</p>
             </article>
           </div>
           </div>
         </section>
-        <section class="section use-cases" aria-labelledby="quiz-title">
+        <section class="section use-cases profile-quiz-section" aria-labelledby="quiz-title">
           <div class="content-container">
             <div class="quiz reveal" data-quiz>
               <h3 id="quiz-title">Qual caminho combina com a sua rotina?</h3>
@@ -236,7 +228,7 @@
 
       <!-- Clinicas e consultorios -->
       <div class="perfil-section" id="clinicas">
-        <section class="section" aria-labelledby="clinicas-title">
+        <section class="section profile-intro" aria-labelledby="clinicas-title">
           <div class="content-container">
             <div class="why-rows">
               <div class="why-row feature-row reveal">
@@ -247,20 +239,17 @@
                 </div>
                 <figure class="why-media">
                 <img src="/assets/images/photos/personas/consultorio-card.webp" alt="Médico em atendimento, com o laptop aberto, cumprimentando o paciente" width="768" height="818" loading="lazy">
-                <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg>Receita com a cara da clínica</figcaption>
+
               </figure>
               </div>
             </div>
             <h3 class="faq-topic-title">O que muda na operação da clínica</h3>
-          <div class="table-wrap"><table class="data-table depara">
-            <thead><tr><th scope="col">De</th><th scope="col">Para</th></tr></thead>
-            <tbody>
-              <tr><td data-label="De">Cada médico com um padrão de receita</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg><span>Modelos padronizados para toda a equipe</span></td></tr>
-              <tr><td data-label="De">Receitas sem histórico organizado</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><span>Histórico de prescrições por paciente</span></td></tr>
-              <tr><td data-label="De">Recepção reimprimindo receitas</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg><span>Envio digital ao paciente</span></td></tr>
-              <tr><td data-label="De">Sistemas que não conversam</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#monitor"></use></svg><span>Agenda, prontuário e prescrição no mesmo sistema</span></td></tr>
-            </tbody>
-          </table></div>
+          <ul class="profile-benefits">
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg><p>O mesmo padrão de receita para toda a equipe.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><p>Receitas e histórico de prescrições organizados por paciente.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg><p>Envio digital ao paciente. Menos retrabalho e chances de reimpressão na recepção.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#monitor"></use></svg><p>Agenda, prontuário e prescrição no mesmo sistema, sem perda de contexto.</p></li>
+            </ul>
           </div>
         </section>
         <section class="section" aria-label="Entregas para clínicas">
@@ -299,7 +288,7 @@
           </div>
           </div>
         </section>
-        <section class="section use-cases" aria-labelledby="ponte-title">
+        <section class="section use-cases profile-bridge-section" aria-labelledby="ponte-title">
           <div class="content-container">
             <div class="why-rows">
               <div class="why-row feature-row why-row-flip reveal">
@@ -358,7 +347,7 @@
 
       <!-- O paciente (terceira pessoa: a pagina fala com o medico) -->
       <div class="perfil-section" id="pacientes">
-        <section class="section use-cases" aria-labelledby="pacientes-title">
+        <section class="section use-cases profile-intro" aria-labelledby="pacientes-title">
           <div class="content-container">
             <div class="why-rows">
               <div class="why-row feature-row reveal">
@@ -370,20 +359,17 @@
                 </div>
                 <figure class="why-media">
                   <img src="/assets/images/photos/personas/estudos-card.webp" alt="Dois jovens sorrindo em um corredor, um com livros e outro com o celular na mão" width="768" height="818" loading="lazy">
-                  <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Recebimento digital</figcaption>
+
                 </figure>
               </div>
             </div>
             <h3 class="faq-topic-title">O que muda para o paciente</h3>
-          <div class="table-wrap"><table class="data-table depara">
-            <thead><tr><th scope="col">De</th><th scope="col">Para</th></tr></thead>
-            <tbody>
-              <tr><td data-label="De">Receita perdida ou molhada</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#monitor"></use></svg><span>Receita salva no celular do paciente</span></td></tr>
-              <tr><td data-label="De">Letra difícil de entender</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><span>Texto digitado e legível</span></td></tr>
-              <tr><td data-label="De">Voltar ao consultório por outra via</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg><span>Reenvio pelo médico</span></td></tr>
-              <tr><td data-label="De">Fotografar a receita para um familiar</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#globo"></use></svg><span>Link ou PDF para compartilhar</span></td></tr>
-            </tbody>
-          </table></div>
+          <ul class="profile-benefits">
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#monitor"></use></svg><p>Receita salva no celular do paciente. Sem receita perdida ou molhada.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><p>Texto digitado e legível, sem surpresas na farmácia.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg><p>Reenvio facilitado, sem precisar retornar ao consultório.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#globo"></use></svg><p>Recebimento em Link ou PDF facilita o compartilhamento.</p></li>
+            </ul>
             <h3 class="faq-topic-title">Como o paciente usa a receita digital</h3>
           <ol class="step-cards">
             <li class="step-card reveal">
@@ -414,7 +400,7 @@
 
       <!-- A farmacia -->
       <div class="perfil-section" id="farmacias">
-        <section class="section use-cases" aria-labelledby="farmacias-title">
+        <section class="section use-cases profile-intro" aria-labelledby="farmacias-title">
           <div class="content-container">
             <div class="why-rows">
               <div class="why-row feature-row reveal">
@@ -426,20 +412,17 @@
                 </div>
                 <figure class="why-media">
                   <img src="/assets/images/photos/farmacia.webp" alt="Prateleiras de uma farmácia, com medicamentos organizados e etiquetas de preço" width="1600" height="1067" loading="lazy">
-                  <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Receita conferida</figcaption>
+
                 </figure>
               </div>
             </div>
             <h3 class="faq-topic-title">O que muda para a farmácia</h3>
-          <div class="table-wrap"><table class="data-table depara">
-            <thead><tr><th scope="col">De</th><th scope="col">Para</th></tr></thead>
-            <tbody>
-              <tr><td data-label="De">Dúvida se a receita é autêntica</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><span>Assinatura digital conferida</span></td></tr>
-              <tr><td data-label="De">Letra ilegível</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><span>Receita digitada, sem dúvida de letra</span></td></tr>
-              <tr><td data-label="De">Dúvida sobre a numeração de controlados</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#codigos"></use></svg><span>Numeração conferida no SNCR</span></td></tr>
-              <tr><td data-label="De">Dúvida sobre o tipo de receituário</td><td data-label="Para"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><span>Receituário já identificado pelo sistema</span></td></tr>
-            </tbody>
-          </table></div>
+          <ul class="profile-benefits">
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#escudo-check"></use></svg><p>Assinatura digital facilita a verificação da autenticidade da receita.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg><p>Receita digitada e legível elimina dúvidas no balcão.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#codigos"></use></svg><p>Prescrições de controlados emitidas conforme RDC 1000/25, com numeração conferida no SNCR.</p></li>
+              <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg><p>Emissão correta, de acordo com as regras para cada tipo de receituário.</p></li>
+            </ul>
             <!-- O que o dispensador confere alem da assinatura: validar com produto.
                  Reuniao de 29/10: a caixa de texto saiu; entra uma imagem. A foto da farmacia
                  subiu para a abertura do perfil (30/10); aqui fica a receita conferida, como
@@ -492,6 +475,23 @@
             </div>
             <p class="final-micro">Gratuita e ilimitada no Whitebook. Inclusa em todos os planos do iClinic.</p>
           </div>
+        </div>
+      </section>
+      <section class="lead section" aria-labelledby="lead-title">
+        <div class="content-container">
+          <form class="lead-box reveal" data-form data-source="para-quem" data-endpoint="" novalidate>
+            <div class="lead-copy">
+              <h2 id="lead-title">Mantenha-se atualizado</h2>
+              <p>Receba as novidades da prescrição e da regulamentação em primeira mão.</p>
+            </div>
+            <div class="lead-fields">
+              <label class="sr-only" for="lead-email">Seu e-mail</label>
+              <input id="lead-email" name="email" type="email" placeholder="Seu e-mail" autocomplete="email" required>
+              <button class="button button-primary" type="submit">Quero receber</button>
+            </div>
+            <p class="form-msg" data-form-msg aria-live="polite"></p>
+            <p class="form-legal">Ao enviar, você concorda com a Política de Privacidade. Você pode cancelar quando quiser.</p>
+          </form>
         </div>
       </section>
     </main>

@@ -54,7 +54,7 @@
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Tab" && body.classList.contains("menu-open") && window.innerWidth <= 900) {
+    if (event.key === "Tab" && body.classList.contains("menu-open") && window.innerWidth <= 1100) {
       const focusables = getMenuFocusables();
       const first = focusables[0];
       const firstMenuItem = focusables.find((element) => element !== menuToggle) || first;
@@ -79,7 +79,7 @@
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 900 && body.classList.contains("menu-open")) closeMenu();
+    if (window.innerWidth > 1100 && body.classList.contains("menu-open")) closeMenu();
   });
 
   // Explorador por contexto: tres personas, cinco recursos cada, com as telas reais do
@@ -593,7 +593,7 @@
   });
 })();
 
-/* Central de duvidas: busca no navegador, filtro por perfil e contagem por categoria. */
+/* Central de dúvidas: busca, sugestões e contagem por categoria. */
 (function () {
   const box = document.querySelector("[data-faq-search]");
   if (!box) return;
@@ -602,8 +602,6 @@
   const groups = Array.from(document.querySelectorAll(".faq-group"));
   const empty = document.querySelector("[data-faq-empty]");
   const emptyTerm = empty?.querySelector("[data-faq-term]");
-  const perfilButtons = Array.from(document.querySelectorAll("[data-faq-perfil] button"));
-  let perfil = "todos";
 
   const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   const highlight = (el, term) => {
@@ -629,11 +627,10 @@
     const term = input.value.trim();
     let shown = 0;
     items.forEach((it) => {
-      const okPerfil = perfil === "todos" || (it.dataset.perfil || "").split(" ").includes(perfil);
       const okTerm = !term || norm(it.textContent).includes(norm(term));
-      it.hidden = !(okPerfil && okTerm);
+      it.hidden = !okTerm;
       if (!it.hidden) shown++;
-      highlight(it, okPerfil && okTerm ? term : "");
+      highlight(it, okTerm ? term : "");
       if (term && !it.hidden) it.open = true;
     });
     groups.forEach((g) => {
@@ -648,14 +645,7 @@
 
   input.addEventListener("input", apply);
   document.querySelectorAll("[data-faq-suggest] button").forEach((b) => b.addEventListener("click", () => { input.value = b.textContent; input.focus(); apply(); }));
-  perfilButtons.forEach((b) => b.addEventListener("click", () => {
-    perfil = b.dataset.perfil;
-    perfilButtons.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-    apply();
-  }));
-  const fromUrl = new URLSearchParams(location.search).get("perfil");
-  const pre = fromUrl && perfilButtons.find((b) => b.dataset.perfil === fromUrl);
-  if (pre) pre.click(); else apply();
+  apply();
 })();
 
 /* Dialogo de escolha entre Whitebook e iClinic ("Comece a prescrever controlados",

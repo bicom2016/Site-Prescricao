@@ -31,9 +31,7 @@
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <!-- Mesmo header em todas as paginas; ao mexer no menu, alterar em todas. Mega menu
-         (copy e wireframes v9, 26/10): Recursos, Para quem e Para parceiros abrem submenu
-         com icone e uma linha. -->
+    <!-- Navegação compartilhada: manter os links atualizados em todas as páginas. -->
     <header class="site-header" data-header>
       <div class="header-shell">
         <a class="brand" href="/" aria-label="Afya — início">
@@ -48,17 +46,14 @@
         <div class="header-menu" id="menu-principal" data-menu>
           <nav class="main-nav" aria-label="Navegação principal">
             <a href="/" aria-current="page">Home</a>
+            <a href="/recursos/">Recursos</a>
+            <a href="/recursos/receita-controlada-digital/">RDC 1000/2025</a>
             <div class="nav-group" data-nav-group>
-              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Recursos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown">
-                <a href="/recursos/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#grade"></use></svg></span><span><strong>Recursos</strong><small>Tudo o que a prescrição faz</small></span></a>
-                <a href="/recursos/receita-controlada-digital/"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#documento"></use></svg></span><span><strong>RDC 1000/2025</strong><small>O que muda nos receituários controlados</small></span></a>
-                <a href="/recursos/#como-funciona"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#prescricao"></use></svg></span><span><strong>Como funciona</strong><small>Uma prescrição do início ao fim</small></span></a>
+              <div class="nav-group-heading">
+                <a href="/para-quem/">Para quem</a>
+                <button class="nav-group-toggle nav-submenu-toggle" type="button" aria-expanded="false" aria-controls="menu-perfis" aria-label="Abrir submenu de Para quem" data-nav-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
               </div>
-            </div>
-            <div class="nav-group" data-nav-group>
-              <button class="nav-group-toggle" type="button" aria-expanded="false" data-nav-toggle>Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-              <div class="nav-dropdown">
+              <div class="nav-dropdown" id="menu-perfis">
                 <a href="/para-quem/#medicos"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#estetoscopio"></use></svg></span><span><strong>Médicos</strong><small>Menos etapas, com apoio à decisão</small></span></a>
                 <a href="/para-quem/#clinicas"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#instituicao"></use></svg></span><span><strong>Clínicas e consultórios</strong><small>Padronize a prescrição da equipe</small></span></a>
                 <a href="/para-quem/#pacientes"><span class="nav-item-icon"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#coracao"></use></svg></span><span><strong>Pacientes</strong><small>A receita no celular</small></span></a>
@@ -178,7 +173,7 @@
               </ul>
               <figure class="why-media">
                 <img src="/assets/images/photos/personas/plantao-card.webp" alt="Médica no hospital, prescrevendo pelo celular" width="768" height="818" loading="lazy">
-                <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#whatsapp"></use></svg>Receita enviada pelo WhatsApp</figcaption>
+
               </figure>
             </div>
 
@@ -199,7 +194,7 @@
               </ul>
               <figure class="why-media">
                 <img src="/assets/images/photos/personas/consultorio-card.webp" alt="Médico no consultório, com o laptop aberto, cumprimentando o paciente" width="768" height="818" loading="lazy">
-                <figcaption class="why-chip"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Sem interações detectadas</figcaption>
+
               </figure>
             </div>
           </div>
@@ -233,7 +228,7 @@
                 </div>
               </div>
               <img class="use-logo" src="/assets/images/afya-whitebook-lockup.png" alt="Afya Whitebook" width="1096" height="145" loading="lazy">
-              <p class="use-product">Quando preciso resolver rápido</p>
+              <p class="use-product">De qualquer lugar, sempre que precisar</p>
               <p>Simples quando você precisa resolver rápido: consulte conteúdos clínicos e prescreva na mesma ferramenta, onde e quando precisar.</p>
               <ul class="use-list">
                 <li><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Prescrição gratuita e ilimitada, de qualquer lugar</li>
@@ -298,7 +293,7 @@
             <li class="step-visual reveal">
               <span class="step-circle" aria-hidden="true">1</span>
               <h3>Busque e monte</h3>
-              <p>Encontre medicamentos, exames e vacinas e ajuste a posologia sugerida.</p>
+              <p>Encontre medicamentos, exames e vacinas e ajuste a posologia sugerida. <strong>Pelo computador ou celular.</strong></p>
               <div class="step-screen" aria-hidden="true"><div class="wb-phone">
                       <div class="rx-app-search"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#bulario"></use></svg><span>Amoxi<b class="rx-app-caret"></b></span></div>
                       <ol><li><strong>Amoxicilina 500 mg</strong><small>Cápsula</small></li><li><strong>Amoxicilina 875 mg</strong><small>Comprimido</small></li></ol></div></div>
@@ -484,6 +479,23 @@
               <a class="button button-invert" href="https://www.iclinic.com.br/planos/">Quero prescrever e gerenciar minha clínica<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="lead section" aria-labelledby="lead-title">
+        <div class="content-container">
+          <form class="lead-box reveal" data-form data-source="index" data-endpoint="" novalidate>
+            <div class="lead-copy">
+              <h2 id="lead-title">Mantenha-se atualizado</h2>
+              <p>Receba as novidades da prescrição e da regulamentação em primeira mão.</p>
+            </div>
+            <div class="lead-fields">
+              <label class="sr-only" for="lead-email">Seu e-mail</label>
+              <input id="lead-email" name="email" type="email" placeholder="Seu e-mail" autocomplete="email" required>
+              <button class="button button-primary" type="submit">Quero receber</button>
+            </div>
+            <p class="form-msg" data-form-msg aria-live="polite"></p>
+            <p class="form-legal">Ao enviar, você concorda com a Política de Privacidade. Você pode cancelar quando quiser.</p>
+          </form>
         </div>
       </section>
     </main>
