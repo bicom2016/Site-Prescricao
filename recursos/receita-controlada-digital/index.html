@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/images/afya-favicon.svg" type="image/svg+xml">
     <link rel="preload" href="/assets/fonts/AfyaSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="/assets/fonts/AfyaSans-Light.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v=20261109">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso pedir numeração antes de prescrever?","acceptedAnswer":{"@type":"Answer","text":"Para notificações de receita (azul, amarela e especial), a liberação na Vigilância Sanitária local vem antes. Depois, você solicita as numerações do SNCR pela própria prescrição, na aba “Receitas controladas”. Para os demais receituários, você começa direto na aba."}},{"@type":"Question","name":"Preciso escolher a numeração a cada receita?","acceptedAnswer":{"@type":"Answer","text":"Não. A Afya gerencia o saldo e usa uma numeração automaticamente a cada receita, conforme o tipo de receituário."}},{"@type":"Question","name":"Posso emitir uma receita controlada com data futura?","acceptedAnswer":{"@type":"Answer","text":"Não. A data da emissão é travada no momento da assinatura eletrônica."}},{"@type":"Question","name":"O paciente precisa informar o CPF?","acceptedAnswer":{"@type":"Answer","text":"Sim. O CPF do paciente (ou o passaporte, para estrangeiros) é obrigatório em todas as receitas controladas."}},{"@type":"Question","name":"Posso colocar mais de um controlado na mesma receita?","acceptedAnswer":{"@type":"Answer","text":"Depende do tipo. Cada notificação de receita tem um medicamento controlado; a receita de controle especial pode ter até três das listas C1 e C5; a receita de retenção não tem limite, mas não mistura com controle especial."}},{"@type":"Question","name":"Qualquer certificado digital serve?","acceptedAnswer":{"@type":"Answer","text":"Para notificações e controle especial, é preciso assinatura padrão ICP-Brasil. Para receitas de retenção, também vale a assinatura avançada."}},{"@type":"Question","name":"A receita em papel continua valendo?","acceptedAnswer":{"@type":"Answer","text":"Sim. A RDC não acabou com o receituário físico nem tornou o digital obrigatório."}},{"@type":"Question","name":"Como a farmácia confere a receita digital?","acceptedAnswer":{"@type":"Answer","text":"A farmácia valida a numeração no SNCR e registra o uso. Farmácias parceiras também podem usar o dispensador da Afya."}},{"@type":"Question","name":"O passo a passo é igual no iClinic e no Whitebook?","acceptedAnswer":{"@type":"Answer","text":"Sim. O passo a passo e as regras são os mesmos. Muda só a interface."}}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://prescricao.conversion.com.br/"},{"@type":"ListItem","position":2,"name":"Recursos","item":"https://prescricao.conversion.com.br/recursos/"},{"@type":"ListItem","position":3,"name":"RDC 1000/2025","item":"https://prescricao.conversion.com.br/recursos/receita-controlada-digital/"}]}</script>
   </head>
@@ -90,7 +90,7 @@
            limites por receita e FAQ estao marcados "revisao juridica/regulatoria" no
            documento: nao vao ao dominio oficial sem essa revisao. Marcos escritos no
            passado porque a publicacao esta prevista para depois de 30/10; rever se
-           escorregar. Exemplo do mockup (clonazepam): revisao medica. -->
+            escorregar. Imagem de topo recebida com o guia de 09/11. -->
       <section class="page-hero" aria-labelledby="page-title">
         <div class="content-container page-hero-inner page-hero-with-media">
           <div class="page-hero-copy reveal">
@@ -103,25 +103,7 @@
             </div>
 
           </div>
-          <div class="page-hero-media reveal" data-delay="1"><div class="rx-demo rx-demo-controlled" role="img" aria-label="Exemplo de Notificação de Receita B assinada digitalmente">
-              <p class="demo-title">Receita digital</p>
-              <div class="rx-demo-head">
-                <strong>Notificação de Receita B</strong>
-                <span><span class="rx-pill rx-pill-azul">Azul</span></span>
-              </div>
-              <ol>
-                <li><i>1</i><span>Clonazepam 2 mg — 30 comprimidos<small>1 comprimido à noite</small></span></li>
-                <li><i>2</i><span>Numeração SNCR<small>aplicada automaticamente</small></span></li>
-              </ol>
-              <div class="signature-providers">
-                <p>Assinatura digital</p>
-                <ul><li>BirdID</li><li>VaultID</li><li>VIDaaS</li><li>A1</li><li>A3</li></ul>
-              </div>
-              <div class="rx-demo-foot">
-                <span class="rx-demo-check"><svg aria-hidden="true"><use href="/assets/icons/elsie.svg#selo-check"></use></svg>Numeração conferida</span>
-                <span class="rx-demo-sign">Assinada digitalmente</span>
-              </div>
-            </div></div>
+          <div class="page-hero-media page-hero-photo reveal" data-delay="1"><img class="page-hero-photo-image" src="/assets/images/v2/rdc-topo.webp" alt="Receituários azul e amarelo ao lado de uma prescrição digital no celular." width="1280" height="917" fetchpriority="high" decoding="async"></div>
         </div>
       </section>
       <dialog class="pick-dialog" id="pick-controlados" aria-labelledby="pick-controlados-title">

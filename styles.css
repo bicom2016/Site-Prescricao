@@ -10775,3 +10775,168 @@ input[aria-invalid="true"] {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Imagens finais do cliente, conforme o guia de alocação recebido em 09/11. */
+.hero-v2 .hero-photo {
+  /* Cancela a imagem móvel antiga definida com content, mantendo o novo srcset. */
+  content: normal;
+  object-position: 78% center;
+}
+
+.page-hero-photo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.profile-intro .why-media img[src^="/assets/images/v2/"] {
+  height: auto;
+}
+
+.profile-product-logo {
+  display: block;
+  width: 186px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.iclinic-product-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* A arte já contém os aparelhos e o selo. O texto e os botões continuam acessíveis. */
+.campaign-banner-v2 {
+  width: 100%;
+  min-width: 0;
+  min-height: 420px;
+  aspect-ratio: 1063 / 420;
+  padding: clamp(28px, 4vw, 56px);
+  background: #d9dcf3;
+}
+
+.campaign-banner-v2 .campaign-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  pointer-events: none;
+}
+
+.campaign-banner-v2::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.35) 45%, transparent 63%);
+  pointer-events: none;
+}
+
+.campaign-banner-v2::after {
+  content: none;
+}
+
+.campaign-banner-v2 .campaign-copy {
+  z-index: 2;
+  width: 48%;
+  max-width: 540px;
+}
+
+.campaign-banner-v2 .campaign-copy > p {
+  color: var(--text);
+}
+
+.campaign-banner-v2 .section-eyebrow {
+  font-size: 13px;
+}
+
+.campaign-banner-v2 .campaign-copy h2 {
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: clamp(32px, 3.4vw, 48px);
+}
+
+.campaign-banner-v2 .campaign-copy > p:not(.section-eyebrow) {
+  margin-bottom: 24px;
+  font-size: 17px;
+}
+
+.campaign-banner-v2 .hero-actions {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.campaign-banner-v2 .button-invert {
+  border-color: var(--campaign);
+  background: var(--campaign);
+  color: var(--white);
+}
+
+.campaign-banner-v2 .button-invert:hover,
+.campaign-banner-v2 .button-invert:focus-visible {
+  border-color: var(--campaign-strong);
+  background: var(--campaign-strong);
+}
+
+.campaign-banner-v2 .button-outline {
+  border-color: var(--campaign-strong);
+  color: var(--campaign-strong);
+}
+
+.campaign-banner-v2 .button-outline:hover,
+.campaign-banner-v2 .button-outline:focus-visible {
+  border-color: var(--campaign-strong);
+  background: var(--white);
+  color: var(--campaign-strong);
+}
+
+@media (max-width: 720px) {
+  .hero-v2 .hero-photo {
+    height: 380px;
+    object-position: 78% center;
+  }
+
+  .hero-v2 .hero-overlay {
+    background: linear-gradient(180deg, transparent 180px, #0d1b2a 380px);
+  }
+
+  .hero-v2 .hero-copy {
+    padding-top: 340px;
+  }
+}
+
+@media (max-width: 900px) {
+  .campaign-banner-v2 {
+    min-height: 0;
+    aspect-ratio: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    background: #ebeafa;
+  }
+
+  .campaign-banner-v2::before {
+    content: none;
+  }
+
+  .campaign-banner-v2 .campaign-art {
+    position: static;
+    height: clamp(190px, 55vw, 300px);
+    object-position: right center;
+  }
+
+  .campaign-banner-v2 .campaign-copy {
+    width: 100%;
+    max-width: none;
+    padding: 28px 24px;
+  }
+
+  .campaign-banner-v2 .hero-actions {
+    align-items: stretch;
+  }
+}

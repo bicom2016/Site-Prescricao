@@ -4,11 +4,11 @@ Lista para o agente responsável pelos ajustes solicitados no PDF **Atualizaçõ
 
 **Arquivo-fonte local:** `C:/Users/Pedro/Downloads/Atualizações finais - Site Prescrição Afya.pdf`.
 
-**Regra de execução:** inclusões e substituições de imagens estão **bloqueadas até o recebimento dos arquivos do time de Prescrição, que estão sendo reunidos pelo Lucão**. Não gerar imagens alternativas, extrair as imagens pequenas do PDF para publicar ou antecipar essas substituições. As tarefas de imagens estão reunidas no fim da lista, inclusive a inclusão do logo solicitada em um post-it vermelho.
+**Atualização em 09/11/2026:** os arquivos de imagens e o guia de alocação foram recebidos em `assets/images/imgs-v2/`. As tarefas I1 a I7 foram implementadas com esses materiais e com o logo Afya iClinic existente no projeto. Também foram aplicadas as três imagens de topo adicionais previstas no guia: RDC, Dispensador e Indústria farmacêutica. A captação real do Lead Collector continua pendente da escolha do serviço pelo cliente; a redação conflitante de R3 também permanece pendente.
 
 No PDF, post-its vermelhos indicam ajustes de layout ou correções; fundo rosa indica a redação proposta; post-its amarelos indicam substituições de imagens. O fundo rosa e os post-its são marcações de revisão, não elementos para reproduzir no site.
 
-## Situação após a implementação
+## Histórico da implementação de 06 de novembro
 
 Em 06/11/2026, foram concluídas **20 tarefas**. A interface do **G3** está implementada nas 20 páginas, com validação de e-mail e espaçamento padronizado, mas a captação real continua aguardando o endpoint ou a integração. **R3** permanece pendente de conciliação dos textos. As tarefas de imagens **I1 a I7** continuam aguardando os arquivos, inclusive notebook e logo; nenhum arquivo ou endereço de imagem foi substituído.
 
@@ -129,19 +129,26 @@ Arquivo principal: `duvidas/index.html`. Referência: página 4 do PDF.
 
 - [x] **D1 — Remover o filtro por público e manter as sugestões.** Retirar o rótulo **“Mostrar perguntas para”** e os botões **Todos**, **Sou médico**, **Sou paciente** e **Tenho farmácia**. Manter o campo de busca, o grupo **Sugestões**, as categorias e as perguntas. Conferir a lógica em `script.js` para que a ausência dos botões não quebre a busca, as sugestões, os contadores ou a exibição das categorias. Não deixar um parâmetro de perfil ocultar perguntas sem que exista um filtro visível para desfazê-lo.
 
-## Inclusões e trocas de imagens aguardando arquivos
+## Inclusões e trocas de imagens implementadas
 
-**Não implementar nenhuma das tarefas I1 a I7 enquanto aguardamos as imagens.** Essa restrição também se aplica a arquivos de logo e às trocas indicadas por post-its de outras cores. As imagens pequenas já colocadas no PDF servem como referência, não como arquivos finais para publicação.
+As tarefas I1 a I7 foram concluídas em 09/11/2026, seguindo integralmente o guia `assets/images/imgs-v2/Guia - Referência para alocação das imagens.png`. Os arquivos PNG originais foram preservados localmente. O site utiliza os derivados WebP em `assets/images/v2/`; a correspondência com cada arquivo de origem está em `docs/imagens-v2-manifest.json` e pode ser reproduzida com `tools/prepare-images-v2.py` usando Python e Pillow.
 
-| Tarefa pendente | Referência | Substituição ou inclusão solicitada | Orientação para quando os arquivos chegarem |
-| --- | --- | --- | --- |
-| **I1 — Foto principal da Home** | Página 1, topo | Trocar a foto do hero. O time de Prescrição fornecerá a nova imagem. | Conferir enquadramento, contraste do texto e adaptação para celular com o arquivo aprovado. |
-| **I2 — Banner da Home** | Página 1, depois dos três passos | Substituir a composição roxa “Uma nova forma de prescrever” pelo novo banner a ser fornecido. | Não recriar o banner nem presumir que a arte deva incluir os botões atuais; avaliar o material recebido e preservar os destinos necessários. |
-| **I3 — Fotos da página Recursos** | Página 2, coluna esquerda | Trocar a foto horizontal do médico e as duas fotos dos cards Whitebook e iClinic em “Escolha pelo jeito que você atende”. A foto horizontal tem nota de fornecimento; os dois cards têm marcadores amarelos. | Tratar os três locais, mesmo quando o arquivo atual é reutilizado. Não estender a troca a outros locais sem indicação ou correspondência aprovada. |
-| **I4 — Quatro fotos dos cards do topo de Para quem** | Página 3, abertura | Trocar as fotos de Médicos, Clínicas e consultórios, Pacientes e Farmácias. | Manter títulos, links e destinos das âncoras dos quatro cards. |
-| **I5 — Quatro fotos das seções de Para quem** | Página 3, ao longo da página | Trocar as fotos de abertura dos quatro públicos, cada uma marcada com amarelo. | Considerar separadamente os quatro cards de I4 e estas quatro fotos maiores, mesmo que compartilhem arquivos atualmente. |
-| **I6 — Imagem do notebook do iClinic** | Página 3, faixa do iClinic | Substituir o wireframe pela imagem de notebook mostrada como referência, **sem fundo**, que será enviada em alta pelo time de Prescrição. | Aguardar o arquivo final com transparência; não recortar a imagem da captura nem gerar uma aproximação. |
-| **I7 — Logo Afya iClinic no lugar do nome escrito** | Página 3, mesma faixa | Substituir o rótulo escrito “AFYA ICLINIC” pelo logo Afya iClinic. Embora o post-it seja vermelho, esta tarefa inclui uma imagem. | Manter pendente por orientação do solicitante. O repositório já contém `assets/images/afya-iclinic-lockup.svg`, mas sua existência não libera antecipar a inclusão. |
+| Tarefa | Referência | Implementação |
+| --- | --- | --- |
+| **I1 — Foto principal da Home — concluída** | PDF página 1 e guia Home | Nova foto de médica atendendo um paciente; `home-hero-1280.webp` e `home-hero-2560.webp`, com preload e srcset atualizados e enquadramento móvel próprio. |
+| **I2 — Banner da Home — concluída** | PDF página 1 e exemplo de aplicação do banner | `home-banner.webp` com texto e botões em HTML sobre a arte. O arquivo EXEMPLO EXPECTATIVA foi usado apenas como referência visual. No celular e tablet, a arte fica acima do texto para preservar o produto, o selo e os CTAs. |
+| **I3 — Fotos da página Recursos — concluída** | PDF página 2 e guia Recursos | `recursos-consulta.webp`, `recursos-whitebook.webp` e `recursos-iclinic.webp` aplicadas à faixa horizontal e aos dois cards. |
+| **I4 — Quatro fotos dos cards do topo de Para quem — concluída** | PDF página 3 e guia Para quem | `perfil-topo-medicos.webp`, `perfil-topo-clinicas.webp`, `perfil-topo-pacientes.webp` e `perfil-topo-farmacias.webp`, mantendo os links para os quatro públicos. |
+| **I5 — Quatro fotos das seções de Para quem — concluída** | PDF página 3 e guia Para quem | `perfil-corpo-medicos.webp`, `perfil-corpo-clinicas.webp`, `perfil-corpo-pacientes.webp` e `perfil-corpo-farmacias.webp`, preservando as proporções originais. |
+| **I6 — Imagem do notebook do iClinic — concluída** | PDF página 3 e guia Para quem | Wireframe substituído por `iclinic-notebook.webp`, com a transparência preservada e sem a moldura ou fundo simulados do componente anterior. |
+| **I7 — Logo Afya iClinic no lugar do nome escrito — concluída** | PDF página 3 e guia Para quem | Aplicado `assets/images/afya-iclinic-lockup.svg` no lugar do rótulo escrito da faixa do iClinic. |
+| **I8 — Imagem de topo da RDC — concluída** | Novo guia, RDC 1000/25 | Simulação de receita substituída por `rdc-topo.webp`. |
+| **I9 — Imagem de topo do Dispensador — concluída** | Novo guia, Dispensador | Simulação de receita substituída por `parceiros-dispensador.webp`. |
+| **I10 — Imagem de topo de Indústria farmacêutica — concluída** | Novo guia, Indústria Farma | Simulação de busca substituída por `parceiros-industria.webp`. |
+
+Foram utilizados **17 arquivos novos**, com uma variante adicional de resolução do hero, e o logo existente. Os 18 derivados para a web somam **1.248.362 bytes**, contra 66.781.642 bytes dos 17 originais. O guia e a imagem de exemplo do banner não são publicados como conteúdo do site.
+
+**Validação de 09/11/2026:** 56 testes E2E de regressão aprovados nas 20 páginas, mais 18 verificações das novas imagens e controles nas seis páginas alteradas em 1440, 768 e 390 px. O banner foi conferido adicionalmente em 11 larguras entre 320 e 1920 px, sem transbordamento ou texto/botões fora do bloco. Foram capturadas 38 evidências visuais em desktop e celular e comparadas as novas aplicações com o guia. Não houve erros de console, JavaScript ou carregamento de arquivos locais. Scripts e capturas ficam em `C:/tmp/prescricao-imgs-v2-qa/`, fora do repositório. A adaptação de tablet foi corrigida durante os testes, e a referência de cache do CSS foi atualizada nas seis páginas alteradas.
 
 ## Orientações para a implementação e conferência
 

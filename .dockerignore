@@ -19,3 +19,6 @@ tools/
 
 # Manifesto de procedencia dos derivados do cliente: documentacao, nao asset do site
 assets/client-assets-manifest.json
+
+# Fontes PNG e guia de alocacao do cliente; o site utiliza os derivados em images/v2/.
+assets/images/imgs-v2/

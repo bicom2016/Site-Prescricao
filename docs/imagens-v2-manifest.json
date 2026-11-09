@@ -1,0 +1,272 @@
+[
+  {
+    "source": "assets/images/imgs-v2/Home/[HOME] Imagem principal da Home (médica prescrevendo)_1.png",
+    "source_sha256": "b5d7dadc0712e8a68ed6a1b41a7707238359a3f151dd9626e1ff3589b57e8b0e",
+    "source_dimensions": [
+      5056,
+      1791
+    ],
+    "output": "assets/images/v2/home-hero-1280.webp",
+    "dimensions": [
+      1280,
+      453
+    ],
+    "bytes": 33864,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/Home/[HOME] Imagem principal da Home (médica prescrevendo)_1.png",
+    "source_sha256": "b5d7dadc0712e8a68ed6a1b41a7707238359a3f151dd9626e1ff3589b57e8b0e",
+    "source_dimensions": [
+      5056,
+      1791
+    ],
+    "output": "assets/images/v2/home-hero-2560.webp",
+    "dimensions": [
+      2560,
+      907
+    ],
+    "bytes": 90626,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/Home/banner_nobva-prescricao_1063x420.png",
+    "source_sha256": "872f0703db6ea039092190702799ab770c35760cbec021ed37a07cc2b1bfd15d",
+    "source_dimensions": [
+      1063,
+      420
+    ],
+    "output": "assets/images/v2/home-banner.webp",
+    "dimensions": [
+      1063,
+      420
+    ],
+    "bytes": 64704,
+    "alpha_preserved": true
+  },
+  {
+    "source": "assets/images/imgs-v2/Recursos/[RECURSOS] Imagem retangular.png",
+    "source_sha256": "b92b662ee186e43449bc867fac5fc2c3ec7c8bb85d536e441a7ba03f4e399f3f",
+    "source_dimensions": [
+      2928,
+      1664
+    ],
+    "output": "assets/images/v2/recursos-consulta.webp",
+    "dimensions": [
+      1920,
+      1091
+    ],
+    "bytes": 119208,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/Recursos/[RECURSOS] Imagem para representar Whitebook_2.png",
+    "source_sha256": "224e1536be06fea8e776b23d0a32fad225c01aa3d55c6c2f7aa206a191ff6e16",
+    "source_dimensions": [
+      2544,
+      1904
+    ],
+    "output": "assets/images/v2/recursos-whitebook.webp",
+    "dimensions": [
+      1200,
+      898
+    ],
+    "bytes": 55758,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/Recursos/[RECURSOS] Imagem para representar iClinic.png",
+    "source_sha256": "22e85f2d075235c1b8fc560fe88f6d921797d953a192ffc119ed47b20c7809ad",
+    "source_dimensions": [
+      1659,
+      1274
+    ],
+    "output": "assets/images/v2/recursos-iclinic.webp",
+    "dimensions": [
+      1200,
+      922
+    ],
+    "bytes": 39120,
+    "alpha_preserved": true
+  },
+  {
+    "source": "assets/images/imgs-v2/RDC 1000_2025/RDC - Imagem topo.png",
+    "source_sha256": "11792ee8922c313657b26d500ad44ff21f321983e2f7c0ae962b71351adaa20c",
+    "source_dimensions": [
+      2592,
+      1856
+    ],
+    "output": "assets/images/v2/rdc-topo.webp",
+    "dimensions": [
+      1280,
+      917
+    ],
+    "bytes": 68270,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM] Medicos.png",
+    "source_sha256": "1ff5be4786b2d040b978f225757b6e6c5f79b31ae78b98fb17e03ff35c9dab6a",
+    "source_dimensions": [
+      3540,
+      1846
+    ],
+    "output": "assets/images/v2/perfil-topo-medicos.webp",
+    "dimensions": [
+      960,
+      501
+    ],
+    "bytes": 53800,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM - Topo] Clínicas e consultórios.png",
+    "source_sha256": "73b964570fa86cba0d8e91f8b43f162686c1c2b1f4eeeac8b2470162d328b712",
+    "source_dimensions": [
+      2976,
+      1632
+    ],
+    "output": "assets/images/v2/perfil-topo-clinicas.webp",
+    "dimensions": [
+      960,
+      526
+    ],
+    "bytes": 47838,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM - Topo] Pacientes.png",
+    "source_sha256": "184266fd6a245b421a26fb57ca2b020132b7757cad6ff71820093d28ef34d422",
+    "source_dimensions": [
+      1419,
+      1108
+    ],
+    "output": "assets/images/v2/perfil-topo-pacientes.webp",
+    "dimensions": [
+      960,
+      750
+    ],
+    "bytes": 68244,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM - Topo] Farmácias.png",
+    "source_sha256": "a01a2e2ef603aa81809178d3e0c3bfb70920b529e959159dec4562cb8244ed53",
+    "source_dimensions": [
+      1672,
+      941
+    ],
+    "output": "assets/images/v2/perfil-topo-farmacias.webp",
+    "dimensions": [
+      960,
+      540
+    ],
+    "bytes": 42442,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM -Corpo] Médicos.png",
+    "source_sha256": "ee52bfffe6166b2d859fb6223ab36149ec9d70e07e9d42d930eb36b6118469cf",
+    "source_dimensions": [
+      1536,
+      1024
+    ],
+    "output": "assets/images/v2/perfil-corpo-medicos.webp",
+    "dimensions": [
+      1200,
+      800
+    ],
+    "bytes": 58720,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM -Corpo] Clínicas e consultorios.png",
+    "source_sha256": "c4d3015435906dddaf3998082c9ecfefce017db32975e2084b740732a0b191a8",
+    "source_dimensions": [
+      2944,
+      1648
+    ],
+    "output": "assets/images/v2/perfil-corpo-clinicas.webp",
+    "dimensions": [
+      1200,
+      672
+    ],
+    "bytes": 57702,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM -Corpo] Pacientes.png",
+    "source_sha256": "e9ac7de2bece537611dfba04754d54f1c626d940b015d55e16db4a223d466049",
+    "source_dimensions": [
+      1536,
+      1024
+    ],
+    "output": "assets/images/v2/perfil-corpo-pacientes.webp",
+    "dimensions": [
+      1200,
+      800
+    ],
+    "bytes": 75374,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM -Corpo] farmacia.png",
+    "source_sha256": "22481860c1cf19ddde565c517d5386ce9d6035a732968e9843ec1fe6e9cfd069",
+    "source_dimensions": [
+      2944,
+      1648
+    ],
+    "output": "assets/images/v2/perfil-corpo-farmacias.webp",
+    "dimensions": [
+      1200,
+      672
+    ],
+    "bytes": 96328,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/PARA QUEM/[PARA QUEM -Corpo] mockup-iclinic.png",
+    "source_sha256": "c3e283042530d7df11bbb7bc309256c1931d924e39836020d95297780f5b6c3c",
+    "source_dimensions": [
+      2064,
+      1211
+    ],
+    "output": "assets/images/v2/iclinic-notebook.webp",
+    "dimensions": [
+      1600,
+      939
+    ],
+    "bytes": 163434,
+    "alpha_preserved": true
+  },
+  {
+    "source": "assets/images/imgs-v2/Parceiros/[Parceiros] Dispensador Farmácia.png",
+    "source_sha256": "6852607bbe3fb2370f5b3f779849e2cbfcd8bb88b605f3fd5e0d0bf0d8c06182",
+    "source_dimensions": [
+      1908,
+      824
+    ],
+    "output": "assets/images/v2/parceiros-dispensador.webp",
+    "dimensions": [
+      1280,
+      553
+    ],
+    "bytes": 60692,
+    "alpha_preserved": false
+  },
+  {
+    "source": "assets/images/imgs-v2/Parceiros/[Parceiros] Indústria farmacêutica.png",
+    "source_sha256": "63394c60797ef60e6904f80e62e11ed16fe58b0b1a0ca31a23e7886f07171022",
+    "source_dimensions": [
+      1905,
+      826
+    ],
+    "output": "assets/images/v2/parceiros-industria.webp",
+    "dimensions": [
+      1280,
+      555
+    ],
+    "bytes": 52238,
+    "alpha_preserved": false
+  }
+]
