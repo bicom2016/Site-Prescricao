@@ -4,7 +4,7 @@ Lista para o agente responsável pelos ajustes solicitados no PDF **Atualizaçõ
 
 **Arquivo-fonte local:** `C:/Users/Pedro/Downloads/Atualizações finais - Site Prescrição Afya.pdf`.
 
-**Atualização em 09/11/2026:** os arquivos de imagens e o guia de alocação foram recebidos em `assets/images/imgs-v2/`. As tarefas I1 a I7 foram implementadas com esses materiais e com o logo Afya iClinic existente no projeto. Também foram aplicadas as três imagens de topo adicionais previstas no guia: RDC, Dispensador e Indústria farmacêutica. A captação real do Lead Collector continua pendente da escolha do serviço pelo cliente; a redação conflitante de R3 também permanece pendente.
+**Atualização em 09/11/2026:** os arquivos de imagens e o guia de alocação foram recebidos em `assets/images/imgs-v2/`. As tarefas I1 a I7 foram implementadas com esses materiais e com o logo Afya iClinic existente no projeto. Também foram aplicadas as três imagens de topo adicionais previstas no guia: RDC, Dispensador e Indústria farmacêutica. R3 foi concluída com a redação solicitada no PDF, por orientação expressa do usuário para reproduzir os textos mesmo diante da aparente contradição. A captação real do Lead Collector continua pendente da escolha do serviço pelo cliente.
 
 No PDF, post-its vermelhos indicam ajustes de layout ou correções; fundo rosa indica a redação proposta; post-its amarelos indicam substituições de imagens. O fundo rosa e os post-its são marcações de revisão, não elementos para reproduzir no site.
 
@@ -59,14 +59,14 @@ Arquivo principal: `recursos/receita-controlada-digital/index.html`. Referência
 
 - [x] **R2 — Tornar a divisão de responsabilidades mais visual.** Reformular “O que é com você e o que é com a Afya” para reduzir a aparência de tabela. Preservar todas as responsabilidades e a distinção entre ações do médico e da Prescrição Afya. Cards ou blocos com ícones e pares de responsabilidades são opções de implementação; o PDF solicita o resultado visual, sem determinar o componente. **Não aplicar aqui a exclusão da coluna esquerda solicitada na página Para quem:** nesta seção a nota pede apenas uma apresentação mais visual.
 
-- [ ] **R3 — Ajustar os textos dos dois cards de assinatura, com validação da redação sobre retenção.** Na seção “Qual assinatura vale para cada receita”, o PDF propõe os textos abaixo:
+- [x] **R3 — Ajustar os textos dos dois cards de assinatura conforme o PDF.** Na seção “Qual assinatura vale para cada receita”, foram aplicados os textos abaixo:
 
   | Card | Texto resultante da anotação |
   | --- | --- |
   | Padrão ICP-Brasil | Obrigatório para notificações de receita (azul, amarela e brancas), receitas de controle especial e de retenção. Na Afya: BirdID, VaultID, VIDaaS, A1 ou A3. |
   | Assinatura avançada | Aceita apenas para receitas de retenção, como antimicrobianos e análogos de GLP-1, que também podem ser assinadas com certificados ICP-Brasil. |
 
-  **Ponto a resolver antes de publicar esta redação:** o primeiro card passa a dizer que ICP-Brasil é obrigatório também para retenção, enquanto o segundo aceita assinatura avançada para retenção. Registrar essa aparente contradição e validar a redação com o responsável pelo conteúdo, sem escolher silenciosamente uma das versões. “Brancas” foi transcrito como aparece na marcação. Esta tarefa registra o pedido do PDF, sem validar juridicamente a regra.
+  **Orientação recebida em 09/11/2026:** após a identificação da aparente contradição entre os cards, o usuário determinou a implementação dos textos exatamente como solicitados no documento, mesmo que pareçam confusos. As duas redações foram reproduzidas sem conciliação editorial. “Brancas” foi transcrito como aparece na marcação. Esta tarefa registra a aplicação do pedido do PDF, sem validar juridicamente a regra.
 
 - [x] **R4 — Atualizar a data do fim da transição para 03/03/2027.** Na linha do tempo “Prazos e vigência”, substituir o marco final atual, `30/10/2026`, por **03/03/2027**, inclusive o atributo `datetime`, que deve ficar `2027-03-03`. Conferir a coerência com o trecho anterior “Começou a transição, de 30 dias.”, que permanece na captura, para não publicar uma duração incompatível com o novo prazo. A nova data é a solicitada no post-it; essa extração não é uma verificação independente da legislação.
 
@@ -163,6 +163,6 @@ O projeto é composto por HTML estático, `styles.css` e `script.js`. Os cabeça
 | Dúvidas | `duvidas/index.html`: `[data-faq-perfil]`; lógica da busca e de sugestões em `script.js`. |
 | Lead Collector | Blocos existentes em `recursos/receita-controlada-digital/index.html`, `blog/index.html` e artigos; `.lead`, `.lead-box`, `[data-form]` e `data-endpoint`. |
 
-Conferir desktop e celular após os ajustes, com atenção aos menus, telas completas da Home, remoção das colunas em Para quem, funcionamento da busca em Dúvidas e espaçamento dos coletores. A reprodução dos textos regulatórios deve respeitar as pendências descritas em R3 e a coerência da linha do tempo em R4.
+Conferir desktop e celular após os ajustes, com atenção aos menus, telas completas da Home, remoção das colunas em Para quem, funcionamento da busca em Dúvidas e espaçamento dos coletores. A reprodução dos textos regulatórios deve respeitar a orientação recebida em R3 e a coerência da linha do tempo em R4.
 
 O PDF não define dimensões exatas para os espaçamentos, nem o componente que deve substituir a tabela de responsabilidades. Essas são decisões de implementação guiadas pelas referências visuais. Os textos acima preservam as solicitações, com pontuação de fim de frase uniformizada; a revisão editorial específica de Farmácias está explicitada em P9.
