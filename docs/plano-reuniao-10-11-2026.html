@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano — reunião de 10/11</title>
+<style>
+  :root {
+    --bg: #f6f6fb; --card: #ffffff; --text: #1d1d2b; --muted: #5d5d72; --line: #e2e2ee;
+    --done: #0f7a4a; --done-bg: #e3f5ec; --todo: #1d4f91; --todo-bg: #e2ecfa;
+    --wait: #8a5a00; --wait-bg: #fdf1d8; --no: #a4133c; --no-bg: #fce6ec; --accent: #1d4f91;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e;
+      --done: #5fd39a; --done-bg: #173327; --todo: #8fbcf5; --todo-bg: #172a44;
+      --wait: #f2c265; --wait-bg: #3a2e14; --no: #ff8fab; --no-bg: #3d1a25; --accent: #8fbcf5;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15151d; --card: #1e1e29; --text: #ececf4; --muted: #a6a6bb; --line: #2f2f3e;
+    --done: #5fd39a; --done-bg: #173327; --todo: #8fbcf5; --todo-bg: #172a44;
+    --wait: #f2c265; --wait-bg: #3a2e14; --no: #ff8fab; --no-bg: #3d1a25; --accent: #8fbcf5;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p { color: var(--muted); margin: 4px 0; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  a { color: var(--accent); }
+  code { font-size: 0.92em; }
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+  .summary div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .summary strong { display: block; font-size: 28px; line-height: 1.1; }
+  .summary .n-done strong { color: var(--done); }
+  .summary .n-wait strong { color: var(--wait); }
+  .summary .n-no strong { color: var(--no); }
+  .summary span { color: var(--muted); font-size: 14px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-size: 14px; color: var(--muted); }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+  .tag.done { background: var(--done-bg); color: var(--done); }
+  .tag.todo { background: var(--todo-bg); color: var(--todo); }
+  .tag.wait { background: var(--wait-bg); color: var(--wait); }
+  .tag.no { background: var(--no-bg); color: var(--no); }
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .item h3 { margin: 0; font-size: 17px; }
+  .item .src { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .item ul { margin: 8px 0 0; padding-left: 20px; }
+  .item li { margin: 6px 0; }
+  .item li .tag { margin-right: 6px; }
+  .note { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-size: 14.5px; }
+  .note.need { background: var(--wait-bg); } .note.need b { color: var(--wait); }
+  .note.info { background: var(--todo-bg); } .note.info b { color: var(--todo); }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  ol.rounds { padding-left: 20px; } ol.rounds li { margin: 8px 0; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+  @media (max-width: 720px) { .summary { grid-template-columns: 1fr; } .item-head { flex-direction: column; gap: 6px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Plano de alterações — reunião de 10/11</h1>
+    <p>A partir de <em>Reunião Site Prescrição 10-11-26</em> (três pedidos, com duas capturas), cruzado com o site publicado em 09/11 (commit <code>0314c2d</code>).</p>
+    <p>Site: <a href="https://prescricao.conversion.com.br/">prescricao.conversion.com.br</a></p>
+    <p><strong>Atualizado em 11/11/2026:</strong> os seis pontos foram feitos e publicados: 32 links trocados para iclinic.com.br/precos/, tabela de duas colunas na RDC e botão "Comece grátis" removido das 20 páginas. Segue aberta só a confirmação da linha "Quero prescrever grátis".</p>
+    <p><strong>Situação em 11/11/2026:</strong> são três ajustes curtos e sem dependência de material. Um deles (o botão do cabeçalho) tem uma linha solta na ata que pede confirmação, mas não trava o trabalho.</p>
+
+    <div class="summary">
+      <div class="n-done"><strong>6</strong><span>feitos</span></div>
+      <div class="n-wait"><strong>1</strong><span>falta contexto</span></div>
+      <div class="n-no"><strong>0</strong><span>não dá</span></div>
+    </div>
+    <div class="legend">
+      <span><span class="tag done">Feito</span> publicado no ambiente de revisão em 11/11</span>
+      <span><span class="tag wait">Falta contexto</span> confirmação da Afya; feito com a leitura mais provável enquanto isso</span>
+    </div>
+  </header>
+
+  <h2>1. RDC: "O que é com você e o que é com a Afya" em tabela</h2>
+  <div class="item">
+    <div class="item-head"><h3>Oito cards viram uma tabela de duas colunas</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · "Colocar essas informações no formato de tabela" · captura da página /recursos/receita-controlada-digital/</p>
+    <ul>
+      <li><span class="tag done">Feito</span><strong>Hoje:</strong> oito cards em duas colunas, cada um com a metade "Você" em cima e a metade "A Prescrição Afya" embaixo. Na captura, os pares ficam difíceis de ler lado a lado.</li>
+      <li><span class="tag done">Feito</span><strong>Fica:</strong> uma tabela com as colunas <strong>Você</strong> e <strong>A Prescrição Afya</strong> e oito linhas, uma por responsabilidade, na mesma ordem e com o mesmo texto de hoje. Usa o componente de tabela que já existe no site (o mesmo do "De → Para" e do "O que muda na prática"), com os ícones no cabeçalho.</li>
+      <li><span class="tag done">Feito</span>No celular, a tabela vira cartões empilhados com o rótulo de cada coluna, como as outras tabelas do site já fazem. O trecho "iClinic ou Whitebook", que muda conforme o produto escolhido no topo da página, continua funcionando.</li>
+    </ul>
+  </div>
+
+  <h2>2. Links do iClinic quebrados</h2>
+  <div class="item">
+    <div class="item-head"><h3>A página de planos do iClinic mudou de endereço</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · "Arrumar os links de iclinic.com.br que estão quebrados"</p>
+    <ul>
+      <li><span class="tag done">Feito</span><strong>Causa encontrada.</strong> Abri cada endereço do iClinic usado no site em um navegador. O único quebrado é <code>www.iclinic.com.br/planos/</code>, que responde 404: é o destino de "Quero prescrever e gerenciar minha clínica" e aparece 32 vezes, em 16 páginas (home, Recursos, RDC, Para quem, Dúvidas, Blog e as quatro especialidades). A página de planos hoje está em <code>iclinic.com.br/precos/</code> ("Um plano para cada momento da sua clínica").</li>
+      <li><span class="tag done">Feito</span><strong>Correção.</strong> Trocar as 32 ocorrências pelo endereço novo, de uma vez, e conferir que nenhum link do site aponta mais para o endereço antigo.</li>
+      <li><span class="tag done">Feito</span>Os demais endereços do iClinic respondem normalmente e ficam como estão: o site institucional ("Falar com especialista"), o dispensador <code>farmacia.iclinicrx.com.br</code>, a página de notificação de receita e o kit da RDC.</li>
+    </ul>
+    <div class="note info"><b>Observação:</b> o link do Whitebook ("Quero prescrever grátis") leva à tela de login do app e de lá ao perfil. Funciona, e é o endereço que a Afya passou.</div>
+  </div>
+
+  <h2>3. Botão "Comece grátis" do cabeçalho</h2>
+  <div class="item">
+    <div class="item-head"><h3>Remover o botão do canto direito do menu</h3><span class="tag done">Feito</span></div>
+    <p class="src">Ata · "remover o botão comece grátis" · captura da home com o botão no cabeçalho e, abaixo, a linha solta "Quero prescrever grátis"</p>
+    <ul>
+      <li><span class="tag done">Feito</span>O botão "Comece grátis" está no cabeçalho das 20 páginas. Sai de todas, no desktop e no menu do celular. O menu continua alinhado sem ele.</li>
+      <li><span class="tag wait">Falta contexto</span>Logo depois da captura, a ata traz a linha "Quero prescrever grátis", sem explicação. Duas leituras possíveis: (a) é só a legenda do botão roxo do banner, que fica como está; (b) a ideia era <em>trocar</em> o texto do botão do cabeçalho por "Quero prescrever grátis", padronizando com os outros botões, em vez de removê-lo. Seguimos a instrução escrita ("remover"). Se a Afya preferir a leitura (b), é uma troca de texto nas 20 páginas, feita em minutos.</li>
+    </ul>
+  </div>
+
+  <h2>Ordem sugerida</h2>
+  <div class="item">
+    <ol class="rounds">
+      <li><strong>Uma rodada só:</strong> links (32 trocas), tabela da RDC e remoção do botão. Teste nas 20 páginas em desktop e celular, publicação no ambiente de revisão.</li>
+      <li><strong>Confirmar com a Afya</strong> a linha "Quero prescrever grátis" do item 3.</li>
+    </ol>
+  </div>
+
+  <h2>O que falta saber</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>O quê</th><th>De quem</th><th>Trava</th></tr></thead>
+    <tbody>
+      <tr><td>"Quero prescrever grátis" na ata: legenda da captura ou novo texto do botão do cabeçalho?</td><td>Quem escreveu a ata</td><td>Nada: o botão sai, como pedido; renomear depois é rápido</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <footer>Plano gerado em 11/11/2026 a partir da ata da reunião de 10/11. Plano anterior: <code>docs/plano-reuniao-29-10-2026.html</code>.</footer>
+</div>
+</body>
+</html>

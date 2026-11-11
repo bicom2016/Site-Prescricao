@@ -285,6 +285,9 @@ Lista de trabalho do projeto. Concluídos ficam marcados com a data.
       (05/10/2026, ver `docs/registro-05-10-2026.md`)
 - [x] Depoimentos reais na home: três médicos, com texto e foto enviados pela Afya
       (20/10/2026, ver `docs/registro-20-10-2026.md`)
+- [x] Reunião de 10/11: links do iClinic (planos → preços), tabela "você × Afya" na RDC e
+      botão "Comece grátis" fora do cabeçalho (11/11/2026, ver
+      `docs/plano-reuniao-10-11-2026.html` e `docs/registro-11-11-2026.md`)
 - [x] Reunião de 29/10: home em três passos, Recursos em abas (sem barra fixa), Para
       quem em sequência com cards por perfil, caixa do dispensador e espaçamentos
       (29/10/2026, ver `docs/plano-reuniao-29-10-2026.html` e a seção 8 de

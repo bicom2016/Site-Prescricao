@@ -10940,3 +10940,41 @@ input[aria-invalid="true"] {
     align-items: stretch;
   }
 }
+
+/* ==========================================================================
+   Reuniao de 10/11
+   ========================================================================== */
+
+/* RDC: "O que e com voce e o que e com a Afya" em tabela (antes, oito cards). */
+.table-responsibility th {
+  color: var(--action);
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.table-responsibility th svg {
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+  vertical-align: -6px;
+  color: var(--accent);
+}
+
+.table-responsibility td {
+  width: 50%;
+  color: var(--text-body);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.table-responsibility td:first-child {
+  color: var(--text-body);
+  font-weight: 400;
+}
+
+@media (max-width: 720px) {
+  .table-responsibility td {
+    width: auto;
+  }
+}
