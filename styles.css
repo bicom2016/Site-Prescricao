@@ -11067,3 +11067,9 @@ input[aria-invalid="true"] {
     text-transform: uppercase;
   }
 }
+
+/* A tabela "voce x Afya" usa margem negativa para compensar o espacamento externo das
+   colunas; sem isto, o contentor rolavel mostrava uma barra de rolagem horizontal. */
+.table-wrap:has(> .resp-table) {
+  overflow: visible;
+}
