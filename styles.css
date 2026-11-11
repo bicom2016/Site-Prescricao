@@ -10945,36 +10945,125 @@ input[aria-invalid="true"] {
    Reuniao de 10/11
    ========================================================================== */
 
-/* RDC: "O que e com voce e o que e com a Afya" em tabela (antes, oito cards). */
-.table-responsibility th {
-  color: var(--action);
-  font-size: 15px;
-  letter-spacing: 0;
-  text-transform: none;
+/* RDC: "O que e com voce e o que e com a Afya". Tabela com o visual dos dois cards da home
+   (11/11): colunas como cartoes brancos separados, cabecalho azul com icone, itens com selo
+   e divisorias finas. A tabela continua sendo tabela (pares preservados no celular). */
+.resp-table {
+  width: calc(100% + 56px);
+  margin: 0 -28px;
+  border-collapse: separate;
+  border-spacing: 28px 0;
+  table-layout: fixed;
 }
 
-.table-responsibility th svg {
-  width: 22px;
-  height: 22px;
-  margin-right: 10px;
-  vertical-align: -6px;
+.resp-table th,
+.resp-table td {
+  border-right: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: var(--white);
+  text-align: left;
+  vertical-align: top;
+}
+
+.resp-table th {
+  padding: 26px 28px 12px;
+  border-top: 1px solid var(--line);
+  border-radius: 16px 16px 0 0;
+}
+
+.resp-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-size: clamp(22px, 1.9vw, 26px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.resp-head svg {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+
+.resp-table td {
+  padding: 12px 28px;
+  color: var(--text-body);
+  font-size: 16px;
+  line-height: 1.5;
+  background-image: linear-gradient(var(--line), var(--line));
+  background-repeat: no-repeat;
+  background-size: calc(100% - 56px) 1px;
+  background-position: 28px 100%;
+}
+
+.resp-table td > span {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.resp-table td svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  margin-top: 2px;
   color: var(--accent);
 }
 
-.table-responsibility td {
-  width: 50%;
-  color: var(--text-body);
-  font-weight: 400;
-  line-height: 1.55;
-}
-
-.table-responsibility td:first-child {
-  color: var(--text-body);
-  font-weight: 400;
+.resp-table tr:last-child td {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0 0 16px 16px;
+  background-image: none;
 }
 
 @media (max-width: 720px) {
-  .table-responsibility td {
-    width: auto;
+  .resp-table {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-spacing: 0;
+  }
+
+  .resp-table thead {
+    display: none;
+  }
+
+  .resp-table tbody,
+  .resp-table tr,
+  .resp-table td {
+    display: block;
+  }
+
+  .resp-table tr {
+    overflow: hidden;
+    margin-bottom: 14px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+
+  .resp-table td,
+  .resp-table tr:last-child td {
+    padding: 14px 18px;
+    border: 0;
+    border-radius: 0;
+    background-image: none;
+  }
+
+  .resp-table td:last-child {
+    background-color: var(--berry-160);
+  }
+
+  .resp-table td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 6px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 }
